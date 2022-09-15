@@ -69,6 +69,7 @@ h6 {
   color: #474647;
 }
 .item-name {
+  color: --common;
   font-weight: bold;
   font-family: Minecraft;
 }
