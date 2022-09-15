@@ -33,6 +33,15 @@
         <i class="fa fa-user w3-xxlarge"></i>
         <p>Hypixel Forums Profile</p>
       </a>
+      <div class="tab">
+        <button class="tablinks" onclick="switchType(event, 'weapon')">Weapons</button>
+        <button class="tablinks" onclick="switchType(event, 'pets')">Pets</button>
+      </div>
+      <div class="tab">
+        <button class="tablinks" onclick="switchType(event, 'reforge')">Reforge Stone</button>
+        <button class="tablinks" onclick="switchType(event, 'Crafting')">Crafting Item</button>
+      </div>
+      <div id="weapon" class="tabcontent">
       <row class="row1">
         <div class="field field_v1">
           <label for="first-name" class="ha-screen-reader">Item Name</label>
@@ -106,7 +115,64 @@
             <span class="field__label">Ferocity</span>
           </span>
         </div>
-      </row>
+      </row>     
+      <row class="row1">
+        <div class="field field_v1">
+          <label for="first-name" class="ha-screen-reader">Item Type</label>
+          <input id="first-name" class="field__input" placeholder="e.g SWORD" onchange="itemType(this.value)">
+          <span class="field__label-wrap" aria-hidden="true">
+            <span class="field__label">Item Type</span>
+          </span>
+        </div>
+        <div class="field field_v1">
+          <label for="first-name" class="ha-screen-reader">Defense</label>
+          <input id="first-name" class="field__input" placeholder="e.g. 25" onchange="defense(this.value)">
+          <span class="field__label-wrap" aria-hidden="true">
+            <span class="field__label">Defense</span>
+          </span>
+        </div>
+      </row>    
+      <row class="row1">
+        <div class="field field_v1">
+          <label for="first-name" class="ha-screen-reader">Speed</label>
+          <input id="first-name" class="field__input" placeholder="e.g 25" onchange="speed(this.value)">
+          <span class="field__label-wrap" aria-hidden="true">
+            <span class="field__label">Speed</span>
+          </span>
+        </div>
+        <div class="field field_v1">
+          <label for="first-name" class="ha-screen-reader">Magic Find</label>
+          <input id="first-name" class="field__input" placeholder="e.g. 25" onchange="magicfind(this.value)">
+          <span class="field__label-wrap" aria-hidden="true">
+            <span class="field__label">Magic Find</span>
+          </span>
+        </div>
+      </row>  
+      </div>
+      <div id="pets" class="tabcontent">
+        <h1>Coming Soon</h1>
+      </div>
+      <div id="reforge" class="tabcontent">
+        <h1>Coming Soon</h1>
+      </div>
+      <div id="Crafting" class="tabcontent">
+        <h1>Coming Soon</h1>
+      </div>
+      <nav class="dropdown">
+        <label for="touch"><span class="drop">Rarity</span></label>               
+        <input type="checkbox" id="touch">   
+        <div class="slide">
+          <div><button style="width: 100%; background-color: var(--common)" id="common" onclick="common()">Common</button></div>
+          <div><button style="width: 100%; background-color: var(--uncommon)" onclick="uncommon()">Uncommon</button></div>
+          <div><button style="width: 100%; background-color: var(--rare)" id="rare"onclick="rare()" >Rare</button></div>
+          <div><button style="width: 100%; background-color: var(--epic)" id="epic"onclick="epic()">Epic</button></div>
+          <div><button style="width: 100%; background-color: var(--legendary)" id="legendary"onclick="legendary()">Legendary</button></div>
+          <div><button style="width: 100%; background-color: var(--mythic)" id="mythic"onclick="mythic()">Mythic</button></div>
+          <div><button style="width: 100%; background-color: var(--special)" id="special"onclick="special()">Special</button></div>
+          <div><button style="width: 100%; background-color: var(--veryspecial)" id="veryspecial"onclick="veryspecial()">Very Special</button></div>
+          <div><button style="width: 100%; background-color: var(--divine)" id="divine"onclick="divine()">Divine</button></div>
+          </div>
+      </nav> 
     </nav>
 
     <!-- Navbar on small screens (Hidden on medium and large screens) -->
@@ -118,7 +184,7 @@
           >YouTube</a
         >
         <a
-          href="#about"
+          href="https://hypixel.net/members/ohypers.2400374/"
           class="w3-bar-item w3-button"
           style="width: 25% !important"
           >Hypixel Forums Profile</a
@@ -157,23 +223,13 @@
         class="item"
       >
         <div><p class="item-name"></p></div>
-        <div class="description" style="padding-top: -50px";>
+        <div class="description">
         </div>
         <div style="margin-top: 10px"></div>
         <div class="gearscore"style="display: none;">
           <label class="item-text">Gear Score:</label>
           <label class="item-text item-gearscore"></label>
           <label class="item-text item-dungeon-stat" id="#gearscore"></label>
-        </div>
-        <div>
-          <label class="item-text">The Fisherman's Secrets is a Legendary Power Stone, which unlocks the Fisherman's Secret power for Accessories, granting a base bonus of</label>
-          <label class="item-text item-blue-text"> +20 Fishing Speed</label>
-          <label class="item-text">and</label>
-          <label class="item-text item-blue-text"> +6% Sea Creature Chance</label>
-        </div>
-        <div>
-          <div style="margin-top: 10px"></div>
-          <label class="item-text item-leg-text"> LEGENDARY POWER STONE</label>
         </div>
         <div class="damage" style="display: none;">
           <label class="item-text">Damage:</label>
@@ -202,6 +258,11 @@
           <label class="item-text item-dungeon-stat" id="#dungeon_attackSpeed">(+10.5%)</label>
         </div>
         <div style="margin-top: 10px"></div>
+        <div class="speed" style="display: none;">
+          <label class="item-text">Speed:</label>
+          <label class="item-text item-green-text" id="#speed">+33</label>
+          <label class="item-text item-dungeon-stat" id="#dungeon_speed">(+45)</label>
+        </div>
         <div class="intelligence" style="display: none;">
           <label class="item-text">Intelligence:</label>
           <label class="item-text item-green-text" id="#intelligence">+640</label>
@@ -210,9 +271,22 @@
         <div class="ferocity" style="display: none;">
           <label class="item-text">Ferocity:</label>
           <label class="item-text item-green-text" id="#ferocity">+33</label>
-          <label class="item-text item-dungeon-stat" id="#dungeon_ferocity">(+45%)</label>
+          <label class="item-text item-dungeon-stat" id="#dungeon_ferocity">(+45)</label>
         </div>
+        <div class="defense" style="display: none;">
+          <label class="item-text">Defense:</label>
+          <label class="item-text item-green-text" id="#defense">+33</label>
+          <label class="item-text item-dungeon-stat" id="#dungeon_defense">(+45)</label>
+        </div>
+        <div class="magicfind" style="display: none;">
+          <label class="item-text">Magic FInd:</label>
+          <label class="item-text item-green-text" id="#magicfind"></label>
+          <label class="item-text item-dungeon-stat" id="#dungeon_magicfind"></label>
+        </div>
+        <div style="margin-top: 10px"></div>
+        <label class="item-text" id="#item-type" style="font-weight: bond; text-align: start;"></label>
       </div>
+      
     </div>
     </div>
   </body>
