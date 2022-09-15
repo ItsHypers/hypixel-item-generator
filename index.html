@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hypixel Fake-Item Generator</title>
+    <title>Hypixel Item Generator</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
@@ -148,6 +148,22 @@
           </span>
         </div>
       </row>  
+      <row class="row1">
+        <div class="field field_v1">
+          <label for="first-name" class="ha-screen-reader">Ability Damage</label>
+          <input id="first-name" class="field__input" placeholder="e.g. 25%" onchange="abilitydamage(this.value)">
+          <span class="field__label-wrap" aria-hidden="true">
+            <span class="field__label">Ability Damage</span>
+          </span>
+        </div>
+        <div class="field field_v1">
+          <label for="first-name" class="ha-screen-reader">Gemstones</label>
+          <input id="first-name" class="field__input" placeholder="max 5" onchange="gemstones(this.value)">
+          <span class="field__label-wrap" aria-hidden="true">
+            <span class="field__label">Gemstones</span>
+          </span>
+        </div>
+      </row>
       </div>
       <div id="pets" class="tabcontent">
         <h1>Coming Soon</h1>
@@ -196,7 +212,7 @@
     <div class="w3-padding-large" id="main">
       <!-- Header/Home -->
       <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
-        <h1 class="w3-jumbo">Hypixel Fake-Item Generator</h1>
+        <h1 class="w3-jumbo">Hypixel Item Generator</h1>
         <button onclick="copyPaste()">Symbols (for copy and paste):</button>
         <div id="symbols" style="display: none">
           <p></p>
@@ -235,6 +251,11 @@
           <label class="item-text">Damage:</label>
           <label class="item-text item-red-text" id="#damage">+308</label>
           <label class="item-text item-dungeon-stat" id="#dungeon_damage">(+745.36)</label>
+        </div>
+        <div class="abilitydamage" style="display: none;">
+          <label class="item-text">Ability Damage:</label>
+          <label class="item-text item-red-text" id="#abilitydamage">+7%</label>
+          <label class="item-text item-dungeon-stat" id="#dungeon_abilitydamage">(+10.5%)</label>
         </div>
         <div class="strength" style="display: none;">
           <label class="item-text">Strength:</label>
@@ -279,9 +300,13 @@
           <label class="item-text item-dungeon-stat" id="#dungeon_defense">(+45)</label>
         </div>
         <div class="magicfind" style="display: none;">
-          <label class="item-text">Magic FInd:</label>
+          <label class="item-text">Magic Find:</label>
           <label class="item-text item-green-text" id="#magicfind"></label>
           <label class="item-text item-dungeon-stat" id="#dungeon_magicfind"></label>
+        </div>
+        <div class="gemstoneSlots" style="display: none;">
+          <label class="item-text"></label>
+          <label class="item-text" id="#gemstoneSlots">[❂][❂]</label>
         </div>
         <div style="margin-top: 10px"></div>
         <label class="item-text" id="#item-type" style="font-weight: bond; text-align: start;"></label>

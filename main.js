@@ -36,6 +36,24 @@ function Damage(input) {
     "damage"
   );
 }
+function abilitydamage(input) {
+  document.getElementById("#abilitydamage").textContent = "+" + input;
+  document.querySelector(".abilitydamage").style.display = "block";
+  document.getElementById("#dungeon_abilitydamage").textContent =
+    dungeonCalc(input);
+}
+function gemstones(input) {
+  if (input >= 6) {
+    input = 5;
+  }
+  var string = "";
+  for (let i = 0; i < input; i++) {
+    string = string + "[❂]";
+    console.log(string);
+  }
+  document.getElementById("#gemstoneSlots").textContent = string;
+  document.querySelector(".gemstoneSlots").style.display = "block";
+}
 function critDamage(input) {
   document.getElementById("#critdamage").textContent = "+" + input + "%";
   document.querySelector(".critdamage").style.display = "block";
