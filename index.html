@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hypixel Fake-Item Generator</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="reset.css" />
+  </head>
+  <body class="w3-black">
+    <!-- Icon Bar (Sidebar - hidden on small screens) -->
+    <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+      <a
+        href="https://www.youtube.com/channel/UC5JCgs0ByHC2LU8qUOV0Tog"
+        class="w3-bar-item w3-button w3-padding-large w3-hover-black"
+      >
+        <i class="fa fa-youtube w3-xxlarge"></i>
+        <p>YouTube</p>
+      </a>
+      <a
+        href="#about"
+        class="w3-bar-item w3-button w3-padding-large w3-hover-black"
+      >
+        <i class="fa fa-user w3-xxlarge"></i>
+        <p>Hypixel Forums Profile</p>
+      </a>
+      <row class="row1">
+        <div class="field field_v1">
+          <label for="first-name" class="ha-screen-reader">Item Name</label>
+          <input id="first-name" class="field__input" placeholder="e.g. Hyperion" onchange="itemName(this.value)">
+          <span class="field__label-wrap" aria-hidden="true">
+            <span class="field__label">Item Name</span>
+          </span>
+        </div>
+        <div class="field field_v1">
+          <label for="first-name" class="ha-screen-reader">Gear Score</label>
+          <input id="first-name" class="field__input" placeholder="e.g. 500" onchange="gearScore(this.value)">
+          <span class="field__label-wrap" aria-hidden="true">
+            <span class="field__label">Gear Score</span>
+          </span>
+        </div>
+      </row>
+      <row class="row1">
+        <div class="field field_v1">
+          <label for="first-name" class="ha-screen-reader">Damage</label>
+          <input id="first-name" class="field__input" placeholder="e.g. 50" onchange="Damage(this.value)">
+          <span class="field__label-wrap" aria-hidden="true">
+            <span class="field__label">Damage</span>
+          </span>
+        </div>
+        <div class="field field_v1">
+          <label for="first-name" class="ha-screen-reader">Crit Damage (%)</label>
+          <input id="first-name" class="field__input" placeholder="e.g. 25%" onchange="critDamage(this.value)">
+          <span class="field__label-wrap" aria-hidden="true">
+            <span class="field__label">Crit Damage  (%)</span>
+          </span>
+        </div>
+      </row>
+      <row class="row1">
+        <div class="field field_v1">
+          <label for="first-name" class="ha-screen-reader">Strength</label>
+          <input id="strengthInput" class="field__input" placeholder="e.g. 20" onchange="strength(this.value)">
+          <span class="field__label-wrap" aria-hidden="true">
+            <span class="field__label">Strength</span>
+          </span>
+        </div>
+        <input type="checkbox" id="aow" value="aow" onchange="artofwar(this.value)"><label for="checkboxOne" style="width: 50%; padding-top:12px;">Art of War?</label>
+      </row>
+      <row class="row1">
+        <div class="field field_v1">
+          <label for="first-name" class="ha-screen-reader">Attack Speed</label>
+          <input id="first-name" class="field__input" placeholder="e.g. 50%" onchange="attackSpeed(this.value)">
+          <span class="field__label-wrap" aria-hidden="true">
+            <span class="field__label">Attack Speed</span>
+          </span>
+        </div>
+        <div class="field field_v1">
+          <label for="first-name" class="ha-screen-reader">Intelligence</label>
+          <input id="first-name" class="field__input" placeholder="e.g. 25" onchange="Intelligence(this.value)">
+          <span class="field__label-wrap" aria-hidden="true">
+            <span class="field__label">Intelligence</span>
+          </span>
+        </div>
+      </row>
+      <row class="row1">
+        <div class="field field_v1">
+          <label for="first-name" class="ha-screen-reader">Crit Chance</label>
+          <input id="first-name" class="field__input" placeholder="e.g. 50%" onchange="critChance(this.value)">
+          <span class="field__label-wrap" aria-hidden="true">
+            <span class="field__label">Crit Chance</span>
+          </span>
+        </div>
+        <div class="field field_v1">
+          <label for="first-name" class="ha-screen-reader">Ferocity</label>
+          <input id="first-name" class="field__input" placeholder="e.g. 25" onchange="ferocity(this.value)">
+          <span class="field__label-wrap" aria-hidden="true">
+            <span class="field__label">Ferocity</span>
+          </span>
+        </div>
+      </row>
+    </nav>
+
+    <!-- Navbar on small screens (Hidden on medium and large screens) -->
+    <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+      <div
+        class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small"
+      >
+        <a href="#" class="w3-bar-item w3-button" style="width: 25% !important"
+          >YouTube</a
+        >
+        <a
+          href="#about"
+          class="w3-bar-item w3-button"
+          style="width: 25% !important"
+          >Hypixel Forums Profile</a
+        >
+      </div>
+    </div>
+
+    <!-- Page Content -->
+    <div class="w3-padding-large" id="main">
+      <!-- Header/Home -->
+      <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
+        <h1 class="w3-jumbo">Hypixel Fake-Item Generator</h1>
+        <button onclick="copyPaste()">Symbols (for copy and paste):</button>
+        <div id="symbols" style="display: none">
+          <p></p>
+          <li>❤ (Health)</li>
+          <li>❈ (Defense)</li>
+          <li>❁ (Strength)</li>
+          <li>❁ (Damage)</li>
+          <li>✦ (Speed)</li>
+          <li>☣ (Crit Chance)</li>
+          <li>☠ (Crit Damage)</li>
+          <li>✎ (Intelligence)</li>
+          <li>∞ ​(Sea Creature Chance)</li>
+          <li>✯ (Magic Find)</li>
+          <li>♣ (Pet Luck)</li>
+          <li>❂ (True Defense)</li>
+          <li>⚔ (Attack Speed)</li>
+          <li>​✹ (Ability Damage)</li>
+          <li>⫽ (Ferocity)</li>
+        </div>
+      </header>
+
+      <div
+        class="w3-content w3-justify w3-text-grey item"
+        class="item"
+      >
+        <div><p class="item-name"></p></div>
+        <div class="description" style="padding-top: -50px";>
+        </div>
+        <div style="margin-top: 10px"></div>
+        <div class="gearscore"style="display: none;">
+          <label class="item-text">Gear Score:</label>
+          <label class="item-text item-gearscore"></label>
+          <label class="item-text item-dungeon-stat" id="#gearscore"></label>
+        </div>
+        <div>
+          <label class="item-text">The Fisherman's Secrets is a Legendary Power Stone, which unlocks the Fisherman's Secret power for Accessories, granting a base bonus of</label>
+          <label class="item-text item-blue-text"> +20 Fishing Speed</label>
+          <label class="item-text">and</label>
+          <label class="item-text item-blue-text"> +6% Sea Creature Chance</label>
+        </div>
+        <div>
+          <div style="margin-top: 10px"></div>
+          <label class="item-text item-leg-text"> LEGENDARY POWER STONE</label>
+        </div>
+        <div class="damage" style="display: none;">
+          <label class="item-text">Damage:</label>
+          <label class="item-text item-red-text" id="#damage">+308</label>
+          <label class="item-text item-dungeon-stat" id="#dungeon_damage">(+745.36)</label>
+        </div>
+        <div class="strength" style="display: none;">
+          <label class="item-text">Strength:</label>
+          <label class="item-text item-red-text" id="#strength">+150</label>
+          <label class="item-text item-5-strength" id="#aow"></label>
+          <label class="item-text item-dungeon-stat" id="#dungeon_strength"></label>
+        </div>
+        <div class="critdamage" style="display: none;">
+          <label class="item-text">Crit Damage:</label>
+          <label class="item-text item-red-text" id="#critdamage">+70%</label>
+          <label class="item-text item-dungeon-stat" id="#dungeon_critdamage">(+276.5%)</label>
+        </div>
+        <div class="critchance" style="display: none;">
+          <label class="item-text">Crit Chance:</label>
+          <label class="item-text item-red-text" id="#critchance">+70%</label>
+          <label class="item-text item-dungeon-stat" id="#dungeon_critchance">(+276.5%)</label>
+        </div>
+        <div class="attackSpeed" style="display: none;">
+          <label class="item-text">Bonus Attack Speed:</label>
+          <label class="item-text item-red-text" id="#attackSpeed">+7%</label>
+          <label class="item-text item-dungeon-stat" id="#dungeon_attackSpeed">(+10.5%)</label>
+        </div>
+        <div style="margin-top: 10px"></div>
+        <div class="intelligence" style="display: none;">
+          <label class="item-text">Intelligence:</label>
+          <label class="item-text item-green-text" id="#intelligence">+640</label>
+          <label class="item-text item-dungeon-stat" id="#dungeon_intelligence">(+2389.75)</label>
+        </div>
+        <div class="ferocity" style="display: none;">
+          <label class="item-text">Ferocity:</label>
+          <label class="item-text item-green-text" id="#ferocity">+33</label>
+          <label class="item-text item-dungeon-stat" id="#dungeon_ferocity">(+45%)</label>
+        </div>
+      </div>
+    </div>
+    </div>
+  </body>
+  <script src="main.js"></script>
+</html>
