@@ -13,6 +13,7 @@ Things I want to add:
 - Add Dungeon Item Checkbox
 - Add Ability to add images (through links?)
 - Add ability to add reforge names (E.G Heroic Hyperion)
+- HBP / Fumings
 
 To come Later:
 
