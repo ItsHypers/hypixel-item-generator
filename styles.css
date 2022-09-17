@@ -74,11 +74,20 @@ h6 {
   font-size: 15px;
   color: #474647;
 }
+.mainDescription {
+  text-align: start;
+}
 #abilityButton1,
 #abilityButton2,
 #abilityButton3 {
   height: 50px;
   background-color: #f1f1f1;
+}
+.ability1,
+.ability2,
+.ability3 {
+  text-align: start;
+  max-width: 300px;
 }
 .item-name {
   color: --common;

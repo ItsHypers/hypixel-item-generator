@@ -269,6 +269,22 @@
             </span>
           </div>
         </row>
+        <row class="row1">
+          <div class="field field_v1">
+            <label for="first-name" class="ha-screen-reader"
+              >Description</label
+            >
+            <input
+              id="first-name"
+              class="field__input"
+              placeholder="e.g. 25%"
+              onchange="description(this.value)"
+            />
+            <span class="field__label-wrap" aria-hidden="true">
+              <span class="field__label">Description</span>
+            </span>
+          </div>
+        </row>
       </div>
       <div id="pets" class="tabcontent">
         <h1>Coming Soon</h1>
@@ -869,6 +885,10 @@
                 id="#abilityCooldown3"
               ></label>
             </div>
+          </div>
+          <div style="margin-top: 10px"></div>
+          <div class="mainDescription" style="display: none">
+            <label class="item-text" id="#mainDescription">33</label>
           </div>
           <div style="margin-top: 10px"></div>
           <label

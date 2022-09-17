@@ -151,6 +151,10 @@ function speed(input) {
   );
 }
 
+function description(input) {
+  document.getElementById("#mainDescription").textContent = input;
+  document.querySelector(".mainDescription").style.display = "block";
+}
 function artofwar(input) {
   var checkBox = document.getElementById("aow");
   if (checkBox.checked == true) {
