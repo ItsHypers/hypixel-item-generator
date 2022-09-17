@@ -321,6 +321,20 @@ function divine() {
   currentRarity = "DIVINE";
 }
 
+function image(input) {
+  document.getElementById("png").src = input;
+}
+
+function imageSize(input) {
+  if (input > 100) {
+    input = 100;
+  }
+  if (input < 20) {
+    input = 20;
+  }
+  document.getElementById("png").style.maxHeight = input + "px";
+  document.getElementById("png").style.maxWidth = input + "px";
+}
 function hexToRgbA(hex) {
   var c;
   if (/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)) {

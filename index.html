@@ -296,6 +296,36 @@
             > Dungeonized?</label
           >
         </row>
+        <row class="row1">
+          <div class="field field_v1">
+            <label for="first-name" class="ha-screen-reader"
+              >Image (use URL)</label
+            >
+            <input
+              id="first-name"
+              class="field__input"
+              placeholder="any URL .png"
+              onchange="image(this.value)"
+            />
+            <span class="field__label-wrap" aria-hidden="true">
+              <span class="field__label">Image (use URL)</span>
+            </span>
+          </div>
+          <div class="field field_v1">
+            <label for="first-name" class="ha-screen-reader"
+              >Image Size (default 50)</label
+            >
+            <input
+              id="first-name"
+              class="field__input"
+              placeholder="50"
+              onchange="imageSize(this.value)"
+            />
+            <span class="field__label-wrap" aria-hidden="true">
+              <span class="field__label">Image Size (default 50)</span>
+            </span>
+          </div>
+        </row>
       </div>
       <div id="pets" class="tabcontent">
         <h1>Coming Soon</h1>
@@ -658,7 +688,9 @@
       </div>
 
         <div class="w3-content w3-justify w3-text-grey item" class="item">
-          <div><p class="item-name"></p></div>
+          <row>
+            <label><img id="png" style="" src=""> </label>
+          <label class="item-name"></label></row>
           <div class="description"></div>
           <div style="margin-top: 10px"></div>
           <div class="gearscore" style="display: none">

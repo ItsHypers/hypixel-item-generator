@@ -1,0 +1,7 @@
+Update 1#
+
+Added ability to add descriptions to the tools
+
+Added Dungeonizable checkbox, to remove Dungeonizable stats / re-enable them. Also removed Dungeonized stats effecting speed and other things it shouldn't have
+
+fixed some UI bugs
