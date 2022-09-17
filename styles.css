@@ -8,6 +8,11 @@
   --special: #ff5555;
   --veryspecial: #fe5454;
   --divine: #53f7f7;
+  --ability: #eb9d01;
+  --keybind: #ebeb64;
+  --description: #b4b4b4;
+  --mana: #0bb3a6;
+  --cooldown: #51c051;
 }
 
 @font-face {
@@ -63,10 +68,18 @@ h6 {
   box-shadow: inset 0px 0px 0px 2px #24015a;
   box-sizing: border-box; /* Include padding and border in element's width and height */
 }
+.ability {
+  justify-content: center;
+  border: 1px solid #ccc;
+}
 .description {
   width: 70%;
   font-size: 15px;
   color: #474647;
+}
+#abilityButton {
+  height: 50px;
+  background-color: #f1f1f1;
 }
 .item-name {
   color: --common;

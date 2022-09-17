@@ -10,7 +10,34 @@ function copyPaste() {
     x.style.display = "none";
   }
 }
-
+function ability1() {
+  var x = document.getElementById("ability1");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+function abilityName(input) {
+  document.getElementById("#abilityName").textContent = input;
+  document.querySelector(".abilityName").style.display = "block";
+}
+function abilityKeybind(input) {
+  document.getElementById("#abilityKeybind").textContent = input;
+  document.querySelector(".abilityKeybind").style.display = "block";
+}
+function abilityDescription(input) {
+  document.getElementById("#abilityDescription").textContent = input;
+  document.querySelector(".abilityDescription").style.display = "block";
+}
+function abilityMana(input) {
+  document.getElementById("#abilityMana").textContent = input;
+  document.querySelector(".abilityMana").style.display = "block";
+}
+function abilityCooldown(input) {
+  document.getElementById("#abilityCooldown").textContent = input;
+  document.querySelector(".abilityCooldown").style.display = "block";
+}
 function itemName(input) {
   document.querySelector(".item-name").textContent = input;
 }
