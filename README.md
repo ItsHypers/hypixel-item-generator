@@ -14,6 +14,8 @@ Things I want to add:
 - Add Ability to add images (through links?)
 - Add ability to add reforge names (E.G Heroic Hyperion)
 - HBP / Fumings
+- add ability to add enchants, (looting 2, ult wise 3)
+- add hyper-max options (Button for Hypermax Swords, that adds hypermax swords; and Hypermax bows, for hypermax bows)
 
 To come Later:
 
