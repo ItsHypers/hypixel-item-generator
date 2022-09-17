@@ -10,7 +10,6 @@ Things I want to add:
 - Add Recommed Checkbox
 - Add Kill counter (book of stats)
 - Add Soulbound Checkbox
-- Add Dungeon Item Checkbox
 - Add Ability to add images (through links?)
 - Add ability to add reforge names (E.G Heroic Hyperion)
 - HBP / Fumings

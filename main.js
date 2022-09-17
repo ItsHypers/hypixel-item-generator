@@ -1,6 +1,22 @@
 var currentStrength = 0;
+var currentGearScore = 0;
+var currentDamage = 0;
+var currentcritDamage = 0;
+var currentAttackSpeed = 0;
+var currentIntelligence = 0;
+var currentDefence = 0;
+var currentabilityDamage = 0;
 var currentItem = "SWORD";
 var currentRarity = "COMMON";
+const commonColor = "#d3d3d3";
+const uncommonColor = "#4fe34d";
+const rareColor = "#5453fb";
+const epicColor = "#970295";
+const legendaryColor = "#f1a001";
+const mythicColor = "#f551f4";
+const specialColor = "#ff5555";
+const veryspecialColor = "#fe5454";
+const divineColor = "#53f7f7";
 
 function copyPaste() {
   var x = document.getElementById("symbols");
@@ -58,6 +74,7 @@ function gearScore(input) {
   document.querySelector(".item-gearscore").textContent = input;
   document.querySelector(".gearscore").style.display = "block";
   document.getElementById("#gearscore").textContent = dungeonCalc(input);
+  currentGearScore = input;
 }
 function strength(input) {
   document.getElementById("#strength").textContent = "+" + input;
@@ -75,12 +92,14 @@ function Damage(input) {
     input,
     "damage"
   );
+  currentDamage = input;
 }
 function abilitydamage(input) {
   document.getElementById("#abilitydamage").textContent = "+" + input;
   document.querySelector(".abilitydamage").style.display = "block";
   document.getElementById("#dungeon_abilitydamage").textContent =
     dungeonCalc(input);
+  currentabilityDamage = input;
 }
 function gemstones(input) {
   if (input >= 6) {
@@ -97,26 +116,31 @@ function gemstones(input) {
 function critDamage(input) {
   document.getElementById("#critdamage").textContent = "+" + input + "%";
   document.querySelector(".critdamage").style.display = "block";
-  document.getElementById("#dungeon_critdamage").textContent =
-    dungeonCalc(input) + "%";
+  if (dungeonized) {
+    document.getElementById("#dungeon_critdamage").textContent =
+      dungeonCalc(input) + "%";
+  } else {
+    document.getElementById("#dungeon_critdamage").textContent = "";
+  }
+  currentcritDamage = input;
 }
 function attackSpeed(input) {
   document.getElementById("#attackSpeed").textContent = "+" + input + "%";
   document.querySelector(".attackSpeed").style.display = "block";
   document.getElementById("#dungeon_attackSpeed").textContent =
     dungeonCalc(input) + "%";
+  currentAttackSpeed = input;
 }
 function Intelligence(input) {
   document.getElementById("#intelligence").textContent = "+" + input;
   document.querySelector(".intelligence").style.display = "block";
   document.getElementById("#dungeon_intelligence").textContent =
     dungeonCalc(input);
+  currentIntelligence = input;
 }
 function critChance(input) {
   document.getElementById("#critchance").textContent = "+" + input + "%";
   document.querySelector(".critchance").style.display = "block";
-  document.getElementById("#dungeon_critchance").textContent =
-    dungeonCalc(input);
 }
 function ferocity(input) {
   document.getElementById("#ferocity").textContent = "+" + input;
@@ -127,6 +151,7 @@ function defense(input) {
   document.getElementById("#defense").textContent = "+" + input;
   document.querySelector(".defense").style.display = "block";
   document.getElementById("#dungeon_defense").textContent = dungeonCalc(input);
+  currentDefence = input;
 }
 function itemType(input) {
   input = input.toUpperCase();
@@ -137,18 +162,10 @@ function itemType(input) {
 function magicfind(input) {
   document.getElementById("#magicfind").textContent = "+" + input;
   document.querySelector(".magicfind").style.display = "block";
-  document.getElementById("#dungeon_magicfind").textContent = dungeonCalc(
-    input,
-    "magicfind"
-  );
 }
 function speed(input) {
   document.getElementById("#speed").textContent = "+" + input;
   document.querySelector(".speed").style.display = "block";
-  document.getElementById("#dungeon_speed").textContent = dungeonCalc(
-    input,
-    "speed"
-  );
 }
 
 function description(input) {
@@ -166,20 +183,54 @@ function artofwar(input) {
   }
 }
 
+function dungeon(input) {
+  var checkBox = document.getElementById("dungeonized");
+  if (checkBox.checked == true) {
+    dungeonized = true;
+    updateNumbers();
+  } else {
+    dungeonized = false;
+    updateNumbers();
+  }
+}
+
+function updateNumbers() {
+  if (currentGearScore != 0) {
+    gearScore(currentGearScore);
+  }
+  if (currentDamage != 0) {
+    Damage(currentDamage);
+  }
+  if (currentStrength != 0) {
+    strength(currentStrength);
+  }
+  if (currentcritDamage != 0) {
+    critDamage(currentcritDamage);
+  }
+  if (currentIntelligence != 0) {
+    Intelligence(currentIntelligence);
+  }
+  if (currentDefence != 0) {
+    defense(currentDefence);
+  }
+  if (currentabilityDamage != 0) {
+    abilitydamage(currentabilityDamage);
+  }
+}
+var dungeonized = false;
 function dungeonCalc(input, type) {
-  var num = parseInt(input);
-  if (type == "strength") {
-    var checkBox = document.getElementById("aow");
-    if (checkBox.checked == true) {
-      num = num + 5;
-    } else var num = input;
+  if (dungeonized == true) {
+    var num = parseInt(input);
+    if (type == "strength") {
+      var checkBox = document.getElementById("aow");
+      if (checkBox.checked == true) {
+        num = num + 5;
+      } else var num = input;
+    }
+    var dungeonStatCalc = (465 * num) / 100;
+    dungeonStatCalc * 5.5;
+    return dungeonStatCalc;
   }
-  if (type == "magicfind" || type == "speed") {
-    return;
-  }
-  var dungeonStatCalc = (465 * num) / 100;
-  dungeonStatCalc * 5.5;
-  return dungeonStatCalc;
 }
 function switchType(evt, type) {
   // Declare all variables
@@ -210,15 +261,6 @@ function switchType(evt, type) {
     evt.currentTarget.className += " active";
   }
 }
-const commonColor = "#d3d3d3";
-const uncommonColor = "#4fe34d";
-const rareColor = "#5453fb";
-const epicColor = "#970295";
-const legendaryColor = "#f1a001";
-const mythicColor = "#f551f4";
-const specialColor = "#ff5555";
-const veryspecialColor = "#fe5454";
-const divineColor = "#53f7f7";
 
 function common() {
   document.querySelector(".item-name").style.color = hexToRgbA(commonColor);

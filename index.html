@@ -285,6 +285,17 @@
             </span>
           </div>
         </row>
+        <div style="margin-top: 10px"></div>
+        <row>
+          <input
+            type="checkbox"
+            id="dungeonized"
+            value="dungeonized"
+            onchange="dungeon(this.value)"
+          /><label for="checkboxOne" style="width: 50%; padding-top: 12px"
+            > Dungeonized?</label
+          >
+        </row>
       </div>
       <div id="pets" class="tabcontent">
         <h1>Coming Soon</h1>
@@ -675,15 +686,12 @@
             <label class="item-text">Crit Damage:</label>
             <label class="item-text item-red-text" id="#critdamage">+70%</label>
             <label class="item-text item-dungeon-stat" id="#dungeon_critdamage"
-              >(+276.5%)</label
+              ></label
             >
           </div>
           <div class="critchance" style="display: none">
             <label class="item-text">Crit Chance:</label>
             <label class="item-text item-red-text" id="#critchance">+70%</label>
-            <label class="item-text item-dungeon-stat" id="#dungeon_critchance"
-              >(+276.5%)</label
-            >
           </div>
           <div class="abilitydamage" style="display: none">
             <label class="item-text">Ability Damage:</label>
@@ -699,17 +707,11 @@
           <div class="attackSpeed" style="display: none">
             <label class="item-text">Bonus Attack Speed:</label>
             <label class="item-text item-red-text" id="#attackSpeed">+7%</label>
-            <label class="item-text item-dungeon-stat" id="#dungeon_attackSpeed"
-              >(+10.5%)</label
-            >
           </div>
           <div class="speed" style="display: none">
             <div style="margin-top: 10px"></div>
             <label class="item-text">Speed:</label>
             <label class="item-text item-green-text" id="#speed">+33</label>
-            <label class="item-text item-dungeon-stat" id="#dungeon_speed"
-              >(+45)</label
-            >
           </div>
           <div class="intelligence" style="display: none">
             <label class="item-text">Intelligence:</label>
@@ -725,9 +727,6 @@
           <div class="ferocity" style="display: none">
             <label class="item-text">Ferocity:</label>
             <label class="item-text item-green-text" id="#ferocity">+33</label>
-            <label class="item-text item-dungeon-stat" id="#dungeon_ferocity"
-              >(+45)</label
-            >
           </div>
           <div class="defense" style="display: none">
             <label class="item-text">Defense:</label>
