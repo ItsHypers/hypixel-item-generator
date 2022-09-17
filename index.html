@@ -295,6 +295,14 @@
           /><label for="checkboxOne" style="width: 50%; padding-top: 12px"
             > Dungeonized?</label
           >
+          <input
+            type="checkbox"
+            id="soulbound"
+            value="soulbound"
+            onchange="soulbound(this.value)"
+          /><label for="checkboxOne" style="width: 50%; padding-top: 12px"
+            > Soulbound?</label
+          >
         </row>
         <row class="row1">
           <div class="field field_v1">
@@ -922,6 +930,11 @@
             <label class="item-text" id="#mainDescription">33</label>
           </div>
           <div style="margin-top: 10px"></div>
+          <label
+            class="item-text"
+            id="#soulbound"
+            style="text-align: start"
+          ></label>
           <label
             class="item-text"
             id="#item-type"

@@ -193,6 +193,14 @@ function dungeon(input) {
     updateNumbers();
   }
 }
+function soulbound(input) {
+  var checkBox = document.getElementById("soulbound");
+  if (checkBox.checked == true) {
+    document.getElementById("#soulbound").innerHTML = "* Co-op Soulbound *";
+  } else {
+    document.getElementById("#soulbound").innerHTML = "";
+  }
+}
 
 function updateNumbers() {
   if (currentGearScore != 0) {
