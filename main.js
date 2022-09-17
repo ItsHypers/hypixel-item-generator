@@ -10,33 +10,46 @@ function copyPaste() {
     x.style.display = "none";
   }
 }
-function ability1() {
-  var x = document.getElementById("ability1");
+function ability(input) {
+  var x = document.getElementById("ability" + input);
+  var button = document.getElementById("abilityButton" + input);
   if (x.style.display === "none") {
     x.style.display = "block";
+    button.classList.add("active");
   } else {
     x.style.display = "none";
+    button.classList.remove("active");
   }
 }
-function abilityName(input) {
-  document.getElementById("#abilityName").textContent = input;
-  document.querySelector(".abilityName").style.display = "block";
+function abilityName(input, num) {
+  var name = document.getElementById("#abilityName" + num);
+  var className = document.querySelector(".abilityName" + num);
+  name.textContent = input;
+  className.style.display = "block";
 }
-function abilityKeybind(input) {
-  document.getElementById("#abilityKeybind").textContent = input;
-  document.querySelector(".abilityKeybind").style.display = "block";
+function abilityKeybind(input, num) {
+  var name = document.getElementById("#abilityKeybind" + num);
+  var className = document.querySelector(".abilityKeybind" + num);
+  name.textContent = input;
+  className.style.display = "block";
 }
-function abilityDescription(input) {
-  document.getElementById("#abilityDescription").textContent = input;
-  document.querySelector(".abilityDescription").style.display = "block";
+function abilityDescription(input, num) {
+  var name = document.getElementById("#abilityDescription" + num);
+  var className = document.querySelector(".abilityDescription" + num);
+  name.textContent = input;
+  className.style.display = "block";
 }
-function abilityMana(input) {
-  document.getElementById("#abilityMana").textContent = input;
-  document.querySelector(".abilityMana").style.display = "block";
+function abilityMana(input, num) {
+  var name = document.getElementById("#abilityMana" + num);
+  var className = document.querySelector(".abilityMana" + num);
+  name.textContent = input;
+  className.style.display = "block";
 }
-function abilityCooldown(input) {
-  document.getElementById("#abilityCooldown").textContent = input;
-  document.querySelector(".abilityCooldown").style.display = "block";
+function abilityCooldown(input, num) {
+  var name = document.getElementById("#abilityCooldown" + num);
+  var className = document.querySelector(".abilityCooldown" + num);
+  name.textContent = input;
+  className.style.display = "block";
 }
 function itemName(input) {
   document.querySelector(".item-name").textContent = input;
@@ -167,22 +180,31 @@ function dungeonCalc(input, type) {
 function switchType(evt, type) {
   // Declare all variables
   var i, tabcontent, tablinks;
-
-  // Get all elements with class="tabcontent" and hide them
   tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
+  if (evt.currentTarget.classList.contains("active")) {
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+  } else {
+    // Get all elements with class="tabcontent" and hide them
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
 
-  // Get all elements with class="tablinks" and remove the class "active"
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
 
-  // Show the current tab, and add an "active" class to the button that opened the tab
-  document.getElementById(type).style.display = "block";
-  evt.currentTarget.className += " active";
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(type).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
 }
 const commonColor = "#d3d3d3";
 const uncommonColor = "#4fe34d";

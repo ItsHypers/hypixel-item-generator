@@ -33,137 +33,242 @@
         <i class="fa fa-user w3-xxlarge"></i>
         <p>Hypixel Forums Profile</p>
       </a>
+      <a
+        href="https://github.com/ItsHypers/hypixel-item-generator/issues/new"
+        class="w3-bar-item w3-button w3-padding-large w3-hover-black"
+      >
+        <i class="fa fa-github w3-xxlarge"></i>
+        <p>Post your suggestions here!</p>
+      </a>
       <div class="tab">
-        <button class="tablinks" onclick="switchType(event, 'weapon')">Weapons</button>
-        <button class="tablinks" onclick="switchType(event, 'pets')">Pets</button>
+        <button class="tablinks" onclick="switchType(event, 'weapon')">
+          Weapons
+        </button>
+        <button class="tablinks" onclick="switchType(event, 'pets')">
+          Pets
+        </button>
       </div>
       <div class="tab">
-        <button class="tablinks" onclick="switchType(event, 'reforge')">Reforge Stone</button>
-        <button class="tablinks" onclick="switchType(event, 'Crafting')">Crafting Item</button>
+        <button class="tablinks" onclick="switchType(event, 'reforge')">
+          Reforge Stone
+        </button>
+        <button class="tablinks" onclick="switchType(event, 'Crafting')">
+          Crafting Item
+        </button>
       </div>
       <div id="weapon" class="tabcontent">
-      <row class="row1">
-        <div class="field field_v1">
-          <label for="first-name" class="ha-screen-reader">Item Name</label>
-          <input id="first-name" class="field__input" placeholder="e.g. Hyperion" onchange="itemName(this.value)">
-          <span class="field__label-wrap" aria-hidden="true">
-            <span class="field__label">Item Name</span>
-          </span>
-        </div>
-        <div class="field field_v1">
-          <label for="first-name" class="ha-screen-reader">Gear Score</label>
-          <input id="first-name" class="field__input" placeholder="e.g. 500" onchange="gearScore(this.value)">
-          <span class="field__label-wrap" aria-hidden="true">
-            <span class="field__label">Gear Score</span>
-          </span>
-        </div>
-      </row>
-      <row class="row1">
-        <div class="field field_v1">
-          <label for="first-name" class="ha-screen-reader">Damage</label>
-          <input id="first-name" class="field__input" placeholder="e.g. 50" onchange="Damage(this.value)">
-          <span class="field__label-wrap" aria-hidden="true">
-            <span class="field__label">Damage</span>
-          </span>
-        </div>
-        <div class="field field_v1">
-          <label for="first-name" class="ha-screen-reader">Crit Damage (%)</label>
-          <input id="first-name" class="field__input" placeholder="e.g. 25%" onchange="critDamage(this.value)">
-          <span class="field__label-wrap" aria-hidden="true">
-            <span class="field__label">Crit Damage  (%)</span>
-          </span>
-        </div>
-      </row>
-      <row class="row1">
-        <div class="field field_v1">
-          <label for="first-name" class="ha-screen-reader">Strength</label>
-          <input id="strengthInput" class="field__input" placeholder="e.g. 20" onchange="strength(this.value)">
-          <span class="field__label-wrap" aria-hidden="true">
-            <span class="field__label">Strength</span>
-          </span>
-        </div>
-        <input type="checkbox" id="aow" value="aow" onchange="artofwar(this.value)"><label for="checkboxOne" style="width: 50%; padding-top:12px;">Art of War?</label>
-      </row>
-      <row class="row1">
-        <div class="field field_v1">
-          <label for="first-name" class="ha-screen-reader">Attack Speed</label>
-          <input id="first-name" class="field__input" placeholder="e.g. 50%" onchange="attackSpeed(this.value)">
-          <span class="field__label-wrap" aria-hidden="true">
-            <span class="field__label">Attack Speed</span>
-          </span>
-        </div>
-        <div class="field field_v1">
-          <label for="first-name" class="ha-screen-reader">Intelligence</label>
-          <input id="first-name" class="field__input" placeholder="e.g. 25" onchange="Intelligence(this.value)">
-          <span class="field__label-wrap" aria-hidden="true">
-            <span class="field__label">Intelligence</span>
-          </span>
-        </div>
-      </row>
-      <row class="row1">
-        <div class="field field_v1">
-          <label for="first-name" class="ha-screen-reader">Crit Chance</label>
-          <input id="first-name" class="field__input" placeholder="e.g. 50%" onchange="critChance(this.value)">
-          <span class="field__label-wrap" aria-hidden="true">
-            <span class="field__label">Crit Chance</span>
-          </span>
-        </div>
-        <div class="field field_v1">
-          <label for="first-name" class="ha-screen-reader">Ferocity</label>
-          <input id="first-name" class="field__input" placeholder="e.g. 25" onchange="ferocity(this.value)">
-          <span class="field__label-wrap" aria-hidden="true">
-            <span class="field__label">Ferocity</span>
-          </span>
-        </div>
-      </row>     
-      <row class="row1">
-        <div class="field field_v1">
-          <label for="first-name" class="ha-screen-reader">Item Type</label>
-          <input id="first-name" class="field__input" placeholder="e.g SWORD" onchange="itemType(this.value)">
-          <span class="field__label-wrap" aria-hidden="true">
-            <span class="field__label">Item Type</span>
-          </span>
-        </div>
-        <div class="field field_v1">
-          <label for="first-name" class="ha-screen-reader">Defense</label>
-          <input id="first-name" class="field__input" placeholder="e.g. 25" onchange="defense(this.value)">
-          <span class="field__label-wrap" aria-hidden="true">
-            <span class="field__label">Defense</span>
-          </span>
-        </div>
-      </row>    
-      <row class="row1">
-        <div class="field field_v1">
-          <label for="first-name" class="ha-screen-reader">Speed</label>
-          <input id="first-name" class="field__input" placeholder="e.g 25" onchange="speed(this.value)">
-          <span class="field__label-wrap" aria-hidden="true">
-            <span class="field__label">Speed</span>
-          </span>
-        </div>
-        <div class="field field_v1">
-          <label for="first-name" class="ha-screen-reader">Magic Find</label>
-          <input id="first-name" class="field__input" placeholder="e.g. 25" onchange="magicfind(this.value)">
-          <span class="field__label-wrap" aria-hidden="true">
-            <span class="field__label">Magic Find</span>
-          </span>
-        </div>
-      </row>  
-      <row class="row1">
-        <div class="field field_v1">
-          <label for="first-name" class="ha-screen-reader">Ability Damage</label>
-          <input id="first-name" class="field__input" placeholder="e.g. 25%" onchange="abilitydamage(this.value)">
-          <span class="field__label-wrap" aria-hidden="true">
-            <span class="field__label">Ability Damage</span>
-          </span>
-        </div>
-        <div class="field field_v1">
-          <label for="first-name" class="ha-screen-reader">Gemstones</label>
-          <input id="first-name" class="field__input" placeholder="max 5" onchange="gemstones(this.value)">
-          <span class="field__label-wrap" aria-hidden="true">
-            <span class="field__label">Gemstones</span>
-          </span>
-        </div>
-      </row>
+        <row class="row1">
+          <div class="field field_v1">
+            <label for="first-name" class="ha-screen-reader">Item Name</label>
+            <input
+              id="first-name"
+              class="field__input"
+              placeholder="e.g. Hyperion"
+              onchange="itemName(this.value)"
+            />
+            <span class="field__label-wrap" aria-hidden="true">
+              <span class="field__label">Item Name</span>
+            </span>
+          </div>
+          <div class="field field_v1">
+            <label for="first-name" class="ha-screen-reader">Gear Score</label>
+            <input
+              id="first-name"
+              class="field__input"
+              placeholder="e.g. 500"
+              onchange="gearScore(this.value)"
+            />
+            <span class="field__label-wrap" aria-hidden="true">
+              <span class="field__label">Gear Score</span>
+            </span>
+          </div>
+        </row>
+        <row class="row1">
+          <div class="field field_v1">
+            <label for="first-name" class="ha-screen-reader">Damage</label>
+            <input
+              id="first-name"
+              class="field__input"
+              placeholder="e.g. 50"
+              onchange="Damage(this.value)"
+            />
+            <span class="field__label-wrap" aria-hidden="true">
+              <span class="field__label">Damage</span>
+            </span>
+          </div>
+          <div class="field field_v1">
+            <label for="first-name" class="ha-screen-reader"
+              >Crit Damage (%)</label
+            >
+            <input
+              id="first-name"
+              class="field__input"
+              placeholder="e.g. 25%"
+              onchange="critDamage(this.value)"
+            />
+            <span class="field__label-wrap" aria-hidden="true">
+              <span class="field__label">Crit Damage (%)</span>
+            </span>
+          </div>
+        </row>
+        <row class="row1">
+          <div class="field field_v1">
+            <label for="first-name" class="ha-screen-reader">Strength</label>
+            <input
+              id="strengthInput"
+              class="field__input"
+              placeholder="e.g. 20"
+              onchange="strength(this.value)"
+            />
+            <span class="field__label-wrap" aria-hidden="true">
+              <span class="field__label">Strength</span>
+            </span>
+          </div>
+          <input
+            type="checkbox"
+            id="aow"
+            value="aow"
+            onchange="artofwar(this.value)"
+          /><label for="checkboxOne" style="width: 50%; padding-top: 12px"
+            >Art of War?</label
+          >
+        </row>
+        <row class="row1">
+          <div class="field field_v1">
+            <label for="first-name" class="ha-screen-reader"
+              >Attack Speed</label
+            >
+            <input
+              id="first-name"
+              class="field__input"
+              placeholder="e.g. 50%"
+              onchange="attackSpeed(this.value)"
+            />
+            <span class="field__label-wrap" aria-hidden="true">
+              <span class="field__label">Attack Speed</span>
+            </span>
+          </div>
+          <div class="field field_v1">
+            <label for="first-name" class="ha-screen-reader"
+              >Intelligence</label
+            >
+            <input
+              id="first-name"
+              class="field__input"
+              placeholder="e.g. 25"
+              onchange="Intelligence(this.value)"
+            />
+            <span class="field__label-wrap" aria-hidden="true">
+              <span class="field__label">Intelligence</span>
+            </span>
+          </div>
+        </row>
+        <row class="row1">
+          <div class="field field_v1">
+            <label for="first-name" class="ha-screen-reader">Crit Chance</label>
+            <input
+              id="first-name"
+              class="field__input"
+              placeholder="e.g. 50%"
+              onchange="critChance(this.value)"
+            />
+            <span class="field__label-wrap" aria-hidden="true">
+              <span class="field__label">Crit Chance</span>
+            </span>
+          </div>
+          <div class="field field_v1">
+            <label for="first-name" class="ha-screen-reader">Ferocity</label>
+            <input
+              id="first-name"
+              class="field__input"
+              placeholder="e.g. 25"
+              onchange="ferocity(this.value)"
+            />
+            <span class="field__label-wrap" aria-hidden="true">
+              <span class="field__label">Ferocity</span>
+            </span>
+          </div>
+        </row>
+        <row class="row1">
+          <div class="field field_v1">
+            <label for="first-name" class="ha-screen-reader">Item Type</label>
+            <input
+              id="first-name"
+              class="field__input"
+              placeholder="e.g SWORD"
+              onchange="itemType(this.value)"
+            />
+            <span class="field__label-wrap" aria-hidden="true">
+              <span class="field__label">Item Type</span>
+            </span>
+          </div>
+          <div class="field field_v1">
+            <label for="first-name" class="ha-screen-reader">Defense</label>
+            <input
+              id="first-name"
+              class="field__input"
+              placeholder="e.g. 25"
+              onchange="defense(this.value)"
+            />
+            <span class="field__label-wrap" aria-hidden="true">
+              <span class="field__label">Defense</span>
+            </span>
+          </div>
+        </row>
+        <row class="row1">
+          <div class="field field_v1">
+            <label for="first-name" class="ha-screen-reader">Speed</label>
+            <input
+              id="first-name"
+              class="field__input"
+              placeholder="e.g 25"
+              onchange="speed(this.value)"
+            />
+            <span class="field__label-wrap" aria-hidden="true">
+              <span class="field__label">Speed</span>
+            </span>
+          </div>
+          <div class="field field_v1">
+            <label for="first-name" class="ha-screen-reader">Magic Find</label>
+            <input
+              id="first-name"
+              class="field__input"
+              placeholder="e.g. 25"
+              onchange="magicfind(this.value)"
+            />
+            <span class="field__label-wrap" aria-hidden="true">
+              <span class="field__label">Magic Find</span>
+            </span>
+          </div>
+        </row>
+        <row class="row1">
+          <div class="field field_v1">
+            <label for="first-name" class="ha-screen-reader"
+              >Ability Damage</label
+            >
+            <input
+              id="first-name"
+              class="field__input"
+              placeholder="e.g. 25%"
+              onchange="abilitydamage(this.value)"
+            />
+            <span class="field__label-wrap" aria-hidden="true">
+              <span class="field__label">Ability Damage</span>
+            </span>
+          </div>
+          <div class="field field_v1">
+            <label for="first-name" class="ha-screen-reader">Gemstones</label>
+            <input
+              id="first-name"
+              class="field__input"
+              placeholder="max 5"
+              onchange="gemstones(this.value)"
+            />
+            <span class="field__label-wrap" aria-hidden="true">
+              <span class="field__label">Gemstones</span>
+            </span>
+          </div>
+        </row>
       </div>
       <div id="pets" class="tabcontent">
         <h1>Coming Soon</h1>
@@ -174,19 +279,33 @@
       <div id="Crafting" class="tabcontent">
         <h1>Coming Soon</h1>
       </div>
-      <button style="width: 100%;" id="abilityButton" onclick="ability1()">Ability 1</button>
-      <div class="ability" id="ability1" style="display: none;"> 
+      <button style="width: 100%" id="abilityButton1" onclick="ability(1)">
+        Ability 1
+      </button>
+      <div class="ability" id="ability1" style="display: none">
         <row class="row1">
           <div class="field field_v1">
-            <label for="first-name" class="ha-screen-reader">Ability Name</label>
-            <input id="first-name" class="field__input" placeholder="THROW" onchange="abilityName(this.value)">
+            <label for="first-name" class="ha-screen-reader"
+              >Ability Name</label
+            >
+            <input
+              id="first-name"
+              class="field__input"
+              placeholder="THROW"
+              onchange="abilityName(this.value, 1)"
+            />
             <span class="field__label-wrap" aria-hidden="true">
               <span class="field__label">Ability Name</span>
             </span>
           </div>
           <div class="field field_v1">
             <label for="first-name" class="ha-screen-reader">Keybind</label>
-            <input id="first-name" class="field__input" placeholder="RIGHT CLICK" onchange="abilityKeybind(this.value)">
+            <input
+              id="first-name"
+              class="field__input"
+              placeholder="RIGHT CLICK"
+              onchange="abilityKeybind(this.value, 1)"
+            />
             <span class="field__label-wrap" aria-hidden="true">
               <span class="field__label">Keybind</span>
             </span>
@@ -195,7 +314,12 @@
         <row class="row1">
           <div class="field field_v1">
             <label for="first-name" class="ha-screen-reader">Description</label>
-            <input id="first-name" class="field__input" placeholder="full ability description" onchange="abilityDescription(this.value)">
+            <input
+              id="first-name"
+              class="field__input"
+              placeholder="full ability description"
+              onchange="abilityDescription(this.value, 1)"
+            />
             <span class="field__label-wrap" aria-hidden="true">
               <span class="field__label">Description</span>
             </span>
@@ -204,14 +328,170 @@
         <row class="row1">
           <div class="field field_v1">
             <label for="first-name" class="ha-screen-reader">Mana Cost</label>
-            <input id="first-name" class="field__input" placeholder="e.g 25" onchange="abilityMana(this.value)">
+            <input
+              id="first-name"
+              class="field__input"
+              placeholder="e.g 25"
+              onchange="abilityMana(this.value, 1)"
+            />
             <span class="field__label-wrap" aria-hidden="true">
               <span class="field__label">Mana Cost</span>
             </span>
           </div>
           <div class="field field_v1">
             <label for="first-name" class="ha-screen-reader">Cooldown</label>
-            <input id="first-name" class="field__input" placeholder="E.G 5s" onchange="abilityCooldown(this.value)">
+            <input
+              id="first-name"
+              class="field__input"
+              placeholder="E.G 5s"
+              onchange="abilityCooldown(this.value, 1)"
+            />
+            <span class="field__label-wrap" aria-hidden="true">
+              <span class="field__label">Cooldown</span>
+            </span>
+          </div>
+        </row>
+      </div>
+      <button style="width: 100%" id="abilityButton2" onclick="ability(2)">
+        Ability 2
+      </button>
+      <div class="ability" id="ability2" style="display: none">
+        <row class="row1">
+          <div class="field field_v1">
+            <label for="first-name" class="ha-screen-reader"
+              >Ability Name</label
+            >
+            <input
+              id="first-name"
+              class="field__input"
+              placeholder="THROW"
+              onchange="abilityName(this.value, 2)"
+            />
+            <span class="field__label-wrap" aria-hidden="true">
+              <span class="field__label">Ability Name</span>
+            </span>
+          </div>
+          <div class="field field_v1">
+            <label for="first-name" class="ha-screen-reader">Keybind</label>
+            <input
+              id="first-name"
+              class="field__input"
+              placeholder="RIGHT CLICK"
+              onchange="abilityKeybind(this.value, 2)"
+            />
+            <span class="field__label-wrap" aria-hidden="true">
+              <span class="field__label">Keybind</span>
+            </span>
+          </div>
+        </row>
+        <row class="row1">
+          <div class="field field_v1">
+            <label for="first-name" class="ha-screen-reader">Description</label>
+            <input
+              id="first-name"
+              class="field__input"
+              placeholder="full ability description"
+              onchange="abilityDescription(this.value, 2)"
+            />
+            <span class="field__label-wrap" aria-hidden="true">
+              <span class="field__label">Description</span>
+            </span>
+          </div>
+        </row>
+        <row class="row1">
+          <div class="field field_v1">
+            <label for="first-name" class="ha-screen-reader">Mana Cost</label>
+            <input
+              id="first-name"
+              class="field__input"
+              placeholder="e.g 25"
+              onchange="abilityMana(this.value, 2)"
+            />
+            <span class="field__label-wrap" aria-hidden="true">
+              <span class="field__label">Mana Cost</span>
+            </span>
+          </div>
+          <div class="field field_v1">
+            <label for="first-name" class="ha-screen-reader">Cooldown</label>
+            <input
+              id="first-name"
+              class="field__input"
+              placeholder="E.G 5s"
+              onchange="abilityCooldown(this.value, 2)"
+            />
+            <span class="field__label-wrap" aria-hidden="true">
+              <span class="field__label">Cooldown</span>
+            </span>
+          </div>
+        </row>
+      </div>
+      <button style="width: 100%" id="abilityButton3" onclick="ability(3)">
+        Ability 3
+      </button>
+      <div class="ability" id="ability3" style="display: none">
+        <row class="row1">
+          <div class="field field_v1">
+            <label for="first-name" class="ha-screen-reader"
+              >Ability Name</label
+            >
+            <input
+              id="first-name"
+              class="field__input"
+              placeholder="THROW"
+              onchange="abilityName(this.value, 3)"
+            />
+            <span class="field__label-wrap" aria-hidden="true">
+              <span class="field__label">Ability Name</span>
+            </span>
+          </div>
+          <div class="field field_v1">
+            <label for="first-name" class="ha-screen-reader">Keybind</label>
+            <input
+              id="first-name"
+              class="field__input"
+              placeholder="RIGHT CLICK"
+              onchange="abilityKeybind(this.value, 3)"
+            />
+            <span class="field__label-wrap" aria-hidden="true">
+              <span class="field__label">Keybind</span>
+            </span>
+          </div>
+        </row>
+        <row class="row1">
+          <div class="field field_v1">
+            <label for="first-name" class="ha-screen-reader">Description</label>
+            <input
+              id="first-name"
+              class="field__input"
+              placeholder="full ability description"
+              onchange="abilityDescription(this.value, 3)"
+            />
+            <span class="field__label-wrap" aria-hidden="true">
+              <span class="field__label">Description</span>
+            </span>
+          </div>
+        </row>
+        <row class="row1">
+          <div class="field field_v1">
+            <label for="first-name" class="ha-screen-reader">Mana Cost</label>
+            <input
+              id="first-name"
+              class="field__input"
+              placeholder="e.g 25"
+              onchange="abilityMana(this.value, 3)"
+            />
+            <span class="field__label-wrap" aria-hidden="true">
+              <span class="field__label">Mana Cost</span>
+            </span>
+          </div>
+          <div class="field field_v1">
+            <label for="first-name" class="ha-screen-reader">Cooldown</label>
+            <input
+              id="first-name"
+              class="field__input"
+              placeholder="E.G 5s"
+              onchange="abilityCooldown(this.value, 3)"
+            />
             <span class="field__label-wrap" aria-hidden="true">
               <span class="field__label">Cooldown</span>
             </span>
@@ -219,20 +499,91 @@
         </row>
       </div>
       <nav class="dropdown">
-        <label for="touch"><span class="drop">Rarity</span></label>               
-        <input type="checkbox" id="touch">   
+        <label for="touch"><span class="drop">Rarity</span></label>
+        <input type="checkbox" id="touch" />
         <div class="slide">
-          <div><button style="width: 100%; background-color: var(--common)" id="common" onclick="common()">Common</button></div>
-          <div><button style="width: 100%; background-color: var(--uncommon)" onclick="uncommon()">Uncommon</button></div>
-          <div><button style="width: 100%; background-color: var(--rare)" id="rare"onclick="rare()" >Rare</button></div>
-          <div><button style="width: 100%; background-color: var(--epic)" id="epic"onclick="epic()">Epic</button></div>
-          <div><button style="width: 100%; background-color: var(--legendary)" id="legendary"onclick="legendary()">Legendary</button></div>
-          <div><button style="width: 100%; background-color: var(--mythic)" id="mythic"onclick="mythic()">Mythic</button></div>
-          <div><button style="width: 100%; background-color: var(--special)" id="special"onclick="special()">Special</button></div>
-          <div><button style="width: 100%; background-color: var(--veryspecial)" id="veryspecial"onclick="veryspecial()">Very Special</button></div>
-          <div><button style="width: 100%; background-color: var(--divine)" id="divine"onclick="divine()">Divine</button></div>
+          <div>
+            <button
+              style="width: 100%; background-color: var(--common)"
+              id="common"
+              onclick="common()"
+            >
+              Common
+            </button>
           </div>
-      </nav> 
+          <div>
+            <button
+              style="width: 100%; background-color: var(--uncommon)"
+              onclick="uncommon()"
+            >
+              Uncommon
+            </button>
+          </div>
+          <div>
+            <button
+              style="width: 100%; background-color: var(--rare)"
+              id="rare"
+              onclick="rare()"
+            >
+              Rare
+            </button>
+          </div>
+          <div>
+            <button
+              style="width: 100%; background-color: var(--epic)"
+              id="epic"
+              onclick="epic()"
+            >
+              Epic
+            </button>
+          </div>
+          <div>
+            <button
+              style="width: 100%; background-color: var(--legendary)"
+              id="legendary"
+              onclick="legendary()"
+            >
+              Legendary
+            </button>
+          </div>
+          <div>
+            <button
+              style="width: 100%; background-color: var(--mythic)"
+              id="mythic"
+              onclick="mythic()"
+            >
+              Mythic
+            </button>
+          </div>
+          <div>
+            <button
+              style="width: 100%; background-color: var(--special)"
+              id="special"
+              onclick="special()"
+            >
+              Special
+            </button>
+          </div>
+          <div>
+            <button
+              style="width: 100%; background-color: var(--veryspecial)"
+              id="veryspecial"
+              onclick="veryspecial()"
+            >
+              Very Special
+            </button>
+          </div>
+          <div>
+            <button
+              style="width: 100%; background-color: var(--divine)"
+              id="divine"
+              onclick="divine()"
+            >
+              Divine
+            </button>
+          </div>
+        </div>
+      </nav>
     </nav>
 
     <!-- Navbar on small screens (Hidden on medium and large screens) -->
@@ -253,9 +604,9 @@
     </div>
 
     <!-- Page Content -->
-    <div class="w3-padding-large" id="main">
+    <div id="main">
       <!-- Header/Home -->
-      <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
+      <div class="w3-container w3-center w3-black" id="home">
         <h1 class="w3-jumbo">Hypixel Item Generator</h1>
         <button onclick="copyPaste()">Symbols (for copy and paste):</button>
         <div id="symbols" style="display: none">
@@ -276,107 +627,255 @@
           <li>​✹ (Ability Damage)</li>
           <li>⫽ (Ferocity)</li>
         </div>
-      </header>
-
-      <div
-        class="w3-content w3-justify w3-text-grey item"
-        class="item"
-      >
-        <div><p class="item-name"></p></div>
-        <div class="description">
-        </div>
         <div style="margin-top: 10px"></div>
-        <div class="gearscore"style="display: none;">
-          <label class="item-text">Gear Score:</label>
-          <label class="item-text item-gearscore"></label>
-          <label class="item-text item-dungeon-stat" id="#gearscore"></label>
-        </div>
-        <div class="damage" style="display: none;">
-          <label class="item-text">Damage:</label>
-          <label class="item-text item-red-text" id="#damage">+308</label>
-          <label class="item-text item-dungeon-stat" id="#dungeon_damage">(+745.36)</label>
-        </div>
-        <div class="abilitydamage" style="display: none;">
-          <label class="item-text">Ability Damage:</label>
-          <label class="item-text item-red-text" id="#abilitydamage">+7%</label>
-          <label class="item-text item-dungeon-stat" id="#dungeon_abilitydamage">(+10.5%)</label>
-        </div>
-        <div class="strength" style="display: none;">
-          <label class="item-text">Strength:</label>
-          <label class="item-text item-red-text" id="#strength">+150</label>
-          <label class="item-text item-5-strength" id="#aow"></label>
-          <label class="item-text item-dungeon-stat" id="#dungeon_strength"></label>
-        </div>
-        <div class="critdamage" style="display: none;">
-          <label class="item-text">Crit Damage:</label>
-          <label class="item-text item-red-text" id="#critdamage">+70%</label>
-          <label class="item-text item-dungeon-stat" id="#dungeon_critdamage">(+276.5%)</label>
-        </div>
-        <div class="critchance" style="display: none;">
-          <label class="item-text">Crit Chance:</label>
-          <label class="item-text item-red-text" id="#critchance">+70%</label>
-          <label class="item-text item-dungeon-stat" id="#dungeon_critchance">(+276.5%)</label>
-        </div>
-        <div class="attackSpeed" style="display: none;">
-          <label class="item-text">Bonus Attack Speed:</label>
-          <label class="item-text item-red-text" id="#attackSpeed">+7%</label>
-          <label class="item-text item-dungeon-stat" id="#dungeon_attackSpeed">(+10.5%)</label>
-        </div>
-        <div class="speed" style="display: none;">
-          <div style="margin-top: 10px"></div>
-          <label class="item-text">Speed:</label>
-          <label class="item-text item-green-text" id="#speed">+33</label>
-          <label class="item-text item-dungeon-stat" id="#dungeon_speed">(+45)</label>
-        </div>
-        <div class="intelligence" style="display: none;">
-          <label class="item-text">Intelligence:</label>
-          <label class="item-text item-green-text" id="#intelligence">+640</label>
-          <label class="item-text item-dungeon-stat" id="#dungeon_intelligence">(+2389.75)</label>
-        </div>
-        <div class="ferocity" style="display: none;">
-          <label class="item-text">Ferocity:</label>
-          <label class="item-text item-green-text" id="#ferocity">+33</label>
-          <label class="item-text item-dungeon-stat" id="#dungeon_ferocity">(+45)</label>
-        </div>
-        <div class="defense" style="display: none;">
-          <label class="item-text">Defense:</label>
-          <label class="item-text item-green-text" id="#defense">+33</label>
-          <label class="item-text item-dungeon-stat" id="#dungeon_defense">(+45)</label>
-        </div>
-        <div class="magicfind" style="display: none;">
-          <label class="item-text">Magic Find:</label>
-          <label class="item-text item-green-text" id="#magicfind"></label>
-          <label class="item-text item-dungeon-stat" id="#dungeon_magicfind"></label>
-        </div>
-        <div class="gemstoneSlots" style="display: none;">
-          <label class="item-text"></label>
-          <label class="item-text" id="#gemstoneSlots">[❂][❂]</label>
-        </div>
-        <div style="margin-top: 10px"></div>
-        <div class="ability1">
-          <div class="abilityName" style="display: none;">
-            <label class="item-text" style="color: var(--ability); font-weight: bold;">Ability: </label>
-            <label class="item-text" id="#abilityName" style="color: var(--ability); font-weight: bold;">Throw</label>
-            <label class="item-text"></label>
-            <label class="item-text" id="#abilityKeybind" style="color: var(--keybind); font-weight: bold;">RIGHT CLICK</label>
-          </div>
-          <div class="abilityDescription" style="display: none;">
-            <label class="item-text" style="color: var(--description)" id="#abilityDescription"></label>
-          </div>
-          <div class="abilityMana" style="display: none;">
-            <label class="item-text">Mana Cost:</label>
-            <label class="item-text" style="color: var(--mana)" id="#abilityMana"></label>
-          </div>
-          <div class="abilityCooldown" style="display: none;">
-            <label class="item-text">Cooldown:</label>
-            <label class="item-text" style="color: var(--cooldown)" id="#abilityCooldown"></label>
-          </div>
-        </div>
-        <div style="margin-top: 10px"></div>
-        <label class="item-text" id="#item-type" style="font-weight: bond; text-align: start;"></label>
       </div>
-      
-    </div>
+
+        <div class="w3-content w3-justify w3-text-grey item" class="item">
+          <div><p class="item-name"></p></div>
+          <div class="description"></div>
+          <div style="margin-top: 10px"></div>
+          <div class="gearscore" style="display: none">
+            <label class="item-text">Gear Score:</label>
+            <label class="item-text item-gearscore"></label>
+            <label class="item-text item-dungeon-stat" id="#gearscore"></label>
+          </div>
+          <div class="damage" style="display: none">
+            <label class="item-text">Damage:</label>
+            <label class="item-text item-red-text" id="#damage">+308</label>
+            <label class="item-text item-dungeon-stat" id="#dungeon_damage"
+              >(+745.36)</label
+            >
+          </div>
+          <div class="abilitydamage" style="display: none">
+            <label class="item-text">Ability Damage:</label>
+            <label class="item-text item-red-text" id="#abilitydamage"
+              >+7%</label
+            >
+            <label
+              class="item-text item-dungeon-stat"
+              id="#dungeon_abilitydamage"
+              >(+10.5%)</label
+            >
+          </div>
+          <div class="strength" style="display: none">
+            <label class="item-text">Strength:</label>
+            <label class="item-text item-red-text" id="#strength">+150</label>
+            <label class="item-text item-5-strength" id="#aow"></label>
+            <label
+              class="item-text item-dungeon-stat"
+              id="#dungeon_strength"
+            ></label>
+          </div>
+          <div class="critdamage" style="display: none">
+            <label class="item-text">Crit Damage:</label>
+            <label class="item-text item-red-text" id="#critdamage">+70%</label>
+            <label class="item-text item-dungeon-stat" id="#dungeon_critdamage"
+              >(+276.5%)</label
+            >
+          </div>
+          <div class="critchance" style="display: none">
+            <label class="item-text">Crit Chance:</label>
+            <label class="item-text item-red-text" id="#critchance">+70%</label>
+            <label class="item-text item-dungeon-stat" id="#dungeon_critchance"
+              >(+276.5%)</label
+            >
+          </div>
+          <div class="attackSpeed" style="display: none">
+            <label class="item-text">Bonus Attack Speed:</label>
+            <label class="item-text item-red-text" id="#attackSpeed">+7%</label>
+            <label class="item-text item-dungeon-stat" id="#dungeon_attackSpeed"
+              >(+10.5%)</label
+            >
+          </div>
+          <div class="speed" style="display: none">
+            <div style="margin-top: 10px"></div>
+            <label class="item-text">Speed:</label>
+            <label class="item-text item-green-text" id="#speed">+33</label>
+            <label class="item-text item-dungeon-stat" id="#dungeon_speed"
+              >(+45)</label
+            >
+          </div>
+          <div class="intelligence" style="display: none">
+            <label class="item-text">Intelligence:</label>
+            <label class="item-text item-green-text" id="#intelligence"
+              >+640</label
+            >
+            <label
+              class="item-text item-dungeon-stat"
+              id="#dungeon_intelligence"
+              >(+2389.75)</label
+            >
+          </div>
+          <div class="ferocity" style="display: none">
+            <label class="item-text">Ferocity:</label>
+            <label class="item-text item-green-text" id="#ferocity">+33</label>
+            <label class="item-text item-dungeon-stat" id="#dungeon_ferocity"
+              >(+45)</label
+            >
+          </div>
+          <div class="defense" style="display: none">
+            <label class="item-text">Defense:</label>
+            <label class="item-text item-green-text" id="#defense">+33</label>
+            <label class="item-text item-dungeon-stat" id="#dungeon_defense"
+              >(+45)</label
+            >
+          </div>
+          <div class="magicfind" style="display: none">
+            <label class="item-text">Magic Find:</label>
+            <label class="item-text item-green-text" id="#magicfind"></label>
+            <label
+              class="item-text item-dungeon-stat"
+              id="#dungeon_magicfind"
+            ></label>
+          </div>
+          <div class="gemstoneSlots" style="display: none">
+            <label class="item-text"></label>
+            <label class="item-text" id="#gemstoneSlots">[❂][❂]</label>
+          </div>
+          <div style="margin-top: 10px"></div>
+          <div class="ability1">
+            <div class="abilityName1" style="display: none">
+              <label
+                class="item-text"
+                style="color: var(--ability); font-weight: bold"
+                >Ability:
+              </label>
+              <label
+                class="item-text"
+                id="#abilityName1"
+                style="color: var(--ability); font-weight: bold"
+                >Throw</label
+              >
+              <label class="item-text"></label>
+              <label
+                class="item-text"
+                id="#abilityKeybind1"
+                style="color: var(--keybind); font-weight: bold"
+                >RIGHT CLICK</label
+              >
+            </div>
+            <div class="abilityDescription1" style="display: none">
+              <label
+                class="item-text"
+                style="color: var(--description)"
+                id="#abilityDescription1"
+              ></label>
+            </div>
+            <div class="abilityMana1" style="display: none">
+              <label class="item-text">Mana Cost:</label>
+              <label
+                class="item-text"
+                style="color: var(--mana)"
+                id="#abilityMana1"
+              ></label>
+            </div>
+            <div class="abilityCooldown1" style="display: none">
+              <label class="item-text">Cooldown:</label>
+              <label
+                class="item-text"
+                style="color: var(--cooldown)"
+                id="#abilityCooldown1"
+              ></label>
+            </div>
+          </div>
+          <div class="ability2">
+            <div class="abilityName2" style="display: none">
+              <label
+                class="item-text"
+                style="color: var(--ability); font-weight: bold"
+                >Ability:
+              </label>
+              <label
+                class="item-text"
+                id="#abilityName2"
+                style="color: var(--ability); font-weight: bold"
+                >Throw</label
+              >
+              <label class="item-text"></label>
+              <label
+                class="item-text"
+                id="#abilityKeybind2"
+                style="color: var(--keybind); font-weight: bold"
+                >RIGHT CLICK</label
+              >
+            </div>
+            <div class="abilityDescription2" style="display: none">
+              <label
+                class="item-text"
+                style="color: var(--description)"
+                id="#abilityDescription2"
+              ></label>
+            </div>
+            <div class="abilityMana2" style="display: none">
+              <label class="item-text">Mana Cost:</label>
+              <label
+                class="item-text"
+                style="color: var(--mana)"
+                id="#abilityMana2"
+              ></label>
+            </div>
+            <div class="abilityCooldown2" style="display: none">
+              <label class="item-text">Cooldown:</label>
+              <label
+                class="item-text"
+                style="color: var(--cooldown)"
+                id="#abilityCooldown2"
+              ></label>
+            </div>
+          </div>
+          <div class="ability3">
+            <div class="abilityName3" style="display: none">
+              <label
+                class="item-text"
+                style="color: var(--ability); font-weight: bold"
+                >Ability:
+              </label>
+              <label
+                class="item-text"
+                id="#abilityName3"
+                style="color: var(--ability); font-weight: bold"
+                >Throw</label
+              >
+              <label class="item-text"></label>
+              <label
+                class="item-text"
+                id="#abilityKeybind3"
+                style="color: var(--keybind); font-weight: bold"
+                >RIGHT CLICK</label
+              >
+            </div>
+            <div class="abilityDescription3" style="display: none">
+              <label
+                class="item-text"
+                style="color: var(--description)"
+                id="#abilityDescription3"
+              ></label>
+            </div>
+            <div class="abilityMana3" style="display: none">
+              <label class="item-text">Mana Cost:</label>
+              <label
+                class="item-text"
+                style="color: var(--mana)"
+                id="#abilityMana3"
+              ></label>
+            </div>
+            <div class="abilityCooldown3" style="display: none">
+              <label class="item-text">Cooldown:</label>
+              <label
+                class="item-text"
+                style="color: var(--cooldown)"
+                id="#abilityCooldown3"
+              ></label>
+            </div>
+          </div>
+          <div style="margin-top: 10px"></div>
+          <label
+            class="item-text"
+            id="#item-type"
+            style="font-weight: bold; text-align: start"
+          ></label>
+        </div>
+      </div>
     </div>
   </body>
   <script src="main.js"></script>

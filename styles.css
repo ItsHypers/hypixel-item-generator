@@ -37,13 +37,10 @@ h6 {
 }
 /* Set the width of the sidebar to 120px */
 .w3-sidebar {
-  width: 250px;
+  width: 500px;
   background: #222;
 }
 /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
-#main {
-  margin-left: 120px;
-}
 /* Remove margins from "page content" on small screens */
 @media only screen and (max-width: 600px) {
   #main {
@@ -77,7 +74,9 @@ h6 {
   font-size: 15px;
   color: #474647;
 }
-#abilityButton {
+#abilityButton1,
+#abilityButton2,
+#abilityButton3 {
   height: 50px;
   background-color: #f1f1f1;
 }
@@ -418,7 +417,9 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 .tab button.active {
   background-color: #ccc;
 }
-
+.active#abilityButton {
+  background-color: #ccc;
+}
 /* Style the tab content */
 .tabcontent {
   display: none;
