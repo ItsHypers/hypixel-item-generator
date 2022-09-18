@@ -9,6 +9,7 @@ Things I want to add:
 
 - Add Recommed Checkbox
 - Add Kill counter (book of stats)
+- Adding ability to add Stat colours to description text
 - Add ability to add reforge names (E.G Heroic Hyperion)
 - HBP / Fumings
 - add ability to add enchants, (looting 2, ult wise 3)
@@ -22,3 +23,10 @@ To come Later:
 - Equipment Item Menu (for equipment, such as pickaxes, axes etc)
 
 If you'd like anything else added, please let me know.
+
+Done Features:
+
+- Add Soulbound Checkbox ✔️
+- Add Ability to add Images (through url?) ✔️
+- Add Dungeonized Checkbox ✔️
+- add Description box ✔️
