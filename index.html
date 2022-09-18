@@ -333,6 +333,14 @@
           /><label for="checkboxOne" style="width: 50%; padding-top: 12px"
             > Soulbound?</label
           >
+          <input
+            type="checkbox"
+            id="recom"
+            value="recom"
+            onchange="recomRarity(this.value)"
+          /><label for="checkboxOne" style="width: 50%; padding-top: 12px"
+            > Recom?</label
+          >
         </row>
         <row class="row1">
           <div class="field field_v1">
@@ -601,7 +609,7 @@
             <button
               style="width: 100%; background-color: var(--common)"
               id="common"
-              onclick="common()"
+              onclick="raritySelect('common')"
             >
               Common
             </button>
@@ -609,7 +617,7 @@
           <div>
             <button
               style="width: 100%; background-color: var(--uncommon)"
-              onclick="uncommon()"
+              onclick="raritySelect('uncommon')"
             >
               Uncommon
             </button>
@@ -618,7 +626,7 @@
             <button
               style="width: 100%; background-color: var(--rare)"
               id="rare"
-              onclick="rare()"
+              onclick="raritySelect('rare')"
             >
               Rare
             </button>
@@ -627,7 +635,7 @@
             <button
               style="width: 100%; background-color: var(--epic)"
               id="epic"
-              onclick="epic()"
+              onclick="raritySelect('epic')"
             >
               Epic
             </button>
@@ -636,7 +644,7 @@
             <button
               style="width: 100%; background-color: var(--legendary)"
               id="legendary"
-              onclick="legendary()"
+              onclick="raritySelect('legendary')"
             >
               Legendary
             </button>
@@ -645,16 +653,25 @@
             <button
               style="width: 100%; background-color: var(--mythic)"
               id="mythic"
-              onclick="mythic()"
+              onclick="raritySelect('mythic')"
             >
               Mythic
             </button>
           </div>
           <div>
             <button
+              style="width: 100%; background-color: var(--divine)"
+              id="divine"
+              onclick="raritySelect('divine')"
+            >
+              Divine
+            </button>
+          </div>
+          <div>
+            <button
               style="width: 100%; background-color: var(--special)"
               id="special"
-              onclick="special()"
+              onclick="raritySelect('special')"
             >
               Special
             </button>
@@ -663,18 +680,9 @@
             <button
               style="width: 100%; background-color: var(--veryspecial)"
               id="veryspecial"
-              onclick="veryspecial()"
+              onclick="raritySelect('veryspecial')"
             >
               Very Special
-            </button>
-          </div>
-          <div>
-            <button
-              style="width: 100%; background-color: var(--divine)"
-              id="divine"
-              onclick="divine()"
-            >
-              Divine
             </button>
           </div>
         </div>
@@ -976,6 +984,11 @@
             id="#item-type"
             style="font-weight: bold; text-align: start"
           ></label>
+          <label
+            class="item-text"
+            id="#recombed"
+            style="font-weight: bold; text-align: start; display: none;"
+          >(Recombobulated)</label>
         </div>
       </div>
     </div>

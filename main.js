@@ -7,17 +7,29 @@ var currentIntelligence = 0;
 var currentDefence = 0;
 var currentabilityDamage = 0;
 var currentItem = "SWORD";
-var currentRarity = "COMMON";
-const commonColor = "#d3d3d3";
-const uncommonColor = "#4fe34d";
-const rareColor = "#5453fb";
-const epicColor = "#970295";
-const legendaryColor = "#f1a001";
-const mythicColor = "#f551f4";
-const specialColor = "#ff5555";
-const veryspecialColor = "#fe5454";
-const divineColor = "#53f7f7";
-
+const Rarities = [
+  "common",
+  "uncommon",
+  "rare",
+  "epic",
+  "legendary",
+  "mythic",
+  "divine",
+  "special",
+  "veryspecial",
+];
+const RarityHexs = {
+  common: "#d3d3d3",
+  uncommon: "#4fe34d",
+  rare: "#5453fb",
+  epic: "#970295",
+  legendary: "#f1a001",
+  mythic: "#f551f4",
+  divine: "#53f7f7",
+  special: "#ff5555",
+  veryspecial: "#fe5454",
+};
+var currentRarity = Rarities[0];
 function copyPaste() {
   var x = document.getElementById("symbols");
   if (x.style.display === "none") {
@@ -157,7 +169,7 @@ function itemType(input) {
   input = input.toUpperCase();
   currentItem = input;
   document.getElementById("#item-type").textContent =
-    currentRarity + " " + input;
+    currentRarity.toUpperCase() + " " + input;
 }
 function magicfind(input) {
   document.getElementById("#magicfind").textContent = "+" + input;
@@ -316,64 +328,28 @@ function switchType(evt, type) {
     evt.currentTarget.className += " active";
   }
 }
+function raritySelect(rarity) {
+  document.querySelector(".item-name").style.color = hexToRgbA(
+    RarityHexs[rarity]
+  );
+  document.getElementById("#item-type").style.color = hexToRgbA(
+    RarityHexs[rarity]
+  );
+  document.getElementById("#item-type").textContent =
+    rarity.toUpperCase() + " " + currentItem;
+  currentRarity = rarity;
+}
 
-function common() {
-  document.querySelector(".item-name").style.color = hexToRgbA(commonColor);
-  document.getElementById("#item-type").style.color = hexToRgbA(commonColor);
-  document.getElementById("#item-type").textContent = "COMMON " + currentItem;
-  currentRarity = "COMMON";
-}
-function uncommon() {
-  document.querySelector(".item-name").style.color = hexToRgbA(uncommonColor);
-  document.getElementById("#item-type").style.color = hexToRgbA(uncommonColor);
-  document.getElementById("#item-type").textContent = "UNCOMMON " + currentItem;
-  currentRarity = "UNCOMMON";
-}
-function rare() {
-  document.querySelector(".item-name").style.color = hexToRgbA(rareColor);
-  document.getElementById("#item-type").style.color = hexToRgbA(rareColor);
-  document.getElementById("#item-type").textContent = "RARE " + currentItem;
-  currentRarity = "RARE";
-}
-function epic() {
-  document.querySelector(".item-name").style.color = hexToRgbA(epicColor);
-  document.getElementById("#item-type").style.color = hexToRgbA(epicColor);
-  document.getElementById("#item-type").textContent = "EPIC " + currentItem;
-  currentRarity = "EPIC";
-}
-function legendary() {
-  document.querySelector(".item-name").style.color = hexToRgbA(legendaryColor);
-  document.getElementById("#item-type").style.color = hexToRgbA(legendaryColor);
-  document.getElementById("#item-type").textContent =
-    "LEGENDARY " + currentItem;
-  currentRarity = "LEGENDARY";
-}
-function mythic() {
-  document.querySelector(".item-name").style.color = hexToRgbA(mythicColor);
-  document.getElementById("#item-type").style.color = hexToRgbA(mythicColor);
-  document.getElementById("#item-type").textContent = "MYTHIC " + currentItem;
-  currentRarity = "MYTHIC";
-}
-function special() {
-  document.querySelector(".item-name").style.color = hexToRgbA(specialColor);
-  document.getElementById("#item-type").style.color = hexToRgbA(specialColor);
-  document.getElementById("#item-type").textContent = "SPECIAL " + currentItem;
-  currentRarity = "SPECIAL";
-}
-function veryspecial() {
-  document.querySelector(".item-name").style.color =
-    hexToRgbA(veryspecialColor);
-  document.getElementById("#item-type").style.color =
-    hexToRgbA(veryspecialColor);
-  document.getElementById("#item-type").textContent =
-    "VERY SPECIAL " + currentItem;
-  currentRarity = "VERYSPECIAL";
-}
-function divine() {
-  document.querySelector(".item-name").style.color = hexToRgbA(divineColor);
-  document.getElementById("#item-type").style.color = hexToRgbA(divineColor);
-  document.getElementById("#item-type").textContent = "DIVINE " + currentItem;
-  currentRarity = "DIVINE";
+function recomRarity(input) {
+  var checkBox = document.getElementById("recom");
+  var currentIndex = Rarities.indexOf(currentRarity);
+  if (checkBox.checked == true) {
+    raritySelect(Rarities[currentIndex + 1]);
+    document.getElementById("#recombed").style.display = "block";
+  } else {
+    raritySelect(Rarities[currentIndex - 1]);
+    document.getElementById("#recombed").style.display = "none";
+  }
 }
 
 function image(input) {
