@@ -107,6 +107,10 @@ h6 {
   font-weight: bold;
   font-family: Minecraft;
 }
+.book {
+  font-family: Minecraft;
+  color: #f1f167;
+}
 .colorhover {
   background-color: rgb(80, 80, 80);
   text-align: center;
