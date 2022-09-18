@@ -8,7 +8,11 @@ fixed some UI bugs
 
 Added ability to add Image to item, including ability to change image size
 
+<<<<<<< HEAD
 Added Soulbound checkbox
 
 
 Update #2
+=======
+Added soul-bound item checkbox
+>>>>>>> 6a769d69388a1c6cec396761e3364a511ec3c332

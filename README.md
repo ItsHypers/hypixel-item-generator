@@ -25,7 +25,10 @@ To come Later:
 If you'd like anything else added, please let me know.
 
 Done Features:
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6a769d69388a1c6cec396761e3364a511ec3c332
 - Add Soulbound Checkbox ✔️
 - Add Ability to add Images (through url?) ✔️
 - Add Dungeonized Checkbox ✔️
