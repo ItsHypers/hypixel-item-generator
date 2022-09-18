@@ -40,6 +40,9 @@ h6 {
   width: 350px;
   background: #222;
 }
+.w3-justify {
+  text-align: justify;
+}
 /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
 /* Remove margins from "page content" on small screens */
 @media only screen and (max-width: 600px) {
@@ -99,7 +102,10 @@ h6 {
   font-weight: bold;
   font-family: Minecraft;
 }
-
+.colorhover {
+  background-color: rgb(80, 80, 80);
+  text-align: center;
+}
 .item-text {
   color: #b8b8b8;
   font-weight: lighter;

@@ -7,3 +7,8 @@ Added Dungeonizable checkbox, to remove Dungeonizable stats / re-enable them. Al
 fixed some UI bugs
 
 Added ability to add Image to item, including ability to change image size
+
+Added Soulbound checkbox
+
+
+Update #2

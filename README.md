@@ -9,7 +9,6 @@ Things I want to add:
 
 - Add Recommed Checkbox
 - Add Kill counter (book of stats)
-- Add Soulbound Checkbox
 - Add ability to add reforge names (E.G Heroic Hyperion)
 - HBP / Fumings
 - add ability to add enchants, (looting 2, ult wise 3)

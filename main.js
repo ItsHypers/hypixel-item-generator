@@ -52,7 +52,7 @@ function abilityKeybind(input, num) {
 function abilityDescription(input, num) {
   var name = document.getElementById("#abilityDescription" + num);
   var className = document.querySelector(".abilityDescription" + num);
-  name.textContent = input;
+  addColours(input, name);
   className.style.display = "block";
 }
 function abilityMana(input, num) {
@@ -167,11 +167,58 @@ function speed(input) {
   document.getElementById("#speed").textContent = "+" + input;
   document.querySelector(".speed").style.display = "block";
 }
+const Colours = [
+  "#b8b8b8", //Default 0
+  "#55FF55", //Green 1
+  "#55FFFF", //Blue 2
+  "#FF5555", //Red 3
+  "#FF55FF", //Purple 4
+  "#FFFF55", //Yellow 5
+];
 
-function description(input) {
-  document.getElementById("#mainDescription").textContent = input;
-  document.querySelector(".mainDescription").style.display = "block";
+function descriptionClass(input, type) {
+  document.querySelector(".mainLore").style.display = "block";
+  if (type == "lore") {
+    var x = document.getElementById("#mainLore");
+  }
+  if (type == "description") {
+    var x = document.getElementById("#mainDescription");
+  }
+  addColours(input, x);
 }
+function addColours(input, x) {
+  var hasNumber = /\d/;
+  var currentNumber = 0;
+  var array = input.split(" ");
+  x.innerHTML = "";
+  array.forEach((element) => {
+    var textSpan = document.createElement("label");
+    string = element;
+    if (element[0] == "&") {
+      if (hasNumber.test(element[1])) {
+        if (element[1] >= 0 && element[1] <= 5) {
+          currentNumber = element[1];
+          string = element.substring(2);
+        } else {
+          string = element.substring(1);
+        }
+      } else {
+        string = element.substring(1);
+      }
+    }
+    textSpan.style.color = Colours[currentNumber];
+    textSpan.innerHTML = " " + string;
+    x.appendChild(textSpan);
+  });
+}
+hover = document.querySelector(".colorhover");
+hover.addEventListener("mouseover", (event) => {
+  document.querySelector(".colorRow").style.display = "block";
+});
+hover.addEventListener("mouseout", (event) => {
+  document.querySelector(".colorRow").style.display = "none";
+});
+
 function artofwar(input) {
   var checkBox = document.getElementById("aow");
   if (checkBox.checked == true) {
