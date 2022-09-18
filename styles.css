@@ -102,6 +102,11 @@ h6 {
   font-weight: bold;
   font-family: Minecraft;
 }
+.reforge {
+  color: --common;
+  font-weight: bold;
+  font-family: Minecraft;
+}
 .colorhover {
   background-color: rgb(80, 80, 80);
   text-align: center;

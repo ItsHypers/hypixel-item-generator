@@ -82,6 +82,9 @@ function abilityCooldown(input, num) {
 function itemName(input) {
   document.querySelector(".item-name").textContent = input;
 }
+function reforge(input) {
+  document.querySelector(".reforge").textContent = input;
+}
 function gearScore(input) {
   document.querySelector(".item-gearscore").textContent = input;
   document.querySelector(".gearscore").style.display = "block";
@@ -165,11 +168,16 @@ function defense(input) {
   document.getElementById("#dungeon_defense").textContent = dungeonCalc(input);
   currentDefence = input;
 }
-function itemType(input) {
+function itemType(input, dungeon) {
   input = input.toUpperCase();
   currentItem = input;
-  document.getElementById("#item-type").textContent =
-    currentRarity.toUpperCase() + " " + input;
+  if (dungeon) {
+    document.getElementById("#item-type").textContent =
+      currentRarity.toUpperCase() + " DUNGEON" + " " + input;
+  } else {
+    document.getElementById("#item-type").textContent =
+      currentRarity.toUpperCase() + " " + input;
+  }
 }
 function magicfind(input) {
   document.getElementById("#magicfind").textContent = "+" + input;
@@ -242,12 +250,29 @@ function artofwar(input) {
   }
 }
 
+function potatobooks(input) {
+  var checkBox = document.getElementById("fumings");
+  if (checkBox.checked == true) {
+    document.getElementById("#damagepotatobook").innerHTML = "(+30)";
+    document.getElementById("#strengthpotatobook").innerHTML = "(+30)";
+    document.getElementById("#damagepotatobook").style = "block";
+    document.getElementById("#strengthpotatobook").style = "block";
+  } else {
+    document.getElementById("#damagepotatobook").innerHTML = "";
+    document.getElementById("#strengthpotatobook").innerHTML = "";
+    document.getElementById("#damagepotatobook").style = "none";
+    document.getElementById("#strengthpotatobook").style = "none";
+  }
+}
+
 function dungeon(input) {
   var checkBox = document.getElementById("dungeonized");
   if (checkBox.checked == true) {
     dungeonized = true;
+    itemType(currentItem, true);
     updateNumbers();
   } else {
+    itemType(currentItem, false);
     dungeonized = false;
     updateNumbers();
   }
@@ -332,12 +357,14 @@ function raritySelect(rarity) {
   document.querySelector(".item-name").style.color = hexToRgbA(
     RarityHexs[rarity]
   );
+  document.querySelector(".reforge").style.color = hexToRgbA(
+    RarityHexs[rarity]
+  );
   document.getElementById("#item-type").style.color = hexToRgbA(
     RarityHexs[rarity]
   );
-  document.getElementById("#item-type").textContent =
-    rarity.toUpperCase() + " " + currentItem;
   currentRarity = rarity;
+  itemType(currentItem, dungeonized);
 }
 
 function recomRarity(input) {
@@ -350,6 +377,11 @@ function recomRarity(input) {
     raritySelect(Rarities[currentIndex - 1]);
     document.getElementById("#recombed").style.display = "none";
   }
+}
+
+function killCounter(input) {
+  document.querySelector(".killcount").style.display = "block";
+  document.getElementById("#killcount").textContent = input;
 }
 
 function image(input) {
