@@ -14,12 +14,12 @@ var currentMagicFind = 0;
 var currentPetLuck = 0;
 var currentSpeed = 0;
 var numofAbilities = 0;
-var itemsChanged = {};
-
 var currentItem = "SWORD";
 var currentitemName = "";
 var currentCommand = "";
 var abilities = {};
+var itemsChanged = {};
+var maxDescription = 50; // maximum number of characters to extract
 const Rarities = [
   "common",
   "uncommon",
@@ -471,11 +471,11 @@ function hexToRgbA(hex) {
 }
 function minecraftCommand() {
   currentCommand =
-    `/give @p diamond_sword{display:{Name:\'[{\"text\":\"` +
+    `/give @p minecraft:diamond_sword{display:{Name:\'[{\"text\":\"` +
     currentitemName +
     `\",\"color\":\"` +
     minecraftRaritys[currentRarity] +
-    `\",\"italic\":false}]\',Lore:[\'`;
+    `\",\"italic\":false,\"bold\":true}]\',Lore:[\'`;
   if (itemsChanged["damage"]) {
     currentCommand +=
       `[{\"text\":\"Damage: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
@@ -514,7 +514,7 @@ function minecraftCommand() {
   }
   if (itemsChanged["health"]) {
     currentCommand +=
-      `[{\"text\":\"\"}]\',\'[{\"text\":\"Health: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
+      `[{\"text\":\"Health: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
       currentHealth +
       `\",\"color\":\"green\",\"italic\":false}]\',\'`;
   }
@@ -526,53 +526,70 @@ function minecraftCommand() {
   }
   if (itemsChanged["speed"]) {
     currentCommand +=
-      `[{\"text\":\"\"}]\',\'[{\"text\":\"Speed: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
+      `[{\"text\":\"Speed: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
       currentSpeed +
       `\",\"color\":\"green\",\"italic\":false}]\',\'`;
   }
   if (itemsChanged["intelligence"]) {
     currentCommand +=
-      `[{\"text\":\"\"}]\',\'[{\"text\":\"Intelligence: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
+      `[{\"text\":\"Intelligence: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
       currentIntelligence +
       `\",\"color\":\"green\",\"italic\":false}]\',\'`;
   }
   if (itemsChanged["truedefence"]) {
     currentCommand +=
-      `[{\"text\":\"\"}]\',\'[{\"text\":\"True Defence: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
+      `[{\"text\":\"True Defence: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
       currentTrueDefence +
       `\",\"color\":\"green\",\"italic\":false}]\',\'`;
   }
   if (itemsChanged["magicfind"]) {
     currentCommand +=
-      `[{\"text\":\"\"}]\',\'[{\"text\":\"Magic Find: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
+      `[{\"text\":\"Magic Find: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
       currentMagicFind +
       `\",\"color\":\"green\",\"italic\":false}]\',\'`;
   }
   if (itemsChanged["petluck"]) {
     currentCommand +=
-      `[{\"text\":\"\"}]\',\'[{\"text\":\"Pet Luck: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
+      `[{\"text\":\"Pet Luck: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
       currentPetLuck +
       `\",\"color\":\"green\",\"italic\":false}]\',\'`;
   }
   currentCommand += `[{\"text\":\"\"}]\',\'`;
   for (let i = 1; i <= numofAbilities; i++) {
+    splicedDesc = abilities[i + "description"].match(/.{1,30}/g);
     currentCommand +=
       `[{\"text\":\"Ability: \",\"color\":\"gold\",\"italic\":false},{\"text\":\"` +
       abilities[i + "name"] +
       `\",\"color\":\"gold\",\"italic\":false},{\"text\":\" ` +
       abilities[i + "keybind"] +
-      `\",\"color\":\"yellow\",\"italic\":false,\"bold\":true}]\',\'[{\"text\":\"` +
-      abilities[i + "description"] +
-      `\",\"color\":\"gray\",\"italic\":false}]\',\'[{\"text\":\"Mana cost: \",\"color\":\"dark_gray\",\"italic\":false},{\"text\":\"` +
+      `\",\"color\":\"yellow\",\"italic\":false,\"bold\":true}]\',\'`;
+    console.log(splicedDesc);
+    for (let i = 0; i < splicedDesc.length; i++) {
+      currentCommand +=
+        `[{\"text\":\"` +
+        splicedDesc[i] +
+        `\",\"color\":\"gray\",\"italic\":false,\"bold\":false}]\',\'`;
+    }
+    currentCommand +=
+      `[{\"text\":\"Mana cost: \",\"color\":\"dark_gray\",\"italic\":false},{\"text\":\"` +
       abilities[i + "mana"] +
       `\",\"color\":\"dark_aqua\",\"italic\":false}]\',\'[{\"text\":\"Cooldown: \",\"color\":\"dark_gray\",\"italic\":false},{\"text\":\"` +
       abilities[i + "cooldown"] +
       `\",\"color\":\"green\",\"italic\":false}]\',\'`;
   }
-  currentCommand += `[{\"text\":\"\"}]\',\'[{\"text\":\"This item can be reforged!\",\"color\":\"dark_gray\",\"italic\":false}]\',\'[{\"text\":\"\u2620\",\"color\":\"red\",\"italic\":false},{\"text\":\" Requires Spider LVL 1\",\"color\":\"dark_purple\",\"italic\":false}]\',\'[{\"text\":\"EPIC DUNGEON BOOTS\",\"color\":\"dark_purple\",\"italic\":false,\"bold\":true}]\']}}`;
-  /*if (dungeonized) {
-    currentCommand += " DUNGEON";
+
+  //\'[{\"text\":\"\u2620\",\"color\":\"red\",\"italic\":false},{\"text\":\" Requires Spider LVL 1\",\"color\":\"dark_purple\",\"italic\":false}]\',\'`;
+  currentCommand += `[{\"text\":\"\"}]\',\'[{\"text\":\"This item can be reforged!\",\"color\":\"dark_gray\",\"italic\":false}]\',`;
+  currentCommand += `'[{\"text\":\"` + currentRarity.toUpperCase() + ` `;
+  if (dungeonized) {
+    currentCommand += "DUNGEON ";
   }
+  currentCommand +=
+    currentItem +
+    `\",\"color\":\"` +
+    minecraftRaritys[currentRarity] +
+    `\",\"italic\":false,\"bold\":true}]\']}}`;
+  /*
   currentCommand +=
     ` ` +
     currentItem +
