@@ -2,11 +2,24 @@ var currentStrength = 0;
 var currentGearScore = 0;
 var currentDamage = 0;
 var currentcritDamage = 0;
+var currentCritChance = 0;
 var currentAttackSpeed = 0;
 var currentIntelligence = 0;
 var currentDefence = 0;
 var currentabilityDamage = 0;
+var currentSeaCreature = 0;
+var currentHealth = 0;
+var currentTrueDefence = 0;
+var currentMagicFind = 0;
+var currentPetLuck = 0;
+var currentSpeed = 0;
+var numofAbilities = 0;
+var itemsChanged = {};
+
 var currentItem = "SWORD";
+var currentitemName = "";
+var currentCommand = "";
+var abilities = {};
 const Rarities = [
   "common",
   "uncommon",
@@ -29,6 +42,17 @@ const RarityHexs = {
   special: "#ff5555",
   veryspecial: "#fe5454",
 };
+const minecraftRaritys = {
+  common: "white",
+  uncommon: "green",
+  rare: "blue",
+  epic: "purple",
+  legendary: "gold",
+  mythic: "light_purple",
+  divine: "aqua",
+  special: "red",
+  veryspecial: "red",
+};
 var currentRarity = Rarities[0];
 function copyPaste() {
   var x = document.getElementById("symbols");
@@ -50,37 +74,53 @@ function ability(input) {
   }
 }
 function abilityName(input, num) {
+  var abilityNum = "ability" + num;
   var name = document.getElementById("#abilityName" + num);
   var className = document.querySelector(".abilityName" + num);
   name.textContent = input;
   className.style.display = "block";
+  itemsChanged[abilityNum] = true;
+  numofAbilities += 1;
+  abilities[num + "name"] = input;
 }
 function abilityKeybind(input, num) {
+  var ability = "ability" + num;
   var name = document.getElementById("#abilityKeybind" + num);
-  var className = document.querySelector(".abilityKeybind" + num);
   name.textContent = input;
-  className.style.display = "block";
+  itemsChanged[ability] = true;
+  abilities[num + "keybind"] = input;
 }
 function abilityDescription(input, num) {
+  var ability = "ability" + num;
   var name = document.getElementById("#abilityDescription" + num);
   var className = document.querySelector(".abilityDescription" + num);
   addColours(input, name);
   className.style.display = "block";
+  itemsChanged[ability] = true;
+  abilities[num + "description"] = input;
 }
 function abilityMana(input, num) {
+  var ability = "ability" + num;
   var name = document.getElementById("#abilityMana" + num);
   var className = document.querySelector(".abilityMana" + num);
   name.textContent = input;
   className.style.display = "block";
+  itemsChanged[ability] = true;
+  abilities[num + "mana"] = input;
 }
 function abilityCooldown(input, num) {
+  var ability = "ability" + num;
   var name = document.getElementById("#abilityCooldown" + num);
   var className = document.querySelector(".abilityCooldown" + num);
   name.textContent = input;
   className.style.display = "block";
+  itemsChanged[ability] = true;
+  ability["cooldown"] = input;
+  abilities[num + "cooldown"] = input;
 }
 function itemName(input) {
   document.querySelector(".item-name").textContent = input;
+  currentitemName = input;
 }
 function reforge(input) {
   document.querySelector(".reforge").textContent = input;
@@ -90,6 +130,7 @@ function gearScore(input) {
   document.querySelector(".gearscore").style.display = "block";
   document.getElementById("#gearscore").textContent = dungeonCalc(input);
   currentGearScore = input;
+  itemsChanged["gearscore"] = true;
 }
 function strength(input) {
   document.getElementById("#strength").textContent = "+" + input;
@@ -99,6 +140,7 @@ function strength(input) {
     "strength"
   );
   currentStrength = input;
+  itemsChanged["strength"] = true;
 }
 function Damage(input) {
   document.getElementById("#damage").textContent = "+" + input;
@@ -108,6 +150,7 @@ function Damage(input) {
     "damage"
   );
   currentDamage = input;
+  itemsChanged["damage"] = true;
 }
 function abilitydamage(input) {
   document.getElementById("#abilitydamage").textContent = "+" + input;
@@ -115,6 +158,7 @@ function abilitydamage(input) {
   document.getElementById("#dungeon_abilitydamage").textContent =
     dungeonCalc(input);
   currentabilityDamage = input;
+  itemsChanged["abilitydamage"] = true;
 }
 function gemstones(input) {
   if (input >= 6) {
@@ -127,6 +171,7 @@ function gemstones(input) {
   }
   document.getElementById("#gemstoneSlots").textContent = string;
   document.querySelector(".gemstoneSlots").style.display = "block";
+  itemsChanged["gemstone"] = true;
 }
 function critDamage(input) {
   document.getElementById("#critdamage").textContent = "+" + input + "%";
@@ -138,13 +183,14 @@ function critDamage(input) {
     document.getElementById("#dungeon_critdamage").textContent = "";
   }
   currentcritDamage = input;
+  itemsChanged["critdamage"] = true;
 }
+
 function attackSpeed(input) {
   document.getElementById("#attackSpeed").textContent = "+" + input + "%";
   document.querySelector(".attackSpeed").style.display = "block";
-  document.getElementById("#dungeon_attackSpeed").textContent =
-    dungeonCalc(input) + "%";
   currentAttackSpeed = input;
+  itemsChanged["attackspeed"] = true;
 }
 function Intelligence(input) {
   document.getElementById("#intelligence").textContent = "+" + input;
@@ -152,21 +198,26 @@ function Intelligence(input) {
   document.getElementById("#dungeon_intelligence").textContent =
     dungeonCalc(input);
   currentIntelligence = input;
+  itemsChanged["intelligence"] = true;
 }
 function critChance(input) {
   document.getElementById("#critchance").textContent = "+" + input + "%";
   document.querySelector(".critchance").style.display = "block";
+  currentCritChance = input;
+  itemsChanged["critchance"] = true;
 }
 function ferocity(input) {
   document.getElementById("#ferocity").textContent = "+" + input;
   document.querySelector(".ferocity").style.display = "block";
   document.getElementById("#dungeon_ferocity").textContent = dungeonCalc(input);
+  itemsChanged["ferocity"] = true;
 }
-function defense(input) {
-  document.getElementById("#defense").textContent = "+" + input;
-  document.querySelector(".defense").style.display = "block";
-  document.getElementById("#dungeon_defense").textContent = dungeonCalc(input);
+function defence(input) {
+  document.getElementById("#defence").textContent = "+" + input;
+  document.querySelector(".defence").style.display = "block";
+  document.getElementById("#dungeon_defence").textContent = dungeonCalc(input);
   currentDefence = input;
+  itemsChanged["defence"] = true;
 }
 function itemType(input, dungeon) {
   input = input.toUpperCase();
@@ -182,10 +233,14 @@ function itemType(input, dungeon) {
 function magicfind(input) {
   document.getElementById("#magicfind").textContent = "+" + input;
   document.querySelector(".magicfind").style.display = "block";
+  currentMagicFind = input;
+  itemsChanged["magicfind"] = true;
 }
 function speed(input) {
   document.getElementById("#speed").textContent = "+" + input;
   document.querySelector(".speed").style.display = "block";
+  currentSpeed = input;
+  itemsChanged["speed"] = true;
 }
 const Colours = [
   "#b8b8b8", //Default 0
@@ -303,7 +358,7 @@ function updateNumbers() {
     Intelligence(currentIntelligence);
   }
   if (currentDefence != 0) {
-    defense(currentDefence);
+    defence(currentDefence);
   }
   if (currentabilityDamage != 0) {
     abilitydamage(currentabilityDamage);
@@ -377,11 +432,13 @@ function recomRarity(input) {
     raritySelect(Rarities[currentIndex - 1]);
     document.getElementById("#recombed").style.display = "none";
   }
+  itemsChanged["recomb"] = true;
 }
 
 function killCounter(input) {
   document.querySelector(".killcount").style.display = "block";
   document.getElementById("#killcount").textContent = input;
+  itemsChanged["killcount"] = true;
 }
 
 function image(input) {
@@ -411,4 +468,117 @@ function hexToRgbA(hex) {
     );
   }
   throw new Error("Bad Hex");
+}
+function minecraftCommand() {
+  currentCommand =
+    `/give @p diamond_sword{display:{Name:\'[{\"text\":\"` +
+    currentitemName +
+    `\",\"color\":\"` +
+    minecraftRaritys[currentRarity] +
+    `\",\"italic\":false}]\',Lore:[\'`;
+  if (itemsChanged["damage"]) {
+    currentCommand +=
+      `[{\"text\":\"Damage: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
+      currentDamage +
+      `\",\"color\":\"red\",\"italic\":false}]\',\'`;
+  }
+  if (itemsChanged["strength"]) {
+    currentCommand +=
+      `[{\"text\":\"Strength: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
+      currentStrength +
+      `\",\"color\":\"red\",\"italic\":false}]\',\'`;
+  }
+  if (itemsChanged["critchance"]) {
+    currentCommand +=
+      `[{\"text\":\"Crit Chance: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
+      currentCritChance +
+      `\",\"color\":\"red\",\"italic\":false}]\',\'`;
+  }
+  if (itemsChanged["critdamage"]) {
+    currentCommand +=
+      `[{\"text\":\"Crit Damage: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
+      currentcritDamage +
+      `\",\"color\":\"red\",\"italic\":false}]\',\'`;
+  }
+  if (itemsChanged["attackspeed"]) {
+    currentCommand +=
+      `[{\"text\":\"Attack Speed: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
+      currentAttackSpeed +
+      `\",\"color\":\"red\",\"italic\":false}]\',\'`;
+  }
+  if (itemsChanged["seacreature"]) {
+    currentCommand +=
+      `[{\"text\":\"Sea Creature Chance: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
+      currentSeaCreature +
+      `\",\"color\":\"red\",\"italic\":false}]\',\'`;
+  }
+  if (itemsChanged["health"]) {
+    currentCommand +=
+      `[{\"text\":\"\"}]\',\'[{\"text\":\"Health: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
+      currentHealth +
+      `\",\"color\":\"green\",\"italic\":false}]\',\'`;
+  }
+  if (itemsChanged["defence"]) {
+    currentCommand +=
+      `[{\"text\":\"Defence: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
+      currentDefence +
+      `\",\"color\":\"green\",\"italic\":false}]\',\'`;
+  }
+  if (itemsChanged["speed"]) {
+    currentCommand +=
+      `[{\"text\":\"\"}]\',\'[{\"text\":\"Speed: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
+      currentSpeed +
+      `\",\"color\":\"green\",\"italic\":false}]\',\'`;
+  }
+  if (itemsChanged["intelligence"]) {
+    currentCommand +=
+      `[{\"text\":\"\"}]\',\'[{\"text\":\"Intelligence: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
+      currentIntelligence +
+      `\",\"color\":\"green\",\"italic\":false}]\',\'`;
+  }
+  if (itemsChanged["truedefence"]) {
+    currentCommand +=
+      `[{\"text\":\"\"}]\',\'[{\"text\":\"True Defence: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
+      currentTrueDefence +
+      `\",\"color\":\"green\",\"italic\":false}]\',\'`;
+  }
+  if (itemsChanged["magicfind"]) {
+    currentCommand +=
+      `[{\"text\":\"\"}]\',\'[{\"text\":\"Magic Find: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
+      currentMagicFind +
+      `\",\"color\":\"green\",\"italic\":false}]\',\'`;
+  }
+  if (itemsChanged["petluck"]) {
+    currentCommand +=
+      `[{\"text\":\"\"}]\',\'[{\"text\":\"Pet Luck: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
+      currentPetLuck +
+      `\",\"color\":\"green\",\"italic\":false}]\',\'`;
+  }
+  currentCommand += `[{\"text\":\"\"}]\',\'`;
+  for (let i = 1; i <= numofAbilities; i++) {
+    currentCommand +=
+      `[{\"text\":\"Ability: \",\"color\":\"gold\",\"italic\":false},{\"text\":\"` +
+      abilities[i + "name"] +
+      `\",\"color\":\"gold\",\"italic\":false},{\"text\":\" ` +
+      abilities[i + "keybind"] +
+      `\",\"color\":\"yellow\",\"italic\":false,\"bold\":true}]\',\'[{\"text\":\"` +
+      abilities[i + "description"] +
+      `\",\"color\":\"gray\",\"italic\":false}]\',\'[{\"text\":\"Mana cost: \",\"color\":\"dark_gray\",\"italic\":false},{\"text\":\"` +
+      abilities[i + "mana"] +
+      `\",\"color\":\"dark_aqua\",\"italic\":false}]\',\'[{\"text\":\"Cooldown: \",\"color\":\"dark_gray\",\"italic\":false},{\"text\":\"` +
+      abilities[i + "cooldown"] +
+      `\",\"color\":\"green\",\"italic\":false}]\',\'`;
+  }
+  currentCommand += `[{\"text\":\"\"}]\',\'[{\"text\":\"This item can be reforged!\",\"color\":\"dark_gray\",\"italic\":false}]\',\'[{\"text\":\"\u2620\",\"color\":\"red\",\"italic\":false},{\"text\":\" Requires Spider LVL 1\",\"color\":\"dark_purple\",\"italic\":false}]\',\'[{\"text\":\"EPIC DUNGEON BOOTS\",\"color\":\"dark_purple\",\"italic\":false,\"bold\":true}]\']}}`;
+  /*if (dungeonized) {
+    currentCommand += " DUNGEON";
+  }
+  currentCommand +=
+    ` ` +
+    currentItem +
+    `\",\"color\":\"` +
+    minecraftRaritys[currentRarity] +
+    `\",\"italic\":false,\"bold\":true}]\'`;
+  currentCommand += `]}}`;*/
+  document.getElementById("#minecraftCommand").innerHTML = currentCommand;
 }
