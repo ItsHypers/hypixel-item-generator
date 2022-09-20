@@ -74,6 +74,9 @@ function abilityCooldown(input, num) {
 function itemName(input) {
   document.querySelector(".item-name").textContent = input.replace(/[*]/g, "✪");
 }
+function reforge(input) {
+  document.querySelector(".reforge").textContent = input;
+}
 function gearScore(input) {
   if (hasLetter(input)) input = input.replace(/[A-Za-z]/g, "");
   document.querySelector(".item-gearscore").textContent = input;
@@ -167,11 +170,16 @@ function defense(input) {
   document.getElementById("#dungeon_defense").textContent = dungeonCalc(input);
   currentDefence = input;
 }
-function itemType(input) {
+function itemType(input, dungeon) {
   input = input.toUpperCase();
   currentItem = input;
-  document.getElementById("#item-type").textContent =
-    currentRarity + " " + input;
+  if (dungeon) {
+    document.getElementById("#item-type").textContent =
+      currentRarity.toUpperCase() + " DUNGEON" + " " + input;
+  } else {
+    document.getElementById("#item-type").textContent =
+      currentRarity.toUpperCase() + " " + input;
+  }
 }
 function magicfind(input) {
   if (hasLetter(input)) input = input.replace(/[A-Za-z]/g, "");
@@ -279,12 +287,29 @@ function artofwar(input) {
   }
 }
 
+function potatobooks(input) {
+  var checkBox = document.getElementById("fumings");
+  if (checkBox.checked == true) {
+    document.getElementById("#damagepotatobook").innerHTML = "(+30)";
+    document.getElementById("#strengthpotatobook").innerHTML = "(+30)";
+    document.getElementById("#damagepotatobook").style = "block";
+    document.getElementById("#strengthpotatobook").style = "block";
+  } else {
+    document.getElementById("#damagepotatobook").innerHTML = "";
+    document.getElementById("#strengthpotatobook").innerHTML = "";
+    document.getElementById("#damagepotatobook").style = "none";
+    document.getElementById("#strengthpotatobook").style = "none";
+  }
+}
+
 function dungeon(input) {
   var checkBox = document.getElementById("dungeonized");
   if (checkBox.checked == true) {
     dungeonized = true;
+    itemType(currentItem, true);
     updateNumbers();
   } else {
+    itemType(currentItem, false);
     dungeonized = false;
     updateNumbers();
   }
@@ -365,64 +390,35 @@ function switchType(evt, type) {
     evt.currentTarget.className += " active";
   }
 }
+function raritySelect(rarity) {
+  document.querySelector(".item-name").style.color = hexToRgbA(
+    RarityHexs[rarity]
+  );
+  document.querySelector(".reforge").style.color = hexToRgbA(
+    RarityHexs[rarity]
+  );
+  document.getElementById("#item-type").style.color = hexToRgbA(
+    RarityHexs[rarity]
+  );
+  currentRarity = rarity;
+  itemType(currentItem, dungeonized);
+}
 
-function common() {
-  document.querySelector(".item-name").style.color = hexToRgbA(commonColor);
-  document.getElementById("#item-type").style.color = hexToRgbA(commonColor);
-  document.getElementById("#item-type").textContent = "COMMON " + currentItem;
-  currentRarity = "COMMON";
+function recomRarity(input) {
+  var checkBox = document.getElementById("recom");
+  var currentIndex = Rarities.indexOf(currentRarity);
+  if (checkBox.checked == true) {
+    raritySelect(Rarities[currentIndex + 1]);
+    document.getElementById("#recombed").style.display = "block";
+  } else {
+    raritySelect(Rarities[currentIndex - 1]);
+    document.getElementById("#recombed").style.display = "none";
+  }
 }
-function uncommon() {
-  document.querySelector(".item-name").style.color = hexToRgbA(uncommonColor);
-  document.getElementById("#item-type").style.color = hexToRgbA(uncommonColor);
-  document.getElementById("#item-type").textContent = "UNCOMMON " + currentItem;
-  currentRarity = "UNCOMMON";
-}
-function rare() {
-  document.querySelector(".item-name").style.color = hexToRgbA(rareColor);
-  document.getElementById("#item-type").style.color = hexToRgbA(rareColor);
-  document.getElementById("#item-type").textContent = "RARE " + currentItem;
-  currentRarity = "RARE";
-}
-function epic() {
-  document.querySelector(".item-name").style.color = hexToRgbA(epicColor);
-  document.getElementById("#item-type").style.color = hexToRgbA(epicColor);
-  document.getElementById("#item-type").textContent = "EPIC " + currentItem;
-  currentRarity = "EPIC";
-}
-function legendary() {
-  document.querySelector(".item-name").style.color = hexToRgbA(legendaryColor);
-  document.getElementById("#item-type").style.color = hexToRgbA(legendaryColor);
-  document.getElementById("#item-type").textContent =
-    "LEGENDARY " + currentItem;
-  currentRarity = "LEGENDARY";
-}
-function mythic() {
-  document.querySelector(".item-name").style.color = hexToRgbA(mythicColor);
-  document.getElementById("#item-type").style.color = hexToRgbA(mythicColor);
-  document.getElementById("#item-type").textContent = "MYTHIC " + currentItem;
-  currentRarity = "MYTHIC";
-}
-function special() {
-  document.querySelector(".item-name").style.color = hexToRgbA(specialColor);
-  document.getElementById("#item-type").style.color = hexToRgbA(specialColor);
-  document.getElementById("#item-type").textContent = "SPECIAL " + currentItem;
-  currentRarity = "SPECIAL";
-}
-function veryspecial() {
-  document.querySelector(".item-name").style.color =
-    hexToRgbA(veryspecialColor);
-  document.getElementById("#item-type").style.color =
-    hexToRgbA(veryspecialColor);
-  document.getElementById("#item-type").textContent =
-    "VERY SPECIAL " + currentItem;
-  currentRarity = "VERYSPECIAL";
-}
-function divine() {
-  document.querySelector(".item-name").style.color = hexToRgbA(divineColor);
-  document.getElementById("#item-type").style.color = hexToRgbA(divineColor);
-  document.getElementById("#item-type").textContent = "DIVINE " + currentItem;
-  currentRarity = "DIVINE";
+
+function killCounter(input) {
+  document.querySelector(".killcount").style.display = "block";
+  document.getElementById("#killcount").textContent = input;
 }
 
 function image(input) {
