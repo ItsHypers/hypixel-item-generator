@@ -24,7 +24,7 @@
 
   gtag('config', 'G-N1FHBNBDWN');
 </script>
-  <body class="w3-black">
+  <body class="grad">
     <!-- Icon Bar (Sidebar - hidden on small screens) -->
     <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
       <a
@@ -71,7 +71,7 @@
             <input
               id="first-name"
               class="field__input"
-              placeholder="e.g. Hyperion"
+              placeholder="e.g. Hyperion **"
               onchange="itemName(this.value)"
             />
             <span class="field__label-wrap" aria-hidden="true">
@@ -310,17 +310,41 @@
           </div>
         </row>
         <row class="row1" style="justify-content: center;">
-          <div class="colorhover" style="height: 80px; width: 100px;"> Hover over me for description/Lore colours</div>
+          <div class="colorhover" style="border-radius: 3px; margin-top: 5px; width: 87.5%"> Hover over me for description/Lore colours</div>
         </row>
         <row class="colorRow" style="display: none;">
           <label>Colours</label>
           <div class="coloroverlay"> 
-            <p>&0 = Default</p>
+            <!-- <p>&0 = Default</p>
             <p>&1 = Green</p>
             <p>&2 = Blue</p>
             <p>&3 = Red</p>
             <p>&4 = Purple</p>
-            <p>&5 = Yellow</p>
+            <p>&5 = Yellow</p> -->
+            <div style="margin-right: 68px;">
+              <p style="color: var(--color-0);">&0 - Black</p>
+              <p style="color: var(--color-1);">&1 - Dark Blue</p>
+              <p style="color: var(--color-2);">&2 - Dark Green</p>
+              <p style="color: var(--color-3);">&3 - Dark Aqua</p>
+              <p style="color: var(--color-4);">&4 - Dark Red</p>
+              <p style="color: var(--color-5);">&5 - Dark Purple</p>
+              <p style="color: var(--color-6);">&6 - Gold</p>
+              <p style="color: var(--color-7);">&7 - Gray</p>
+              <p style="color: var(--color-8);">&8 - Dark Gray</p>
+              <p style="color: var(--color-9);">&9 - Blue</p>
+            </div>
+
+            <div>
+              <p style="color: var(--color-a);">&a - Green</p>
+              <p style="color: var(--color-b);">&b - Aqua</p>
+              <p style="color: var(--color-c);">&c - Red</p>
+              <p style="color: var(--color-d);">&d - Pink</p>
+              <p style="color: var(--color-e);">&e - Yellow</p>
+              <p style="color: var(--color-f);">&f - White</p>
+            </div>
+            
+
+
           </div>
         </row>
         <div style="margin-top: 10px"></div>
@@ -709,7 +733,7 @@
     <!-- Page Content -->
     <div id="main">
       <!-- Header/Home -->
-      <div class="w3-container w3-center w3-black" id="home">
+      <div class="w3-container w3-center" id="home">
         <h1 class="w3-jumbo">Hypixel Item Generator</h1>
         <button onclick="copyPaste()">Symbols (for copy and paste):</button>
         <div id="symbols" style="display: none">
@@ -735,7 +759,7 @@
 
         <div class="w3-content w3-text-grey item" class="item">
           <row>
-            <label><img id="png" style="" src=""> </label>
+            <label><img id="png" src=""> </label>
           <label class="item-name"></label></row>
           <div class="description"></div>
           <div style="margin-top: 10px"></div>
@@ -977,7 +1001,7 @@
           <label
             class="item-text"
             id="#soulbound"
-            style="text-align: start"
+            style="text-align: start; color: #555555 !important"
           ></label>
           <label
             class="item-text"
