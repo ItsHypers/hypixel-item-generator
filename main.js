@@ -18,9 +18,20 @@ const specialColor = "#ff5555";
 const veryspecialColor = "#fe5454";
 const divineColor = "#53f7f7";
 
+const RarityHexs = {
+  common: "#d3d3d3",
+  uncommon: "#4fe34d",
+  rare: "#5453fb",
+  epic: "#970295",
+  legendary: "#f1a001",
+  mythic: "#f551f4",
+  divine: "#53f7f7",
+  special: "#ff5555",
+  veryspecial: "#fe5454",
+};
 const hasLetter = (val) => {
-  return /[a-zA-Z]/.test(val)
-}
+  return /[a-zA-Z]/.test(val);
+};
 
 function copyPaste() {
   var x = document.getElementById("symbols");
@@ -218,8 +229,8 @@ const colors = {
   c: "#FF5555", // red
   d: "#FF55FF", // light purple
   e: "#FFFF55", // yellow
-  f: "#FFFFFF" // white
-}
+  f: "#FFFFFF", // white
+};
 
 function descriptionClass(input, type) {
   document.querySelector(".mainLore").style.display = "block";
