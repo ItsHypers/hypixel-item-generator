@@ -13,6 +13,28 @@
   --description: #b4b4b4;
   --mana: #0bb3a6;
   --cooldown: #51c051;
+
+  --color-0: #000000;
+  --color-1: #0000AA;
+  --color-2: #00AA00;
+  --color-3: #00AAAA;
+  --color-4: #AA0000;
+  --color-5: #AA00AA;
+  --color-6: #FFAA00;
+  --color-7: #AAAAAA;
+  --color-8: #555555;
+  --color-9: #5555FF;
+
+  --color-a: #55ff55;
+  --color-b: #55FFFF;
+  --color-c: #FF5555;
+  --color-d: #FF55FF;
+  --color-e: #FFFF55;
+  --color-f: #FFFFFF; 
+}
+
+.grad {
+  background: linear-gradient(#000000, #9198e5);
 }
 
 @font-face {
@@ -67,6 +89,7 @@ h6 {
   border-width: medium;
   box-shadow: inset 0px 0px 0px 2px #24015a;
   box-sizing: border-box; /* Include padding and border in element's width and height */
+  border-radius: 10px;
 }
 .ability {
   justify-content: center;
@@ -146,6 +169,7 @@ h6 {
 .item-text.item-blue-text {
   color: #53cbe0;
 }
+
 /*
 =====
 HELPERS
@@ -178,6 +202,7 @@ RESET STYLES
 
   -webkit-appearance: none;
   -moz-appearance: none;
+  appearance: none;
 
   font-family: inherit;
   font-size: inherit;
