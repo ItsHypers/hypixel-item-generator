@@ -13,6 +13,27 @@
   --description: #b4b4b4;
   --mana: #0bb3a6;
   --cooldown: #51c051;
+  --color-0: #000000;
+  --color-1: #0000aa;
+  --color-2: #00aa00;
+  --color-3: #00aaaa;
+  --color-4: #aa0000;
+  --color-5: #aa00aa;
+  --color-6: #ffaa00;
+  --color-7: #aaaaaa;
+  --color-8: #555555;
+  --color-9: #5555ff;
+
+  --color-a: #55ff55;
+  --color-b: #55ffff;
+  --color-c: #ff5555;
+  --color-d: #ff55ff;
+  --color-e: #ffff55;
+  --color-f: #ffffff;
+}
+
+.grad {
+  background: linear-gradient(#000000, #9198e5);
 }
 
 @font-face {
@@ -67,6 +88,7 @@ h6 {
   border-width: medium;
   box-shadow: inset 0px 0px 0px 2px #24015a;
   box-sizing: border-box; /* Include padding and border in element's width and height */
+  border-radius: 10px;
 }
 .ability {
   justify-content: center;
@@ -101,6 +123,15 @@ h6 {
   color: --common;
   font-weight: bold;
   font-family: Minecraft;
+}
+.reforge {
+  color: --common;
+  font-weight: bold;
+  font-family: Minecraft;
+}
+.book {
+  font-family: Minecraft;
+  color: #f1f167;
 }
 .colorhover {
   background-color: rgb(80, 80, 80);
@@ -169,7 +200,7 @@ RESET STYLES
 
   -webkit-appearance: none;
   -moz-appearance: none;
-
+  appearance: none;
   font-family: inherit;
   font-size: inherit;
 }
@@ -478,7 +509,19 @@ li a {
   right: 10%;
   content: "+";
 }
+.update {
+  padding: 30px;
+  background: #2d2f31;
+  color: white;
+  font-size: 1.2em;
+  cursor: pointer;
+  display: block;
+}
 
+.update::after {
+  float: right;
+  right: 10%;
+}
 .slide {
   font-size: 20px;
   clear: both;

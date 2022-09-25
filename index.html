@@ -16,15 +16,20 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="reset.css" />
   </head>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N1FHBNBDWN"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-N1FHBNBDWN"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
 
-  gtag('config', 'G-N1FHBNBDWN');
-</script>
-  <body class="w3-black">
+    gtag("config", "G-N1FHBNBDWN");
+  </script>
+  <body class="grad">
     <!-- Icon Bar (Sidebar - hidden on small screens) -->
     <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
       <a
@@ -132,14 +137,18 @@
               <span class="field__label">Strength</span>
             </span>
           </div>
-          <input
-            type="checkbox"
-            id="aow"
-            value="aow"
-            onchange="artofwar(this.value)"
-          /><label for="checkboxOne" style="width: 50%; padding-top: 12px"
-            >Art of War?</label
-          >
+          <div class="field field_v1">
+            <label for="first-name" class="ha-screen-reader">Reforge</label>
+            <input
+              id="strengthInput"
+              class="field__input"
+              placeholder="e.g. 20"
+              onchange="reforge(this.value)"
+            />
+            <span class="field__label-wrap" aria-hidden="true">
+              <span class="field__label">Reforge</span>
+            </span>
+          </div>
         </row>
         <row class="row1">
           <div class="field field_v1">
@@ -211,15 +220,15 @@
             </span>
           </div>
           <div class="field field_v1">
-            <label for="first-name" class="ha-screen-reader">Defense</label>
+            <label for="first-name" class="ha-screen-reader">Defence</label>
             <input
               id="first-name"
               class="field__input"
               placeholder="e.g. 25"
-              onchange="defense(this.value)"
+              onchange="defence(this.value)"
             />
             <span class="field__label-wrap" aria-hidden="true">
-              <span class="field__label">Defense</span>
+              <span class="field__label">Defence</span>
             </span>
           </div>
         </row>
@@ -279,9 +288,7 @@
         </row>
         <row class="row1">
           <div class="field field_v1">
-            <label for="first-name" class="ha-screen-reader"
-              >Description</label
-            >
+            <label for="first-name" class="ha-screen-reader">Description</label>
             <input
               id="first-name"
               class="field__input"
@@ -295,9 +302,7 @@
         </row>
         <row class="row1">
           <div class="field field_v1">
-            <label for="first-name" class="ha-screen-reader"
-              >Item Lore</label
-            >
+            <label for="first-name" class="ha-screen-reader">Item Lore</label>
             <input
               id="first-name"
               class="field__input"
@@ -309,37 +314,86 @@
             </span>
           </div>
         </row>
-        <row class="row1" style="justify-content: center;">
-          <div class="colorhover" style="height: 80px; width: 100px;"> Hover over me for description/Lore colours</div>
+        <row class="row1" style="justify-content: center">
+          <div class="colorhover" style="height: 80px; width: 100px">
+            Hover over me for description/Lore colours
+          </div>
         </row>
-        <row class="colorRow" style="display: none;">
+        <row class="colorRow" style="display: none">
           <label>Colours</label>
-          <div class="coloroverlay"> 
-            <p>&0 = Default</p>
+          <div class="coloroverlay">
+            <!-- <p>&0 = Default</p>
             <p>&1 = Green</p>
             <p>&2 = Blue</p>
             <p>&3 = Red</p>
             <p>&4 = Purple</p>
-            <p>&5 = Yellow</p>
+            <p>&5 = Yellow</p> -->
+            <div style="margin-right: 68px">
+              <p style="color: var(--color-0)">&0 - Black</p>
+              <p style="color: var(--color-1)">&1 - Dark Blue</p>
+              <p style="color: var(--color-2)">&2 - Dark Green</p>
+              <p style="color: var(--color-3)">&3 - Dark Aqua</p>
+              <p style="color: var(--color-4)">&4 - Dark Red</p>
+              <p style="color: var(--color-5)">&5 - Dark Purple</p>
+              <p style="color: var(--color-6)">&6 - Gold</p>
+              <p style="color: var(--color-7)">&7 - Gray</p>
+              <p style="color: var(--color-8)">&8 - Dark Gray</p>
+              <p style="color: var(--color-9)">&9 - Blue</p>
+            </div>
+
+            <div>
+              <p style="color: var(--color-a)">&a - Green</p>
+              <p style="color: var(--color-b)">&b - Aqua</p>
+              <p style="color: var(--color-c)">&c - Red</p>
+              <p style="color: var(--color-d)">&d - Pink</p>
+              <p style="color: var(--color-e)">&e - Yellow</p>
+              <p style="color: var(--color-f)">&f - White</p>
+            </div>
           </div>
         </row>
         <div style="margin-top: 10px"></div>
-        <row>
+        <row class="row1">
           <input
             type="checkbox"
             id="dungeonized"
             value="dungeonized"
             onchange="dungeon(this.value)"
-          /><label for="checkboxOne" style="width: 50%; padding-top: 12px"
-            > Dungeonized?</label
+          /><label for="checkboxOne" style="width: 50%; padding-top: 12px">
+            Dungeonized?</label
           >
           <input
             type="checkbox"
             id="soulbound"
             value="soulbound"
             onchange="soulbound(this.value)"
+          /><label for="checkboxOne" style="width: 50%; padding-top: 12px">
+            Soulbound?</label
+          >
+          <input
+            type="checkbox"
+            id="fumings"
+            value="fumings"
+            onchange="potatobooks(this.value)"
+          /><label for="checkboxOne" style="width: 50%; padding-top: 12px">
+            Fumings?</label
+          >
+        </row>
+        <row class="row1">
+          <input
+            type="checkbox"
+            id="aow"
+            value="aow"
+            onchange="artofwar(this.value)"
           /><label for="checkboxOne" style="width: 50%; padding-top: 12px"
-            > Soulbound?</label
+            >Art of War?</label
+          >
+          <input
+            type="checkbox"
+            id="recom"
+            value="recom"
+            onchange="recomRarity(this.value)"
+          /><label for="checkboxOne" style="width: 50%; padding-top: 12px">
+            Recom?</label
           >
         </row>
         <row class="row1">
@@ -389,16 +443,16 @@
           </div>
           <div class="field field_v1">
             <label for="first-name" class="ha-screen-reader"
-              >Image Size (default 50)</label
+              >minecraft id</label
             >
             <input
               id="first-name"
               class="field__input"
-              placeholder="50"
-              onchange="imageSize(this.value)"
+              placeholder="E.G 500"
+              onchange="minecraftID(this.value)"
             />
             <span class="field__label-wrap" aria-hidden="true">
-              <span class="field__label">Image Size (default 50)</span>
+              <span class="field__label">minecraft id</span>
             </span>
           </div>
         </row>
@@ -639,7 +693,7 @@
             <button
               style="width: 100%; background-color: var(--common)"
               id="common"
-              onclick="common()"
+              onclick="raritySelect('common')"
             >
               Common
             </button>
@@ -647,7 +701,7 @@
           <div>
             <button
               style="width: 100%; background-color: var(--uncommon)"
-              onclick="uncommon()"
+              onclick="raritySelect('uncommon')"
             >
               Uncommon
             </button>
@@ -656,7 +710,7 @@
             <button
               style="width: 100%; background-color: var(--rare)"
               id="rare"
-              onclick="rare()"
+              onclick="raritySelect('rare')"
             >
               Rare
             </button>
@@ -665,7 +719,7 @@
             <button
               style="width: 100%; background-color: var(--epic)"
               id="epic"
-              onclick="epic()"
+              onclick="raritySelect('epic')"
             >
               Epic
             </button>
@@ -674,7 +728,7 @@
             <button
               style="width: 100%; background-color: var(--legendary)"
               id="legendary"
-              onclick="legendary()"
+              onclick="raritySelect('legendary')"
             >
               Legendary
             </button>
@@ -683,16 +737,25 @@
             <button
               style="width: 100%; background-color: var(--mythic)"
               id="mythic"
-              onclick="mythic()"
+              onclick="raritySelect('mythic')"
             >
               Mythic
             </button>
           </div>
           <div>
             <button
+              style="width: 100%; background-color: var(--divine)"
+              id="divine"
+              onclick="raritySelect('divine')"
+            >
+              Divine
+            </button>
+          </div>
+          <div>
+            <button
               style="width: 100%; background-color: var(--special)"
               id="special"
-              onclick="special()"
+              onclick="raritySelect('special')"
             >
               Special
             </button>
@@ -701,22 +764,16 @@
             <button
               style="width: 100%; background-color: var(--veryspecial)"
               id="veryspecial"
-              onclick="veryspecial()"
+              onclick="raritySelect('veryspecial')"
             >
               Very Special
             </button>
           </div>
-          <div>
-            <button
-              style="width: 100%; background-color: var(--divine)"
-              id="divine"
-              onclick="divine()"
-            >
-              Divine
-            </button>
-          </div>
         </div>
       </nav>
+      <span class="update" style="justify-content: center; text-align: center">
+        Update Minecraft Command
+      </span>
     </nav>
 
     <!-- Navbar on small screens (Hidden on medium and large screens) -->
@@ -739,13 +796,13 @@
     <!-- Page Content -->
     <div id="main">
       <!-- Header/Home -->
-      <div class="w3-container w3-center w3-black" id="home">
+      <div class="w3-container w3-center" id="home">
         <h1 class="w3-jumbo">Hypixel Item Generator</h1>
         <button onclick="copyPaste()">Symbols (for copy and paste):</button>
         <div id="symbols" style="display: none">
           <p></p>
           <li>❤ (Health)</li>
-          <li>❈ (Defense)</li>
+          <li>❈ (Defence)</li>
           <li>❁ (Strength)</li>
           <li>❁ (Damage)</li>
           <li>✦ (Speed)</li>
@@ -755,7 +812,7 @@
           <li>∞ ​(Sea Creature Chance)</li>
           <li>✯ (Magic Find)</li>
           <li>♣ (Pet Luck)</li>
-          <li>❂ (True Defense)</li>
+          <li>❂ (True Defence)</li>
           <li>⚔ (Attack Speed)</li>
           <li>​✹ (Ability Damage)</li>
           <li>⫽ (Ferocity)</li>
@@ -763,125 +820,136 @@
         <div style="margin-top: 10px"></div>
       </div>
 
-        <div class="w3-content w3-text-grey item" class="item">
-          <row>
-            <label><img id="png" style="" src=""> </label>
-          <label class="item-name"></label></row>
-          <div class="description"></div>
+      <div class="w3-content w3-text-grey item">
+        <row>
+          <label><img id="png" src="" /> </label>
+          <label class="reforge"></label>
+          <label class="item-name"></label>
+        </row>
+        <div class="description"></div>
+        <div style="margin-top: 10px"></div>
+        <div class="gearscore" style="display: none">
+          <label class="item-text">Gear Score:</label>
+          <label class="item-text item-gearscore"></label>
+          <label class="item-text item-dungeon-stat" id="#gearscore"></label>
+        </div>
+        <div class="damage" style="display: none">
+          <label class="item-text">Damage:</label>
+          <label class="item-text item-red-text" id="#damage">+308</label>
+          <label class="book" id="#damagepotatobook" style="display: none"
+            >(+30)</label
+          >
+          <label class="item-text item-dungeon-stat" id="#dungeon_damage"
+            >(+745.36)</label
+          >
+        </div>
+        <div class="strength" style="display: none">
+          <label class="item-text">Strength:</label>
+          <label class="item-text item-red-text" id="#strength">+150</label>
+          <label class="book" id="#strengthpotatobook" style="display: none"
+            >(+30)</label
+          >
+          <label class="item-text item-5-strength" id="#aow"></label>
+          <label
+            class="item-text item-dungeon-stat"
+            id="#dungeon_strength"
+            style="display: none"
+          ></label>
+        </div>
+        <div class="critdamage" style="display: none">
+          <label class="item-text">Crit Damage:</label>
+          <label class="item-text item-red-text" id="#critdamage">+70%</label>
+          <label
+            class="item-text item-dungeon-stat"
+            id="#dungeon_critdamage"
+          ></label>
+        </div>
+        <div class="critchance" style="display: none">
+          <label class="item-text">Crit Chance:</label>
+          <label class="item-text item-red-text" id="#critchance">+70%</label>
+        </div>
+        <div class="abilitydamage" style="display: none">
+          <label class="item-text">Ability Damage:</label>
+          <label class="item-text item-red-text" id="#abilitydamage">+7%</label>
+          <label class="item-text item-dungeon-stat" id="#dungeon_abilitydamage"
+            >(+10.5%)</label
+          >
+        </div>
+        <div class="attackSpeed" style="display: none">
+          <label class="item-text">Bonus Attack Speed:</label>
+          <label class="item-text item-red-text" id="#attackSpeed">+7%</label>
+        </div>
+        <div class="speed" style="display: none">
           <div style="margin-top: 10px"></div>
-          <div class="gearscore" style="display: none">
-            <label class="item-text">Gear Score:</label>
-            <label class="item-text item-gearscore"></label>
-            <label class="item-text item-dungeon-stat" id="#gearscore"></label>
-          </div>
-          <div class="damage" style="display: none">
-            <label class="item-text">Damage:</label>
-            <label class="item-text item-red-text" id="#damage">+308</label>
-            <label class="item-text item-dungeon-stat" id="#dungeon_damage"
-              >(+745.36)</label
-            >
-          </div>
-          <div class="strength" style="display: none">
-            <label class="item-text">Strength:</label>
-            <label class="item-text item-red-text" id="#strength">+150</label>
-            <label class="item-text item-5-strength" id="#aow"></label>
+          <label class="item-text">Speed:</label>
+          <label class="item-text item-green-text" id="#speed">+33</label>
+        </div>
+        <div class="intelligence" style="display: none">
+          <label class="item-text">Intelligence:</label>
+          <label class="item-text item-green-text" id="#intelligence"
+            >+640</label
+          >
+          <label class="item-text item-dungeon-stat" id="#dungeon_intelligence"
+            >(+2389.75)</label
+          >
+        </div>
+        <div class="ferocity" style="display: none">
+          <label class="item-text">Ferocity:</label>
+          <label class="item-text item-green-text" id="#ferocity">+33</label>
+        </div>
+        <div class="defence" style="display: none">
+          <label class="item-text">Defence:</label>
+          <label class="item-text item-green-text" id="#defence">+33</label>
+          <label class="item-text item-dungeon-stat" id="#dungeon_defence"
+            >(+45)</label
+          >
+        </div>
+        <div class="magicfind" style="display: none">
+          <label class="item-text">Magic Find:</label>
+          <label class="item-text item-green-text" id="#magicfind"></label>
+          <label
+            class="item-text item-dungeon-stat"
+            id="#dungeon_magicfind"
+          ></label>
+        </div>
+        <div class="gemstoneSlots" style="display: none">
+          <label class="item-text"></label>
+          <label class="item-text" id="#gemstoneSlots">[❂][❂]</label>
+        </div>
+        <div style="margin-top: 10px"></div>
+
+        <div
+          style="max-width: 300px; word-wrap: break-word"
+          class="mainDescription"
+          style="display: none"
+        >
+          <label
+            style="max-width: inherit"
+            class="item-text"
+            id="#mainDescription"
+          ></label>
+        </div>
+        <div style="margin-top: 10px"></div>
+        <div class="ability1">
+          <div class="abilityName1" style="display: none">
             <label
-              class="item-text item-dungeon-stat"
-              id="#dungeon_strength"
-            ></label>
-          </div>
-          <div class="critdamage" style="display: none">
-            <label class="item-text">Crit Damage:</label>
-            <label class="item-text item-red-text" id="#critdamage">+70%</label>
-            <label class="item-text item-dungeon-stat" id="#dungeon_critdamage"
-              ></label
-            >
-          </div>
-          <div class="critchance" style="display: none">
-            <label class="item-text">Crit Chance:</label>
-            <label class="item-text item-red-text" id="#critchance">+70%</label>
-          </div>
-          <div class="abilitydamage" style="display: none">
-            <label class="item-text">Ability Damage:</label>
-            <label class="item-text item-red-text" id="#abilitydamage"
-              >+7%</label
-            >
+              class="item-text"
+              style="color: var(--ability); font-weight: bold"
+              >Ability:
+            </label>
             <label
-              class="item-text item-dungeon-stat"
-              id="#dungeon_abilitydamage"
-              >(+10.5%)</label
+              class="item-text"
+              id="#abilityName1"
+              style="color: var(--ability); font-weight: bold"
+              >Throw</label
             >
-          </div>
-          <div class="attackSpeed" style="display: none">
-            <label class="item-text">Bonus Attack Speed:</label>
-            <label class="item-text item-red-text" id="#attackSpeed">+7%</label>
-          </div>
-          <div class="speed" style="display: none">
-            <div style="margin-top: 10px"></div>
-            <label class="item-text">Speed:</label>
-            <label class="item-text item-green-text" id="#speed">+33</label>
-          </div>
-          <div class="intelligence" style="display: none">
-            <label class="item-text">Intelligence:</label>
-            <label class="item-text item-green-text" id="#intelligence"
-              >+640</label
-            >
-            <label
-              class="item-text item-dungeon-stat"
-              id="#dungeon_intelligence"
-              >(+2389.75)</label
-            >
-          </div>
-          <div class="ferocity" style="display: none">
-            <label class="item-text">Ferocity:</label>
-            <label class="item-text item-green-text" id="#ferocity">+33</label>
-          </div>
-          <div class="defense" style="display: none">
-            <label class="item-text">Defense:</label>
-            <label class="item-text item-green-text" id="#defense">+33</label>
-            <label class="item-text item-dungeon-stat" id="#dungeon_defense"
-              >(+45)</label
-            >
-          </div>
-          <div class="magicfind" style="display: none">
-            <label class="item-text">Magic Find:</label>
-            <label class="item-text item-green-text" id="#magicfind"></label>
-            <label
-              class="item-text item-dungeon-stat"
-              id="#dungeon_magicfind"
-            ></label>
-          </div>
-          <div class="gemstoneSlots" style="display: none">
             <label class="item-text"></label>
-            <label class="item-text" id="#gemstoneSlots">[❂][❂]</label>
-          </div>
-          <div style="margin-top: 10px"></div>
-          
-          <div style="max-width: 300px; word-wrap: break-word;" class="mainDescription" style="display: none">
-            <label style="max-width: inherit;" class="item-text" id="#mainDescription"></label>
-          </div>
-          <div style="margin-top: 10px"></div>
-          <div class="ability1">
-            <div class="abilityName1" style="display: none">
-              <label
-                class="item-text"
-                style="color: var(--ability); font-weight: bold"
-                >Ability:
-              </label>
-              <label
-                class="item-text"
-                id="#abilityName1"
-                style="color: var(--ability); font-weight: bold"
-                >Throw</label
-              >
-              <label class="item-text"></label>
-              <label
-                class="item-text"
-                id="#abilityKeybind1"
-                style="color: var(--keybind); font-weight: bold"
-                >RIGHT CLICK</label
-              >
-            </div>
+            <label
+              class="item-text"
+              id="#abilityKeybind1"
+              style="color: var(--keybind); font-weight: bold"
+              >RIGHT CLICK</label
+            >
             <div class="abilityDescription1" style="display: none">
               <label
                 class="item-text"
@@ -999,21 +1067,53 @@
             </div>
           </div>
           <div style="margin-top: 10px"></div>
-          
-          <div style="max-width: 300px; word-wrap: break-word; justify-content: start;" class="mainLore" style="display: none">
-            <label style="max-width: inherit;" class="item-text" id="#mainLore"></label>
+
+          <div
+            style="
+              max-width: 300px;
+              word-wrap: break-word;
+              justify-content: start;
+            "
+            class="mainLore"
+            style="display: none"
+          >
+            <label
+              style="max-width: inherit"
+              class="item-text"
+              id="#mainLore"
+            ></label>
+          </div>
+          <div class="killcount" style="display: none">
+            <label class="item-text" style="color: white; font-weight: bold"
+              >Kills:</label
+            >
+            <label
+              class="item-text"
+              id="#killcount"
+              style="color: var(--ability); font-weight: bold"
+            ></label>
           </div>
           <div style="margin-top: 10px"></div>
           <label
             class="item-text"
             id="#soulbound"
-            style="text-align: start"
+            style="text-align: start; color: #555555 !important"
           ></label>
           <label
             class="item-text"
             id="#item-type"
             style="font-weight: bold; text-align: start"
           ></label>
+          <label
+            class="item-text"
+            id="#recombed"
+            style="font-weight: bold; text-align: start; display: none"
+            >(Recombobulated)</label
+          >
+        </div>
+        <div style="margin-top: 90px"></div>
+        <div class="w3-content w3-text-grey item">
+          <textarea style="color: black" id="#minecraftCommand"></textarea>
         </div>
       </div>
     </div>

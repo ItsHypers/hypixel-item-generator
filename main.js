@@ -2,22 +2,66 @@ var currentStrength = 0;
 var currentGearScore = 0;
 var currentDamage = 0;
 var currentcritDamage = 0;
+var currentCritChance = 0;
 var currentAttackSpeed = 0;
 var currentIntelligence = 0;
 var currentDefence = 0;
 var currentabilityDamage = 0;
+var currentSeaCreature = 0;
+var currentHealth = 0;
+var currentTrueDefence = 0;
+var currentMagicFind = 0;
+var currentPetLuck = 0;
+var currentSpeed = 0;
+var numofAbilities = 0;
+var killCount = 0;
 var currentItem = "SWORD";
-var currentRarity = "COMMON";
-const commonColor = "#d3d3d3";
-const uncommonColor = "#4fe34d";
-const rareColor = "#5453fb";
-const epicColor = "#970295";
-const legendaryColor = "#f1a001";
-const mythicColor = "#f551f4";
-const specialColor = "#ff5555";
-const veryspecialColor = "#fe5454";
-const divineColor = "#53f7f7";
-
+var currentReforge = "";
+var currentitemName = "";
+var currentCommand = "";
+var currentminecraftID = "minecraft:diamond_sword";
+var abilities = {};
+var itemsChanged = {};
+var AOW = false;
+var descriptionAdded = false;
+var loreAdded = false;
+var descriptionString = "";
+var loreString = "";
+var maxDescription = 50; // maximum number of characters to extract
+const Rarities = [
+  "common",
+  "uncommon",
+  "rare",
+  "epic",
+  "legendary",
+  "mythic",
+  "divine",
+  "special",
+  "veryspecial",
+];
+const RarityHexs = {
+  common: "#d3d3d3",
+  uncommon: "#4fe34d",
+  rare: "#5453fb",
+  epic: "#970295",
+  legendary: "#f1a001",
+  mythic: "#f551f4",
+  divine: "#53f7f7",
+  special: "#ff5555",
+  veryspecial: "#fe5454",
+};
+const minecraftRaritys = {
+  common: "white",
+  uncommon: "green",
+  rare: "blue",
+  epic: "purple",
+  legendary: "gold",
+  mythic: "light_purple",
+  divine: "aqua",
+  special: "red",
+  veryspecial: "red",
+};
+var currentRarity = Rarities[0];
 function copyPaste() {
   var x = document.getElementById("symbols");
   if (x.style.display === "none") {
@@ -38,43 +82,64 @@ function ability(input) {
   }
 }
 function abilityName(input, num) {
+  var abilityNum = "ability" + num;
   var name = document.getElementById("#abilityName" + num);
   var className = document.querySelector(".abilityName" + num);
   name.textContent = input;
   className.style.display = "block";
+  itemsChanged[abilityNum] = true;
+  numofAbilities += 1;
+  abilities[num + "name"] = input;
 }
 function abilityKeybind(input, num) {
+  var ability = "ability" + num;
   var name = document.getElementById("#abilityKeybind" + num);
-  var className = document.querySelector(".abilityKeybind" + num);
   name.textContent = input;
-  className.style.display = "block";
+  itemsChanged[ability] = true;
+  abilities[num + "keybind"] = input;
 }
 function abilityDescription(input, num) {
+  var ability = "ability" + num;
   var name = document.getElementById("#abilityDescription" + num);
   var className = document.querySelector(".abilityDescription" + num);
-  addColours(input, name);
+  addColors(input, name);
   className.style.display = "block";
+  itemsChanged[ability] = true;
+  abilities[num + "description"] = input;
 }
 function abilityMana(input, num) {
+  var ability = "ability" + num;
   var name = document.getElementById("#abilityMana" + num);
   var className = document.querySelector(".abilityMana" + num);
   name.textContent = input;
   className.style.display = "block";
+  itemsChanged[ability] = true;
+  abilities[num + "mana"] = input;
 }
 function abilityCooldown(input, num) {
+  var ability = "ability" + num;
   var name = document.getElementById("#abilityCooldown" + num);
   var className = document.querySelector(".abilityCooldown" + num);
   name.textContent = input;
   className.style.display = "block";
+  itemsChanged[ability] = true;
+  ability["cooldown"] = input;
+  abilities[num + "cooldown"] = input;
 }
 function itemName(input) {
   document.querySelector(".item-name").textContent = input;
+  currentitemName = input;
+}
+function reforge(input) {
+  document.querySelector(".reforge").textContent = input;
+  currentReforge = input;
 }
 function gearScore(input) {
   document.querySelector(".item-gearscore").textContent = input;
   document.querySelector(".gearscore").style.display = "block";
   document.getElementById("#gearscore").textContent = dungeonCalc(input);
   currentGearScore = input;
+  itemsChanged["gearscore"] = true;
 }
 function strength(input) {
   document.getElementById("#strength").textContent = "+" + input;
@@ -84,6 +149,7 @@ function strength(input) {
     "strength"
   );
   currentStrength = input;
+  itemsChanged["strength"] = true;
 }
 function Damage(input) {
   document.getElementById("#damage").textContent = "+" + input;
@@ -93,6 +159,7 @@ function Damage(input) {
     "damage"
   );
   currentDamage = input;
+  itemsChanged["damage"] = true;
 }
 function abilitydamage(input) {
   document.getElementById("#abilitydamage").textContent = "+" + input;
@@ -100,6 +167,7 @@ function abilitydamage(input) {
   document.getElementById("#dungeon_abilitydamage").textContent =
     dungeonCalc(input);
   currentabilityDamage = input;
+  itemsChanged["abilitydamage"] = true;
 }
 function gemstones(input) {
   if (input >= 6) {
@@ -112,6 +180,7 @@ function gemstones(input) {
   }
   document.getElementById("#gemstoneSlots").textContent = string;
   document.querySelector(".gemstoneSlots").style.display = "block";
+  itemsChanged["gemstone"] = true;
 }
 function critDamage(input) {
   document.getElementById("#critdamage").textContent = "+" + input + "%";
@@ -123,13 +192,14 @@ function critDamage(input) {
     document.getElementById("#dungeon_critdamage").textContent = "";
   }
   currentcritDamage = input;
+  itemsChanged["critdamage"] = true;
 }
+
 function attackSpeed(input) {
   document.getElementById("#attackSpeed").textContent = "+" + input + "%";
   document.querySelector(".attackSpeed").style.display = "block";
-  document.getElementById("#dungeon_attackSpeed").textContent =
-    dungeonCalc(input) + "%";
   currentAttackSpeed = input;
+  itemsChanged["attackspeed"] = true;
 }
 function Intelligence(input) {
   document.getElementById("#intelligence").textContent = "+" + input;
@@ -137,37 +207,51 @@ function Intelligence(input) {
   document.getElementById("#dungeon_intelligence").textContent =
     dungeonCalc(input);
   currentIntelligence = input;
+  itemsChanged["intelligence"] = true;
 }
 function critChance(input) {
   document.getElementById("#critchance").textContent = "+" + input + "%";
   document.querySelector(".critchance").style.display = "block";
+  currentCritChance = input;
+  itemsChanged["critchance"] = true;
 }
 function ferocity(input) {
   document.getElementById("#ferocity").textContent = "+" + input;
   document.querySelector(".ferocity").style.display = "block";
   document.getElementById("#dungeon_ferocity").textContent = dungeonCalc(input);
+  itemsChanged["ferocity"] = true;
 }
-function defense(input) {
-  document.getElementById("#defense").textContent = "+" + input;
-  document.querySelector(".defense").style.display = "block";
-  document.getElementById("#dungeon_defense").textContent = dungeonCalc(input);
+function defence(input) {
+  document.getElementById("#defence").textContent = "+" + input;
+  document.querySelector(".defence").style.display = "block";
+  document.getElementById("#dungeon_defence").textContent = dungeonCalc(input);
   currentDefence = input;
+  itemsChanged["defence"] = true;
 }
-function itemType(input) {
+function itemType(input, dungeon) {
   input = input.toUpperCase();
   currentItem = input;
-  document.getElementById("#item-type").textContent =
-    currentRarity + " " + input;
+  if (dungeon) {
+    document.getElementById("#item-type").textContent =
+      currentRarity.toUpperCase() + " DUNGEON" + " " + input;
+  } else {
+    document.getElementById("#item-type").textContent =
+      currentRarity.toUpperCase() + " " + input;
+  }
 }
 function magicfind(input) {
   document.getElementById("#magicfind").textContent = "+" + input;
   document.querySelector(".magicfind").style.display = "block";
+  currentMagicFind = input;
+  itemsChanged["magicfind"] = true;
 }
 function speed(input) {
   document.getElementById("#speed").textContent = "+" + input;
   document.querySelector(".speed").style.display = "block";
+  currentSpeed = input;
+  itemsChanged["speed"] = true;
 }
-const Colours = [
+const Colors = [
   "#b8b8b8", //Default 0
   "#55FF55", //Green 1
   "#55FFFF", //Blue 2
@@ -180,13 +264,17 @@ function descriptionClass(input, type) {
   document.querySelector(".mainLore").style.display = "block";
   if (type == "lore") {
     var x = document.getElementById("#mainLore");
+    loreString = input;
+    loreAdded = true;
   }
   if (type == "description") {
     var x = document.getElementById("#mainDescription");
+    descriptionAdded = true;
+    descriptionString = input;
   }
-  addColours(input, x);
+  addColors(input, x);
 }
-function addColours(input, x) {
+function addColors(input, x) {
   var hasNumber = /\d/;
   var currentNumber = 0;
   var array = input.split(" ");
@@ -206,7 +294,7 @@ function addColours(input, x) {
         string = element.substring(1);
       }
     }
-    textSpan.style.color = Colours[currentNumber];
+    textSpan.style.color = Colors[currentNumber];
     textSpan.innerHTML = " " + string;
     x.appendChild(textSpan);
   });
@@ -223,10 +311,29 @@ function artofwar(input) {
   var checkBox = document.getElementById("aow");
   if (checkBox.checked == true) {
     document.getElementById("#aow").innerHTML = "[+5]";
+    AOW = true;
     strength(currentStrength);
   } else {
     document.getElementById("#aow").innerHTML = "";
+    AOW = false;
     strength(currentStrength);
+  }
+}
+
+function potatobooks(input) {
+  var checkBox = document.getElementById("fumings");
+  if (checkBox.checked == true) {
+    document.getElementById("#damagepotatobook").innerHTML = "(+30)";
+    document.getElementById("#strengthpotatobook").innerHTML = "(+30)";
+    document.getElementById("#damagepotatobook").style = "block";
+    document.getElementById("#strengthpotatobook").style = "block";
+    itemsChanged["fumings"] = true;
+  } else {
+    document.getElementById("#damagepotatobook").innerHTML = "";
+    document.getElementById("#strengthpotatobook").innerHTML = "";
+    document.getElementById("#damagepotatobook").style = "none";
+    document.getElementById("#strengthpotatobook").style = "none";
+    itemsChanged["fumings"] = false;
   }
 }
 
@@ -234,8 +341,10 @@ function dungeon(input) {
   var checkBox = document.getElementById("dungeonized");
   if (checkBox.checked == true) {
     dungeonized = true;
+    itemType(currentItem, true);
     updateNumbers();
   } else {
+    itemType(currentItem, false);
     dungeonized = false;
     updateNumbers();
   }
@@ -244,8 +353,10 @@ function soulbound(input) {
   var checkBox = document.getElementById("soulbound");
   if (checkBox.checked == true) {
     document.getElementById("#soulbound").innerHTML = "* Co-op Soulbound *";
+    itemsChanged["soulbound"] = true;
   } else {
     document.getElementById("#soulbound").innerHTML = "";
+    itemsChanged["soulbound"] = false;
   }
 }
 
@@ -266,7 +377,7 @@ function updateNumbers() {
     Intelligence(currentIntelligence);
   }
   if (currentDefence != 0) {
-    defense(currentDefence);
+    defence(currentDefence);
   }
   if (currentabilityDamage != 0) {
     abilitydamage(currentabilityDamage);
@@ -316,64 +427,40 @@ function switchType(evt, type) {
     evt.currentTarget.className += " active";
   }
 }
+function raritySelect(rarity) {
+  document.querySelector(".item-name").style.color = hexToRgbA(
+    RarityHexs[rarity]
+  );
+  document.querySelector(".reforge").style.color = hexToRgbA(
+    RarityHexs[rarity]
+  );
+  document.getElementById("#item-type").style.color = hexToRgbA(
+    RarityHexs[rarity]
+  );
+  currentRarity = rarity;
+  console.log(currentRarity);
+  itemType(currentItem, dungeonized);
+}
 
-function common() {
-  document.querySelector(".item-name").style.color = hexToRgbA(commonColor);
-  document.getElementById("#item-type").style.color = hexToRgbA(commonColor);
-  document.getElementById("#item-type").textContent = "COMMON " + currentItem;
-  currentRarity = "COMMON";
+function recomRarity(input) {
+  var checkBox = document.getElementById("recom");
+  var currentIndex = Rarities.indexOf(currentRarity);
+  if (checkBox.checked == true) {
+    raritySelect(Rarities[currentIndex + 1]);
+    document.getElementById("#recombed").style.display = "block";
+    itemsChanged["recomb"] = true;
+  } else {
+    raritySelect(Rarities[currentIndex - 1]);
+    document.getElementById("#recombed").style.display = "none";
+    itemsChanged["recomb"] = false;
+  }
 }
-function uncommon() {
-  document.querySelector(".item-name").style.color = hexToRgbA(uncommonColor);
-  document.getElementById("#item-type").style.color = hexToRgbA(uncommonColor);
-  document.getElementById("#item-type").textContent = "UNCOMMON " + currentItem;
-  currentRarity = "UNCOMMON";
-}
-function rare() {
-  document.querySelector(".item-name").style.color = hexToRgbA(rareColor);
-  document.getElementById("#item-type").style.color = hexToRgbA(rareColor);
-  document.getElementById("#item-type").textContent = "RARE " + currentItem;
-  currentRarity = "RARE";
-}
-function epic() {
-  document.querySelector(".item-name").style.color = hexToRgbA(epicColor);
-  document.getElementById("#item-type").style.color = hexToRgbA(epicColor);
-  document.getElementById("#item-type").textContent = "EPIC " + currentItem;
-  currentRarity = "EPIC";
-}
-function legendary() {
-  document.querySelector(".item-name").style.color = hexToRgbA(legendaryColor);
-  document.getElementById("#item-type").style.color = hexToRgbA(legendaryColor);
-  document.getElementById("#item-type").textContent =
-    "LEGENDARY " + currentItem;
-  currentRarity = "LEGENDARY";
-}
-function mythic() {
-  document.querySelector(".item-name").style.color = hexToRgbA(mythicColor);
-  document.getElementById("#item-type").style.color = hexToRgbA(mythicColor);
-  document.getElementById("#item-type").textContent = "MYTHIC " + currentItem;
-  currentRarity = "MYTHIC";
-}
-function special() {
-  document.querySelector(".item-name").style.color = hexToRgbA(specialColor);
-  document.getElementById("#item-type").style.color = hexToRgbA(specialColor);
-  document.getElementById("#item-type").textContent = "SPECIAL " + currentItem;
-  currentRarity = "SPECIAL";
-}
-function veryspecial() {
-  document.querySelector(".item-name").style.color =
-    hexToRgbA(veryspecialColor);
-  document.getElementById("#item-type").style.color =
-    hexToRgbA(veryspecialColor);
-  document.getElementById("#item-type").textContent =
-    "VERY SPECIAL " + currentItem;
-  currentRarity = "VERYSPECIAL";
-}
-function divine() {
-  document.querySelector(".item-name").style.color = hexToRgbA(divineColor);
-  document.getElementById("#item-type").style.color = hexToRgbA(divineColor);
-  document.getElementById("#item-type").textContent = "DIVINE " + currentItem;
-  currentRarity = "DIVINE";
+
+function killCounter(input) {
+  document.querySelector(".killcount").style.display = "block";
+  document.getElementById("#killcount").textContent = input;
+  itemsChanged["killcount"] = true;
+  killCount = input;
 }
 
 function image(input) {
@@ -403,4 +490,204 @@ function hexToRgbA(hex) {
     );
   }
   throw new Error("Bad Hex");
+}
+updateButton = document.querySelector(".update");
+updateButton.addEventListener("click", function () {
+  minecraftCommand();
+});
+
+function minecraftID(input) {
+  currentminecraftID = input;
+}
+function minecraftCommand() {
+  currentCommand = `/give @p `;
+  currentCommand += currentminecraftID;
+  currentCommand += `{AttributeModifiers: [{}],`;
+  currentCommand += `display:{Name:\'[{\"text\":\"`;
+  if (currentReforge != "") {
+    currentCommand += currentReforge + " ";
+  }
+  currentCommand +=
+    currentitemName +
+    `\",\"color\":\"` +
+    minecraftRaritys[currentRarity] +
+    `\",\"italic\":false,\"bold\":true}]\',Lore:[\'`;
+  if (itemsChanged["damage"]) {
+    currentCommand +=
+      `[{\"text\":\"Damage: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
+      currentDamage +
+      `\",\"color\":\"red\",\"italic\":false}]\',\'`;
+  }
+  if (itemsChanged["strength"]) {
+    if (AOW) {
+      currentCommand +=
+        `[{\"text\":\"Strength: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
+        currentStrength +
+        `\",\"color\":\"red\",\"italic\":false},{\"text\":\" [+5]` +
+        `\",\"color\":\"gold\",\"italic\":false}]\',\'`;
+    } else {
+      currentCommand +=
+        `[{\"text\":\"Strength: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
+        currentStrength +
+        `\",\"color\":\"red\",\"italic\":false}]\',\'`;
+    }
+  }
+  if (itemsChanged["critchance"]) {
+    currentCommand +=
+      `[{\"text\":\"Crit Chance: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
+      currentCritChance +
+      `\",\"color\":\"red\",\"italic\":false}]\',\'`;
+  }
+  if (itemsChanged["critdamage"]) {
+    currentCommand +=
+      `[{\"text\":\"Crit Damage: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
+      currentcritDamage +
+      `\",\"color\":\"red\",\"italic\":false}]\',\'`;
+  }
+  if (itemsChanged["attackspeed"]) {
+    currentCommand +=
+      `[{\"text\":\"Attack Speed: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
+      currentAttackSpeed +
+      `\",\"color\":\"red\",\"italic\":false}]\',\'`;
+  }
+  if (itemsChanged["seacreature"]) {
+    currentCommand +=
+      `[{\"text\":\"Sea Creature Chance: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
+      currentSeaCreature +
+      `\",\"color\":\"red\",\"italic\":false}]\',\'`;
+  }
+  if (itemsChanged["health"]) {
+    currentCommand +=
+      `[{\"text\":\"Health: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
+      currentHealth +
+      `\",\"color\":\"green\",\"italic\":false}]\',\'`;
+  }
+  if (itemsChanged["defence"]) {
+    currentCommand +=
+      `[{\"text\":\"Defence: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
+      currentDefence +
+      `\",\"color\":\"green\",\"italic\":false}]\',\'`;
+  }
+  if (itemsChanged["speed"]) {
+    currentCommand +=
+      `[{\"text\":\"Speed: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
+      currentSpeed +
+      `\",\"color\":\"green\",\"italic\":false}]\',\'`;
+  }
+  if (itemsChanged["intelligence"]) {
+    currentCommand +=
+      `[{\"text\":\"Intelligence: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
+      currentIntelligence +
+      `\",\"color\":\"green\",\"italic\":false}]\',\'`;
+  }
+  if (itemsChanged["truedefence"]) {
+    currentCommand +=
+      `[{\"text\":\"True Defence: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
+      currentTrueDefence +
+      `\",\"color\":\"green\",\"italic\":false}]\',\'`;
+  }
+  if (itemsChanged["magicfind"]) {
+    currentCommand +=
+      `[{\"text\":\"Magic Find: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
+      currentMagicFind +
+      `\",\"color\":\"green\",\"italic\":false}]\',\'`;
+  }
+  if (itemsChanged["petluck"]) {
+    currentCommand +=
+      `[{\"text\":\"Pet Luck: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
+      currentPetLuck +
+      `\",\"color\":\"green\",\"italic\":false}]\',\'`;
+  }
+  currentCommand += `[{\"text\":\"\"}]\',\'`;
+  if (descriptionAdded) {
+    currentCommand +=
+      `{\"text\":\"` +
+      descriptionString +
+      `\",\"color\":\"gray\",\"italic\":false,\"bold\":false}]\',\'`;
+  }
+  currentCommand += `[{\"text\":\"\"}]\',\'`;
+  for (let i = 1; i <= numofAbilities; i++) {
+    splicedDesc = abilities[i + "description"].match(/.{1,30}/g);
+    currentCommand +=
+      `[{\"text\":\"Ability: \",\"color\":\"gold\",\"italic\":false},{\"text\":\"` +
+      abilities[i + "name"] +
+      `\",\"color\":\"gold\",\"italic\":false},{\"text\":\" ` +
+      abilities[i + "keybind"] +
+      `\",\"color\":\"yellow\",\"italic\":false,\"bold\":true}]\',\'`;
+    console.log(splicedDesc);
+    for (let i = 0; i < splicedDesc.length; i++) {
+      currentCommand +=
+        `[{\"text\":\"` +
+        splicedDesc[i] +
+        `\",\"color\":\"gray\",\"italic\":false,\"bold\":false}]\',\'`;
+    }
+    currentCommand +=
+      `[{\"text\":\"Mana cost: \",\"color\":\"dark_gray\",\"italic\":false},{\"text\":\"` +
+      abilities[i + "mana"] +
+      `\",\"color\":\"dark_aqua\",\"italic\":false}]\',\'[{\"text\":\"Cooldown: \",\"color\":\"dark_gray\",\"italic\":false},{\"text\":\"` +
+      abilities[i + "cooldown"] +
+      `\",\"color\":\"green\",\"italic\":false}]\',\'`;
+  }
+  currentCommand += `[{\"text\":\"\"}]\',\'`;
+  if (loreAdded) {
+    currentCommand +=
+      `{\"text\":\"` +
+      loreString +
+      `\",\"color\":\"gray\",\"italic\":false,\"bold\":false}]\',\'`;
+  }
+  if (itemsChanged["killcount"]) {
+    currentCommand +=
+      `[{\"text\":\"Kills:\",\"color\":\"white\",\"italic\":false,\"bold\":false},{\"text\":\" ` +
+      killCount +
+      `\",\"color\":\"gold\",\"italic\":false,\"bold\":false}]\',\'`;
+  }
+  //\'[{\"text\":\"\u2620\",\"color\":\"red\",\"italic\":false},{\"text\":\" Requires Spider LVL 1\",\"color\":\"dark_purple\",\"italic\":false}]\',\'`;
+  currentCommand += `[{\"text\":\"\"}]\',`;
+  if (itemsChanged["soulbound"]) {
+    currentCommand += `'[{\"text\":\"*Co-op Soulbound*\",\"color\":\"gray\",\"italic\":false}]\',`;
+  }
+  currentCommand += `'[{\"text\":\"This item can be reforged!\",\"color\":\"dark_gray\",\"italic\":false}]\',`;
+
+  if (itemsChanged["recomb"]) {
+    currentCommand += `'[{\"text\":\"`;
+    currentCommand +=
+      `M\",\"color\":\"` +
+      minecraftRaritys[currentRarity] +
+      `\",\"italic\":false,\"obfuscated\":true,\"bold\":true},`;
+  }
+  if (itemsChanged["recomb"]) {
+    currentCommand += `{\"text\":\"`;
+  } else {
+    currentCommand += `'[{\"text\":\"`;
+  }
+  currentCommand += currentRarity.toUpperCase() + ` `;
+  console.log(currentRarity);
+  if (dungeonized) {
+    currentCommand += "DUNGEON ";
+  }
+  currentCommand +=
+    currentItem +
+    `\",\"color\":\"` +
+    minecraftRaritys[currentRarity] +
+    `\",\"italic\":false,\"bold\":true,\"obfuscated\":false}`;
+  if (itemsChanged["recomb"]) {
+    currentCommand += `,{\"text\":\"`;
+    currentCommand +=
+      `M\",\"color\":\"` +
+      minecraftRaritys[currentRarity] +
+      `\",\"italic\":false,\"obfuscated\":true,\"bold\":true}]',`;
+    currentCommand += `'[{\"text\":\"(Recombobulated)\",\"color\":\"gray\",\"italic\":false}]`;
+  } else {
+    currentCommand += "]";
+  }
+  currentCommand += `\']}}`;
+  /*
+  currentCommand +=
+    ` ` +
+    currentItem +
+    `\",\"color\":\"` +
+    minecraftRaritys[currentRarity] +
+    `\",\"italic\":false,\"bold\":true}]\'`;
+  currentCommand += `]}}`;*/
+  document.getElementById("#minecraftCommand").innerHTML = currentCommand;
 }
