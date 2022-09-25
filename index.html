@@ -72,6 +72,18 @@
       <div id="weapon" class="tabcontent">
         <row class="row1">
           <div class="field field_v1">
+            <label for="first-name" class="ha-screen-reader">Reforge</label>
+            <input
+              id="strengthInput"
+              class="field__input"
+              placeholder="e.g. 20"
+              onchange="reforge(this.value)"
+            />
+            <span class="field__label-wrap" aria-hidden="true">
+              <span class="field__label">Reforge</span>
+            </span>
+          </div>
+          <div class="field field_v1">
             <label for="first-name" class="ha-screen-reader">Item Name</label>
             <input
               id="first-name"
@@ -81,18 +93,6 @@
             />
             <span class="field__label-wrap" aria-hidden="true">
               <span class="field__label">Item Name</span>
-            </span>
-          </div>
-          <div class="field field_v1">
-            <label for="first-name" class="ha-screen-reader">Gear Score</label>
-            <input
-              id="first-name"
-              class="field__input"
-              placeholder="e.g. 500"
-              onchange="gearScore(this.value)"
-            />
-            <span class="field__label-wrap" aria-hidden="true">
-              <span class="field__label">Gear Score</span>
             </span>
           </div>
         </row>
@@ -138,15 +138,15 @@
             </span>
           </div>
           <div class="field field_v1">
-            <label for="first-name" class="ha-screen-reader">Reforge</label>
+            <label for="first-name" class="ha-screen-reader">Gear Score</label>
             <input
-              id="strengthInput"
+              id="first-name"
               class="field__input"
-              placeholder="e.g. 20"
-              onchange="reforge(this.value)"
+              placeholder="e.g. 500"
+              onchange="gearScore(this.value)"
             />
             <span class="field__label-wrap" aria-hidden="true">
-              <span class="field__label">Reforge</span>
+              <span class="field__label">Gear Score</span>
             </span>
           </div>
         </row>
@@ -319,7 +319,10 @@
             Hover over me for description/Lore colours
           </div>
         </row>
-        <row class="colorRow" style="display: none">
+        <row
+          class="colorRow"
+          style="display: none; background-color: rgb(71, 71, 71)"
+        >
           <label>Colours</label>
           <div class="coloroverlay">
             <!-- <p>&0 = Default</p>
@@ -1094,11 +1097,13 @@
             ></label>
           </div>
           <div style="margin-top: 10px"></div>
-          <label
-            class="item-text"
-            id="#soulbound"
-            style="text-align: start; color: #555555 !important"
-          ></label>
+          <div>
+            <label
+              class="item-text"
+              id="#soulbound"
+              style="text-align: start; color: #555555 !important"
+            ></label>
+          </div>
           <label
             class="item-text"
             id="#item-type"

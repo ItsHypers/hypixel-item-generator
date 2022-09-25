@@ -251,14 +251,25 @@ function speed(input) {
   currentSpeed = input;
   itemsChanged["speed"] = true;
 }
-const Colors = [
-  "#b8b8b8", //Default 0
-  "#55FF55", //Green 1
-  "#55FFFF", //Blue 2
-  "#FF5555", //Red 3
-  "#FF55FF", //Purple 4
-  "#FFFF55", //Yellow 5
-];
+const colors = {
+  0: "#000000", // black
+  1: "#0000AA", // dark blue
+  2: "#00AA00", // dark green
+  3: "#00AAAA", // dark aqua
+  4: "#AA0000", // dark red
+  5: "#AA00AA", // dark purple
+  6: "#FFAA00", // gold
+  7: "#AAAAAA", // gray
+  8: "#555555", // dark gray
+  9: "#5555FF", // blue
+
+  a: "#55FF55", // green
+  b: "#55FFFF", // aqua
+  c: "#FF5555", // red
+  d: "#FF55FF", // light purple
+  e: "#FFFF55", // yellow
+  f: "#FFFFFF", // white
+};
 
 function descriptionClass(input, type) {
   document.querySelector(".mainLore").style.display = "block";
@@ -275,14 +286,14 @@ function descriptionClass(input, type) {
   addColors(input, x);
 }
 function addColors(input, x) {
-  var hasNumber = /\d/;
-  var currentNumber = 0;
+  var currentNumber = 7;
   var array = input.split(" ");
   x.innerHTML = "";
   array.forEach((element) => {
     var textSpan = document.createElement("label");
-    string = element;
+    var string = element;
     if (element[0] == "&") {
+      /*
       if (hasNumber.test(element[1])) {
         if (element[1] >= 0 && element[1] <= 5) {
           currentNumber = element[1];
@@ -293,8 +304,16 @@ function addColors(input, x) {
       } else {
         string = element.substring(1);
       }
+      */
+
+      for (var j in colors) {
+        if (j.includes(element[1])) {
+          currentNumber = element[1];
+          string = element.substring(2);
+        }
+      }
     }
-    textSpan.style.color = Colors[currentNumber];
+    textSpan.style.color = colors[currentNumber];
     textSpan.innerHTML = " " + string;
     x.appendChild(textSpan);
   });
@@ -302,6 +321,7 @@ function addColors(input, x) {
 hover = document.querySelector(".colorhover");
 hover.addEventListener("mouseover", (event) => {
   document.querySelector(".colorRow").style.display = "block";
+  document.querySelector(".coloroverlay").style.display = "inline-flex";
 });
 hover.addEventListener("mouseout", (event) => {
   document.querySelector(".colorRow").style.display = "none";
