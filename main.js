@@ -321,7 +321,6 @@ function addColors(input, x) {
 hover = document.querySelector(".colorhover");
 hover.addEventListener("mouseover", (event) => {
   document.querySelector(".colorRow").style.display = "block";
-  document.querySelector(".coloroverlay").style.display = "inline-flex";
 });
 hover.addEventListener("mouseout", (event) => {
   document.querySelector(".colorRow").style.display = "none";
@@ -485,6 +484,7 @@ function killCounter(input) {
 
 function image(input) {
   document.getElementById("png").src = input;
+  document.getElementById("png").style.display = "inline-block";
 }
 
 function imageSize(input) {
