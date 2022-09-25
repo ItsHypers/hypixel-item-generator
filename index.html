@@ -132,18 +132,14 @@
               <span class="field__label">Strength</span>
             </span>
           </div>
-          <div class="field field_v1">
-            <label for="first-name" class="ha-screen-reader">Reforge</label>
-            <input
-              id="strengthInput"
-              class="field__input"
-              placeholder="e.g. 20"
-              onchange="reforge(this.value)"
-            />
-            <span class="field__label-wrap" aria-hidden="true">
-              <span class="field__label">Reforge</span>
-            </span>
-          </div>
+          <input
+            type="checkbox"
+            id="aow"
+            value="aow"
+            onchange="artofwar(this.value)"
+          /><label for="checkboxOne" style="width: 50%; padding-top: 12px"
+            >Art of War?</label
+          >
         </row>
         <row class="row1">
           <div class="field field_v1">
@@ -352,7 +348,7 @@
           </div>
         </row>
         <div style="margin-top: 10px"></div>
-        <row class="row1">
+        <row>
           <input
             type="checkbox"
             id="dungeonized"
@@ -368,32 +364,6 @@
             onchange="soulbound(this.value)"
           /><label for="checkboxOne" style="width: 50%; padding-top: 12px"
             > Soulbound?</label
-          >
-          <input
-            type="checkbox"
-            id="fumings"
-            value="fumings"
-            onchange="potatobooks(this.value)"
-          /><label for="checkboxOne" style="width: 50%; padding-top: 12px"
-            > Fumings?</label
-          >
-        </row>
-        <row class="row1">
-          <input
-            type="checkbox"
-            id="aow"
-            value="aow"
-            onchange="artofwar(this.value)"
-          /><label for="checkboxOne" style="width: 50%; padding-top: 12px"
-            >Art of War?</label
-          >
-          <input
-            type="checkbox"
-            id="recom"
-            value="recom"
-            onchange="recomRarity(this.value)"
-          /><label for="checkboxOne" style="width: 50%; padding-top: 12px"
-            > Recom?</label
           >
         </row>
         <row class="row1">
@@ -423,22 +393,6 @@
             />
             <span class="field__label-wrap" aria-hidden="true">
               <span class="field__label">Image Size (default 50)</span>
-            </span>
-          </div>
-        </row>
-        <row class="row1">
-          <div class="field field_v1">
-            <label for="first-name" class="ha-screen-reader"
-              >Kill Counter</label
-            >
-            <input
-              id="first-name"
-              class="field__input"
-              placeholder="E.G 500"
-              onchange="killCounter(this.value)"
-            />
-            <span class="field__label-wrap" aria-hidden="true">
-              <span class="field__label">Kill Counter</span>
             </span>
           </div>
         </row>
@@ -679,7 +633,7 @@
             <button
               style="width: 100%; background-color: var(--common)"
               id="common"
-              onclick="raritySelect('common')"
+              onclick="common()"
             >
               Common
             </button>
@@ -687,7 +641,7 @@
           <div>
             <button
               style="width: 100%; background-color: var(--uncommon)"
-              onclick="raritySelect('uncommon')"
+              onclick="uncommon()"
             >
               Uncommon
             </button>
@@ -696,7 +650,7 @@
             <button
               style="width: 100%; background-color: var(--rare)"
               id="rare"
-              onclick="raritySelect('rare')"
+              onclick="rare()"
             >
               Rare
             </button>
@@ -705,7 +659,7 @@
             <button
               style="width: 100%; background-color: var(--epic)"
               id="epic"
-              onclick="raritySelect('epic')"
+              onclick="epic()"
             >
               Epic
             </button>
@@ -714,7 +668,7 @@
             <button
               style="width: 100%; background-color: var(--legendary)"
               id="legendary"
-              onclick="raritySelect('legendary')"
+              onclick="legendary()"
             >
               Legendary
             </button>
@@ -723,25 +677,16 @@
             <button
               style="width: 100%; background-color: var(--mythic)"
               id="mythic"
-              onclick="raritySelect('mythic')"
+              onclick="mythic()"
             >
               Mythic
             </button>
           </div>
           <div>
             <button
-              style="width: 100%; background-color: var(--divine)"
-              id="divine"
-              onclick="raritySelect('divine')"
-            >
-              Divine
-            </button>
-          </div>
-          <div>
-            <button
               style="width: 100%; background-color: var(--special)"
               id="special"
-              onclick="raritySelect('special')"
+              onclick="special()"
             >
               Special
             </button>
@@ -750,9 +695,18 @@
             <button
               style="width: 100%; background-color: var(--veryspecial)"
               id="veryspecial"
-              onclick="raritySelect('veryspecial')"
+              onclick="veryspecial()"
             >
               Very Special
+            </button>
+          </div>
+          <div>
+            <button
+              style="width: 100%; background-color: var(--divine)"
+              id="divine"
+              onclick="divine()"
+            >
+              Divine
             </button>
           </div>
         </div>
@@ -806,9 +760,7 @@
         <div class="w3-content w3-text-grey item" class="item">
           <row>
             <label><img id="png" src=""> </label>
-            <label class="reforge"></label>
-            <label class="item-name"></label>
-          </row>
+          <label class="item-name"></label></row>
           <div class="description"></div>
           <div style="margin-top: 10px"></div>
           <div class="gearscore" style="display: none">
@@ -819,10 +771,6 @@
           <div class="damage" style="display: none">
             <label class="item-text">Damage:</label>
             <label class="item-text item-red-text" id="#damage">+308</label>
-            <label
-              class="book"
-              id="#damagepotatobook" style="display: none;"
-            >(+30)</label>
             <label class="item-text item-dungeon-stat" id="#dungeon_damage"
               >(+745.36)</label
             >
@@ -830,11 +778,10 @@
           <div class="strength" style="display: none">
             <label class="item-text">Strength:</label>
             <label class="item-text item-red-text" id="#strength">+150</label>
-            <label class="book" id="#strengthpotatobook" style="display: none;">(+30)</label>
             <label class="item-text item-5-strength" id="#aow"></label>
             <label
               class="item-text item-dungeon-stat"
-              id="#dungeon_strength" style="display: none;"
+              id="#dungeon_strength"
             ></label>
           </div>
           <div class="critdamage" style="display: none">
@@ -1050,10 +997,6 @@
           <div style="max-width: 300px; word-wrap: break-word; justify-content: start;" class="mainLore" style="display: none">
             <label style="max-width: inherit;" class="item-text" id="#mainLore"></label>
           </div>
-          <div class="killcount" style="display: none">
-            <label class="item-text" style="color: white; font-weight: bold;">Kills:</label>
-            <label class="item-text" id="#killcount" style="color: var(--ability); font-weight: bold;"></label>
-          </div>
           <div style="margin-top: 10px"></div>
           <label
             class="item-text"
@@ -1065,11 +1008,6 @@
             id="#item-type"
             style="font-weight: bold; text-align: start"
           ></label>
-          <label
-            class="item-text"
-            id="#recombed"
-            style="font-weight: bold; text-align: start; display: none;"
-          >(Recombobulated)</label>
         </div>
       </div>
     </div>
