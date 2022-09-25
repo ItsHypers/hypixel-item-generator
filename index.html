@@ -352,7 +352,7 @@
             type="checkbox"
             id="fumings"
             value="fumings"
-            onchange="minecraftCommand(this.value)"
+            onchange="potatobooks(this.value)"
           /><label for="checkboxOne" style="width: 50%; padding-top: 12px">
             Fumings?</label
           >
@@ -418,6 +418,20 @@
             />
             <span class="field__label-wrap" aria-hidden="true">
               <span class="field__label">Kill Counter</span>
+            </span>
+          </div>
+          <div class="field field_v1">
+            <label for="first-name" class="ha-screen-reader"
+              >minecraft id</label
+            >
+            <input
+              id="first-name"
+              class="field__input"
+              placeholder="E.G 500"
+              onchange="minecraftID(this.value)"
+            />
+            <span class="field__label-wrap" aria-hidden="true">
+              <span class="field__label">minecraft id</span>
             </span>
           </div>
         </row>
@@ -736,6 +750,9 @@
           </div>
         </div>
       </nav>
+      <span class="update" style="justify-content: center; text-align: center">
+        Update Minecraft Command
+      </span>
     </nav>
 
     <!-- Navbar on small screens (Hidden on medium and large screens) -->
