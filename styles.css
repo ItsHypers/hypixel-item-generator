@@ -123,11 +123,13 @@ h6 {
   color: --common;
   font-weight: bold;
   font-family: Minecraft;
+  font-size: 18px;
 }
 .reforge {
   color: --common;
   font-weight: bold;
   font-family: Minecraft;
+  font-size: 18px;
 }
 .book {
   font-family: Minecraft;
