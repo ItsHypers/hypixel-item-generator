@@ -13,28 +13,6 @@
   --description: #b4b4b4;
   --mana: #0bb3a6;
   --cooldown: #51c051;
-
-  --colour-0: #000000;
-  --colour-1: #0000aa;
-  --colour-2: #00aa00;
-  --colour-3: #00aaaa;
-  --colour-4: #aa0000;
-  --colour-5: #aa00aa;
-  --colour-6: #ffaa00;
-  --colour-7: #aaaaaa;
-  --colour-8: #555555;
-  --colour-9: #5555ff;
-
-  --colour-a: #55ff55;
-  --colour-b: #55ffff;
-  --colour-c: #ff5555;
-  --colour-d: #ff55ff;
-  --colour-e: #ffff55;
-  --color-f: #ffffff;
-}
-
-.grad {
-  background: linear-gradient(#000000, #272727);
 }
 
 @font-face {
@@ -89,7 +67,6 @@ h6 {
   border-width: medium;
   box-shadow: inset 0px 0px 0px 2px #24015a;
   box-sizing: border-box; /* Include padding and border in element's width and height */
-  border-radius: 10px;
 }
 .ability {
   justify-content: center;
@@ -124,15 +101,6 @@ h6 {
   color: --common;
   font-weight: bold;
   font-family: Minecraft;
-}
-.reforge {
-  color: --common;
-  font-weight: bold;
-  font-family: Minecraft;
-}
-.book {
-  font-family: Minecraft;
-  color: #f1f167;
 }
 .colorhover {
   background-color: rgb(80, 80, 80);
@@ -169,7 +137,6 @@ h6 {
 .item-text.item-blue-text {
   color: #53cbe0;
 }
-
 /*
 =====
 HELPERS
@@ -202,7 +169,6 @@ RESET STYLES
 
   -webkit-appearance: none;
   -moz-appearance: none;
-  appearance: none;
 
   font-family: inherit;
   font-size: inherit;
