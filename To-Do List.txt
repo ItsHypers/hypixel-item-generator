@@ -1,0 +1,14 @@
+Minecraft Item command
+
+
+Needed:
+Dungeon Stats
+Fumings
+Gemstones
+Adding colour to description/lore/abilities in the game (currently only works on website)
+
+Online Feature (and command)
+Specific Gemstones (let users pick what gemstones to add)
+custom stats
+allow negative stats
+Add a change-log within the site somewhere
