@@ -25,8 +25,8 @@ var itemsChanged = {};
 var AOW = false;
 var descriptionAdded = false;
 var loreAdded = false;
-var descriptionString = "";
-var loreString = "";
+var descriptionArray = [];
+var loreArray = [];
 var maxDescription = 50; // maximum number of characters to extract
 const Rarities = [
   "common",
@@ -277,45 +277,53 @@ function descriptionClass(input, type) {
     var x = document.getElementById("#mainLore");
     loreString = input;
     loreAdded = true;
+    addColors(input, x, "lore");
   }
   if (type == "description") {
     var x = document.getElementById("#mainDescription");
     descriptionAdded = true;
     descriptionString = input;
+    addColors(input, x, "description");
   }
-  addColors(input, x);
 }
-function addColors(input, x) {
+function addColors(input, x, type) {
   var currentNumber = 7;
   var array = input.split(" ");
+  if (type == "description") {
+    descriptionArray = array;
+  }
+  if (type == "lore") {
+    loreArray = array;
+  }
   x.innerHTML = "";
   array.forEach((element) => {
-    var textSpan = document.createElement("label");
-    var string = element;
     if (element[0] == "&") {
-      /*
-      if (hasNumber.test(element[1])) {
-        if (element[1] >= 0 && element[1] <= 5) {
-          currentNumber = element[1];
-          string = element.substring(2);
-        } else {
-          string = element.substring(1);
-        }
-      } else {
-        string = element.substring(1);
-      }
-      */
-
+      var textSpan = document.createElement("label");
+      var string = element;
       for (var j in colors) {
         if (j.includes(element[1])) {
           currentNumber = element[1];
           string = element.substring(2);
         }
       }
+      textSpan.style.color = colors[currentNumber];
+      textSpan.innerHTML = " " + string;
+      x.appendChild(textSpan);
+    } else if (element[0] == "/" && element[1] == "n") {
+      var textSpan = document.createElement("label");
+      var space = document.createElement("label");
+      var string = element;
+      string = element.substring(2);
+      textSpan.innerHTML = " " + string;
+      x.appendChild(space);
+      x.appendChild(textSpan);
+    } else {
+      var textSpan = document.createElement("label");
+      var string = element;
+      textSpan.style.color = colors[currentNumber];
+      textSpan.innerHTML = " " + string;
+      x.appendChild(textSpan);
     }
-    textSpan.style.color = colors[currentNumber];
-    textSpan.innerHTML = " " + string;
-    x.appendChild(textSpan);
   });
 }
 hover = document.querySelector(".colorhover");
@@ -618,28 +626,56 @@ function minecraftCommand() {
       currentPetLuck +
       `\",\"color\":\"green\",\"italic\":false}]\',\'`;
   }
-  currentCommand += `[{\"text\":\"\"}]\',\'`;
-  if (descriptionAdded) {
-    currentCommand +=
-      `{\"text\":\"` +
-      descriptionString +
-      `\",\"color\":\"gray\",\"italic\":false,\"bold\":false}]\',\'`;
+
+  if (descriptionArray.length != 0) {
+    currentCommand += `[{\"text\":\"\"}]\',\'`;
+    currentCommand += `[{\"text\":\"\"}`;
   }
-  currentCommand += `[{\"text\":\"\"}]\',\'`;
+  descriptionArray.forEach((element) => {
+    console.log(element);
+    if (element[0] == "/" && element[1] == "n") {
+      var string = element.substring(2);
+      currentCommand += `]\',\'`;
+      currentCommand +=
+        `[{\"text\":\"` + string + ` \",\"color\":\"gray\",\"italic\":false}`;
+    } else {
+      currentCommand +=
+        `,{\"text\":\"` + element + ` \",\"color\":\"gray\",\"italic\":false}`;
+    }
+  });
+  if (descriptionArray.length != 0) {
+    currentCommand += `]\',\'`;
+    currentCommand += `[{\"text\":\"\"}]\',\'`;
+  }
+
   for (let i = 1; i <= numofAbilities; i++) {
-    splicedDesc = abilities[i + "description"].match(/.{1,30}/g);
+    descArray = abilities[i + "description"].split(" ");
     currentCommand +=
       `[{\"text\":\"Ability: \",\"color\":\"gold\",\"italic\":false},{\"text\":\"` +
       abilities[i + "name"] +
       `\",\"color\":\"gold\",\"italic\":false},{\"text\":\" ` +
       abilities[i + "keybind"] +
       `\",\"color\":\"yellow\",\"italic\":false,\"bold\":true}]\',\'`;
-    console.log(splicedDesc);
-    for (let i = 0; i < splicedDesc.length; i++) {
-      currentCommand +=
-        `[{\"text\":\"` +
-        splicedDesc[i] +
-        `\",\"color\":\"gray\",\"italic\":false,\"bold\":false}]\',\'`;
+    if (descArray.length != 0) {
+      currentCommand += `[{\"text\":\"\"}`;
+    }
+    descArray.forEach((element) => {
+      console.log(element);
+      if (element[0] == "/" && element[1] == "n") {
+        var string = element.substring(2);
+        currentCommand += `]\',\'`;
+        currentCommand +=
+          `[{\"text\":\"` + string + ` \",\"color\":\"gray\",\"italic\":false}`;
+      } else {
+        currentCommand +=
+          `,{\"text\":\"` +
+          element +
+          ` \",\"color\":\"gray\",\"italic\":false}`;
+      }
+    });
+    if (descArray.length != 0) {
+      currentCommand += `]\',\'`;
+      currentCommand += `[{\"text\":\"\"}]\',\'`;
     }
     currentCommand +=
       `[{\"text\":\"Mana cost: \",\"color\":\"dark_gray\",\"italic\":false},{\"text\":\"` +
@@ -647,14 +683,30 @@ function minecraftCommand() {
       `\",\"color\":\"dark_aqua\",\"italic\":false}]\',\'[{\"text\":\"Cooldown: \",\"color\":\"dark_gray\",\"italic\":false},{\"text\":\"` +
       abilities[i + "cooldown"] +
       `\",\"color\":\"green\",\"italic\":false}]\',\'`;
+
+    currentCommand += `[{\"text\":\"\"}]\',\'`;
   }
-  currentCommand += `[{\"text\":\"\"}]\',\'`;
-  if (loreAdded) {
-    currentCommand +=
-      `{\"text\":\"` +
-      loreString +
-      `\",\"color\":\"gray\",\"italic\":false,\"bold\":false}]\',\'`;
+
+  if (loreArray.length != 0) {
+    currentCommand += `[{\"text\":\"\"}`;
   }
+  loreArray.forEach((element) => {
+    console.log(element);
+    if (element[0] == "/" && element[1] == "n") {
+      var string = element.substring(2);
+      currentCommand += `]\',\'`;
+      currentCommand +=
+        `[{\"text\":\"` + string + ` \",\"color\":\"gray\",\"italic\":false}`;
+    } else {
+      currentCommand +=
+        `,{\"text\":\"` + element + ` \",\"color\":\"gray\",\"italic\":false}`;
+    }
+  });
+  if (loreArray.length != 0) {
+    currentCommand += `]\',\'`;
+    currentCommand += `[{\"text\":\"\"}]\',\'`;
+  }
+
   if (itemsChanged["killcount"]) {
     currentCommand +=
       `[{\"text\":\"Kills:\",\"color\":\"white\",\"italic\":false,\"bold\":false},{\"text\":\" ` +
