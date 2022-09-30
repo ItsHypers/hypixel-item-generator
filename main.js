@@ -15,10 +15,16 @@ var currentPetLuck = 0;
 var currentSpeed = 0;
 var numofAbilities = 0;
 var killCount = 0;
+
 var currentItem = "SWORD";
 var currentReforge = "";
 var currentitemName = "";
 var currentCommand = "";
+var currentSkill = "";
+var currentHeldItem = "";
+var currentHeldItemDescription = "";
+var currentHeldItemRarity = "";
+
 var currentminecraftID = "minecraft:diamond_sword";
 var abilities = {};
 var itemsChanged = {};
@@ -69,6 +75,43 @@ function copyPaste() {
   } else {
     x.style.display = "none";
   }
+}
+function colourCodes() {
+  var x = document.getElementById("colours");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+function heldItem() {
+  x = document.getElementById("heldItem");
+  y = document.getElementById("heldItemButton");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+    y.classList.add("active");
+  } else {
+    x.style.display = "none";
+    y.classList.remove("active");
+  }
+}
+
+function heldItemName(input) {
+  currentHeldItem = input;
+  document.getElementById("#heldItemName").textContent = input;
+  document.querySelector(".heldItemName").style.display = "block";
+}
+function heldItemDescription(input) {
+  currentHeldItemDescription = input;
+  className = document.getElementById("#heldItemDescription");
+  document.querySelector(".heldItemDescription").style.display = "block";
+  addColors(input, className);
+}
+function heldItemRarity(input) {
+  currentHeldItemRarity = input;
+  document.getElementById("#heldItemName").style.color = hexToRgbA(
+    RarityHexs[input]
+  );
 }
 function ability(input) {
   var x = document.getElementById("ability" + input);
@@ -126,6 +169,38 @@ function abilityCooldown(input, num) {
   ability["cooldown"] = input;
   abilities[num + "cooldown"] = input;
 }
+
+function petAbility(input) {
+  var x = document.getElementById("ability" + input);
+  var button = document.getElementById("abilityButton" + input);
+  if (x.style.display === "none") {
+    x.style.display = "block";
+    button.classList.add("active");
+  } else {
+    x.style.display = "none";
+    button.classList.remove("active");
+  }
+}
+function petabilityName(input, num) {
+  var abilityNum = "ability" + num;
+  var name = document.getElementById("#abilityName" + num);
+  var className = document.querySelector(".abilityName" + num);
+  name.textContent = input;
+  className.style.display = "block";
+  itemsChanged[abilityNum] = true;
+  numofAbilities += 1;
+  abilities[num + "name"] = input;
+}
+function petabilityDescription(input, num) {
+  var ability = "ability" + num;
+  var name = document.getElementById("#abilityDescription" + num);
+  var className = document.querySelector(".abilityDescription" + num);
+  addColors(input, name);
+  className.style.display = "block";
+  itemsChanged[ability] = true;
+  abilities[num + "description"] = input;
+}
+
 function itemName(input) {
   document.querySelector(".item-name").textContent = input;
   currentitemName = input;
@@ -228,6 +303,12 @@ function defence(input) {
   currentDefence = input;
   itemsChanged["defence"] = true;
 }
+function seacreature(input) {
+  document.getElementById("#seacreature").textContent = "+" + input + "%";
+  document.querySelector(".seacreature").style.display = "block";
+  currentSeaCreature = input;
+  itemsChanged["seacreature"] = true;
+}
 function itemType(input, dungeon) {
   input = input.toUpperCase();
   currentItem = input;
@@ -244,6 +325,24 @@ function magicfind(input) {
   document.querySelector(".magicfind").style.display = "block";
   currentMagicFind = input;
   itemsChanged["magicfind"] = true;
+}
+function petluck(input) {
+  document.getElementById("#petluck").textContent = "+" + input;
+  document.querySelector(".petluck").style.display = "block";
+  currentPetLuck = input;
+  itemsChanged["petluck"] = true;
+}
+function truedefence(input) {
+  document.getElementById("#truedefence").textContent = "+" + input;
+  document.querySelector(".truedefence").style.display = "block";
+  currentTrueDefence = input;
+  itemsChanged["truedefence"] = true;
+}
+function skill(input) {
+  document.querySelector(".skill").style.display = "block";
+  document.querySelector(".skill").textContent = input + " Pet";
+  currentSkill = input;
+  itemsChanged["skill"] = true;
 }
 function speed(input) {
   document.getElementById("#speed").textContent = "+" + input;
@@ -326,13 +425,6 @@ function addColors(input, x, type) {
     }
   });
 }
-hover = document.querySelector(".colorhover");
-hover.addEventListener("mouseover", (event) => {
-  document.querySelector(".colorRow").style.display = "block";
-});
-hover.addEventListener("mouseout", (event) => {
-  document.querySelector(".colorRow").style.display = "none";
-});
 
 function artofwar(input) {
   var checkBox = document.getElementById("aow");
@@ -426,7 +518,6 @@ function dungeonCalc(input, type) {
   }
 }
 function switchType(evt, type) {
-  // Declare all variables
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
   if (evt.currentTarget.classList.contains("active")) {
@@ -437,6 +528,8 @@ function switchType(evt, type) {
     for (i = 0; i < tablinks.length; i++) {
       tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
+    document.querySelector(".currentInputs").innerHTML = "";
+    document.querySelector(".currentContent").innerHTML = "";
   } else {
     // Get all elements with class="tabcontent" and hide them
     for (i = 0; i < tabcontent.length; i++) {
@@ -450,7 +543,18 @@ function switchType(evt, type) {
     }
 
     // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(type).style.display = "block";
+    const currentInputs = document.querySelector(".currentInputs");
+    fetch("/input-HTML/" + type + "Inputs" + ".html")
+      .then((res) => res.text())
+      .then((data) => {
+        currentInputs.innerHTML = data;
+      });
+    const currentContent = document.querySelector(".currentContent");
+    fetch("/item-HTML/" + type + ".html")
+      .then((res) => res.text())
+      .then((data) => {
+        currentContent.innerHTML = data;
+      });
     evt.currentTarget.className += " active";
   }
 }
@@ -519,10 +623,6 @@ function hexToRgbA(hex) {
   }
   throw new Error("Bad Hex");
 }
-updateButton = document.querySelector(".update");
-updateButton.addEventListener("click", function () {
-  minecraftCommand();
-});
 
 function minecraftID(input) {
   currentminecraftID = input;

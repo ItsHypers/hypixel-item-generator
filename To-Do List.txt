@@ -8,13 +8,12 @@ Gemstones
 Adding colour to description/lore/abilities in the game (currently only works on website)
 
 Online Feature (and command)
-Specific Gemstones (let users pick what gemstones to add)
 custom stats
-allow negative stats
 Add a change-log within the site somewhere
 
-find a way to split up description, lore and ability (without cutting mid word)
 
-Ideas:
-count characters, when character limit reached, split at next space.
-search through description until you see \n, then split (user imputted line breaks?)
+User Bugs / Suggestions:
+
+Dinomar2358: After I deleted the ability it didn't delete the "ABILITY:" thing
+
+RocMineBuilder: it can't do negative numbers, and there is no way to choose the gemstone slot type

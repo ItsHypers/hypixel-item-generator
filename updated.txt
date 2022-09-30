@@ -1,5 +1,7 @@
 Update #5
 
-Changed size of title/reforge.
+Pets Menu
 
-Added line break capability to descriptions, lore and ability descriptions
+General coding optimizations / tidying up
+
+Added Sea Creature Chance % Input

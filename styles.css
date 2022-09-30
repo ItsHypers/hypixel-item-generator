@@ -30,10 +30,15 @@
   --color-d: #ff55ff;
   --color-e: #ffff55;
   --color-f: #ffffff;
+
+  --petLevel: #55ffff;
 }
 
 .grad {
   background: linear-gradient(#000000, #2e2e2e);
+}
+.grad2 {
+  background: linear-gradient(#000000, #0f0f0f);
 }
 
 @font-face {
@@ -90,6 +95,24 @@ h6 {
   box-sizing: border-box; /* Include padding and border in element's width and height */
   border-radius: 10px;
 }
+.pet {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 400px;
+  background-color: #110211;
+  border: 5px solid #110211;
+  border-style: solid;
+  border-width: medium;
+  box-shadow: inset 0px 0px 0px 2px #24015a;
+  box-sizing: border-box; /* Include padding and border in element's width and height */
+  border-radius: 10px;
+}
+.coloroverlay {
+  font-weight: bold;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
 .ability {
   justify-content: center;
   border: 1px solid #ccc;
@@ -109,7 +132,8 @@ h6 {
 }
 #abilityButton1,
 #abilityButton2,
-#abilityButton3 {
+#abilityButton3,
+#heldItemButton {
   height: 50px;
   background-color: #f1f1f1;
 }
@@ -124,6 +148,16 @@ h6 {
   font-weight: bold;
   font-family: Minecraft;
   font-size: 18px;
+}
+.level {
+  color: #b8b8b8;
+  font-family: Minecraft;
+  font-size: 18px;
+}
+.skill {
+  color: --common;
+  font-family: Minecraft;
+  font-size: 14px;
 }
 .reforge {
   color: --common;
@@ -476,6 +510,8 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 /* Style the tab content */
 .tabcontent {
   display: none;
+}
+.tabcontentButton {
   padding: 6px 12px;
   border: 1px solid #ccc;
   border-top: none;
