@@ -544,13 +544,13 @@ function switchType(evt, type) {
 
     // Show the current tab, and add an "active" class to the button that opened the tab
     const currentInputs = document.querySelector(".currentInputs");
-    fetch("/input-HTML/" + type + "Inputs" + ".html")
+    fetch("./input-HTML/" + type + "Inputs" + ".html")
       .then((res) => res.text())
       .then((data) => {
         currentInputs.innerHTML = data;
       });
     const currentContent = document.querySelector(".currentContent");
-    fetch("/item-HTML/" + type + ".html")
+    fetch("./item-HTML/" + type + ".html")
       .then((res) => res.text())
       .then((data) => {
         currentContent.innerHTML = data;
