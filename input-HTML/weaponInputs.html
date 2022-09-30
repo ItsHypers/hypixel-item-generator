@@ -1,0 +1,683 @@
+<div id="weapon">
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Reforge</label>
+      <input
+        id="strengthInput"
+        class="field__input"
+        placeholder="e.g. 20"
+        onchange="reforge(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Reforge</span>
+      </span>
+    </div>
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Item Name</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="e.g. Hyperion"
+        onchange="itemName(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Item Name</span>
+      </span>
+    </div>
+  </row>
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Damage</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="e.g. 50"
+        onchange="Damage(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Damage</span>
+      </span>
+    </div>
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Crit Damage (%)</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="e.g. 25%"
+        onchange="critDamage(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Crit Damage (%)</span>
+      </span>
+    </div>
+  </row>
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Strength</label>
+      <input
+        id="strengthInput"
+        class="field__input"
+        placeholder="e.g. 20"
+        onchange="strength(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Strength</span>
+      </span>
+    </div>
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Gear Score</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="e.g. 500"
+        onchange="gearScore(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Gear Score</span>
+      </span>
+    </div>
+  </row>
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Attack Speed</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="e.g. 50%"
+        onchange="attackSpeed(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Attack Speed</span>
+      </span>
+    </div>
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Intelligence</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="e.g. 25"
+        onchange="Intelligence(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Intelligence</span>
+      </span>
+    </div>
+  </row>
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Crit Chance</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="e.g. 50%"
+        onchange="critChance(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Crit Chance</span>
+      </span>
+    </div>
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Ferocity</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="e.g. 25"
+        onchange="ferocity(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Ferocity</span>
+      </span>
+    </div>
+  </row>
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Item Type</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="e.g SWORD"
+        onchange="itemType(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Item Type</span>
+      </span>
+    </div>
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Defence</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="e.g. 25"
+        onchange="defence(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Defence</span>
+      </span>
+    </div>
+  </row>
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Speed</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="e.g 25"
+        onchange="speed(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Speed</span>
+      </span>
+    </div>
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Magic Find</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="e.g. 25"
+        onchange="magicfind(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Magic Find</span>
+      </span>
+    </div>
+  </row>
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">True Defense</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="e.g. 25"
+        onchange="truedefence(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">True Defense</span>
+      </span>
+    </div>
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Pet Luck</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="e.g. 25"
+        onchange="petluck(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Pet Luck</span>
+      </span>
+    </div>
+  </row>
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Ability Damage</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="e.g. 25%"
+        onchange="abilitydamage(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Ability Damage</span>
+      </span>
+    </div>
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Gemstones</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="max 5"
+        onchange="gemstones(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Gemstones</span>
+      </span>
+    </div>
+  </row>
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Sea Creature (%)</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="e.g. 25%"
+        onchange="seacreature(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Sea Creature (%)</span>
+      </span>
+    </div>
+  </row>
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Description</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="e.g. 25%"
+        onchange="descriptionClass(this.value, `description`)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Description</span>
+      </span>
+    </div>
+  </row>
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Item Lore</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="e.g. 25%"
+        onchange="descriptionClass(this.value, `lore`)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Item Lore</span>
+      </span>
+    </div>
+  </row>
+  <div style="margin-top: 10px"></div>
+  <row class="row1">
+    <input
+      type="checkbox"
+      id="dungeonized"
+      value="dungeonized"
+      onchange="dungeon(this.value)"
+    /><label for="checkboxOne" style="width: 50%; padding-top: 12px">
+      Dungeonized?</label
+    >
+    <input
+      type="checkbox"
+      id="soulbound"
+      value="soulbound"
+      onchange="soulbound(this.value)"
+    /><label for="checkboxOne" style="width: 50%; padding-top: 12px">
+      Soulbound?</label
+    >
+    <input
+      type="checkbox"
+      id="fumings"
+      value="fumings"
+      onchange="potatobooks(this.value)"
+    /><label for="checkboxOne" style="width: 50%; padding-top: 12px">
+      Fumings?</label
+    >
+  </row>
+  <row class="row1">
+    <input
+      type="checkbox"
+      id="aow"
+      value="aow"
+      onchange="artofwar(this.value)"
+    /><label for="checkboxOne" style="width: 50%; padding-top: 12px"
+      >Art of War?</label
+    >
+    <input
+      type="checkbox"
+      id="recom"
+      value="recom"
+      onchange="recomRarity(this.value)"
+    /><label for="checkboxOne" style="width: 50%; padding-top: 12px">
+      Recom?</label
+    >
+  </row>
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Image (use URL)</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="any URL .png"
+        onchange="image(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Image (use URL)</span>
+      </span>
+    </div>
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader"
+        >Image Size (default 50)</label
+      >
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="50"
+        onchange="imageSize(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Image Size (default 50)</span>
+      </span>
+    </div>
+  </row>
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Kill Counter</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="E.G 500"
+        onchange="killCounter(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Kill Counter</span>
+      </span>
+    </div>
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">minecraft id</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="E.G 500"
+        onchange="minecraftID(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">minecraft id</span>
+      </span>
+    </div>
+  </row>
+</div>
+<button style="width: 100%" id="abilityButton1" onclick="ability(1)">
+  Ability 1
+</button>
+<div class="ability" id="ability1" style="display: none">
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Ability Name</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="THROW"
+        onchange="abilityName(this.value, 1)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Ability Name</span>
+      </span>
+    </div>
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Keybind</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="RIGHT CLICK"
+        onchange="abilityKeybind(this.value, 1)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Keybind</span>
+      </span>
+    </div>
+  </row>
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Description</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="full ability description"
+        onchange="abilityDescription(this.value, 1)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Description</span>
+      </span>
+    </div>
+  </row>
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Mana Cost</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="e.g 25"
+        onchange="abilityMana(this.value, 1)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Mana Cost</span>
+      </span>
+    </div>
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Cooldown</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="E.G 5s"
+        onchange="abilityCooldown(this.value, 1)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Cooldown</span>
+      </span>
+    </div>
+  </row>
+</div>
+<button style="width: 100%" id="abilityButton2" onclick="ability(2)">
+  Ability 2
+</button>
+<div class="ability" id="ability2" style="display: none">
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Ability Name</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="THROW"
+        onchange="abilityName(this.value, 2)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Ability Name</span>
+      </span>
+    </div>
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Keybind</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="RIGHT CLICK"
+        onchange="abilityKeybind(this.value, 2)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Keybind</span>
+      </span>
+    </div>
+  </row>
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Description</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="full ability description"
+        onchange="abilityDescription(this.value, 2)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Description</span>
+      </span>
+    </div>
+  </row>
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Mana Cost</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="e.g 25"
+        onchange="abilityMana(this.value, 2)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Mana Cost</span>
+      </span>
+    </div>
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Cooldown</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="E.G 5s"
+        onchange="abilityCooldown(this.value, 2)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Cooldown</span>
+      </span>
+    </div>
+  </row>
+</div>
+<button style="width: 100%" id="abilityButton3" onclick="ability(3)">
+  Ability 3
+</button>
+<div class="ability" id="ability3" style="display: none">
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Ability Name</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="THROW"
+        onchange="abilityName(this.value, 3)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Ability Name</span>
+      </span>
+    </div>
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Keybind</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="RIGHT CLICK"
+        onchange="abilityKeybind(this.value, 3)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Keybind</span>
+      </span>
+    </div>
+  </row>
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Description</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="full ability description"
+        onchange="abilityDescription(this.value, 3)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Description</span>
+      </span>
+    </div>
+  </row>
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Mana Cost</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="e.g 25"
+        onchange="abilityMana(this.value, 3)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Mana Cost</span>
+      </span>
+    </div>
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Cooldown</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="E.G 5s"
+        onchange="abilityCooldown(this.value, 3)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Cooldown</span>
+      </span>
+    </div>
+  </row>
+</div>
+<nav class="dropdown">
+  <label for="touch"><span class="drop">Rarity</span></label>
+  <input type="checkbox" id="touch" />
+  <div class="slide">
+    <div>
+      <button
+        style="width: 100%; background-color: var(--common)"
+        id="common"
+        onclick="raritySelect('common')"
+      >
+        Common
+      </button>
+    </div>
+    <div>
+      <button
+        style="width: 100%; background-color: var(--uncommon)"
+        onclick="raritySelect('uncommon')"
+      >
+        Uncommon
+      </button>
+    </div>
+    <div>
+      <button
+        style="width: 100%; background-color: var(--rare)"
+        id="rare"
+        onclick="raritySelect('rare')"
+      >
+        Rare
+      </button>
+    </div>
+    <div>
+      <button
+        style="width: 100%; background-color: var(--epic)"
+        id="epic"
+        onclick="raritySelect('epic')"
+      >
+        Epic
+      </button>
+    </div>
+    <div>
+      <button
+        style="width: 100%; background-color: var(--legendary)"
+        id="legendary"
+        onclick="raritySelect('legendary')"
+      >
+        Legendary
+      </button>
+    </div>
+    <div>
+      <button
+        style="width: 100%; background-color: var(--mythic)"
+        id="mythic"
+        onclick="raritySelect('mythic')"
+      >
+        Mythic
+      </button>
+    </div>
+    <div>
+      <button
+        style="width: 100%; background-color: var(--divine)"
+        id="divine"
+        onclick="raritySelect('divine')"
+      >
+        Divine
+      </button>
+    </div>
+    <div>
+      <button
+        style="width: 100%; background-color: var(--special)"
+        id="special"
+        onclick="raritySelect('special')"
+      >
+        Special
+      </button>
+    </div>
+    <div>
+      <button
+        style="width: 100%; background-color: var(--veryspecial)"
+        id="veryspecial"
+        onclick="raritySelect('veryspecial')"
+      >
+        Very Special
+      </button>
+    </div>
+  </div>
+</nav>
+<span
+  class="update"
+  style="justify-content: center; text-align: center"
+  onclick="minecraftCommand()"
+>
+  Update Minecraft Command
+</span>
