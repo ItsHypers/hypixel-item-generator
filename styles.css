@@ -117,6 +117,10 @@ h6 {
   justify-content: center;
   border: 1px solid #ccc;
 }
+.gemstone {
+  justify-content: center;
+  border: 1px solid #ccc;
+}
 .description {
   width: 70%;
   font-size: 15px;
@@ -133,7 +137,9 @@ h6 {
 #abilityButton1,
 #abilityButton2,
 #abilityButton3,
-#heldItemButton {
+#heldItemButton,
+#gemstoneButton,
+#wisdomButton {
   height: 50px;
   background-color: #f1f1f1;
 }

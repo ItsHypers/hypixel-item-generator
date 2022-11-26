@@ -9,6 +9,7 @@ var currentDefence = 0;
 var currentabilityDamage = 0;
 var currentSeaCreature = 0;
 var currentHealth = 0;
+var currentVitality = 0;
 var currentTrueDefence = 0;
 var currentMagicFind = 0;
 var currentPetLuck = 0;
@@ -33,6 +34,7 @@ var descriptionAdded = false;
 var loreAdded = false;
 var descriptionArray = [];
 var loreArray = [];
+var gemstonesArray = [];
 var maxDescription = 50; // maximum number of characters to extract
 const Rarities = [
   "common",
@@ -116,6 +118,28 @@ function heldItemRarity(input) {
 function ability(input) {
   var x = document.getElementById("ability" + input);
   var button = document.getElementById("abilityButton" + input);
+  if (x.style.display === "none") {
+    x.style.display = "block";
+    button.classList.add("active");
+  } else {
+    x.style.display = "none";
+    button.classList.remove("active");
+  }
+}
+function gemstoneButton() {
+  var x = document.getElementById("gemstone");
+  var button = document.getElementById("gemstoneButton");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+    button.classList.add("active");
+  } else {
+    x.style.display = "none";
+    button.classList.remove("active");
+  }
+}
+function wisdomButton() {
+  var x = document.getElementById("wisdom");
+  var button = document.getElementById("wisdomButton");
   if (x.style.display === "none") {
     x.style.display = "block";
     button.classList.add("active");
@@ -244,18 +268,59 @@ function abilitydamage(input) {
   currentabilityDamage = input;
   itemsChanged["abilitydamage"] = true;
 }
-function gemstones(input) {
-  if (input >= 6) {
-    input = 5;
+function gemstones(input, num) {
+  var icon = "";
+  if (input == "health") {
+    icon = "[❤]";
   }
-  var string = "";
-  for (let i = 0; i < input; i++) {
-    string = string + "[❂]";
-    console.log(string);
+  if (input == "defence") {
+    icon = "[❈]";
   }
-  document.getElementById("#gemstoneSlots").textContent = string;
+  if (input == "mf") {
+    icon = "[☘]";
+  }
+  if (input == "intel") {
+    icon = "[✎]";
+  }
+  if (input == "ms") {
+    icon = "[⸕]";
+  }
+  if (input == "pristine") {
+    icon = "[✧]";
+  }
+  if (input == "strength") {
+    icon = "[❁]";
+  }
+
+  if (input == "combat") {
+    icon = "[⚔]";
+  }
+  if (input == "offensive") {
+    icon = "[☠]";
+  }
+  if (input == "defensive") {
+    icon = "[☤]";
+  }
+  if (input == "mining") {
+    icon = "[✦]";
+  }
+  if (input == "uni") {
+    icon = "[❂]";
+  }
+
+  for (let i = 0; i < num; i++) {
+    gemstonesArray.push(icon);
+  }
+  document.getElementById("#gemstoneSlots").textContent = gemstonesArray
+    .toString()
+    .replace(/,/g, "");
   document.querySelector(".gemstoneSlots").style.display = "block";
   itemsChanged["gemstone"] = true;
+}
+
+function wisdom(input, num) {
+  document.getElementById("#wisdom" + input).textContent = "+" + num;
+  document.querySelector(".wisdom" + input).style.display = "block";
 }
 function critDamage(input) {
   document.getElementById("#critdamage").textContent = "+" + input + "%";
@@ -349,6 +414,18 @@ function speed(input) {
   document.querySelector(".speed").style.display = "block";
   currentSpeed = input;
   itemsChanged["speed"] = true;
+}
+function health(input) {
+  document.getElementById("#health").textContent = "+" + input;
+  document.querySelector(".health").style.display = "block";
+  currentHealth = input;
+  itemsChanged["health"] = true;
+}
+function vitality(input) {
+  document.getElementById("#vitality").textContent = "+" + input;
+  document.querySelector(".vitality").style.display = "block";
+  currentVitality = input;
+  itemsChanged["vitality"] = true;
 }
 const colors = {
   0: "#000000", // black

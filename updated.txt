@@ -2,6 +2,11 @@ Update #5
 
 Pets Menu
 
+
 General coding optimizations / tidying up
 
 Added Sea Creature Chance % Input
+
+Added True Defence Input
+
+Added Pet Luacc

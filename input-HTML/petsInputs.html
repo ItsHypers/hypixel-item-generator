@@ -209,6 +209,20 @@
   </row>
   <row class="row1">
     <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Health</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="e.g. 25"
+        onchange="health(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Health</span>
+      </span>
+    </div>
+  </row>
+  <row class="row1">
+    <div class="field field_v1">
       <label for="first-name" class="ha-screen-reader">Description</label>
       <input
         id="first-name"
@@ -297,6 +311,141 @@
       />
       <span class="field__label-wrap" aria-hidden="true">
         <span class="field__label">Image Size (default 50)</span>
+      </span>
+    </div>
+  </row>
+</div>
+<button style="width: 100%" id="wisdomButton" onclick="wisdomButton()">
+  Wisdom
+</button>
+<div class="wisdom" id="wisdom" style="display: none">
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Combat</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="E.G 1"
+        onchange="wisdom(`combat`, this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Combat</span>
+      </span>
+    </div>
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Mining</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="E.G 1"
+        onchange="wisdom(`mining`, this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Mining</span>
+      </span>
+    </div>
+  </row>
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Farming</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="E.G 1"
+        onchange="wisdom(`farming`, this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Farming</span>
+      </span>
+    </div>
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Foraging</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="E.G 1"
+        onchange="wisdom(`foraging`, this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Foraging</span>
+      </span>
+    </div>
+  </row>
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Fishing</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="E.G 1"
+        onchange="wisdom(`fishing`, this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Fishing</span>
+      </span>
+    </div>
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Enchanting</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="E.G 1"
+        onchange="wisdom(`enchanting`, this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Enchanting</span>
+      </span>
+    </div>
+  </row>
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Alchemy</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="E.G 1"
+        onchange="wisdom(`alchemy`, this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Alchemy</span>
+      </span>
+    </div>
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Carpentry</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="E.G 1"
+        onchange="wisdom(`carpentry`, this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Carpentry</span>
+      </span>
+    </div>
+  </row>
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Runecrafting</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="E.G 1"
+        onchange="wisdom(`runecrafting`, this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Runecrafting</span>
+      </span>
+    </div>
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Social</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="E.G 1"
+        onchange="wisdom(`social`, this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Social</span>
       </span>
     </div>
   </row>
