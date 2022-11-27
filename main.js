@@ -487,7 +487,7 @@ function addColors(input, x, type) {
       x.appendChild(textSpan);
     } else if (element[0] == "/" && element[1] == "n") {
       var textSpan = document.createElement("label");
-      var space = document.createElement("label");
+      var space = document.createElement("p");
       var string = element;
       string = element.substring(2);
       textSpan.innerHTML = " " + string;
