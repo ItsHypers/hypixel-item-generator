@@ -13,8 +13,9 @@ var currentVitality = 0;
 var currentTrueDefence = 0;
 var currentMagicFind = 0;
 var currentPetLuck = 0;
+var currentPetLevel = 100;
 var currentSpeed = 0;
-var numofAbilities = 0;
+var numofAbilities = 1;
 var killCount = 0;
 
 var currentItem = "SWORD";
@@ -115,6 +116,43 @@ function heldItemRarity(input) {
     RarityHexs[input]
   );
 }
+
+function createAbility() {
+  startdiv = document.createElement("div");
+  startdiv.className = "ability";
+  startdiv.setAttribute(`id`, `ability` + numofAbilities);
+
+  row = document.createElement("row");
+  row.className = "row1";
+
+  abilitytemplate = document.createElement("div");
+  abilitytemplate.className = "field field_v1";
+
+  for (let i = 0; i < 5; i++) {
+    if (i == 0) {
+      x = "Name";
+    }
+    if (i == 1) {
+      x = "keybind";
+    }
+    if (i == 2) {
+      x = "description";
+    }
+    if (i == 3) {
+      x = "mana";
+    }
+    if (i == 4) {
+      x = "cooldown";
+    }
+  }
+
+  row.appendChild(abilitytemplate);
+
+  startdiv.appendChild(row);
+
+  document.querySelector(`.abilities`).appendChild(startdiv);
+  numofAbilities += 1;
+}
 function ability(input) {
   var x = document.getElementById("ability" + input);
   var button = document.getElementById("abilityButton" + input);
@@ -192,6 +230,11 @@ function abilityCooldown(input, num) {
   itemsChanged[ability] = true;
   ability["cooldown"] = input;
   abilities[num + "cooldown"] = input;
+}
+
+function petlevel(input) {
+  document.querySelector(".petlevel").textContent = input;
+  currentPetLevel = input;
 }
 
 function petAbility(input) {

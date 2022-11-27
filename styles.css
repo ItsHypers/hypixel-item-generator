@@ -139,7 +139,8 @@ h6 {
 #abilityButton3,
 #heldItemButton,
 #gemstoneButton,
-#wisdomButton {
+#wisdomButton,
+#createAbility {
   height: 50px;
   background-color: #f1f1f1;
 }
