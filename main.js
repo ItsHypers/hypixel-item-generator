@@ -15,7 +15,7 @@ var currentMagicFind = 0;
 var currentPetLuck = 0;
 var currentPetLevel = 100;
 var currentSpeed = 0;
-var numofAbilities = 1;
+var numofAbilities = 0;
 var killCount = 0;
 
 var currentItem = "SWORD";
@@ -70,7 +70,49 @@ const minecraftRaritys = {
   special: "red",
   veryspecial: "red",
 };
+
+var addedStats = {};
 var currentRarity = Rarities[0];
+
+/*function AddStat() {
+  const redStat = document.querySelector(".statsRed");
+  const greenStat = document.querySelector(".statsGreen");
+  var statName = document.getElementById("StatName").value;
+  var statAmount = document.getElementById("StatAmount").value.toLowerCase();
+  var statType = document.getElementById("StatType").value.toLowerCase();
+  addedStats[statName] = { statAmount, statType };
+
+  redStat.innerHTML = "";
+  greenStat.innerHTML = "";
+
+  console.log(addedStats);
+  for (let name in addedStats) {
+    /*
+    console.log(name);
+    const div = document.createElement("div");
+    div.classList.add(name);
+    div.style.display = "block";
+    const Namelabel = document.createElement("label");
+    Namelabel.textContent = name + ": ";
+    Namelabel.classList.add("item-text");
+
+    const Amountlabel = document.createElement("label");
+    Amountlabel.textContent = keys[0];
+    Amountlabel.classList.add("item-text");
+    if (keys[1] == "red") {
+      redStat.appendChild(div);
+      Amountlabel.classList.add("item-red-text");
+    }
+    if (keys[1] == "green") {
+      greenStat.appendChild(div);
+      Amountlabel.classList.add("item-green-text");
+    }
+    div.appendChild(Namelabel);
+    div.appendChild(Amountlabel);
+    name[statAmount];
+  }
+}
+    */
 function copyPaste() {
   var x = document.getElementById("symbols");
   if (x.style.display === "none") {
@@ -153,6 +195,16 @@ function createAbility() {
   document.querySelector(`.abilities`).appendChild(startdiv);
   numofAbilities += 1;
 }
+
+function maxLevel(input) {
+  var checkBox = document.getElementById("maxLevel");
+  if (checkBox.checked == true) {
+    document.getElementById("maxLevelID").textContent = "MAX LEVEL";
+  } else {
+    document.getElementById("maxLevelID").textContent = "";
+  }
+}
+
 function ability(input) {
   var x = document.getElementById("ability" + input);
   var button = document.getElementById("abilityButton" + input);
@@ -867,44 +919,47 @@ function minecraftCommand() {
     currentCommand += `]\',\'`;
     currentCommand += `[{\"text\":\"\"}]\',\'`;
   }
-
-  for (let i = 1; i <= numofAbilities; i++) {
-    descArray = abilities[i + "description"].split(" ");
-    currentCommand +=
-      `[{\"text\":\"Ability: \",\"color\":\"gold\",\"italic\":false},{\"text\":\"` +
-      abilities[i + "name"] +
-      `\",\"color\":\"gold\",\"italic\":false},{\"text\":\" ` +
-      abilities[i + "keybind"] +
-      `\",\"color\":\"yellow\",\"italic\":false,\"bold\":true}]\',\'`;
-    if (descArray.length != 0) {
-      currentCommand += `[{\"text\":\"\"}`;
-    }
-    descArray.forEach((element) => {
-      console.log(element);
-      if (element[0] == "/" && element[1] == "n") {
-        var string = element.substring(2);
-        currentCommand += `]\',\'`;
-        currentCommand +=
-          `[{\"text\":\"` + string + ` \",\"color\":\"gray\",\"italic\":false}`;
-      } else {
-        currentCommand +=
-          `,{\"text\":\"` +
-          element +
-          ` \",\"color\":\"gray\",\"italic\":false}`;
+  if (abilities.length > 0) {
+    for (let i = 1; i <= numofAbilities; i++) {
+      descArray = abilities[i + "description"].split(" ");
+      currentCommand +=
+        `[{\"text\":\"Ability: \",\"color\":\"gold\",\"italic\":false},{\"text\":\"` +
+        abilities[i + "name"] +
+        `\",\"color\":\"gold\",\"italic\":false},{\"text\":\" ` +
+        abilities[i + "keybind"] +
+        `\",\"color\":\"yellow\",\"italic\":false,\"bold\":true}]\',\'`;
+      if (descArray.length != 0) {
+        currentCommand += `[{\"text\":\"\"}`;
       }
-    });
-    if (descArray.length != 0) {
-      currentCommand += `]\',\'`;
+      descArray.forEach((element) => {
+        console.log(element);
+        if (element[0] == "/" && element[1] == "n") {
+          var string = element.substring(2);
+          currentCommand += `]\',\'`;
+          currentCommand +=
+            `[{\"text\":\"` +
+            string +
+            ` \",\"color\":\"gray\",\"italic\":false}`;
+        } else {
+          currentCommand +=
+            `,{\"text\":\"` +
+            element +
+            ` \",\"color\":\"gray\",\"italic\":false}`;
+        }
+      });
+      if (descArray.length != 0) {
+        currentCommand += `]\',\'`;
+        currentCommand += `[{\"text\":\"\"}]\',\'`;
+      }
+      currentCommand +=
+        `[{\"text\":\"Mana cost: \",\"color\":\"dark_gray\",\"italic\":false},{\"text\":\"` +
+        abilities[i + "mana"] +
+        `\",\"color\":\"dark_aqua\",\"italic\":false}]\',\'[{\"text\":\"Cooldown: \",\"color\":\"dark_gray\",\"italic\":false},{\"text\":\"` +
+        abilities[i + "cooldown"] +
+        `\",\"color\":\"green\",\"italic\":false}]\',\'`;
+
       currentCommand += `[{\"text\":\"\"}]\',\'`;
     }
-    currentCommand +=
-      `[{\"text\":\"Mana cost: \",\"color\":\"dark_gray\",\"italic\":false},{\"text\":\"` +
-      abilities[i + "mana"] +
-      `\",\"color\":\"dark_aqua\",\"italic\":false}]\',\'[{\"text\":\"Cooldown: \",\"color\":\"dark_gray\",\"italic\":false},{\"text\":\"` +
-      abilities[i + "cooldown"] +
-      `\",\"color\":\"green\",\"italic\":false}]\',\'`;
-
-    currentCommand += `[{\"text\":\"\"}]\',\'`;
   }
 
   if (loreArray.length != 0) {

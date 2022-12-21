@@ -25,32 +25,35 @@
       </span>
     </div>
   </row>
-  <row class="row1">
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Damage</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="e.g. 50"
-        onchange="Damage(this.value)"
-      />
+
+  <form id="statForm">
+    <div style="width: 100%" class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Stat Name</label>
+      <input id="StatName" class="field__input" placeholder="e.g. Strength" />
       <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Damage</span>
+        <span class="field__label">Stat Name</span>
       </span>
     </div>
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Crit Damage (%)</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="e.g. 25%"
-        onchange="critDamage(this.value)"
-      />
+    <div style="width: 100%" class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Stat Amount</label>
+      <input id="StatAmount" class="field__input" placeholder="e.g. 20" />
       <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Crit Damage (%)</span>
+        <span class="field__label">Stat Amount</span>
       </span>
     </div>
-  </row>
+    <div style="width: 100%" class="field field_v1">
+      <label for="first-name" class="ha-screen-reader"
+        >Stat Type (Red or Green)</label
+      >
+      <input id="StatType" class="field__input" placeholder="e.g. Red" />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Stat Type (Red or Green)</span>
+      </span>
+    </div>
+  </form>
+  <button style="width: 100%" id="SubmitStat" onclick="AddStat()">
+    Add Stat
+  </button>
   <row class="row1">
     <div class="field field_v1">
       <label for="first-name" class="ha-screen-reader">Strength</label>
