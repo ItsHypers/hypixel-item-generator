@@ -81,6 +81,13 @@ h6 {
   flex-direction: row;
   text-align: start;
 }
+.fullrow {
+  display: flex;
+  flex-direction: row;
+  text-align: start;
+  justify-content: space-evenly;
+  width: 100%;
+}
 .stat {
   display: flex;
   flex-direction: row;

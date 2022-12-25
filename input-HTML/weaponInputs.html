@@ -25,6 +25,7 @@
       </span>
     </div>
   </row>
+  &nbsp;
   <form id="statForm">
     <div style="width: 100%" class="field field_v1">
       <label for="first-name" class="ha-screen-reader">Stat Name</label>
@@ -53,23 +54,11 @@
   <button style="width: 100%" id="SubmitStat" onclick="AddStat()">
     Add Stat
   </button>
-  <div class="addedStats">
-    </div>
-  </div>
+  <div class="addedStats"></div>
+
+  &nbsp;
   <row class="row1">
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Strength</label>
-      <input
-        id="strengthInput"
-        class="field__input"
-        placeholder="e.g. 20"
-        onchange="strength(this.value)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Strength</span>
-      </span>
-    </div>
-    <div class="field field_v1">
+    <div style="width: 100%" class="field field_v1">
       <label for="first-name" class="ha-screen-reader">Gear Score</label>
       <input
         id="first-name"
@@ -82,190 +71,9 @@
       </span>
     </div>
   </row>
+
   <row class="row1">
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Attack Speed</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="e.g. 50%"
-        onchange="attackSpeed(this.value)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Attack Speed</span>
-      </span>
-    </div>
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Intelligence</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="e.g. 25"
-        onchange="Intelligence(this.value)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Intelligence</span>
-      </span>
-    </div>
-  </row>
-  <row class="row1">
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Crit Chance</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="e.g. 50%"
-        onchange="critChance(this.value)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Crit Chance</span>
-      </span>
-    </div>
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Ferocity</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="e.g. 25"
-        onchange="ferocity(this.value)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Ferocity</span>
-      </span>
-    </div>
-  </row>
-  <row class="row1">
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Item Type</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="e.g SWORD"
-        onchange="itemType(this.value)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Item Type</span>
-      </span>
-    </div>
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Defence</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="e.g. 25"
-        onchange="defence(this.value)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Defence</span>
-      </span>
-    </div>
-  </row>
-  <row class="row1">
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Speed</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="e.g 25"
-        onchange="speed(this.value)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Speed</span>
-      </span>
-    </div>
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Magic Find</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="e.g. 25"
-        onchange="magicfind(this.value)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Magic Find</span>
-      </span>
-    </div>
-  </row>
-  <row class="row1">
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">True Defense</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="e.g. 25"
-        onchange="truedefence(this.value)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">True Defense</span>
-      </span>
-    </div>
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Pet Luck</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="e.g. 25"
-        onchange="petluck(this.value)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Pet Luck</span>
-      </span>
-    </div>
-  </row>
-  <row class="row1">
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Ability Damage</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="e.g. 25%"
-        onchange="abilitydamage(this.value)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Ability Damage</span>
-      </span>
-    </div>
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Sea Creature (%)</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="e.g. 25%"
-        onchange="seacreature(this.value)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Sea Creature (%)</span>
-      </span>
-    </div>
-  </row>
-  <row class="row1">
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Health</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="e.g. 25%"
-        onchange="health(this.value)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Health</span>
-      </span>
-    </div>
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Vitality</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="e.g. 25%"
-        onchange="vitality(this.value)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Vitality</span>
-      </span>
-    </div>
-  </row>
-  <row class="row1">
-    <div class="field field_v1">
+    <div style="width: 100%" class="field field_v1">
       <label for="first-name" class="ha-screen-reader">Description</label>
       <input
         id="first-name"
@@ -279,7 +87,7 @@
     </div>
   </row>
   <row class="row1">
-    <div class="field field_v1">
+    <div style="width: 100%" class="field field_v1">
       <label for="first-name" class="ha-screen-reader">Item Lore</label>
       <input
         id="first-name"
@@ -309,24 +117,6 @@
       onchange="soulbound(this.value)"
     /><label for="checkboxOne" style="width: 50%; padding-top: 12px">
       Soulbound?</label
-    >
-    <input
-      type="checkbox"
-      id="fumings"
-      value="fumings"
-      onchange="potatobooks(this.value)"
-    /><label for="checkboxOne" style="width: 50%; padding-top: 12px">
-      Fumings?</label
-    >
-  </row>
-  <row class="row1">
-    <input
-      type="checkbox"
-      id="aow"
-      value="aow"
-      onchange="artofwar(this.value)"
-    /><label for="checkboxOne" style="width: 50%; padding-top: 12px"
-      >Art of War?</label
     >
     <input
       type="checkbox"
@@ -1000,6 +790,7 @@
     </div>
   </div>
 </nav>
+<!---
 <span
   class="update"
   style="justify-content: center; text-align: center"
@@ -1007,3 +798,4 @@
 >
   Update Minecraft Command
 </span>
+-->
