@@ -39,8 +39,10 @@ function getChecked() {
 function checkedRefresh() {
   checked = getChecked();
 
-  for (let [name, info] of Object.entries(checked)) {
-    highlightOnLoad(name);
+  if (checked != null) {
+    for (let [name, info] of Object.entries(checked)) {
+      highlightOnLoad(name);
+    }
   }
 }
 
