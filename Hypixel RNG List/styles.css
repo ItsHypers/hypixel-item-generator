@@ -65,5 +65,6 @@ figcaption {
   color: white;
   text-align: center;
   size: 50px;
+  width: 12vw;
   background-color: #1f2937;
 }
