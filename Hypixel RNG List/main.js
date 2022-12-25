@@ -4,25 +4,29 @@ img.setAttribute("draggable", false);
 var checked = {};
 
 function highlight() {
-  if (event.target.parentElement.closest("div").classList.contains("checked")) {
-    event.target.parentElement.closest("div").classList.remove("checked");
+  if (event.target.classList.contains("checked")) {
+    event.target.classList.remove("checked");
     updatedStorage(false);
   } else {
     updatedStorage(true);
-    event.target.parentElement.closest("div").classList.add("checked");
+    event.target.classList.add("checked");
   }
 }
 function highlightOnLoad(name) {
   document.querySelector("." + name).classList.add("checked");
 }
+
+function unhighlight(name) {
+  document.querySelector("." + name).classList.remove("checked");
+}
 function updatedStorage(added) {
   if (added) {
-    checked[event.target.parentElement.closest("div").className] = {
+    checked[event.target.className] = {
       checked: true,
     };
     setStorage();
   } else {
-    delete checked[event.target.parentElement.closest("div").className];
+    delete checked[event.target.className];
     setStorage();
   }
 }
@@ -48,5 +52,8 @@ function checkedRefresh() {
 }
 
 function resetStorage() {
+  for (let [name, info] of Object.entries(checked)) {
+    unhighlight(name);
+  }
   localStorage.clear();
 }
