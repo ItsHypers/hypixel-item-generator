@@ -38,18 +38,15 @@ function getChecked() {
 
 function checkedRefresh() {
   checked = getChecked();
-
   if (checked != null) {
     for (let [name, info] of Object.entries(checked)) {
       highlightOnLoad(name);
     }
+  } else {
+    checked = {};
   }
 }
 
-window.addEventListener("beforeunload", () => {
-  localStorage.setItem("sidebar-scroll", sidebar.scrollTop);
-});
-
-window.addEventListener("DOMContentLoaded", () => {
-  document.documentElement.scrollTop = localStorage.getItem("sidebar-scroll");
-});
+function resetStorage() {
+  localStorage.clear();
+}
