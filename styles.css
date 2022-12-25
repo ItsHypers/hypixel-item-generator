@@ -81,7 +81,26 @@ h6 {
   flex-direction: row;
   text-align: start;
 }
+.stat {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 10px;
+}
 
+.deleteStat {
+  color: white;
+}
+.reset-button {
+  background-color: transparent;
+  border-width: 0;
+  font-family: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  padding: 0;
+}
 .item {
   display: flex;
   flex-direction: column;

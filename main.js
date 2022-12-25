@@ -74,45 +74,74 @@ const minecraftRaritys = {
 var addedStats = {};
 var currentRarity = Rarities[0];
 
-/*function AddStat() {
-  const redStat = document.querySelector(".statsRed");
-  const greenStat = document.querySelector(".statsGreen");
-  var statName = document.getElementById("StatName").value;
+function AddStat() {
+  var statName = document.getElementById("StatName").value.replace(" ", "_");
   var statAmount = document.getElementById("StatAmount").value.toLowerCase();
   var statType = document.getElementById("StatType").value.toLowerCase();
-  addedStats[statName] = { statAmount, statType };
+  if (statName == "" || statAmount == "" || statType == "") {
+    alert("Please fill in all inputs!");
+  } else {
+    addedStats[statName] = { amount: statAmount, type: statType };
+    console.log(addedStats);
+    updateStats();
+    document.getElementById("statForm").reset();
+  }
+}
 
+function deleteStat() {
+  var statName = event.target.className.split(" ")[0];
+  delete addedStats[statName];
+  updateStats();
+}
+
+function updateStats() {
+  console.log("ran");
+  const redStat = document.querySelector(".statsRed");
+  const greenStat = document.querySelector(".statsGreen");
+  const statClass = document.querySelector(".addedStats");
   redStat.innerHTML = "";
   greenStat.innerHTML = "";
-
-  console.log(addedStats);
-  for (let name in addedStats) {
-    /*
-    console.log(name);
+  statClass.innerHTML = "";
+  for (let [name, info] of Object.entries(addedStats)) {
     const div = document.createElement("div");
-    div.classList.add(name);
-    div.style.display = "block";
     const Namelabel = document.createElement("label");
-    Namelabel.textContent = name + ": ";
-    Namelabel.classList.add("item-text");
-
     const Amountlabel = document.createElement("label");
-    Amountlabel.textContent = keys[0];
+    console.log(name + " " + info.type + " " + info.amount);
+    div.classList.add(name.replace(" ", ""));
+    div.style.display = "block";
+    Namelabel.textContent = name.replace("_", " ") + ": ";
+    Namelabel.classList.add("item-text");
+    Amountlabel.textContent = info.amount;
     Amountlabel.classList.add("item-text");
-    if (keys[1] == "red") {
+    div.appendChild(Namelabel);
+    div.appendChild(Amountlabel);
+    if (info.type == "red") {
       redStat.appendChild(div);
       Amountlabel.classList.add("item-red-text");
     }
-    if (keys[1] == "green") {
+    if (info.type == "green") {
       greenStat.appendChild(div);
       Amountlabel.classList.add("item-green-text");
     }
-    div.appendChild(Namelabel);
-    div.appendChild(Amountlabel);
-    name[statAmount];
+    var addedStat = document.createElement("div");
+    addedStat.classList.add(name.replace(" ", ""));
+    addedStat.classList.add("stat");
+    addedStat.insertAdjacentHTML(
+      "beforeend",
+      "<p>" +
+        name +
+        "</p> <p>" +
+        info.amount +
+        "</p> <p>" +
+        info.type +
+        `</p> <button class="` +
+        name.replace(" ", "") +
+        ` deleteStat reset-button" onclick="deleteStat()">✖</button>`
+    );
+    statClass.appendChild(addedStat);
   }
 }
-    */
+
 function copyPaste() {
   var x = document.getElementById("symbols");
   if (x.style.display === "none") {
