@@ -21,7 +21,6 @@
 }
 .landingContainer {
   width: 100%;
-  height: 100vh;
   background-color: #1f2937;
   display: flex;
   flex-direction: column;
@@ -39,20 +38,32 @@
   color: white;
 }
 img {
-  width: inherit;
+  width: 300px;
+  height: 300px;
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 5px;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 
 .rngSection {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 10px;
+  background-color: #1f2937;
+}
+.checked {
+  background-color: #b3e6c4;
 }
 
 figcaption {
   color: white;
   text-align: center;
   size: 50px;
+  background-color: #1f2937;
 }
