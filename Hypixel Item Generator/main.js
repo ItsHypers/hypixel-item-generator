@@ -35,7 +35,6 @@ var descriptionAdded = false;
 var loreAdded = false;
 var descriptionArray = [];
 var loreArray = [];
-var gemstonesArray = [];
 var maxDescription = 50; // maximum number of characters to extract
 const Rarities = [
   "common",
@@ -165,8 +164,10 @@ function addGemstone(gemstone) {
 
 function removeGemstone(gemstone) {
   var gemstoneString = gemstoneStrings[gemstone];
-  addedGemstones.splice(addedGemstones.lastIndexOf(gemstoneString), 1);
-  updateGemstones();
+  if (addedGemstones.includes(gemstoneString)) {
+    addedGemstones.splice(addedGemstones.lastIndexOf(gemstoneString), 1);
+    updateGemstones();
+  }
 }
 
 function updateGemstones() {
@@ -423,55 +424,6 @@ function abilitydamage(input) {
     dungeonCalc(input);
   currentabilityDamage = input;
   itemsChanged["abilitydamage"] = true;
-}
-function gemstones(input, num) {
-  var icon = "";
-  if (input == "health") {
-    icon = "[❤]";
-  }
-  if (input == "defence") {
-    icon = "[❈]";
-  }
-  if (input == "mf") {
-    icon = "[☘]";
-  }
-  if (input == "intel") {
-    icon = "[✎]";
-  }
-  if (input == "ms") {
-    icon = "[⸕]";
-  }
-  if (input == "pristine") {
-    icon = "[✧]";
-  }
-  if (input == "strength") {
-    icon = "[❁]";
-  }
-
-  if (input == "combat") {
-    icon = "[⚔]";
-  }
-  if (input == "offensive") {
-    icon = "[☠]";
-  }
-  if (input == "defensive") {
-    icon = "[☤]";
-  }
-  if (input == "mining") {
-    icon = "[✦]";
-  }
-  if (input == "uni") {
-    icon = "[❂]";
-  }
-
-  for (let i = 0; i < num; i++) {
-    gemstonesArray.push(icon);
-  }
-  document.getElementById("#gemstoneSlots").textContent = gemstonesArray
-    .toString()
-    .replace(/,/g, "");
-  document.querySelector(".gemstoneSlots").style.display = "block";
-  itemsChanged["gemstone"] = true;
 }
 
 function wisdom(input, num) {
