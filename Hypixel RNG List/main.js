@@ -13,17 +13,20 @@ function highlight() {
   }
 }
 function highlightOnLoad(name) {
+  console.log(name);
   document.querySelector("." + name).classList.add("checked");
 }
 
 function unhighlight(name) {
-  document.querySelector("." + name).classList.remove("checked");
+  if (name != "")
+    document.querySelector("." + name).classList.remove("checked");
 }
 function updatedStorage(added) {
   if (added) {
     checked[event.target.className] = {
       checked: true,
     };
+    console.log(checked);
     setStorage();
   } else {
     delete checked[event.target.className];
@@ -57,6 +60,7 @@ function resetStorage() {
   }
   localStorage.clear();
 }
+
 var acc = document.getElementsByClassName("faqs-title");
 var i;
 
