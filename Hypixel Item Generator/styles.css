@@ -98,6 +98,13 @@ h6 {
 .deleteStat {
   color: white;
 }
+.addGemstone {
+  color: white;
+}
+#gemstones {
+  display: flex;
+  flex-direction: column;
+}
 .reset-button {
   background-color: transparent;
   border-width: 0;

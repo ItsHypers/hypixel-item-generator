@@ -55,7 +55,6 @@
     Add Stat
   </button>
   <div class="addedStats"></div>
-
   &nbsp;
   <row class="row1">
     <div style="width: 100%" class="field field_v1">
@@ -321,169 +320,162 @@
   Gemstones
 </button>
 <div class="gemstone" id="gemstone" style="display: none">
-  <p>
-    Enter the amount of each gemstone you want, (e.g 1 Health gemstone, 3
-    Defence gemstones...) Enter carefully, they will stack if you change the
-    value more than once.
-  </p>
-  <row class="row1">
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Health [❤]</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="E.G 1"
-        onchange="gemstones(`health`, this.value)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Health [❤]</span>
-      </span>
-    </div>
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Defence [❈]</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="E.G 1"
-        onchange="gemstones(`defence`, this.value)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Defence [❈]</span>
-      </span>
-    </div>
-  </row>
-  <row class="row1">
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader"
-        >Mining Fortune [☘]</label
+  <h5>Gemstone Slots</h5>
+  <div style="font-size: 20px" id="gemstones">
+    <div class="health">
+      <label>Health</label>
+      <button class="addGemstone reset-button" onclick="addGemstone(`health`)">
+        +
+      </button>
+      <button
+        class="addGemstone reset-button"
+        onclick="removeGemstone(`health`)"
       >
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="E.G 1"
-        onchange="gemstones(`mf`, this.value)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Mining Fortune [☘]</span>
-      </span>
+        -
+      </button>
     </div>
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Intelligence [✎]</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="E.G 1"
-        onchange="gemstones(`intel`, this.value)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Intelligence [✎]</span>
-      </span>
+    <div class="defence">
+      <label>Defence</label>
+      <button class="addGemstone reset-button" onclick="addGemstone(`defence`)">
+        +
+      </button>
+      <button
+        class="addGemstone reset-button"
+        onclick="removeGemstone(`defence`)"
+      >
+        -
+      </button>
     </div>
-  </row>
-  <row class="row1">
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Mining Speed [⸕]</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="E.G 1"
-        onchange="gemstones(`ms`, this.value)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Mining Speed [⸕]</span>
-      </span>
+    <div class="magicfind">
+      <label>Magic Find</label>
+      <button
+        class="addGemstone reset-button"
+        onclick="addGemstone(`magicfind`)"
+      >
+        +
+      </button>
+      <button
+        class="addGemstone reset-button"
+        onclick="removeGemstone(`magicfind`)"
+      >
+        -
+      </button>
     </div>
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Pristine [✧]</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="E.G 1"
-        onchange="gemstones(`pristine`, this.value)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Pristine [✧]</span>
-      </span>
+    <div class="intel">
+      <label>Intelligence</label>
+      <button class="addGemstone reset-button" onclick="addGemstone(`intel`)">
+        +
+      </button>
+      <button
+        class="addGemstone reset-button"
+        onclick="removeGemstone(`intel`)"
+      >
+        -
+      </button>
     </div>
-  </row>
-  <row class="row1">
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Strength [❁]</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="E.G 1"
-        onchange="gemstones(`strength`, this.value)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Strength [❁]</span>
-      </span>
+    <div class="ms">
+      <label>Mining Speed</label>
+      <button class="addGemstone reset-button" onclick="addGemstone(`ms`)">
+        +
+      </button>
+      <button class="addGemstone reset-button" onclick="removeGemstone(`ms`)">
+        -
+      </button>
     </div>
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Combat [⚔]</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="E.G 1"
-        onchange="gemstones(`combat`, this.value)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Combat [⚔]</span>
-      </span>
+    <div class="pristine">
+      <label>Pristine</label>
+      <button
+        class="addGemstone reset-button"
+        onclick="addGemstone(`pristine`)"
+      >
+        +
+      </button>
+      <button
+        class="addGemstone reset-button"
+        onclick="removeGemstone(`pristine`)"
+      >
+        -
+      </button>
     </div>
-  </row>
-  <row class="row1">
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Offensive [☠]</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="E.G 1"
-        onchange="gemstones(`offensive`, this.value)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Offensive [☠]</span>
-      </span>
+    <div class="strength">
+      <label>Strength</label>
+      <button
+        class="addGemstone reset-button"
+        onclick="addGemstone(`strength`)"
+      >
+        +
+      </button>
+      <button
+        class="addGemstone reset-button"
+        onclick="removeGemstone(`strength`)"
+      >
+        -
+      </button>
     </div>
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Defensive [☤]</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="E.G 1"
-        onchange="gemstones(`defensive`, this.value)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Defensive [☤]</span>
-      </span>
+    <div class="combat">
+      <label>Combat</label>
+      <button class="addGemstone reset-button" onclick="addGemstone(`combat`)">
+        +
+      </button>
+      <button
+        class="addGemstone reset-button"
+        onclick="removeGemstone(`combat`)"
+      >
+        -
+      </button>
     </div>
-  </row>
-  <row class="row1">
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Mining [✦]</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="E.G 1"
-        onchange="gemstones(`mining`, this.value)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Mining [✦]</span>
-      </span>
+    <div class="offensive">
+      <label>Offensive</label>
+      <button
+        class="addGemstone reset-button"
+        onclick="addGemstone(`offensive`)"
+      >
+        +
+      </button>
+      <button
+        class="addGemstone reset-button"
+        onclick="removeGemstone(`offensive`)"
+      >
+        -
+      </button>
     </div>
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Universal [❂]</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="E.G 1"
-        onchange="gemstones(`uni`, this.value)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Universal [❂]</span>
-      </span>
+    <div class="defensive">
+      <label>Defensive</label>
+      <button
+        class="addGemstone reset-button"
+        onclick="addGemstone(`defensive`)"
+      >
+        +
+      </button>
+      <button
+        class="addGemstone reset-button"
+        onclick="removeGemstone(`defensive`)"
+      >
+        -
+      </button>
     </div>
-  </row>
+    <div class="mining">
+      <label>Mining</label>
+      <button class="addGemstone reset-button" onclick="addGemstone(`mining`)">
+        +
+      </button>
+      <button
+        class="addGemstone reset-button"
+        onclick="removeGemstone(`mining`)"
+      >
+        -
+      </button>
+    </div>
+    <div class="uni">
+      <label>Universal</label>
+      <button class="addGemstone reset-button" onclick="addGemstone(`uni`)">
+        +
+      </button>
+      <button class="addGemstone reset-button" onclick="removeGemstone(`uni`)">
+        -
+      </button>
+    </div>
+  </div>
 </div>
 <!--
 <button style="width: 100%" id="createAbility" onclick="createAbility()">

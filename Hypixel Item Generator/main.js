@@ -70,8 +70,23 @@ const minecraftRaritys = {
   special: "red",
   veryspecial: "red",
 };
+const gemstoneStrings = {
+  health: "[❤]",
+  defence: "[❈]",
+  magicfind: "[☘]",
+  intel: "[✎]",
+  ms: "[⸕]",
+  pristine: "[✧]",
+  strength: "[❁]",
+  combat: "[⚔]",
+  offensive: "[☠]",
+  defensive: "[☤]",
+  mining: "[✦]",
+  uni: "[❂]",
+};
 
 var addedStats = {};
+var addedGemstones = [];
 var currentRarity = Rarities[0];
 
 function AddStat() {
@@ -142,6 +157,23 @@ function updateStats() {
   }
 }
 
+function addGemstone(gemstone) {
+  var gemstoneString = gemstoneStrings[gemstone];
+  addedGemstones.push(gemstoneString);
+  updateGemstones();
+}
+
+function removeGemstone(gemstone) {
+  var gemstoneString = gemstoneStrings[gemstone];
+  addedGemstones.splice(addedGemstones.lastIndexOf(gemstoneString), 1);
+  updateGemstones();
+}
+
+function updateGemstones() {
+  document.getElementById("#gemstoneSlots").textContent =
+    addedGemstones.toString();
+  document.querySelector(".gemstoneSlots").style.display = "block";
+}
 function copyPaste() {
   var x = document.getElementById("symbols");
   if (x.style.display === "none") {
