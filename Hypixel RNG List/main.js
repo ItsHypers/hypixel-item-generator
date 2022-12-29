@@ -170,3 +170,11 @@ function setCard() {
   );
   request.send();
 }
+
+function downloadPlayerCard() {
+  domtoimage
+    .toBlob(document.getElementById("fullcard"))
+    .then((blob) =>
+      window.saveAs(blob, document.getElementById("nameinput").value)
+    );
+}

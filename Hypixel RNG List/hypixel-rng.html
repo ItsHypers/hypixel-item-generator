@@ -101,7 +101,7 @@
                         data-rarity="0.0006"
                         src="./images/pets/enderman.webp"
                       />
-                      <figcaption>Endemran Pet (Legendary 0.0006%)</figcaption>
+                      <figcaption>Enderman Pet (Legendary 0.0006%)</figcaption>
                     </div>
                     <div>
                       <img
@@ -778,7 +778,7 @@
         id="nameinput"
         placeholder="Minecraft Username"
       />
-      <center style="display: block">
+      <center id="fullcard" style="display: block">
         <div class="app-widget-profile-card-night">
           <img
             src="https://crafatar.com/avatars/712d4221-a4eb-46de-b143-6b2bcb14da55?overlay&size=512"
@@ -794,10 +794,28 @@
           <h4 id="percent">0/60</h4>
         </div>
       </center>
+      <a
+        onclick="downloadPlayerCard()"
+        class="w3-bar-item w3-button w3-hover-black"
+        style="padding: 0"
+      >
+        <i class="fa fa-3x w3-xxlarge"></i>
+        <p>Download Player Card</p>
+      </a>
       <!--<div class="rngSection">Slayer Drops</div>
       <div class="rngSection">Misc+</div>
       -->
     </div>
     <script src="main.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"
+      integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"
+      referrerpolicy="no-referrer"
+    ></script>
   </body>
 </html>

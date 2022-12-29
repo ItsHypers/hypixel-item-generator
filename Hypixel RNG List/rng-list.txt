@@ -1,8 +1,22 @@
+Hello!
+
+I made a project where you are able to keep track of all the RNGs you've dropped within the game (for completionists) and thought I'd make a seperate forum post that I'll keep up to date with all of the most RNG drops in the game alongside their rarities for anyone who needs / wants them!
+
+
+
+If you're interested in the project click here
+
+
+
+Am I missing something? Please let me know! I'm putting all drops that are under 1% drop chance that are dropped / obtained (and actually worth... something not the potatoes from the hub zombies)
+
+
+
 Pets:
 
-Phoenix Pet (Epic - 0.0000167%) (Legendary - 0.00000333%)
+Phoenix Pet (Epic - 0.00001666667% - 1/6m) (Legendary - 0.00000333% 1/30m)
 
-Enderman Pet (Legendary 0.0006%)
+Enderman Pet (Legendary 0.0006% - 3/500,000)
 
 Guardian Pet (Epic - 0.0035%) (Legendary - 0.0017%)
 
@@ -48,11 +62,11 @@ Wither Shield (0.1%)
 
 Implosion (0.1%)
 
-Necron's Handle
+Necron's Handle (0.11%)
 
-Master Skull - T5 (0.11%)
+Master Skull - T5 (0.32%)
 
-Master Star - 5 (0.32%)
+Master Star - 5 (0.33%)
 
 One For All (0.5%)
 
@@ -60,7 +74,7 @@ Auto Recomb (0.54%) (u)
 
 Wither Chestplate (0.92%)
 
- 
+
 
 F6
 
@@ -157,12 +171,20 @@ High Class Archfiend Dice (0.25%)
 Fiery Burst Rune (0.2%)
 
 
+
 Kuudra:
-Engager (0.00032064%)
-Burning Kuudra Core (0.8%)
-Fatal Tempo (0.14% - Infernal Tier)
-Inferno (0.14% - Infernal Tier)
-Wheel of Fate (1.24%)
+
+Engager (0.00032064%) (u)
+
+Burning Kuudra Core (0.8%) (u)
+
+Fatal Tempo (0.14% - Infernal Tier) (u)
+
+Inferno (0.14% - Infernal Tier) (u)
+
+Wheel of Fate (1.24%) (u)
+
+
 
 Misc:
 
@@ -192,40 +214,40 @@ Dyes:
 
 Celadon Dye (Large Slimes 0.000005% - 1-20m) (Medium / Small Slimes 0.0000001% - 1/1b) (ridiculous) (u)
 
-Wild Strawberry (0.000000667% - 1/150m) (u)
+Wild Strawberry (0.000000667% - 1/150m)
 
-Celeste Dye (0.000001% - 1/100m) (u)
+Celeste Dye (0.000001% - 1/100m)
 
-Cyclamen Dye (0.000001% - 1/100m) (u)
+Cyclamen Dye (0.000001% - 1/100m)
 
 Carmine Dye (0.000005%  - 1/20m) (u)
 
-Byzantium Dye (0.000005% - 1/20m) (u)
+Byzantium Dye (0.000005% - 1/20m)
 
-Aquamarine Dye(0.00000667% - 1/15m) (u)
+Aquamarine Dye(0.00000667% - 1/15m)
 
 Mango Dye (0.00001% - 1/10m) (u)
 
-Iceberg Dye (0.00001% - 1/10m) (u)
- 
-Emerald Dye (0.0000125% - 1/8m) (u)
+Iceberg Dye (0.00001% - 1/10m)
 
-Nadeshiko Dye (0.0000125% - 1/8m) (u)
+Emerald Dye (0.0000125% - 1/8m)
 
-Bone Dye (0.0000333% - 1/3m) (u)
+Nadeshiko Dye (0.0000125% - 1/8m)
 
- Nyanza Dye (0.00005% - 1/2m) (u)
+Bone Dye (0.0000333% - 1/3m)
 
-Brick Red Dye (0.00005% - 1/2m) (u)
+Nyanza Dye (0.00005% - 1/2m) (u)
+
+Brick Red Dye (0.00005% - 1/2m)
 
 Flame Dye (0.0001% - 1/1m) (u)
 
-Midnight Dye (0.0001% - 1/1m) (u)
+Midnight Dye (0.0001% - 1/1m)
 
-Tentacal Dye (0.0001329785% - 1/752100) (u)
+Tentacal Dye (0.0001329785% - 1/752100)
 
-Dark Purple Dye (0.03288% - 1/3041 base chance(increases with Scorpius)) (u)
+Dark Purple Dye (0.03288% - 1/3041 base chance(increases with Scorpius))
 
-Holly Dye (0.03%) (u)
+Holly Dye (0.03%)
 
 Necron Dye (0.04%) (u)
