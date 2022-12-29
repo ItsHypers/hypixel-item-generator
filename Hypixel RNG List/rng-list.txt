@@ -188,19 +188,19 @@ Wheel of Fate (1.24%)
 
 Misc:
 
-Inferno Apex (0.00006366%) (u)
+Inferno Apex (0.00006366%) 
 
-Reaper Pepper (0.00021825%) (u)
+Reaper Pepper (0.00021825%) 
 
-Divan's Alloy ( Just Dropped 0.000125%) (Lowest 0.0125%.) (u)
+Divan's Alloy ( Just Dropped 0.000125%) (Lowest 0.0125%.)
 
-Inferno Vertex (0.00611098%) (u)
+Inferno Vertex (0.00611098%) 
 
-Cryopowder Shard (0.03%) (u)
+Cryopowder Shard (0.03%) 
 
 Golden Gift (Green Gifts 0.03%) (Red Gifts (0.13%)
 
-Tier Core Boost (0.2%) (u)
+Tier Core Boost (0.2%) 
 
 Chimera (1%)
 
