@@ -12,7 +12,7 @@ function updateAll() {
   checkedRefresh();
   checkRarestDrop();
   document.getElementById("rngs").textContent =
-    Object.keys(checked).length + " / " + amountofItems + " items dropped!";
+    Object.keys(checked).length + " / " + amountofItems + " dropped!";
   document.getElementById("percent").textContent =
     Math.round(percentage(Object.keys(checked).length, amountofItems) * 100) /
       100 +
@@ -67,7 +67,6 @@ function checkRarestDrop() {
   var tempRarity;
   var tempName;
   for (var i = 0; i < checkedItems.length; i++) {
-    console.log(checkedItems[i].dataset.rarity);
     if (
       tempRarity > checkedItems[i].dataset.rarity ||
       tempRarity == undefined
@@ -78,7 +77,6 @@ function checkRarestDrop() {
   }
   if (tempName != undefined) {
     tempName = tempName.split("(");
-    console.log(tempName[0]);
     document.getElementById("rarestDrop").textContent = tempName[0];
   }
   if (tempRarity != undefined)

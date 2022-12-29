@@ -36,7 +36,7 @@ Golem Pet (Epic - 2%) (Legendary - 0.6%)
 
 Spirit Pet  (1%)
 
-Megaladon Pet (Epic 1%) (Legendary 1%) (u)
+Megaladon Pet (Epic 1%) (Legendary 1%)
 
 
 
@@ -70,7 +70,7 @@ Master Star - 5 (0.33%)
 
 One For All (0.5%)
 
-Auto Recomb (0.54%) (u)
+Auto Recomb (0.54%)
 
 Wither Chestplate (0.92%)
 
@@ -174,15 +174,15 @@ Fiery Burst Rune (0.2%)
 
 Kuudra:
 
-Engager (0.00032064%) (u)
+Engager (0.00032064%)
 
-Burning Kuudra Core (0.8%) (u)
+Burning Kuudra Core (0.8%) (
 
-Fatal Tempo (0.14% - Infernal Tier) (u)
+Fatal Tempo (0.14% - Infernal Tier)
 
-Inferno (0.14% - Infernal Tier) (u)
+Inferno (0.14% - Infernal Tier)
 
-Wheel of Fate (1.24%) (u)
+Wheel of Fate (1.24%)
 
 
 
