@@ -13,7 +13,6 @@ function highlight() {
   }
 }
 function highlightOnLoad(name) {
-  console.log(name);
   document.querySelector("." + name).classList.add("checked");
 }
 
@@ -26,7 +25,6 @@ function updatedStorage(added) {
     checked[event.target.className] = {
       checked: true,
     };
-    console.log(checked);
     setStorage();
   } else {
     delete checked[event.target.className];
@@ -34,9 +32,23 @@ function updatedStorage(added) {
   }
 }
 
+function getSaveBase64() {
+  document.getElementById("saveTextArea").textContent = btoa(
+    JSON.stringify(checked)
+  );
+}
+function loadSave() {
+  var input = document.getElementById("saveInput").value;
+  checked = JSON.parse(atob(input));
+  console.log(checked);
+  setStorage();
+  checkedRefresh();
+}
+
 function setStorage() {
   let checked_serialized = JSON.stringify(checked);
   localStorage.setItem("checked", checked_serialized);
+  getSaveBase64();
 }
 
 function getChecked() {
@@ -59,6 +71,8 @@ function resetStorage() {
     unhighlight(name);
   }
   localStorage.clear();
+  document.getElementById("saveTextArea").textContent = "";
+  document.getElementById("saveInput").value = "";
 }
 
 var acc = document.getElementsByClassName("faqs-title");

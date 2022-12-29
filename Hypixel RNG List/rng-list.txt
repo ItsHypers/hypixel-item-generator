@@ -1,0 +1,231 @@
+Pets:
+
+Phoenix Pet (Epic - 0.0000167%) (Legendary - 0.00000333%)
+
+Enderman Pet (Legendary 0.0006%)
+
+Guardian Pet (Epic - 0.0035%) (Legendary - 0.0017%)
+
+Hound Pet (Epic - 0.003%) (Legendary 0.001%)
+
+Squid Pet (Epic - 0.0174%) (Legendary - 0.0087%)
+
+Snowman Pet (0.03%)
+
+Ender Dragon Pet (Epic 0.05% per Eye Placed) (Legendary 0.01% per Eye Placed)
+
+Scatha Pet  (Rare - 0.24%) (Epic - 0.12%) (Legendary - 0.04%)
+
+Rat Pet (0.2%)
+
+Golem Pet (Epic - 2%) (Legendary - 0.6%)
+
+Spirit Pet  (1%)
+
+Megaladon Pet (Epic 1%) (Legendary 1%) (u)
+
+
+
+Magma-Cube Pet (Legendary 2%)
+
+Tarantula Pet (2%)
+
+Baby-Yeti Pet (Epic - 3%) (Legendary - 0.8%)
+
+
+
+Dungeons:
+
+F7
+
+Necron Dye (0.05%)
+
+Dark Claymore (0.08%)
+
+Shadow Warp (0.1%)
+
+Wither Shield (0.1%)
+
+Implosion (0.1%)
+
+Necron's Handle
+
+Master Skull - T5 (0.11%)
+
+Master Star - 5 (0.32%)
+
+One For All (0.5%)
+
+Auto Recomb (0.54%) (u)
+
+Wither Chestplate (0.92%)
+
+ 
+
+F6
+
+Precursor Eye (0.07%)
+
+Giant Sword (0.11%)
+
+Summoning Ring (0.21%)
+
+Necromancer Lord Chestplate (0.29%)
+
+Master Star 4 (0.59%)
+
+Necromancer Sword (0.43%)
+
+Master Skull 4 (0.64%)
+
+
+
+F5
+
+Last Breath (0.34%)
+
+Shadow Fury (0.34%)
+
+Shadow Assassin Chestplate (0.69%)
+
+Third Master Star (0.69%)
+
+
+
+Slayers:
+
+Revenant Horror:
+
+Warden Heart (0.0137%)
+
+Smite VII (0.05%)
+
+Shard of the Shredded (0.06%)
+
+Scythe Blade (0.1%)
+
+
+
+Tarantula Broodfather:
+
+Digested Mosquito (0.06%)
+
+Tarantula Talisman (0.17%)
+
+Fly Swatter (0.17%)
+
+
+
+Sven Packmaster:
+
+Overflux Capacitor (0.04%)
+
+Grizzly Bait (0.06%)
+
+Red Claw Egg (0.12%)
+
+Corture Rune (0.24%)
+
+
+
+Voidgloom Sheraph:
+
+Ender Slayer VII (0.01%)
+
+Enchant Rune(0.05%)
+
+Judgement Core (0.06%)
+
+Void Conqueror Enderman Skin (0.18%)
+
+Exceedingly Rare Ender Artifact Upgrader (0.03%)
+
+Handy Blood Chalice (0.18%)
+
+Pocket Espresso Machine (0.39%)
+
+
+
+Inferno Demonlord:
+
+Subzero Inverter (0.09%)
+
+Wilson's Engineering Plans(0.09%)
+
+High Class Archfiend Dice (0.25%)
+
+Fiery Burst Rune (0.2%)
+
+
+Kuudra:
+Engager (0.00032064%)
+Burning Kuudra Core (0.8%)
+Fatal Tempo (0.14% - Infernal Tier)
+Inferno (0.14% - Infernal Tier)
+Wheel of Fate (1.24%)
+
+Misc:
+
+Inferno Apex (0.00006366%) (u)
+
+Reaper Pepper (0.00021825%) (u)
+
+Divan's Alloy ( Just Dropped 0.000125%) (Lowest 0.0125%.) (u)
+
+Inferno Vertex (0.00611098%) (u)
+
+Cryopowder Shard (0.03%) (u)
+
+Golden Gift (Green Gifts 0.03%) (Red Gifts (0.13%)
+
+Tier Core Boost (0.2%) (u)
+
+Chimera (1%)
+
+Daedalus Stick (0.08%)
+
+Minos Relic (0.02%)
+
+
+
+Dyes:
+
+Celadon Dye (Large Slimes 0.000005% - 1-20m) (Medium / Small Slimes 0.0000001% - 1/1b) (ridiculous) (u)
+
+Wild Strawberry (0.000000667% - 1/150m) (u)
+
+Celeste Dye (0.000001% - 1/100m) (u)
+
+Cyclamen Dye (0.000001% - 1/100m) (u)
+
+Carmine Dye (0.000005%  - 1/20m) (u)
+
+Byzantium Dye (0.000005% - 1/20m) (u)
+
+Aquamarine Dye(0.00000667% - 1/15m) (u)
+
+Mango Dye (0.00001% - 1/10m) (u)
+
+Iceberg Dye (0.00001% - 1/10m) (u)
+ 
+Emerald Dye (0.0000125% - 1/8m) (u)
+
+Nadeshiko Dye (0.0000125% - 1/8m) (u)
+
+Bone Dye (0.0000333% - 1/3m) (u)
+
+ Nyanza Dye (0.00005% - 1/2m) (u)
+
+Brick Red Dye (0.00005% - 1/2m) (u)
+
+Flame Dye (0.0001% - 1/1m) (u)
+
+Midnight Dye (0.0001% - 1/1m) (u)
+
+Tentacal Dye (0.0001329785% - 1/752100) (u)
+
+Dark Purple Dye (0.03288% - 1/3041 base chance(increases with Scorpius)) (u)
+
+Holly Dye (0.03%) (u)
+
+Necron Dye (0.04%) (u)

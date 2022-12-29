@@ -12,6 +12,7 @@
 .nav.right {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
 .title {
@@ -48,6 +49,7 @@ img {
   -moz-user-select: none;
   -o-user-select: none;
   user-select: none;
+  image-rendering: pixelated;
 }
 
 .rngSection {
@@ -152,4 +154,31 @@ p {
 
 .faqs-content-inside {
   padding: 20px;
+}
+input[type="text"] {
+  height: 30%;
+  border: 2px solid #aaa;
+  border-radius: 4px;
+  margin: 8px 0;
+  outline: none;
+  padding: 8px;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+textarea {
+  height: 30%;
+  border: 2px solid #aaa;
+  border-radius: 4px;
+  margin: 8px 0;
+  outline: none;
+  box-sizing: border-box;
+  transition: 0.3s;
+  font-size: 5px;
+}
+textarea::placeholder {
+  font-size: 10px;
+}
+input[type="text"]:focus {
+  border-color: dodgerBlue;
+  box-shadow: 0 0 8px 0 dodgerBlue;
 }
