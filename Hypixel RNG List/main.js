@@ -1,7 +1,23 @@
 const img = document.querySelector("img");
 img.setAttribute("draggable", false);
-
+var minecraftAccount = {};
 var checked = {};
+var amountofItems = getNumberOfItems();
+var rarestItemChance;
+
+updateAll();
+
+function updateAll() {
+  checked = getChecked();
+  checkedRefresh();
+  checkRarestDrop();
+  document.getElementById("rngs").textContent =
+    Object.keys(checked).length + " / " + amountofItems + " items dropped!";
+  document.getElementById("percent").textContent =
+    Math.round(percentage(Object.keys(checked).length, amountofItems) * 100) /
+      100 +
+    "%";
+}
 
 function highlight() {
   if (event.target.classList.contains("checked")) {
@@ -16,6 +32,18 @@ function highlightOnLoad(name) {
   document.querySelector("." + name).classList.add("checked");
 }
 
+function getNumberOfItems() {
+  var elements = document.getElementsByName("item");
+  var items = 0;
+  for (var i = 0; i < elements.length; i++) {
+    items++;
+  }
+  return items;
+}
+
+function getAmountChecked() {
+  return percentage(checked.length, amountofItems);
+}
 function unhighlight(name) {
   if (name != "")
     document.querySelector("." + name).classList.remove("checked");
@@ -26,12 +54,36 @@ function updatedStorage(added) {
       checked: true,
     };
     setStorage();
+    updateAll();
   } else {
     delete checked[event.target.className];
     setStorage();
+    updateAll();
   }
 }
 
+function checkRarestDrop() {
+  checkedItems = document.getElementsByClassName("checked");
+  var tempRarity;
+  var tempName;
+  for (var i = 0; i < checkedItems.length; i++) {
+    console.log(checkedItems[i].dataset.rarity);
+    if (
+      tempRarity > checkedItems[i].dataset.rarity ||
+      tempRarity == undefined
+    ) {
+      tempRarity = checkedItems[i].dataset.rarity;
+      tempName = checkedItems[i].nextElementSibling.textContent;
+    }
+  }
+  if (tempName != undefined) {
+    tempName = tempName.split("(");
+    console.log(tempName[0]);
+    document.getElementById("rarestDrop").textContent = tempName[0];
+  }
+  if (tempRarity != undefined)
+    document.getElementById("rarestDropChance").textContent = tempRarity + "%";
+}
 function getSaveBase64() {
   document.getElementById("saveTextArea").textContent = btoa(
     JSON.stringify(checked)
@@ -40,9 +92,6 @@ function getSaveBase64() {
 function loadSave() {
   var input = document.getElementById("saveInput").value;
   checked = JSON.parse(atob(input));
-  console.log(checked);
-  setStorage();
-  checkedRefresh();
 }
 
 function setStorage() {
@@ -88,4 +137,36 @@ for (i = 0; i < acc.length; i++) {
       panel.style.maxHeight = panel.scrollHeight + "px";
     }
   });
+}
+
+function percentage(partialValue, totalValue) {
+  return (100 * partialValue) / totalValue;
+}
+
+function setCard() {
+  var request = new XMLHttpRequest();
+  request.onload = function () {
+    // Grab data and assing feilds
+    var response = JSON.parse(request.responseText);
+    var uuid = response.id;
+
+    if (typeof uuid == "undefined") {
+      uuid = "712d4221-a4eb-46de-b143-6b2bcb14da55";
+    }
+
+    document.getElementById("app_widget_profile_card_img").src =
+      "https://crafatar.com/avatars/" + uuid + "?overlay&size=512";
+    document.getElementById("username").textContent =
+      document.getElementById("nameinput").value;
+
+    updateMinecraft(uuid, document.getElementById("nameinput").value);
+  };
+
+  request.open(
+    "GET",
+    "https://api.year4000.net/minecraft/" +
+      document.querySelector("#nameinput").value,
+    true
+  );
+  request.send();
 }
