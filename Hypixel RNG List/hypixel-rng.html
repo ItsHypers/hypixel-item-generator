@@ -778,20 +778,32 @@
         id="nameinput"
         placeholder="Minecraft Username"
       />
-      <center id="fullcard" style="display: block">
-        <div class="app-widget-profile-card-night">
-          <img
-            src="https://crafatar.com/avatars/712d4221-a4eb-46de-b143-6b2bcb14da55?overlay&size=512"
-            id="app_widget_profile_card_img"
-            style="text-align: center"
-          />
-          <hr />
-          <h1 id="username">oHypers</h1>
-          <h2 id="rngs">%</h2>
-          <h3>Rarest Drop:</h3>
-          <h3 id="rarestDrop" style="font-size: 15px">Placeholder</h3>
-          <h3 id="rarestDropChance" style="font-size: 10px">Placeholder</h3>
-          <h4 id="percent">0/60</h4>
+      <center id="fullcard">
+        <div style="margin: 25px">
+          <div class="app-widget-profile-card-night">
+            <img
+              src="https://crafatar.com/avatars/712d4221-a4eb-46de-b143-6b2bcb14da55?overlay&size=512"
+              id="app_widget_profile_card_img"
+              style="text-align: center"
+            />
+            <hr />
+            <div class="infoContainer">
+              <div class="rightContainer">
+                <h3>Rarest Drop:</h3>
+                <h3 id="rarestDrop" style="font-size: 25px">Placeholder</h3>
+                <h3 id="rarestDropChance" style="font-size: 20px">
+                  Placeholder
+                </h3>
+              </div>
+              <div class="centerContainer">
+                <h1 id="username">oHypers</h1>
+              </div>
+              <div class="leftContainer">
+                <h2 id="rngs">%</h2>
+                <h4 id="percent">0/60</h4>
+              </div>
+            </div>
+          </div>
         </div>
       </center>
       <a
