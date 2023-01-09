@@ -18,6 +18,12 @@ function updateAll() {
       100 +
     "%";
 }
+function itemObtainInfo(img) {
+  img.nextElementSibling.nextElementSibling.textContent = img.dataset.obtain;
+}
+function hideitemObtainInfo(img) {
+  img.nextElementSibling.nextElementSibling.textContent = "";
+}
 
 function highlight() {
   if (event.target.classList.contains("checked")) {

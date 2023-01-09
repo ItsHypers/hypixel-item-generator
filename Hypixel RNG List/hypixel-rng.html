@@ -83,8 +83,11 @@
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
                         data-rarity="0.00000333"
+                        data-obtain="obtained by killing any mob on a public island and dungeons"
                         class="phoenix"
                         src="./images/pets/phoenix.webp"
                       />
@@ -92,164 +95,236 @@
                         Phoenix Pet (Epic - 1/6m) (Epic - 0.0000167%) (Legendary
                         - 0.00000333%)
                       </figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         class="enderman"
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="dropped by Endermen (only regular ones, not from Zealots) in ⏣ The End"
                         data-rarity="0.0006"
                         src="./images/pets/enderman.webp"
                       />
-                      <figcaption>Enderman Pet (Legendary 0.0006%)</figcaption>
+                      <figcaption>Enderman Pet (Legendary 0.0006%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         class="guardian"
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="obtained from fishing in any water source block. This requires a 'Large Treasure' catch."
                         data-rarity="0.0017"
                         src="./images/pets/guardian.webp"
                       />
                       <figcaption>
-                        Guardian Pet (Epic - 0.0035%) (Legendary - 0.0017%)
+                        Guardian Pet (Epic - 0.0035%) (Legendary - 0.0017%) ​
                       </figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         class="hound"
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="obtained by killing wolves in the Ruins or the Howling Cave"
                         data-rarity="0.001"
                         src="./images/pets/hound.webp"
                       />
                       <figcaption>
-                        Hound Pet (Epic - 0.003%) (Legendary 0.001%)
+                        Hound Pet (Epic - 0.003%) (Legendary 0.001%) ​
                       </figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         class="squid"
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="drops directly from Fishing while in the Park when it is raining."
                         data-rarity="0.0087"
                         src="./images/pets/squid.webp"
                       />
                       <figcaption>
-                        Squid Pet (Epic - 0.0174%) (Legendary - 0.0087%)
+                        Squid Pet (Epic - 0.0174%) (Legendary - 0.0087%) ​
                       </figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         class="snowman"
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="obtained from Red Gifts from the Jerry's Workshop"
                         data-rarity="0.03"
                         src="./images/pets/snowman.webp"
                       />
-                      <figcaption>Snowman Pet (0.03%)</figcaption>
+                      <figcaption>Snowman Pet (0.03%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         class="enderdragon"
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="obtained as a rare drop from Ender Dragons in the Dragon's Nest, requiring 450 Dragon Weight to drop. "
                         data-rarity="0.01"
                         src="./images/pets/enderdragon.webp"
                       />
                       <figcaption>
                         Ender-Dragon Pet (Epic 0.05% per Eye Placed) (Legendary
-                        0.01% per Eye Placed)
+                        0.01% per Eye Placed) ​
                       </figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         class="scatha"
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="dropped from Scathas in the Crystal Hollows, found when mining Hard Stone."
                         data-rarity="0.04"
                         src="./images/pets/scatha.webp"
                       />
                       <figcaption>
                         Scatha Pet (Rare - 0.24%) (Epic - 0.12%) (Legendary -
-                        0.04%)
+                        0.04%) ​
                       </figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         class="rat"
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="drop from Rats, which spawn in buildings in the Hub at night"
                         data-rarity="0.2"
                         src="./images/pets/rat.webp"
                       />
-                      <figcaption>Rat Pet (0.2%)</figcaption>
+                      <figcaption>Rat Pet (0.2%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         class="spirit"
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="The EPIC Spirit Pet can be bought from Diamond Dungeon Reward Chests on The Catacombs - Floor IV for 1,000,000 coins. The LEGENDARY variant can be bought from Emerald and Obsidian Dungeon Reward Chests for 5,000,000 coins."
                         data-rarity="1"
                         src="./images/pets/spirit.webp"
                       />
-                      <figcaption>Spirit Pet (1%)</figcaption>
+                      <figcaption>Spirit Pet (1%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         class="golem"
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="drop from the Endstone Protector"
                         data-rarity="0.6"
                         src="./images/pets/golem.webp"
                       />
                       <figcaption>
                         Golem Pet (Epic - 2%) (Legendary - 0.6%)
                       </figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         class="magmacube"
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="dropped by the Magma Boss"
                         data-rarity="2"
                         src="./images/pets/magmacube.webp"
                       />
                       <figcaption>Magma-Cube Pet (Legendary 2%)</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         class="tarantula"
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="The Tarantula Pet can drop most commonly from Arachne"
                         data-rarity="2"
                         src="./images/pets/tarantula.webp"
                       />
-                      <figcaption>Tarantula Pet (2%)</figcaption>
+                      <figcaption>Tarantula Pet (2%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         class="babyyeti"
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="dropped from killing Yeti Sea Creature"
                         data-rarity="0.8"
                         src="./images/pets/baby_yeti.webp"
                       />
                       <figcaption>
                         Baby-Yeti Pet (Epic - 3%) (Legendary - 0.8%)
                       </figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         class="megaladon"
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="dropped rarely by Sharks during the Fishing Festival"
                         data-rarity="1"
                         src="./images/pets/megaladon.webp"
                       />
                       <figcaption>
                         Megaladon Pet (Epic 1%) (Legendary 1%)
                       </figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                   </div>
                 </div>
@@ -268,111 +343,166 @@
                       <img
                         class="necrondye"
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from M7"
                         data-rarity="0.05"
                         src="./images/dungeon/necrondye.webp"
                       />
-                      <figcaption>Necron Dye (0.05%)</figcaption>
+                      <figcaption>Necron Dye (0.05%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         class="darkclaymore"
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from M7"
                         data-rarity="0.08"
                         src="./images/dungeon/darkclaymore.webp"
                       />
-                      <figcaption>Dark Claymore (0.08%)</figcaption>
+                      <figcaption>Dark Claymore (0.08%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         class="shadowwarp"
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from M7 / F7"
                         data-rarity="0.1"
                         src="./images/dungeon/bladescrolls.webp"
                       />
-                      <figcaption>Shadow Warp (0.1%)</figcaption>
+                      <figcaption>Shadow Warp (0.1%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         class="withershield"
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from M7 / F7"
                         data-rarity="0.1"
                         src="./images/dungeon/bladescrolls.webp"
                       />
-                      <figcaption>Wither Shield (0.1%)</figcaption>
+                      <figcaption>Wither Shield (0.1%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         class="implosion"
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from M7 / F7"
                         data-rarity="0.1"
                         src="./images/dungeon/bladescrolls.webp"
                       />
-                      <figcaption>implosion (0.1%)</figcaption>
+                      <figcaption>implosion (0.1%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         class="necronhandle"
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from M7 / F7"
                         data-rarity="0.11"
                         src="./images/dungeon/necronshandle.webp"
                       />
-                      <figcaption>Necron's Handle (0.11%)</figcaption>
+                      <figcaption>Necron's Handle (0.11%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         class="masterskull5"
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from M7"
                         data-rarity="0.32"
                         src="./images/dungeon/masterskull5.webp"
                       />
-                      <figcaption>Master Skull - T5 (0.32%)</figcaption>
+                      <figcaption>Master Skull - T5 (0.32%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         class="masterstar5"
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from M7 "
                         data-rarity="0.33"
                         src="./images/dungeon/masterstar5.webp"
                       />
-                      <figcaption>Master Star - 5 (0.33%)</figcaption>
+                      <figcaption>Master Star - 5 (0.33%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         class="ofa"
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from M7 / F7"
                         data-rarity="0.5"
                         src="./images/enchantedbook.webp"
                       />
-                      <figcaption>One For All (0.5%)</figcaption>
+                      <figcaption>One For All (0.5%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         class="autorecom"
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from M7 / F7"
                         data-rarity="0.54"
                         src="./images/dungeon/recom.webp"
                       />
-                      <figcaption>Auto Recombobulator (0.54%)</figcaption>
+                      <figcaption>Auto Recombobulator (0.54%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         class="witherchestplate"
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from M7 / F7"
                         data-rarity="0.92"
                         src="./images/dungeon/witherchestplate.webp"
                       />
-                      <figcaption>Wither Chestplate (0.92%)</figcaption>
+                      <figcaption>Wither Chestplate (0.92%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                   </div>
                   <h1 style="text-align: center">F6 Drops (Including MM)</h1>
@@ -381,73 +511,108 @@
                       <img
                         class="precursoreye"
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from M6 / F6"
                         data-rarity="0.07"
                         src="./images/dungeon/precursor.png"
                       />
-                      <figcaption>Precursor Eye (0.07%)</figcaption>
+                      <figcaption>Precursor Eye (0.07%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         class="giantsword"
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from M6 / F6"
                         data-rarity="0.11"
                         src="./images/dungeon/giantsword.webp"
                       />
-                      <figcaption>Giant Sword (0.11%)</figcaption>
+                      <figcaption>Giant Sword (0.11%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         class="summongring"
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from M6 / F6"
                         data-rarity="0.21"
                         src="./images/dungeon/summongring.webp"
                       />
-                      <figcaption>Summoning Ring (0.21%)</figcaption>
+                      <figcaption>Summoning Ring (0.21%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         class="necrochestplate"
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from M6 / F6"
                         data-rarity="0.29"
                         src="./images/dungeon/necrochestplate.webp"
                       />
                       <figcaption>
-                        Necromancer Lord Chestplate (0.29%)
+                        Necromancer Lord Chestplate (0.29%) ​
                       </figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         class="masterstar4"
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from M6 "
                         data-rarity="0.59"
                         src="./images/dungeon/masterstar4.webp"
                       />
-                      <figcaption>Master Star - 4 (0.59%)</figcaption>
+                      <figcaption>Master Star - 4 (0.59%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         class="necromancersword"
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from M6 / F6"
                         data-rarity="0.43"
                         src="./images/dungeon/giantsword.webp"
                       />
-                      <figcaption>Necromancer Sword (0.43%)</figcaption>
+                      <figcaption>Necromancer Sword (0.43%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         class="masterskull4"
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from M6 "
                         data-rarity="0.64"
                         src="./images/dungeon/masterskull4.webp"
                       />
-                      <figcaption>Master Skull - T5 (0.64%)</figcaption>
+                      <figcaption>Master Skull - T5 (0.64%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                   </div>
                   <h1 style="text-align: center">F5 Drops (Including MM)</h1>
@@ -456,43 +621,63 @@
                       <img
                         class="lastbreath"
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from M5 / F5"
                         data-rarity="0.34"
                         src="./images/dungeon/lastbreath.webp"
                       />
-                      <figcaption>Last Breath (0.34%)</figcaption>
+                      <figcaption>Last Breath (0.34%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         class="shadowfury"
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from M5 / F5"
                         data-rarity="0.34"
                         src="./images/dungeon/shadowfury.webp"
                       />
-                      <figcaption>Shadow Fury (0.34%)</figcaption>
+                      <figcaption>Shadow Fury (0.34%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         class="sachestplate"
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from M5 / F5"
                         data-rarity="0.69"
                         src="./images/dungeon/sachestplate.webp"
                       />
                       <figcaption>
-                        Shadow Assassin Chestplate (0.69%)
+                        Shadow Assassin Chestplate (0.69%) ​
                       </figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         class="masterstar3"
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from M5"
                         data-rarity="0.69"
                         src="./images/dungeon/masterstar3.webp"
                       />
-                      <figcaption>Master Star - 3 (0.69%)</figcaption>
+                      <figcaption>Master Star - 3 (0.69%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                   </div>
                 </div>
@@ -510,42 +695,62 @@
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from Rev T5s"
                         data-rarity="0.0137"
                         class="wardenheart"
                         src="./images/slayers/wardenheart.webp"
                       />
-                      <figcaption>Warden Heart (0.0137%)</figcaption>
+                      <figcaption>Warden Heart (0.0137%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from Rev T5s"
                         data-rarity="0.05"
                         class="smite7"
                         src="./images/enchantedbook.webp"
                       />
-                      <figcaption>Smite VII (0.05%)</figcaption>
+                      <figcaption>Smite VII (0.05%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from Rev T5s"
                         data-rarity="0.06"
                         class="shard"
                         src="./images/slayers/shard.webp"
                       />
-                      <figcaption>Shard of the Shredded (0.06%)</figcaption>
+                      <figcaption>Shard of the Shredded (0.06%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from Rev T5s"
                         data-rarity="0.1"
                         class="blade"
                         src="./images/slayers/blade.webp"
                       />
-                      <figcaption>Scythe Blade (0.1%)</figcaption>
+                      <figcaption>Scythe Blade (0.1%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                   </div>
                   <h1 style="text-align: center">Tarantula Broodfather</h1>
@@ -553,32 +758,47 @@
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from Tarantula T4s"
                         data-rarity="0.06"
                         class="mosquito"
                         src="./images/slayers/mosquito.webp"
                       />
-                      <figcaption>Digested Mosquito (0.06%)</figcaption>
+                      <figcaption>Digested Mosquito (0.06%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from Tarantula T4s"
                         data-rarity="0.17"
                         class="tarantulatalisman"
                         src="./images/slayers/tarantulatalisman.webp"
                       />
-                      <figcaption>Tarantula Talisman (0.17%)</figcaption>
+                      <figcaption>Tarantula Talisman (0.17%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from Tarantula T4s"
                         data-rarity="0.17"
                         class="flyswatter"
                         src="./images/slayers/flyswatter.webp"
                       />
-                      <figcaption>Fly Swatter (0.17%)</figcaption>
+                      <figcaption>Fly Swatter (0.17%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                   </div>
                   <h1 style="text-align: center">Sven Packmaster</h1>
@@ -586,42 +806,62 @@
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from Svens T4s"
                         data-rarity="0.04"
                         class="overflux"
                         src="./images/slayers/overflux.webp"
                       />
-                      <figcaption>Overflux Capacitor (0.04%)</figcaption>
+                      <figcaption>Overflux Capacitor (0.04%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from Svens T4s"
                         data-rarity="0.06"
                         class="grizzlybait"
                         src="./images/slayers/grizzlybait.webp"
                       />
-                      <figcaption>Grizzly Bait (0.06%)</figcaption>
+                      <figcaption>Grizzly Bait (0.06%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from Svens T4s"
                         data-rarity="0.12"
                         class="redclaw"
                         src="./images/slayers/redclaw.webp"
                       />
-                      <figcaption>Red Claw Egg (0.12%)</figcaption>
+                      <figcaption>Red Claw Egg (0.12%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from Svens T4s"
                         data-rarity="0.24"
                         class="cortunerune"
                         src="./images/slayers/corture.png"
                       />
-                      <figcaption>Cortune Rune (0.24%)</figcaption>
+                      <figcaption>Cortune Rune (0.24%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                   </div>
                   <h1 style="text-align: center">Voidgloom Sheraph</h1>
@@ -629,76 +869,111 @@
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from EnderSlayer T4s"
                         data-rarity="0.01"
                         class="enderslayer7"
                         src="./images/enchantedbook.webp"
                       />
-                      <figcaption>Ender Slayer VII (0.01%)</figcaption>
+                      <figcaption>Ender Slayer VII (0.01%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from EnderSlayer T4s"
                         data-rarity="0.05"
                         class="enchantrune"
                         src="./images/slayers/enchant.png"
                       />
-                      <figcaption>Enchant Rune (0.05%)</figcaption>
+                      <figcaption>Enchant Rune (0.05%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from EnderSlayer T4s"
                         data-rarity="0.06"
                         class="judgementcore"
                         src="./images/slayers/Judgementcore.webp"
                       />
-                      <figcaption>Judgement Core (0.06%)</figcaption>
+                      <figcaption>Judgement Core (0.06%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from EnderSlayer T4s"
                         data-rarity="0.18"
                         class="voidconqueror"
                         src="./images/slayers/voidconqueror.webp"
                       />
                       <figcaption>
-                        Void Conqueror Enderman Skin (0.18%)
+                        Void Conqueror Enderman Skin (0.18%) ​
                       </figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from EnderSlayer T4s"
                         data-rarity="0.03"
                         class="enderupgrader"
                         src="./images/slayers/enderupgrader.webp"
                       />
                       <figcaption>
-                        Exceedingly Rare Ender Artifact Upgraded (0.03%)
+                        Exceedingly Rare Ender Artifact Upgraded (0.03%) ​
                       </figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from EnderSlayer T4s"
                         data-rarity="0.18"
                         class="blooodchalice"
                         src="./images/slayers/bloodchalice.webp"
                       />
-                      <figcaption>Handy Blood Chaline (0.18%)</figcaption>
+                      <figcaption>Handy Blood Chaline (0.18%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from EnderSlayer T4s"
                         data-rarity="0.39"
                         class="expressomachine"
                         src="./images/slayers/expressomachine.webp"
                       />
-                      <figcaption>Pocket Espresso Machine (0.39%)</figcaption>
+                      <figcaption>Pocket Espresso Machine (0.39%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                   </div>
                   <h1 style="text-align: center">Inferno Demonlord</h1>
@@ -706,44 +981,66 @@
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from Blaze Slayer T4s"
                         data-rarity="0.09"
                         class="inverter"
                         src="./images/slayers/inverter.webp"
                       />
-                      <figcaption>Subzero Inveter (0.09%)</figcaption>
+                      <figcaption>Subzero Inveter (0.09%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from Blaze Slayer T4s"
                         data-rarity="0.09"
                         class="engineer"
                         src="./images/slayers/engineer.webp"
                       />
                       <figcaption>
-                        Wilson's Engineering Plans (0.09%)
+                        Wilson's Engineering Plans (0.09%) ​
                       </figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from Blaze Slayer T4s"
                         data-rarity="0.25"
                         class="highclassdice"
                         src="./images/slayers/highclassdice.webp"
                       />
-                      <figcaption>High Class Archfiend Dice (0.25%)</figcaption>
+                      <figcaption>
+                        High Class Archfiend Dice (0.25%)​
+                      </figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from Blaze Slayer T4s"
                         data-rarity="0.2"
                         class="fieryburst"
                         src="./images/slayers/fieryburst.png"
                       />
-                      <figcaption>Fiery Burst Rune (0.2%)</figcaption>
+                      <figcaption>Fiery Burst Rune (0.2%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                   </div>
                 </div>
@@ -760,52 +1057,77 @@
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from any Kuudra tier"
                         data-rarity="0.00032064"
                         class="enrager"
                         src="./images/kuudra/enrager.webp"
                       />
-                      <figcaption>Enrager (0.00032064%)</figcaption>
+                      <figcaption>Enrager (0.00032064%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from Burning Kuudra tier+"
                         data-rarity="0.8"
                         class="kuudracore"
                         src="./images/kuudra/kuudracore.webp"
                       />
-                      <figcaption>Kuudra Core (0.8%)</figcaption>
+                      <figcaption>Kuudra Core (0.8%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from any Kuudra tier"
                         data-rarity="0.09"
                         class="fataltempo"
                         src="./images/enchantedbook.webp"
                       />
-                      <figcaption>Fatal Tempo (0.14%)</figcaption>
+                      <figcaption>Fatal Tempo (0.14%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from any Kuudra tier"
                         data-rarity="0.08"
                         class="inferno"
                         src="./images/enchantedbook.webp"
                       />
-                      <figcaption>Inferno (0.14%)</figcaption>
+                      <figcaption>Inferno (0.14%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from any Kuudra tier"
                         data-rarity="1.24"
                         class="wheeloffate"
                         src="./images/kuudra/wheeloffate.webp"
                       />
-                      <figcaption>Wheel of Fate (1.24%)</figcaption>
+                      <figcaption>Wheel of Fate (1.24%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                   </div>
                 </div>
@@ -822,127 +1144,187 @@
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from Inferno Minions (with fuel)"
                         data-rarity="0.00006366"
                         class="apex"
                         src="./images/misc/apex.webp"
                       />
-                      <figcaption>Inferno Apex (0.00006366%)</figcaption>
+                      <figcaption>Inferno Apex (0.00006366%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from Inferno Minions (with fuel)"
                         data-rarity="0.00021825"
                         class="reaper"
                         src="./images/misc/reaper.webp"
                       />
-                      <figcaption>Reaper Pepper (0.00021825%)</figcaption>
+                      <figcaption>Reaper Pepper (0.00021825%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from Crystal Hollow Nucleus Runs"
                         data-rarity="0.000125"
                         class="alloy"
                         src="./images/misc/alloy.webp"
                       />
                       <figcaption>
                         Divan's Alloy (Just Dropped 0.000125%) (Lowest Possible
-                        0.0125%)
+                        0.0125%) ​
                       </figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from Crystal Hollow Nucleus Runs"
                         data-rarity="0.01647474"
                         class="quickclaw"
                         src="./images/misc/quickclaw.webp"
                       />
-                      <figcaption>Quick Claw (0.01647474%)</figcaption>
+                      <figcaption>Quick Claw (0.01647474%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from Inferno Minions (with fuel)"
                         data-rarity="0.00611098"
                         class="vertex"
                         src="./images/misc/vertex.webp"
                       />
-                      <figcaption>Inferno Vertex (0.00611098%)</figcaption>
+                      <figcaption>Inferno Vertex (0.00611098%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from Red Gifts"
                         data-rarity="0.03"
                         class="cryopowder"
                         src="./images/misc/cryopowder.webp"
                       />
-                      <figcaption>Cryopowder Shard (0.03%)</figcaption>
+                      <figcaption>Cryopowder Shard (0.03%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from Red Gifts"
                         data-rarity="0.03"
                         class="goldengift"
                         src="./images/misc/goldengift.webp"
                       />
                       <figcaption>
-                        Golden Gift (Green gift 0.03%) (Red Gifts 0.13%)
+                        Golden Gift (Green gift 0.03%) (Red Gifts 0.13%) ​
                       </figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from the Endstone Protector"
                         data-rarity="0.2"
                         class="tiercore"
                         src="./images/misc/coreboost.webp"
                       />
-                      <figcaption>Tier Core Boost (0.2%)</figcaption>
+                      <figcaption>Tier Core Boost (0.2%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from Minos Champions during Diana"
                         data-rarity="0.02"
                         class="minosrelic"
                         src="./images/misc/minosrelic.webp"
                       />
-                      <figcaption>Minos Relic (0.02%)</figcaption>
+                      <figcaption>Minos Relic (0.02%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Drops from Lord Jawbus"
                         data-rarity="0.03"
                         class="radioactive"
                         src="./images/misc/radioactive.webp"
                       />
-                      <figcaption>Radioactive Vial (0.03%)</figcaption>
+                      <figcaption>Radioactive Vial (0.03%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from Minotaurs during Diana"
                         data-rarity="0.08"
                         class="daedlusstick"
                         src="./images/misc/daedlus.webp"
                       />
-                      <figcaption>Daedlus Stick (0.08%)</figcaption>
+                      <figcaption>Daedlus Stick (0.08%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                     <div>
                       <img
                         onclick="highlight()"
+                        onmouseover="itemObtainInfo(this)"
+                        onmouseleave="hideitemObtainInfo(this)"
                         name="item"
+                        data-obtain="Obtained from Inquisitors during Diana"
                         data-rarity="1"
                         class="chimera"
                         src="./images/enchantedbook.webp"
                       />
-                      <figcaption>Chimera (1%)</figcaption>
+                      <figcaption>Chimera (1%)​</figcaption>
+                      &nbsp;
+                      <figcaption class="infoFig"></figcaption>
                     </div>
                   </div>
                 </div>
@@ -960,7 +1342,10 @@
                   <div>
                     <img
                       onclick="highlight()"
-                      name="dye"
+                      onmouseover="itemObtainInfo(this)"
+                      onmouseleave="hideitemObtainInfo(this)"
+                      name="item"
+                      data-obtain="Obtained from killing Slimes in the Crystal Hollow"
                       data-dye="true"
                       data-rarity="0.000005"
                       class="celadon"
@@ -968,213 +1353,323 @@
                     />
                     <figcaption>
                       Celadon Dye (Large Slimes 0.000005% - 1-20m) (Medium /
-                      Small Slimes 0.0000001% - 1/1b) (ridiculous)
+                      Small Slimes 0.0000001% - 1/1b) (ridiculous) ​
                     </figcaption>
+                    &nbsp;
+                    <figcaption class="infoFig"></figcaption>
                   </div>
                   <div>
                     <img
                       onclick="highlight()"
+                      onmouseover="itemObtainInfo(this)"
+                      onmouseleave="hideitemObtainInfo(this)"
                       name="item"
+                      data-obtain="Obtained from harvesting any crop"
                       data-dye="true"
                       data-rarity="0.000000667"
                       class="wild"
                       src="./images/dye/wild.webp"
                     />
                     <figcaption>
-                      Wild Strawberry (0.000000667% - 1/150m)
+                      Wild Strawberry (0.000000667% - 1/150m) ​
                     </figcaption>
+                    &nbsp;
+                    <figcaption class="infoFig"></figcaption>
                   </div>
                   <div>
                     <img
                       onclick="highlight()"
+                      onmouseover="itemObtainInfo(this)"
+                      onmouseleave="hideitemObtainInfo(this)"
                       name="item"
+                      data-obtain="Obtained from killing Wolves in the hub castle"
                       data-dye="true"
                       data-rarity="0.000001"
                       class="celeste"
                       src="./images/dye/celeste.webp"
                     />
-                    <figcaption>Celeste Dye (0.000001% - 1/100m)</figcaption>
+                    <figcaption>Celeste Dye (0.000001% - 1/100m)​</figcaption>
+                    &nbsp;
+                    <figcaption class="infoFig"></figcaption>
                   </div>
                   <div>
                     <img
                       onclick="highlight()"
+                      onmouseover="itemObtainInfo(this)"
+                      onmouseleave="hideitemObtainInfo(this)"
                       name="item"
+                      data-obtain="Obtained from killing Mushroom Cows"
+                      data-dye="true"
+                      data-rarity="0.000001"
+                      class="cyclamen"
+                      src="./images/dye/celeste.webp"
+                    />
+                    <figcaption>Cyclamen Dye (0.000001% - 1/100m)​</figcaption>
+                    &nbsp;
+                    <figcaption class="infoFig"></figcaption>
+                  </div>
+                  <div>
+                    <img
+                      onclick="highlight()"
+                      onmouseover="itemObtainInfo(this)"
+                      onmouseleave="hideitemObtainInfo(this)"
+                      name="item"
+                      data-obtain="Drops from Lava Sea Creatures"
                       data-dye="true"
                       data-rarity="0.000005"
                       class="carmine"
                       src="./images/dye/carmine.webp"
                     />
-                    <figcaption>Carmine Dye (0.000005% - 1/20m)</figcaption>
+                    <figcaption>Carmine Dye (0.000005% - 1/20m)​</figcaption>
+                    &nbsp;
+                    <figcaption class="infoFig"></figcaption>
                   </div>
                   <div>
                     <img
                       onclick="highlight()"
+                      onmouseover="itemObtainInfo(this)"
+                      onmouseleave="hideitemObtainInfo(this)"
                       data-dye="true"
                       name="item"
+                      data-obtain="Obtained from Voidlings"
                       data-rarity="0.000005"
                       class="byzantium"
                       src="./images/dye/byzantium.webp"
                     />
-                    <figcaption>Byzantium Dye (0.000005% - 1/20m)</figcaption>
+                    <figcaption>Byzantium Dye (0.000005% - 1/20m)​</figcaption>
+                    &nbsp;
+                    <figcaption class="infoFig"></figcaption>
                   </div>
                   <div>
                     <img
                       onclick="highlight()"
+                      onmouseover="itemObtainInfo(this)"
+                      onmouseleave="hideitemObtainInfo(this)"
                       data-dye="true"
                       name="item"
+                      data-obtain="Obtained from fishing"
                       data-rarity="0.00000667"
                       class="aquamarine"
                       src="./images/dye/Aquamarine.webp"
                     />
-                    <figcaption>Aquamarine Dye(0.00000667% - 1/15m)</figcaption>
+                    <figcaption>
+                      Aquamarine Dye(0.00000667% - 1/15m)​
+                    </figcaption>
+                    &nbsp;
+                    <figcaption class="infoFig"></figcaption>
                   </div>
                   <div>
                     <img
                       onclick="highlight()"
+                      onmouseover="itemObtainInfo(this)"
+                      onmouseleave="hideitemObtainInfo(this)"
                       data-dye="true"
                       name="item"
+                      data-obtain="Drops from breaking any log in the Park"
                       data-rarity="0.00001"
                       class="mango"
                       src="./images/dye/mango.webp"
                     />
-                    <figcaption>Mango Dye (0.00001% - 1/10m)</figcaption>
+                    <figcaption>Mango Dye (0.00001% - 1/10m)​</figcaption>
+                    &nbsp;
+                    <figcaption class="infoFig"></figcaption>
                   </div>
                   <div>
                     <img
                       onclick="highlight()"
+                      onmouseover="itemObtainInfo(this)"
+                      onmouseleave="hideitemObtainInfo(this)"
                       data-dye="true"
                       name="item"
+                      data-obtain="Obtained from fishing on the winter island"
                       data-rarity="0.00001"
                       class="iceberg"
                       src="./images/dye/iceberd.webp"
                     />
-                    <figcaption>Iceberg Dye (0.00001% - 1/10m)</figcaption>
+                    <figcaption>Iceberg Dye (0.00001% - 1/10m)​</figcaption>
+                    &nbsp;
+                    <figcaption class="infoFig"></figcaption>
                   </div>
                   <div>
                     <img
                       onclick="highlight()"
+                      onmouseover="itemObtainInfo(this)"
+                      onmouseleave="hideitemObtainInfo(this)"
                       data-dye="true"
                       name="item"
+                      data-obtain="Obtained from mining Emeralds"
                       data-rarity="0.0000125"
                       class="emerald"
                       src="./images/dye/emerald.webp"
                     />
-                    <figcaption>Emerald Dye (0.0000125% - 1/8m)</figcaption>
+                    <figcaption>Emerald Dye (0.0000125% - 1/8m)​</figcaption>
+                    &nbsp;
+                    <figcaption class="infoFig"></figcaption>
                   </div>
                   <div>
                     <img
                       onclick="highlight()"
+                      onmouseover="itemObtainInfo(this)"
+                      onmouseleave="hideitemObtainInfo(this)"
                       data-dye="true"
                       name="item"
+                      data-obtain="Obtained from fishing in the Fairy Pond"
                       data-rarity="0.0000125"
                       class="nadeshiko"
                       src="./images/dye/nadeshiko.webp"
                     />
-                    <figcaption>Nadeshiko Dye (0.0000125% - 1/8m)</figcaption>
+                    <figcaption>Nadeshiko Dye (0.0000125% - 1/8m)​</figcaption>
+                    &nbsp;
+                    <figcaption class="infoFig"></figcaption>
                   </div>
                   <div>
                     <img
                       onclick="highlight()"
+                      onmouseover="itemObtainInfo(this)"
+                      onmouseleave="hideitemObtainInfo(this)"
                       data-dye="true"
                       name="item"
+                      data-obtain="Obtained from killing any skeleton-type mob."
                       data-rarity="0.0000333"
                       class="bone"
                       src="./images/dye/bone.webp"
                     />
-                    <figcaption>Bone Dye (0.0000333% - 1/3m)</figcaption>
+                    <figcaption>Bone Dye (0.0000333% - 1/3m)​</figcaption>
+                    &nbsp;
+                    <figcaption class="infoFig"></figcaption>
                   </div>
                   <div>
                     <img
                       onclick="highlight()"
+                      onmouseover="itemObtainInfo(this)"
+                      onmouseleave="hideitemObtainInfo(this)"
                       data-dye="true"
                       name="item"
+                      data-obtain="Drops from killing Sneaky Creepers"
                       data-rarity="0.0000333"
                       class="nyanza"
                       src="./images/dye/nyanza.webp"
                     />
-                    <figcaption>Nyanza Dye (0.00005% - 1/2m)</figcaption>
+                    <figcaption>Nyanza Dye (0.00005% - 1/2m)​</figcaption>
+                    &nbsp;
+                    <figcaption class="infoFig"></figcaption>
                   </div>
                   <div>
                     <img
                       onclick="highlight()"
+                      onmouseover="itemObtainInfo(this)"
+                      onmouseleave="hideitemObtainInfo(this)"
                       data-dye="true"
                       name="item"
+                      data-obtain="Obtained from killing Redstone Pigmen"
                       data-rarity="0.00005"
                       class="brickred"
                       src="./images/dye/brick_red.webp"
                     />
-                    <figcaption>Brick Red Dye (0.00005% - 1/2m)</figcaption>
+                    <figcaption>Brick Red Dye (0.00005% - 1/2m)​</figcaption>
+                    &nbsp;
+                    <figcaption class="infoFig"></figcaption>
                   </div>
                   <div>
                     <img
                       onclick="highlight()"
+                      onmouseover="itemObtainInfo(this)"
+                      onmouseleave="hideitemObtainInfo(this)"
                       data-dye="true"
                       name="item"
+                      data-obtain="Drops from any Blaze-type mob."
                       data-rarity="0.0001"
                       class="flame"
                       src="./images/dye/flame.webp"
                     />
-                    <figcaption>Flame Dye (0.0001% - 1/1m)</figcaption>
+                    <figcaption>Flame Dye (0.0001% - 1/1m)​</figcaption>
+                    &nbsp;
+                    <figcaption class="infoFig"></figcaption>
                   </div>
                   <div>
                     <img
                       onclick="highlight()"
+                      onmouseover="itemObtainInfo(this)"
+                      onmouseleave="hideitemObtainInfo(this)"
                       data-dye="true"
                       name="item"
+                      data-obtain="Obtained from killing any Spooky Mob"
                       data-rarity="0.0001"
                       class="midnight"
                       src="./images/dye/midnight.webp"
                     />
-                    <figcaption>Midnight Dye (0.0001% - 1/1m)</figcaption>
+                    <figcaption>Midnight Dye (0.0001% - 1/1m)​</figcaption>
+                    &nbsp;
+                    <figcaption class="infoFig"></figcaption>
                   </div>
                   <div>
                     <img
                       onclick="highlight()"
+                      onmouseover="itemObtainInfo(this)"
+                      onmouseleave="hideitemObtainInfo(this)"
                       data-dye="true"
                       name="item"
+                      data-obtain="Obtained from Kuudra (any tier)"
                       data-rarity="0.0001329785"
-                      class="tentacal"
+                      class="tentacle"
                       src="./images/dye/tentacool.webp"
                     />
                     <figcaption>
-                      Tentacal Dye (0.0001329785% - 1/752100)
+                      Tentacle Dye (0.0001329785% - 1/752100) ​
                     </figcaption>
+                    &nbsp;
+                    <figcaption class="infoFig"></figcaption>
                   </div>
                   <div>
                     <img
                       onclick="highlight()"
+                      onmouseover="itemObtainInfo(this)"
+                      onmouseleave="hideitemObtainInfo(this)"
                       data-dye="true"
                       name="item"
+                      data-obtain="Obtained from Dark Auctions"
                       data-rarity="0.03288"
                       class="darkpurple"
                       src="./images/dye/darkpurple.webp"
                     />
                     <figcaption>
                       Dark Purple Dye (0.03288% - 1/3041 base chance(increases
-                      with Scorpius))
+                      with Scorpius)) ​
                     </figcaption>
+                    &nbsp;
+                    <figcaption class="infoFig"></figcaption>
                   </div>
                   <div>
                     <img
                       onclick="highlight()"
+                      onmouseover="itemObtainInfo(this)"
+                      onmouseleave="hideitemObtainInfo(this)"
                       data-dye="true"
                       name="item"
+                      data-obtain="Obtained from Red Gifts"
                       data-rarity="0.03"
                       class="holly"
                       src="./images/dye/holly.webp"
                     />
-                    <figcaption>Holly Dye (0.03%)</figcaption>
+                    <figcaption>Holly Dye (0.03%)​</figcaption>
+                    &nbsp;
+                    <figcaption class="infoFig"></figcaption>
                   </div>
                   <div>
                     <img
                       onclick="highlight()"
+                      onmouseover="itemObtainInfo(this)"
+                      onmouseleave="hideitemObtainInfo(this)"
                       data-dye="true"
                       name="item"
+                      data-obtain="Obtained from M7"
                       data-rarity="0.04"
                       class="necron"
                       src="./images/dye/necron.webp"
                     />
-                    <figcaption>Necron Dye (0.04%)​</figcaption>
+                    <figcaption>Necron Dye (0.04%)​​</figcaption>
+                    &nbsp;
+                    <figcaption class="infoFig"></figcaption>
                   </div>
                 </div>
               </div>
