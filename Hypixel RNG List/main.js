@@ -71,8 +71,13 @@ function checkRarestDrop() {
       tempRarity > checkedItems[i].dataset.rarity ||
       tempRarity == undefined
     ) {
-      tempRarity = checkedItems[i].dataset.rarity;
-      tempName = checkedItems[i].nextElementSibling.textContent;
+      console.log(checkedItems[i].dataset.dye);
+      if (checkedItems[i].dataset.dye != "true") {
+        {
+          tempRarity = checkedItems[i].dataset.rarity;
+          tempName = checkedItems[i].nextElementSibling.textContent;
+        }
+      }
     }
   }
   if (tempName != undefined) {
