@@ -1,21 +1,5 @@
-var currentStrength = 0;
-var currentGearScore = 0;
-var currentDamage = 0;
-var currentcritDamage = 0;
-var currentCritChance = 0;
-var currentAttackSpeed = 0;
-var currentIntelligence = 0;
-var currentDefence = 0;
-var currentabilityDamage = 0;
-var currentSeaCreature = 0;
-var currentHealth = 0;
-var currentVitality = 0;
-var currentTrueDefence = 0;
-var currentMagicFind = 0;
-var currentPetLuck = 0;
-var currentPetLevel = 100;
-var currentSpeed = 0;
 var numofAbilities = 0;
+var numofStats = 0;
 var killCount = 0;
 
 var currentItem = "SWORD";
@@ -30,6 +14,7 @@ var currentHeldItemRarity = "";
 var currentminecraftID = "minecraft:diamond_sword";
 var abilities = {};
 var itemsChanged = {};
+var wisdomChanged = {};
 var AOW = false;
 var descriptionAdded = false;
 var loreAdded = false;
@@ -96,6 +81,7 @@ function AddStat() {
     alert("Please fill in all inputs!");
   } else {
     addedStats[statName] = { amount: statAmount, type: statType };
+    numofStats += 1;
     console.log(addedStats);
     updateStats();
     document.getElementById("statForm").reset();
@@ -429,6 +415,8 @@ function abilitydamage(input) {
 function wisdom(input, num) {
   document.getElementById("#wisdom" + input).textContent = "+" + num;
   document.querySelector(".wisdom" + input).style.display = "block";
+  //addedStats[statName] = { amount: statAmount, type: statType };
+  wisdomChanged[input] = { number: num };
 }
 function critDamage(input) {
   document.getElementById("#critdamage").textContent = "+" + input + "%";
@@ -485,55 +473,9 @@ function seacreature(input) {
 function itemType(input, dungeon) {
   input = input.toUpperCase();
   currentItem = input;
-  if (dungeon) {
-    document.getElementById("#item-type").textContent =
-      currentRarity.toUpperCase() + " DUNGEON" + " " + input;
-  } else {
-    document.getElementById("#item-type").textContent =
-      currentRarity.toUpperCase() + " " + input;
-  }
-}
-function magicfind(input) {
-  document.getElementById("#magicfind").textContent = "+" + input;
-  document.querySelector(".magicfind").style.display = "block";
-  currentMagicFind = input;
-  itemsChanged["magicfind"] = true;
-}
-function petluck(input) {
-  document.getElementById("#petluck").textContent = "+" + input;
-  document.querySelector(".petluck").style.display = "block";
-  currentPetLuck = input;
-  itemsChanged["petluck"] = true;
-}
-function truedefence(input) {
-  document.getElementById("#truedefence").textContent = "+" + input;
-  document.querySelector(".truedefence").style.display = "block";
-  currentTrueDefence = input;
-  itemsChanged["truedefence"] = true;
-}
-function skill(input) {
-  document.querySelector(".skill").style.display = "block";
-  document.querySelector(".skill").textContent = input + " Pet";
-  currentSkill = input;
-  itemsChanged["skill"] = true;
-}
-function speed(input) {
-  document.getElementById("#speed").textContent = "+" + input;
-  document.querySelector(".speed").style.display = "block";
-  currentSpeed = input;
-  itemsChanged["speed"] = true;
-}
-function health(input) {
-  document.getElementById("#health").textContent = "+" + input;
-  document.querySelector(".health").style.display = "block";
-  currentHealth = input;
-  itemsChanged["health"] = true;
-}
-function vitality(input) {
-  document.getElementById("#vitality").textContent = "+" + input;
-  document.querySelector(".vitality").style.display = "block";
-  currentVitality = input;
-  itemsChanged["vitality"] = true;
+
+  document.getElementById("#item-type").textContent =
+    currentRarity.toUpperCase() + " " + input;
 }
 const colors = {
   0: "#000000", // black
@@ -824,94 +766,40 @@ function minecraftCommand() {
     currentitemName +
     `\",\"color\":\"` +
     minecraftRaritys[currentRarity] +
-    `\",\"italic\":false,\"bold\":true}]\',Lore:[\'`;
-  if (itemsChanged["damage"]) {
-    currentCommand +=
-      `[{\"text\":\"Damage: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
-      currentDamage +
-      `\",\"color\":\"red\",\"italic\":false}]\',\'`;
-  }
-  if (itemsChanged["strength"]) {
-    if (AOW) {
+    `\",\"italic\":false,\"bold\":false}]\',Lore:[\'`;
+  //addedStats[statName] = { amount: statAmount, type: statType };
+  //  console.log(addedStats[statName]["amount"]);
+  if (addedStats) {
+    for (i in addedStats) {
+      console.log(i);
       currentCommand +=
-        `[{\"text\":\"Strength: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
-        currentStrength +
-        `\",\"color\":\"red\",\"italic\":false},{\"text\":\" [+5]` +
-        `\",\"color\":\"gold\",\"italic\":false}]\',\'`;
-    } else {
-      currentCommand +=
-        `[{\"text\":\"Strength: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
-        currentStrength +
-        `\",\"color\":\"red\",\"italic\":false}]\',\'`;
+        `[{\"text\":\"` +
+        i +
+        `: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"` +
+        addedStats[i]["amount"] +
+        `\",\"color\":\"` +
+        addedStats[i]["type"] +
+        `\",\"italic\":false}]\',\'`;
     }
   }
-  if (itemsChanged["critchance"]) {
-    currentCommand +=
-      `[{\"text\":\"Crit Chance: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
-      currentCritChance +
-      `\",\"color\":\"red\",\"italic\":false}]\',\'`;
-  }
-  if (itemsChanged["critdamage"]) {
-    currentCommand +=
-      `[{\"text\":\"Crit Damage: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
-      currentcritDamage +
-      `\",\"color\":\"red\",\"italic\":false}]\',\'`;
-  }
-  if (itemsChanged["attackspeed"]) {
-    currentCommand +=
-      `[{\"text\":\"Attack Speed: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
-      currentAttackSpeed +
-      `\",\"color\":\"red\",\"italic\":false}]\',\'`;
-  }
-  if (itemsChanged["seacreature"]) {
-    currentCommand +=
-      `[{\"text\":\"Sea Creature Chance: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
-      currentSeaCreature +
-      `\",\"color\":\"red\",\"italic\":false}]\',\'`;
-  }
-  if (itemsChanged["health"]) {
-    currentCommand +=
-      `[{\"text\":\"Health: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
-      currentHealth +
-      `\",\"color\":\"green\",\"italic\":false}]\',\'`;
-  }
-  if (itemsChanged["defence"]) {
-    currentCommand +=
-      `[{\"text\":\"Defence: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
-      currentDefence +
-      `\",\"color\":\"green\",\"italic\":false}]\',\'`;
-  }
-  if (itemsChanged["speed"]) {
-    currentCommand +=
-      `[{\"text\":\"Speed: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
-      currentSpeed +
-      `\",\"color\":\"green\",\"italic\":false}]\',\'`;
-  }
-  if (itemsChanged["intelligence"]) {
-    currentCommand +=
-      `[{\"text\":\"Intelligence: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
-      currentIntelligence +
-      `\",\"color\":\"green\",\"italic\":false}]\',\'`;
-  }
-  if (itemsChanged["truedefence"]) {
-    currentCommand +=
-      `[{\"text\":\"True Defence: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
-      currentTrueDefence +
-      `\",\"color\":\"green\",\"italic\":false}]\',\'`;
-  }
-  if (itemsChanged["magicfind"]) {
-    currentCommand +=
-      `[{\"text\":\"Magic Find: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
-      currentMagicFind +
-      `\",\"color\":\"green\",\"italic\":false}]\',\'`;
-  }
-  if (itemsChanged["petluck"]) {
-    currentCommand +=
-      `[{\"text\":\"Pet Luck: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"+` +
-      currentPetLuck +
-      `\",\"color\":\"green\",\"italic\":false}]\',\'`;
+  if (wisdomChanged) {
+    for (i in wisdomChanged) {
+      currentCommand +=
+        `[{\"text\":\"` +
+        i.capitalize() +
+        ` Wisdom: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"` +
+        wisdomChanged[i]["number"] +
+        `\",\"color\":\"green\",\"italic\":false}]\',\'`;
+    }
   }
 
+  if (addedGemstones.length != 0) {
+    currentCommand +=
+      `[{\"text\":\"` +
+      addedGemstones +
+      `\",\"color\":\"gray\",\"italic\":false}]`;
+    currentCommand += `[{\"text\":\"\"}]\',\'`;
+  }
   if (descriptionArray.length != 0) {
     currentCommand += `[{\"text\":\"\"}]\',\'`;
     currentCommand += `[{\"text\":\"\"}`;
@@ -932,7 +820,9 @@ function minecraftCommand() {
     currentCommand += `]\',\'`;
     currentCommand += `[{\"text\":\"\"}]\',\'`;
   }
-  if (abilities.length > 0) {
+
+  if (numofAbilities >= 1) {
+    console.log("Ran");
     for (let i = 1; i <= numofAbilities; i++) {
       descArray = abilities[i + "description"].split(" ");
       currentCommand +=
@@ -941,7 +831,7 @@ function minecraftCommand() {
         `\",\"color\":\"gold\",\"italic\":false},{\"text\":\" ` +
         abilities[i + "keybind"] +
         `\",\"color\":\"yellow\",\"italic\":false,\"bold\":true}]\',\'`;
-      if (descArray.length != 0) {
+      if (descArray) {
         currentCommand += `[{\"text\":\"\"}`;
       }
       descArray.forEach((element) => {
@@ -960,9 +850,8 @@ function minecraftCommand() {
             ` \",\"color\":\"gray\",\"italic\":false}`;
         }
       });
-      if (descArray.length != 0) {
+      if (descArray) {
         currentCommand += `]\',\'`;
-        currentCommand += `[{\"text\":\"\"}]\',\'`;
       }
       currentCommand +=
         `[{\"text\":\"Mana cost: \",\"color\":\"dark_gray\",\"italic\":false},{\"text\":\"` +
@@ -1011,17 +900,16 @@ function minecraftCommand() {
   if (itemsChanged["recomb"]) {
     currentCommand += `'[{\"text\":\"`;
     currentCommand +=
-      `M\",\"color\":\"` +
+      `M\ ",\"color\":\"` +
       minecraftRaritys[currentRarity] +
       `\",\"italic\":false,\"obfuscated\":true,\"bold\":true},`;
   }
   if (itemsChanged["recomb"]) {
     currentCommand += `{\"text\":\"`;
   } else {
-    currentCommand += `'[{\"text\":\"`;
+    currentCommand += `'[{\"text\":\" `;
   }
   currentCommand += currentRarity.toUpperCase() + ` `;
-  console.log(currentRarity);
   if (dungeonized) {
     currentCommand += "DUNGEON ";
   }
@@ -1033,7 +921,7 @@ function minecraftCommand() {
   if (itemsChanged["recomb"]) {
     currentCommand += `,{\"text\":\"`;
     currentCommand +=
-      `M\",\"color\":\"` +
+      ` M\",\"color\":\"` +
       minecraftRaritys[currentRarity] +
       `\",\"italic\":false,\"obfuscated\":true,\"bold\":true}]',`;
     currentCommand += `'[{\"text\":\"(Recombobulated)\",\"color\":\"gray\",\"italic\":false}]`;
@@ -1049,5 +937,12 @@ function minecraftCommand() {
     minecraftRaritys[currentRarity] +
     `\",\"italic\":false,\"bold\":true}]\'`;
   currentCommand += `]}}`;*/
-  document.getElementById("#minecraftCommand").innerHTML = currentCommand;
+  document.getElementById("minecraftCommand").value = "";
+  document.getElementById("minecraftCommand").value = currentCommand;
 }
+Object.defineProperty(String.prototype, "capitalize", {
+  value: function () {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+  },
+  enumerable: false,
+});

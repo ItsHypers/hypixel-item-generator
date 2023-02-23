@@ -99,16 +99,22 @@
       </span>
     </div>
   </row>
+  <row class="row1">
+    <div style="width: 100%" class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Item Type</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="e.g. 25%"
+        onchange="itemType(this.value, `type`)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Item Type</span>
+      </span>
+    </div>
+  </row>
   <div style="margin-top: 10px"></div>
   <row class="row1">
-    <input
-      type="checkbox"
-      id="dungeonized"
-      value="dungeonized"
-      onchange="dungeon(this.value)"
-    /><label for="checkboxOne" style="width: 50%; padding-top: 12px">
-      Dungeonized?</label
-    >
     <input
       type="checkbox"
       id="soulbound"
@@ -782,7 +788,7 @@
     </div>
   </div>
 </nav>
-<!---
+
 <span
   class="update"
   style="justify-content: center; text-align: center"
@@ -790,4 +796,7 @@
 >
   Update Minecraft Command
 </span>
--->
+<textarea
+  placeholder="Copy to Save (updates automatically)"
+  id="minecraftCommand"
+></textarea>
