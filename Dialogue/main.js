@@ -65,7 +65,6 @@ function updateStats() {
     div.appendChild(Namelabel);
     div.appendChild(Amountlabel);
     Dialogue.appendChild(div);
-    Amountlabel.classList.add("item-red-text");
 
     var addedStat = document.createElement("div");
     addedStat.classList.add(id);
