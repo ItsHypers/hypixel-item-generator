@@ -1,0 +1,625 @@
+:root {
+  --common: #d3d3d3;
+  --uncommon: #4fe34d;
+  --rare: #5453fb;
+  --epic: #970295;
+  --legendary: #f1a001;
+  --mythic: #f551f4;
+  --special: #ff5555;
+  --veryspecial: #fe5454;
+  --divine: #53f7f7;
+  --ability: #eb9d01;
+  --keybind: #ebeb64;
+  --description: #b4b4b4;
+  --mana: #0bb3a6;
+  --cooldown: #51c051;
+  --color-0: #000000;
+  --color-1: #0000aa;
+  --color-2: #00aa00;
+  --color-3: #00aaaa;
+  --color-4: #aa0000;
+  --color-5: #aa00aa;
+  --color-6: #ffaa00;
+  --color-7: #aaaaaa;
+  --color-8: #555555;
+  --color-9: #5555ff;
+
+  --color-a: #55ff55;
+  --color-b: #55ffff;
+  --color-c: #ff5555;
+  --color-d: #ff55ff;
+  --color-e: #ffff55;
+  --color-f: #ffffff;
+
+  --petLevel: #55ffff;
+}
+
+.grad {
+  background: linear-gradient(#000000, #2e2e2e);
+}
+.grad2 {
+  background: linear-gradient(#000000, #0f0f0f);
+}
+
+@font-face {
+  font-family: "Minecraft";
+  src: url("webfont.eot"); /* IE9 Compat Modes */
+  src: url("webfont.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */ url(font/Minecraft.woff) format("woff"),
+    /* Modern Browsers */ url(/font/minecraft_font.ttf) format("truetype");
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+}
+.w3-row-padding img {
+  margin-bottom: 12px;
+}
+/* Set the width of the sidebar to 120px */
+.w3-sidebar {
+  width: 350px;
+  background: #222;
+}
+.w3-justify {
+  text-align: justify;
+}
+/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+/* Remove margins from "page content" on small screens */
+@media only screen and (max-width: 600px) {
+  #main {
+    margin-left: 0;
+  }
+}
+.row1 {
+  display: flex;
+  flex-direction: row;
+  text-align: start;
+}
+.fullrow {
+  display: flex;
+  flex-direction: row;
+  text-align: start;
+  justify-content: space-evenly;
+  width: 100%;
+}
+.stat {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 10px;
+}
+
+.deleteStat {
+  color: white;
+}
+.addGemstone {
+  color: white;
+}
+#gemstones {
+  display: flex;
+  flex-direction: column;
+}
+.reset-button {
+  background-color: transparent;
+  border-width: 0;
+  font-family: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  padding: 0;
+}
+.item {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 400px;
+  background-color: #110211;
+  border: 5px solid #110211;
+  border-style: solid;
+  border-width: medium;
+  box-shadow: inset 0px 0px 0px 2px #24015a;
+  box-sizing: border-box; /* Include padding and border in element's width and height */
+  border-radius: 10px;
+}
+.pet {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 400px;
+  background-color: #110211;
+  border: 5px solid #110211;
+  border-style: solid;
+  border-width: medium;
+  box-shadow: inset 0px 0px 0px 2px #24015a;
+  box-sizing: border-box; /* Include padding and border in element's width and height */
+  border-radius: 10px;
+}
+.coloroverlay {
+  font-weight: bold;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+.ability {
+  justify-content: center;
+  border: 1px solid #ccc;
+}
+.gemstone {
+  justify-content: center;
+  border: 1px solid #ccc;
+}
+.description {
+  width: 70%;
+  font-size: 15px;
+  color: #474647;
+}
+.mainDescription {
+  text-align: start;
+}
+#png {
+  display: inline-block;
+  max-width: 50px;
+  max-height: 50px;
+}
+#abilityButton1,
+#abilityButton2,
+#abilityButton3,
+#heldItemButton,
+#gemstoneButton,
+#wisdomButton,
+#createAbility {
+  height: 50px;
+  background-color: #f1f1f1;
+}
+.ability1,
+.ability2,
+.ability3 {
+  text-align: start;
+  max-width: 300px;
+}
+.item-name {
+  color: --common;
+  font-weight: bold;
+  font-family: Minecraft;
+  font-size: 18px;
+}
+.level {
+  color: #b8b8b8;
+  font-family: Minecraft;
+  font-size: 18px;
+}
+.skill {
+  color: --common;
+  font-family: Minecraft;
+  font-size: 14px;
+}
+.reforge {
+  color: --common;
+  font-weight: bold;
+  font-family: Minecraft;
+  font-size: 18px;
+}
+.book {
+  font-family: Minecraft;
+  color: #f1f167;
+}
+.colorhover {
+  background-color: rgb(80, 80, 80);
+  text-align: center;
+}
+.item-text {
+  color: #b8b8b8;
+  font-weight: lighter;
+  font-family: Minecraft;
+  text-align: center;
+  font-size: 15px;
+}
+.item-text.item-gearscore {
+  color: #f351f3;
+}
+.item-text.item-red-text {
+  color: #ff5555;
+}
+.item-text.item-green-text {
+  color: #55ff55;
+}
+.item-text.item-leg-text {
+  color: #fba700;
+  font-weight: bold;
+}
+.item-text.item-dungeon-stat {
+  color: #555555;
+  padding-left: 5px;
+}
+.item-text.item-5-strength {
+  color: #ffaa00;
+  padding-left: 5px;
+}
+.item-text.item-blue-text {
+  color: #53cbe0;
+}
+/*
+=====
+HELPERS
+=====
+*/
+
+.ha-screen-reader {
+  width: var(--ha-screen-reader-width, 1px);
+  height: var(--ha-screen-reader-height, 1px);
+  padding: var(--ha-screen-reader-padding, 0);
+  border: var(--ha-screen-reader-border, none);
+
+  position: var(--ha-screen-reader-position, absolute);
+  clip: var(--ha-screen-reader-clip, rect(1px, 1px, 1px, 1px));
+  overflow: var(--ha-screen-reader-overflow, hidden);
+}
+
+/*
+=====
+RESET STYLES
+=====
+*/
+
+.field__input {
+  --uiFieldPlaceholderColor: var(--fieldPlaceholderColor, #767676);
+
+  background-color: transparent;
+  border-radius: 0;
+  border: none;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.field__input:focus::-webkit-input-placeholder {
+  color: var(--uiFieldPlaceholderColor);
+}
+
+.field__input:focus::-moz-placeholder {
+  color: var(--uiFieldPlaceholderColor);
+}
+
+/*
+=====
+CORE STYLES
+=====
+*/
+
+.field {
+  --uiFieldBorderWidth: var(--fieldBorderWidth, 2px);
+  --uiFieldPaddingRight: var(--fieldPaddingRight, 1rem);
+  --uiFieldPaddingLeft: var(--fieldPaddingLeft, 1rem);
+  --uiFieldBorderColorActive: var(
+    --fieldBorderColorActive,
+    rgba(22, 22, 22, 1)
+  );
+
+  display: var(--fieldDisplay, inline-flex);
+  position: relative;
+  font-size: var(--fieldFontSize, 1rem);
+}
+
+.field__input {
+  box-sizing: border-box;
+  width: var(--fieldWidth, 100%);
+  height: var(--fieldHeight, 3rem);
+  padding: var(--fieldPaddingTop, 1.25rem) var(--uiFieldPaddingRight)
+    var(--fieldPaddingBottom, 0.5rem) var(--uiFieldPaddingLeft);
+  border-bottom: var(--uiFieldBorderWidth) solid
+    var(--fieldBorderColor, rgba(0, 0, 0, 0.25));
+}
+input,
+select,
+textarea {
+  color: white;
+}
+.field__input:focus {
+  outline: none;
+}
+
+.field__input::-webkit-input-placeholder {
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+}
+
+.field__input::-moz-placeholder {
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+}
+
+.field__input:focus::-webkit-input-placeholder {
+  opacity: 1;
+  transition-delay: 0.2s;
+}
+
+.field__input:focus::-moz-placeholder {
+  opacity: 1;
+  transition-delay: 0.2s;
+}
+
+.field__label-wrap {
+  box-sizing: border-box;
+  pointer-events: none;
+  cursor: text;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.field__label-wrap::after {
+  content: "";
+  box-sizing: border-box;
+  width: 100%;
+  height: 0;
+  opacity: 0;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.field__input:focus ~ .field__label-wrap::after {
+  opacity: 1;
+}
+
+.field__label {
+  position: absolute;
+  left: var(--uiFieldPaddingLeft);
+  top: calc(50% - 0.5em);
+
+  line-height: 1;
+  font-size: var(--fieldHintFontSize, inherit);
+
+  transition: top 0.2s cubic-bezier(0.9, -0.15, 0.1, 1.15),
+    opacity 0.2s ease-out, font-size 0.2s ease-out;
+  will-change: bottom, opacity, font-size;
+}
+
+.field__input:focus ~ .field__label-wrap .field__label,
+.field__input:not(:placeholder-shown) ~ .field__label-wrap .field__label {
+  --fieldHintFontSize: var(--fieldHintFontSizeFocused, 0.75rem);
+
+  top: var(--fieldHintTopHover, 0.25rem);
+}
+
+/* 
+effect 1
+*/
+
+.field_v1 .field__label-wrap::after {
+  border-bottom: var(--uiFieldBorderWidth) solid var(--uiFieldBorderColorActive);
+  transition: opacity 0.2s ease-out;
+  will-change: opacity;
+}
+
+/* 
+effect 2
+*/
+
+.field_v2 .field__label-wrap {
+  overflow: hidden;
+}
+
+.field_v2 .field__label-wrap::after {
+  border-bottom: var(--uiFieldBorderWidth) solid var(--uiFieldBorderColorActive);
+  transform: translate3d(-105%, 0, 0);
+  will-change: transform, opacity;
+  transition: transform 0.285s ease-out 0.2s, opacity 0.2s ease-out 0.2s;
+}
+
+.field_v2 .field__input:focus ~ .field__label-wrap::after {
+  transform: translate3d(0, 0, 0);
+  transition-delay: 0;
+}
+
+/*
+effect 3
+*/
+
+.field_v3 .field__label-wrap::after {
+  border: var(--uiFieldBorderWidth) solid var(--uiFieldBorderColorActive);
+  will-change: opacity, height;
+  transition: height 0.2s ease-out, opacity 0.2s ease-out;
+}
+
+.field_v3 .field__input:focus ~ .field__label-wrap::after {
+  height: 100%;
+}
+
+/*
+=====
+LEVEL 4. SETTINGS
+=====
+*/
+
+.field {
+  --fieldBorderColor: #d1c4e9;
+  --fieldBorderColorActive: #673ab7;
+}
+ul.ks-cboxtags {
+  list-style: none;
+  padding: 20px;
+}
+ul.ks-cboxtags li {
+  display: inline;
+}
+ul.ks-cboxtags li label {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 2px solid rgba(139, 139, 139, 0.3);
+  color: #adadad;
+  border-radius: 25px;
+  white-space: nowrap;
+  margin: 3px 0px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: all 0.2s;
+}
+
+ul.ks-cboxtags li label {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+ul.ks-cboxtags li label::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 12px;
+  padding: 2px 6px 2px 2px;
+  content: "\f067";
+  transition: transform 0.3s ease-in-out;
+}
+
+ul.ks-cboxtags li input[type="checkbox"]:checked + label::before {
+  content: "\f00c";
+  transform: rotate(-360deg);
+  transition: transform 0.3s ease-in-out;
+}
+
+ul.ks-cboxtags li input[type="checkbox"]:checked + label {
+  border: 2px solid #1bdbf8;
+  background-color: #12bbd4;
+  color: #fff;
+  transition: all 0.2s;
+}
+
+ul.ks-cboxtags li input[type="checkbox"] {
+  display: absolute;
+}
+ul.ks-cboxtags li input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+}
+ul.ks-cboxtags li input[type="checkbox"]:focus + label {
+  border: 2px solid #e9a1ff;
+}
+/* Style the tab */
+.tab {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+.active#abilityButton {
+  background-color: #ccc;
+}
+/* Style the tab content */
+.tabcontent {
+  display: none;
+}
+.tabcontentButton {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+h1 {
+  padding: 40px;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+li a {
+  text-decoration: none;
+  color: #2d2f31;
+}
+
+.dropdown {
+  width: 100%;
+  background: #d9d9d9;
+  margin: 40px auto;
+}
+
+.drop {
+  padding: 30px;
+  background: #2d2f31;
+  color: white;
+  font-size: 1.2em;
+  cursor: pointer;
+  display: block;
+}
+
+.drop::after {
+  float: right;
+  right: 10%;
+  content: "+";
+}
+.update {
+  padding: 30px;
+  background: #2d2f31;
+  color: white;
+  font-size: 1.2em;
+  cursor: pointer;
+  display: block;
+}
+
+.update::after {
+  float: right;
+  right: 10%;
+}
+.slide {
+  font-size: 20px;
+  clear: both;
+  width: 100%;
+  height: 0px;
+  overflow: hidden;
+  text-align: center;
+  transition: height 0.4s ease;
+}
+
+.slide li {
+  padding: 30px;
+}
+
+#touch {
+  position: absolute;
+  opacity: 0;
+  height: 0px;
+}
+
+#touch:checked + .slide {
+  height: 325px;
+}
