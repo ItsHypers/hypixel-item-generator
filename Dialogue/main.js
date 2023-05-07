@@ -1,24 +1,5 @@
 var addedStats = {};
 var numofStats = 0;
-const colors = {
-  0: "#000000", // black
-  1: "#0000AA", // dark blue
-  2: "#00AA00", // dark green
-  3: "#00AAAA", // dark aqua
-  4: "#AA0000", // dark red
-  5: "#AA00AA", // dark purple
-  6: "#FFAA00", // gold
-  7: "#AAAAAA", // gray
-  8: "#555555", // dark gray
-  9: "#5555FF", // blue
-
-  a: "#55FF55", // green
-  b: "#55FFFF", // aqua
-  c: "#FF5555", // red
-  d: "#FF55FF", // light purple
-  e: "#FFFF55", // yellow
-  f: "#FFFFFF", // white
-};
 function AddStat() {
   var statName = document.getElementById("StatName").value.replace(" ", "_");
   var statAmount = document.getElementById("StatAmount").value.toLowerCase();
@@ -91,6 +72,26 @@ function colourCodes() {
     x.style.display = "none";
   }
 }
+
+const colors = {
+  0: "black", // black
+  1: "dark_blue", // dark blue
+  2: "dark_green", // dark green
+  3: "dark_aqua", // dark aqua
+  4: "dark_red", // dark red
+  5: "dark_purple", // dark purple
+  6: "gold", // gold
+  7: "gray", // gray
+  8: "dark_gray", // dark gray
+  9: "blue", // blue
+
+  a: "green", // green
+  b: "aqua", // aqua
+  c: "red", // red
+  d: "light_purple", // light purple
+  e: "yellow", // yellow
+  f: "white", // white
+};
 function addColors(input, x, type) {
   var currentNumber = 7;
   var array = input.split(" ");
@@ -111,7 +112,8 @@ function addColors(input, x, type) {
           string = element.substring(2);
         }
       }
-      textSpan.style.color = colors[currentNumber];
+      textSpan.classList.add(colors[currentNumber]);
+      textSpan.classList.add("shadow");
       textSpan.innerHTML = " " + string;
       x.appendChild(textSpan);
     } else if (element[0] == "/" && element[1] == "n") {
@@ -125,7 +127,8 @@ function addColors(input, x, type) {
     } else {
       var textSpan = document.createElement("label");
       var string = element;
-      textSpan.style.color = colors[currentNumber];
+      textSpan.classList.add(colors[currentNumber]);
+      textSpan.classList.add("shadow");
       textSpan.innerHTML = " " + string;
       x.appendChild(textSpan);
     }
