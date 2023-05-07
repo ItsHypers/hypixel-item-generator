@@ -33,7 +33,9 @@
 
   --petLevel: #55ffff;
 }
-
+.Dialogue {
+  text-align: start;
+}
 .grad {
   background: linear-gradient(#000000, #2e2e2e);
 }
