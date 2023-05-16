@@ -70,6 +70,7 @@ const gemstoneStrings = {
 };
 
 var addedStats = {};
+var addedAbilities = {};
 var addedGemstones = [];
 var currentRarity = Rarities[0];
 
@@ -95,7 +96,7 @@ function deleteStat() {
 }
 
 function updateStats() {
-  console.log("ran");
+  console.log("ran stats");
   const redStat = document.querySelector(".statsRed");
   const greenStat = document.querySelector(".statsGreen");
   const statClass = document.querySelector(".addedStats");
@@ -115,6 +116,10 @@ function updateStats() {
     Amountlabel.classList.add("item-text");
     div.appendChild(Namelabel);
     div.appendChild(Amountlabel);
+    if (info.type != "red" || info.type != "green") {
+      redStat.appendChild(div);
+      Amountlabel.classList.add("item-red-text");
+    }
     if (info.type == "red") {
       redStat.appendChild(div);
       Amountlabel.classList.add("item-red-text");
@@ -141,7 +146,130 @@ function updateStats() {
     statClass.appendChild(addedStat);
   }
 }
+function createAbility() {
+  var abilityName = document
+    .getElementById("abilityName")
+    .value.replace(" ", "_");
+  var abilityDescription = document
+    .getElementById("abilityDescription")
+    .value.toLowerCase();
+  var abilityKeybind = document
+    .getElementById("abilityKeybind")
+    .value.toLowerCase();
+  var abilityMana = document.getElementById("abilityMana").value.toLowerCase();
+  var abilityCooldown = document
+    .getElementById("abilityCooldown")
+    .value.toLowerCase();
+  if (abilityName == "" || abilityDescription == "" || abilityKeybind == "") {
+    alert("Please fill in atleast Name, Description and Keybind!");
+  } else {
+    addedAbilities[abilityName] = {
+      description: abilityDescription,
+      keybind: abilityKeybind,
+      mana: abilityMana,
+      cooldown: abilityCooldown,
+    };
+    numofAbilities += 1;
+    console.log(addedAbilities);
+    updateAbility();
+    document.getElementById("abilityForm").reset();
+  }
+}
 
+function deleteAbility() {
+  var abilityName = event.target.className.split(" ")[0];
+  delete addedAbilities[abilityName];
+  updateAbility();
+}
+
+function updateAbility() {
+  console.log("ran ability");
+  const abilities = document.querySelector(".abilities");
+  const abilityClass = document.querySelector(".addedAbilities");
+  abilities.innerHTML = "";
+  abilityClass.innerHTML = "";
+  for (let [name, info] of Object.entries(addedAbilities)) {
+    const div = document.createElement("div");
+    const Namelabel = document.createElement("label");
+    const KeybindLabel = document.createElement("label");
+    const DescriptionDiv = document.createElement("div");
+    const DescriptionLabel = document.createElement("label");
+    const ManaDiv = document.createElement("div");
+    const ManaLabel = document.createElement("label");
+    const CooldownDiv = document.createElement("div");
+    const CooldownLabel = document.createElement("label");
+    const pageBreak = document.createElement("div");
+    console.log(name + " " + info.mana + " " + info.description);
+    div.classList.add(name.replace(" ", ""));
+    div.style.display = "block";
+
+    Namelabel.textContent = "Ability: " + name.replace("_", " ");
+    Namelabel.classList.add("abilityName");
+
+    KeybindLabel.textContent =
+      " " + info.keybind.replace("_", " ").toUpperCase();
+    KeybindLabel.classList.add("abilityKeybind");
+
+    DescriptionLabel.classList.add("item-text");
+    addColors(info.description, DescriptionLabel);
+    DescriptionDiv.appendChild(DescriptionLabel);
+
+    ManaLabel.classList.add("item-text");
+    ManaLabel.insertAdjacentHTML(
+      "beforeend",
+      "<label>Mana Cost:</label> " +
+        "<label class=" +
+        "abilityMana" +
+        ">" +
+        info.mana +
+        "</label> "
+    );
+    ManaDiv.appendChild(ManaLabel);
+
+    CooldownLabel.classList.add("item-text");
+    CooldownLabel.insertAdjacentHTML(
+      "beforeend",
+      "<label>Cooldown:</label> " +
+        "<label class=" +
+        "abilityCooldown" +
+        ">" +
+        info.cooldown +
+        "</label> "
+    );
+
+    pageBreak.style.margin = "10px";
+    CooldownDiv.appendChild(CooldownLabel);
+    div.appendChild(Namelabel);
+    div.appendChild(KeybindLabel);
+    div.appendChild(DescriptionDiv);
+    div.appendChild(ManaDiv);
+    div.appendChild(CooldownDiv);
+    div.appendChild(pageBreak);
+    abilities.appendChild(div);
+
+    var addedAbility = document.createElement("div");
+    addedAbility.classList.add(name.replace(" ", ""));
+    addedAbility.classList.add("stat");
+    addedAbility.insertAdjacentHTML(
+      "beforeend",
+      "<p>" +
+        name +
+        "</p> <p>" +
+        info.keybind +
+        "</p> <p>" +
+        info.description.substring(0, Math.min(50, 20)) +
+        "..." +
+        "</p> <p>" +
+        info.mana +
+        "</p> <p>" +
+        info.cooldown +
+        `</p> <button class="` +
+        name.replace(" ", "") +
+        ` deleteStat reset-button" onclick="deleteAbility()">✖</button>`
+    );
+    abilityClass.appendChild(addedAbility);
+  }
+}
 function addGemstone(gemstone) {
   var gemstoneString = gemstoneStrings[gemstone];
   addedGemstones.push(gemstoneString);
@@ -207,43 +335,6 @@ function heldItemRarity(input) {
   );
 }
 
-function createAbility() {
-  startdiv = document.createElement("div");
-  startdiv.className = "ability";
-  startdiv.setAttribute(`id`, `ability` + numofAbilities);
-
-  row = document.createElement("row");
-  row.className = "row1";
-
-  abilitytemplate = document.createElement("div");
-  abilitytemplate.className = "field field_v1";
-
-  for (let i = 0; i < 5; i++) {
-    if (i == 0) {
-      x = "Name";
-    }
-    if (i == 1) {
-      x = "keybind";
-    }
-    if (i == 2) {
-      x = "description";
-    }
-    if (i == 3) {
-      x = "mana";
-    }
-    if (i == 4) {
-      x = "cooldown";
-    }
-  }
-
-  row.appendChild(abilitytemplate);
-
-  startdiv.appendChild(row);
-
-  document.querySelector(`.abilities`).appendChild(startdiv);
-  numofAbilities += 1;
-}
-
 function maxLevel(input) {
   var checkBox = document.getElementById("maxLevel");
   if (checkBox.checked == true) {
@@ -285,51 +376,6 @@ function wisdomButton() {
     x.style.display = "none";
     button.classList.remove("active");
   }
-}
-function abilityName(input, num) {
-  var abilityNum = "ability" + num;
-  var name = document.getElementById("#abilityName" + num);
-  var className = document.querySelector(".abilityName" + num);
-  name.textContent = input;
-  className.style.display = "block";
-  itemsChanged[abilityNum] = true;
-  numofAbilities += 1;
-  abilities[num + "name"] = input;
-}
-function abilityKeybind(input, num) {
-  var ability = "ability" + num;
-  var name = document.getElementById("#abilityKeybind" + num);
-  name.textContent = input;
-  itemsChanged[ability] = true;
-  abilities[num + "keybind"] = input;
-}
-function abilityDescription(input, num) {
-  var ability = "ability" + num;
-  var name = document.getElementById("#abilityDescription" + num);
-  var className = document.querySelector(".abilityDescription" + num);
-  addColors(input, name);
-  className.style.display = "block";
-  itemsChanged[ability] = true;
-  abilities[num + "description"] = input;
-}
-function abilityMana(input, num) {
-  var ability = "ability" + num;
-  var name = document.getElementById("#abilityMana" + num);
-  var className = document.querySelector(".abilityMana" + num);
-  name.textContent = input;
-  className.style.display = "block";
-  itemsChanged[ability] = true;
-  abilities[num + "mana"] = input;
-}
-function abilityCooldown(input, num) {
-  var ability = "ability" + num;
-  var name = document.getElementById("#abilityCooldown" + num);
-  var className = document.querySelector(".abilityCooldown" + num);
-  name.textContent = input;
-  className.style.display = "block";
-  itemsChanged[ability] = true;
-  ability["cooldown"] = input;
-  abilities[num + "cooldown"] = input;
 }
 
 function petlevel(input) {

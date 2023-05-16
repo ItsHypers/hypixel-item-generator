@@ -54,7 +54,61 @@
   <button style="width: 100%" id="SubmitStat" onclick="AddStat()">
     Add Stat
   </button>
+
   <div class="addedStats"></div>
+  &nbsp; &nbsp;
+  <form id="abilityForm">
+    <div style="width: 100%" class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Ability Name</label>
+      <input id="abilityName" class="field__input" placeholder="e.g. Throw" />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Ability Name</span>
+      </span>
+    </div>
+    <div style="width: 100%" class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Ability Keybind</label>
+      <input
+        id="abilityKeybind"
+        class="field__input"
+        placeholder="e.g. Right click"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Ability Keybind</span>
+      </span>
+    </div>
+    <div style="width: 100%" class="field field_v1">
+      <label for="first-name" class="ha-screen-reader"
+        >Ability Description</label
+      >
+      <input
+        id="abilityDescription"
+        class="field__input"
+        placeholder="Throw things"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Ability Description</span>
+      </span>
+    </div>
+    <div style="width: 100%" class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Ability Mana Cost</label>
+      <input id="abilityMana" class="field__input" placeholder="50" />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Ability Mana Cost</span>
+      </span>
+    </div>
+    <div style="width: 100%" class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Ability Cooldown</label>
+      <input id="abilityCooldown" class="field__input" placeholder="50" />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Ability Cooldownt</span>
+      </span>
+    </div>
+  </form>
+  <button style="width: 100%" id="SubmitStat" onclick="createAbility()">
+    Add Ability
+  </button>
+
+  <div class="addedAbilities"></div>
   &nbsp;
   <row class="row1">
     <div style="width: 100%" class="field field_v1">
@@ -489,219 +543,7 @@
 </button>
 <div class="abilities"></div>
 //-->
-<button style="width: 100%" id="abilityButton1" onclick="ability(1)">
-  Ability 1
-</button>
-<div class="ability" id="ability1" style="display: none">
-  <row class="row1">
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Ability Name</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="THROW"
-        onchange="abilityName(this.value, 1)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Ability Name</span>
-      </span>
-    </div>
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Keybind</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="RIGHT CLICK"
-        onchange="abilityKeybind(this.value, 1)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Keybind</span>
-      </span>
-    </div>
-  </row>
-  <row class="row1">
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Description</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="full ability description"
-        onchange="abilityDescription(this.value, 1)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Description</span>
-      </span>
-    </div>
-  </row>
-  <row class="row1">
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Mana Cost</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="e.g 25"
-        onchange="abilityMana(this.value, 1)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Mana Cost</span>
-      </span>
-    </div>
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Cooldown</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="E.G 5s"
-        onchange="abilityCooldown(this.value, 1)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Cooldown</span>
-      </span>
-    </div>
-  </row>
-</div>
-<button style="width: 100%" id="abilityButton2" onclick="ability(2)">
-  Ability 2
-</button>
-<div class="ability" id="ability2" style="display: none">
-  <row class="row1">
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Ability Name</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="THROW"
-        onchange="abilityName(this.value, 2)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Ability Name</span>
-      </span>
-    </div>
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Keybind</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="RIGHT CLICK"
-        onchange="abilityKeybind(this.value, 2)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Keybind</span>
-      </span>
-    </div>
-  </row>
-  <row class="row1">
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Description</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="full ability description"
-        onchange="abilityDescription(this.value, 2)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Description</span>
-      </span>
-    </div>
-  </row>
-  <row class="row1">
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Mana Cost</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="e.g 25"
-        onchange="abilityMana(this.value, 2)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Mana Cost</span>
-      </span>
-    </div>
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Cooldown</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="E.G 5s"
-        onchange="abilityCooldown(this.value, 2)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Cooldown</span>
-      </span>
-    </div>
-  </row>
-</div>
-<button style="width: 100%" id="abilityButton3" onclick="ability(3)">
-  Ability 3
-</button>
-<div class="ability" id="ability3" style="display: none">
-  <row class="row1">
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Ability Name</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="THROW"
-        onchange="abilityName(this.value, 3)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Ability Name</span>
-      </span>
-    </div>
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Keybind</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="RIGHT CLICK"
-        onchange="abilityKeybind(this.value, 3)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Keybind</span>
-      </span>
-    </div>
-  </row>
-  <row class="row1">
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Description</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="full ability description"
-        onchange="abilityDescription(this.value, 3)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Description</span>
-      </span>
-    </div>
-  </row>
-  <row class="row1">
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Mana Cost</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="e.g 25"
-        onchange="abilityMana(this.value, 3)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Mana Cost</span>
-      </span>
-    </div>
-    <div class="field field_v1">
-      <label for="first-name" class="ha-screen-reader">Cooldown</label>
-      <input
-        id="first-name"
-        class="field__input"
-        placeholder="E.G 5s"
-        onchange="abilityCooldown(this.value, 3)"
-      />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Cooldown</span>
-      </span>
-    </div>
-  </row>
-</div>
+
 <nav class="dropdown">
   <label for="touch"><span class="drop">Rarity</span></label>
   <input type="checkbox" id="touch" />
@@ -792,7 +634,7 @@
 <span
   class="update"
   style="justify-content: center; text-align: center"
-  onclick="minecraftCommand()"
+  onclick="createAbility()"
 >
   Update Minecraft Command
 </span>
