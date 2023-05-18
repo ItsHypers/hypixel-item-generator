@@ -162,8 +162,6 @@ function colour(text, x) {
   text = text.replace(/&m/gi, "<span style='text-decoration:line-through'>");
   //underlined
   text = text.replace(/&n/gi, "<span style='text-decoration:underline'>");
-  //obfuscated
-  text = text.replace(/&k/gi, "<span class='obfuscated'>");
   //reset
   text = text.replace(
     /&r/gi,
