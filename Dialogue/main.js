@@ -64,7 +64,14 @@ function colourCodes() {
     x.style.display = "none";
   }
 }
-
+function copyPaste() {
+  var x = document.getElementById("symbols");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
 const colors = {
   0: "black", // black
   1: "dark_blue", // dark blue

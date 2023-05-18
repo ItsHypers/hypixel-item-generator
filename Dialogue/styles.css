@@ -35,6 +35,8 @@
 }
 .Dialogue {
   text-align: start;
+  padding-left: 5px;
+  background-color: rgba(27, 27, 27, 0.8);
 }
 .grad {
   background: linear-gradient(#000000, #2e2e2e);
