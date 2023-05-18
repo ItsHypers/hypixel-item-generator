@@ -655,3 +655,115 @@ li a {
 .currentContent {
   font-family: Minecraftiaia;
 }
+.bg-1 {
+  background-color: #000;
+  color: #fff;
+}
+.bg-2 {
+  background-color: #00a;
+  color: #fff;
+}
+.bg-3 {
+  background-color: #0a0;
+  color: #fff;
+}
+.bg-4 {
+  background-color: #0aa;
+  color: #fff;
+}
+.bg-5 {
+  background-color: #a00;
+  color: #fff;
+}
+.bg-6 {
+  background-color: #a0a;
+  color: #fff;
+}
+.bg-7 {
+  background-color: #fa0;
+  color: #fff;
+}
+.bg-8 {
+  background-color: #aaa;
+  color: #000;
+}
+.bg-9 {
+  background-color: #555;
+  color: #fff;
+}
+.bg-10 {
+  background-color: #55f;
+  color: #000;
+}
+.bg-11 {
+  background-color: #5f5;
+  color: #000;
+}
+.bg-12 {
+  background-color: #5ff;
+  color: #000;
+}
+.bg-13 {
+  background-color: #f55;
+  color: #000;
+}
+.bg-14 {
+  background-color: #f5f;
+  color: #000;
+}
+.bg-15 {
+  background-color: #ff5;
+  color: #000;
+}
+.bg-16 {
+  background-color: #fff;
+  color: #000;
+}
+.c-1 {
+  color: #000;
+}
+.c-2 {
+  color: #00a;
+}
+.c-3 {
+  color: #0a0;
+}
+.c-4 {
+  color: #0aa;
+}
+.c-5 {
+  color: #a00;
+}
+.c-6 {
+  color: #a0a;
+}
+.c-7 {
+  color: #fa0;
+}
+.c-8 {
+  color: #aaa;
+}
+.c-9 {
+  color: #555;
+}
+.c-10 {
+  color: #55f;
+}
+.c-11 {
+  color: #5f5;
+}
+.c-12 {
+  color: #5ff;
+}
+.c-13 {
+  color: #f55;
+}
+.c-14 {
+  color: #f5f;
+}
+.c-15 {
+  color: #ff5;
+}
+.c-16 {
+  color: #fff;
+}

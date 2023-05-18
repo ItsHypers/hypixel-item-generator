@@ -1,12 +1,11 @@
 var addedStats = {};
 var numofStats = 0;
 function AddStat() {
-  var statName = document.getElementById("StatName").value.replace(" ", "_");
-  var statAmount = document.getElementById("StatAmount").value.toLowerCase();
-  if (statName == "" || statAmount == "") {
+  var statAmount = document.getElementById("StatAmount").value;
+  if (statAmount == "") {
     alert("Please fill in all inputs!");
   } else {
-    addedStats[numofStats] = { name: statName, amount: statAmount };
+    addedStats[numofStats] = { amount: statAmount };
     console.log(addedStats);
     numofStats += 1;
     updateStats();
@@ -35,15 +34,11 @@ function updateStats() {
   statClass.innerHTML = "";
   for (let [id, info] of Object.entries(addedStats)) {
     const div = document.createElement("div");
-    const Namelabel = document.createElement("label");
     const Amountlabel = document.createElement("label");
     div.classList.add(id);
     div.style.display = "block";
-    addColors(info.name.replace("_", " ") + ": ", Namelabel);
-    Namelabel.classList.add("item-text");
-    addColors(info.amount, Amountlabel);
+    colour(info.amount, Amountlabel);
     Amountlabel.classList.add("item-text");
-    div.appendChild(Namelabel);
     div.appendChild(Amountlabel);
     Dialogue.appendChild(div);
 
@@ -53,11 +48,8 @@ function updateStats() {
     addedStat.insertAdjacentHTML(
       "beforeend",
       "<p>" +
-        info.name +
-        "</p> <p>" +
         info.amount +
         `</p> <button class="` +
-        info.name.replace(" ", "") +
         ` deleteStat reset-button" onclick="deleteStat()">✖</button>`
     );
     statClass.appendChild(addedStat);
@@ -92,45 +84,88 @@ const colors = {
   e: "yellow", // yellow
   f: "white", // white
 };
-function addColors(input, x, type) {
-  var currentNumber = 7;
-  var array = input.split(" ");
-  if (type == "description") {
-    descriptionArray = array;
-  }
-  if (type == "lore") {
-    loreArray = array;
-  }
-  x.innerHTML = "";
-  array.forEach((element) => {
-    if (element[0] == "&") {
-      var textSpan = document.createElement("label");
-      var string = element;
-      for (var j in colors) {
-        if (j.includes(element[1])) {
-          currentNumber = element[1];
-          string = element.substring(2);
-        }
-      }
-      textSpan.classList.add(colors[currentNumber]);
-      textSpan.classList.add("shadow");
-      textSpan.innerHTML = " " + string;
-      x.appendChild(textSpan);
-    } else if (element[0] == "/" && element[1] == "n") {
-      var textSpan = document.createElement("label");
-      var space = document.createElement("p");
-      var string = element;
-      string = element.substring(2);
-      textSpan.innerHTML = " " + string;
-      x.appendChild(space);
-      x.appendChild(textSpan);
-    } else {
-      var textSpan = document.createElement("label");
-      var string = element;
-      textSpan.classList.add(colors[currentNumber]);
-      textSpan.classList.add("shadow");
-      textSpan.innerHTML = " " + string;
-      x.appendChild(textSpan);
+
+$.fn.selectRange = function (start, end) {
+  if (!end) end = start;
+  return this.each(function () {
+    if (this.setSelectionRange) {
+      this.focus();
+      this.setSelectionRange(start, end);
+    } else if (this.createTextRange) {
+      var range = this.createTextRange();
+      range.collapse(true);
+      range.moveEnd("character", end);
+      range.moveStart("character", start);
+      range.select();
     }
   });
+};
+
+$(".bgs div").click(function (elem) {
+  $(".output").css("background", $(elem.target).css("background"));
+  $(".bgs div").css("border", 0);
+  $(elem.target).css("border", "3px #aaa solid");
+});
+
+var motd_raw = $(".editor textarea");
+$(".tools button").click(function (e) {
+  var caretPos = motd_raw[0].selectionStart;
+  var textAreaTxt = motd_raw.val();
+  var txtToAdd = "&" + $(this).attr("data-color");
+  console.log(caretPos);
+  motd_raw
+    .val(
+      textAreaTxt.substring(0, caretPos) +
+        txtToAdd +
+        textAreaTxt.substring(caretPos)
+    )
+    .focus();
+  motd_raw.selectRange(caretPos + 2);
+  colour(motd_raw.val());
+});
+
+function colour(text, x) {
+  left = htmlEncode("<");
+  right = htmlEncode(">");
+  text = text.replace(/</gi, left);
+  text = text.replace(/>/gi, right);
+  text = text.replace(/\n/gi, "&r<br />");
+  //colours
+  text = text.replace(/&0/gi, '</span>&r<span class="c-1">');
+  text = text.replace(/&1/gi, '</span>&r<span class="c-2">');
+  text = text.replace(/&2/gi, '</span>&r<span class="c-3">');
+  text = text.replace(/&3/gi, '</span>&r<span class="c-4">');
+  text = text.replace(/&4/gi, '</span>&r<span class="c-5">');
+  text = text.replace(/&5/gi, '</span>&r<span class="c-6">');
+  text = text.replace(/&6/gi, '</span>&r<span class="c-7">');
+  text = text.replace(/&7/gi, '</span>&r<span class="c-8">');
+  text = text.replace(/&8/gi, '</span>&r<span class="c-9">');
+  text = text.replace(/&9/gi, '</span>&r<span class="c-10">');
+  text = text.replace(/&a/gi, '</span>&r<span class="c-11">');
+  text = text.replace(/&b/gi, '</span>&r<span class="c-12">');
+  text = text.replace(/&c/gi, '</span>&r<span class="c-13">');
+  text = text.replace(/&d/gi, '</span>&r<span class="c-14">');
+  text = text.replace(/&e/gi, '</span>&r<span class="c-15">');
+  text = text.replace(/&f/gi, '</span>&r<span class="c-16">');
+  //bold
+  text = text.replace(/&l/gi, "<span style='font-weight:900;'>");
+  //italic
+  text = text.replace(/&o/gi, "<span style='font-style:italic;'>");
+  //strikethrough
+  text = text.replace(/&m/gi, "<span style='text-decoration:line-through'>");
+  //underlined
+  text = text.replace(/&n/gi, "<span style='text-decoration:underline'>");
+  //obfuscated
+  text = text.replace(/&k/gi, "<span class='obfuscated'>");
+  //reset
+  text = text.replace(
+    /&r/gi,
+    "</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>"
+  );
+
+  x.innerHTML = text;
+}
+
+function htmlEncode(value) {
+  return $("<div/>").text(value).html();
 }
