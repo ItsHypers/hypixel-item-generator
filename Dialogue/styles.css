@@ -36,7 +36,11 @@
 .Dialogue {
   text-align: start;
   padding-left: 5px;
+}
+.blackBG {
   background-color: rgba(27, 27, 27, 0.8);
+}
+.noBG {
 }
 .grad {
   background: linear-gradient(#000000, #2e2e2e);
@@ -622,7 +626,7 @@ li a {
 }
 
 #touch:checked + .slide {
-  height: 325px;
+  height: 680px;
 }
 @font-face {
   font-family: Minecraftia;

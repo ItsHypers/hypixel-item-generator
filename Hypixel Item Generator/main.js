@@ -283,7 +283,6 @@ function removeGemstone(gemstone) {
     updateGemstones();
   }
 }
-
 function updateGemstones() {
   document.getElementById("#gemstoneSlots").textContent =
     addedGemstones.toString();

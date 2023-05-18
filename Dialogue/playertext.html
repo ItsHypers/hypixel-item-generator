@@ -81,6 +81,183 @@
         </button>
         <div class="addedStats"></div>
       </div>
+
+      <input
+        type="checkbox"
+        id="background"
+        value="background"
+        onchange="background(this.value)"
+      /><label for="checkboxOne" style="width: 50%; padding-top: 12px">
+        Black Background?</label
+      >
+      <nav class="dropdown">
+        <label for="touch"><span class="drop">Rank Presets</span></label>
+        <input type="checkbox" id="touch" />
+        <div class="slide">
+          <div>
+            <button
+              style="width: 100%; background-color: var(--uncommon)"
+              id="common"
+              onclick="presetSelector(`&a[VIP]`)"
+            >
+              VIP
+            </button>
+          </div>
+          <div>
+            <button
+              style="width: 100%; background-color: var(--uncommon)"
+              onclick="presetSelector('&a[VIP&6+&a]')"
+            >
+              VIP+
+            </button>
+          </div>
+          <div>
+            <button
+              style="width: 100%; background-color: var(--color-b)"
+              onclick="presetSelector('&b[MVP&b]')"
+            >
+              MVP
+            </button>
+          </div>
+          <div>
+            <button
+              style="width: 100%; background-color: var(--color-b)"
+              onclick="presetSelector('&b[MVP&6+&b]')"
+            >
+              MVP+
+            </button>
+          </div>
+          <div>
+            <button
+              style="width: 100%; background-color: var(--color-6)"
+              onclick="presetSelector('&6[MVP&c++&6]')"
+            >
+              MVP++
+            </button>
+          </div>
+          <div>
+            <button
+              style="width: 100%; background-color: var(--color-c)"
+              onclick="presetSelector('&c[&fYOUTUBE&c]')"
+            >
+              YOUTUBE
+            </button>
+          </div>
+          <div>
+            <button
+              style="width: 100%; background-color: var(--color-2)"
+              onclick="presetSelector('&2[GM]')"
+            >
+              GM
+            </button>
+          </div>
+          <div>
+            <button
+              style="width: 100%; background-color: var(--color-c)"
+              onclick="presetSelector('&c[ADMIN]')"
+            >
+              ADMIN
+            </button>
+          </div>
+          <div>
+            <button
+              style="width: 100%; background-color: var(--color-c)"
+              onclick="presetSelector('&c[OWNER]')"
+            >
+              OWNER
+            </button>
+          </div>
+          <div>
+            <button
+              style="width: 100%; background-color: var(--color-c)"
+              onclick="presetSelector('&c[MCP]')"
+            >
+              MCP
+            </button>
+          </div>
+          <div>
+            <button
+              style="width: 100%; background-color: var(--color-d)"
+              onclick="presetSelector('&d[PIG&b+++&d]')"
+            >
+              PIG+++
+            </button>
+          </div>
+
+          <div>
+            <button
+              style="width: 100%; background-color: var(--color-d)"
+              onclick="presetSelector('&dFrom')"
+            >
+              From (Private Message)
+            </button>
+          </div>
+          <div>
+            <button
+              style="width: 100%; background-color: var(--color-e)"
+              onclick="presetSelector('&eFriend Request From')"
+            >
+              Friend Request from
+            </button>
+          </div>
+          <div>
+            <button
+              style="width: 100%; background-color: var(--color-a)"
+              onclick="presetSelector('&aYou are now friends with')"
+            >
+              You are now friends with
+            </button>
+          </div>
+          <div>
+            <button
+              style="width: 100%; background-color: var(--color-a)"
+              onclick="presetSelector('&a&l[ACCEPT] &8- &c&l[DENY] &8- &7&l[IGNORE]')"
+            >
+              (Accept, Deny, Ignore)
+            </button>
+          </div>
+          <div>
+            <button
+              style="width: 100%; background-color: var(--color-9)"
+              onclick="presetSelector('&9------------------------------------------------')"
+            >
+              Chat Lines (---------)
+            </button>
+          </div>
+          <div>
+            <button
+              style="width: 100%; background-color: var(--color-6)"
+              onclick="presetSelector('&6------------------------------------------------')"
+            >
+              Chat Lines (---------)
+            </button>
+          </div>
+          <div>
+            <button
+              style="width: 100%; background-color: var(--color-2)"
+              onclick="presetSelector('&2Guild >')"
+            >
+              Guild Tag
+            </button>
+          </div>
+          <div>
+            <button
+              style="width: 100%; background-color: var(--color-9)"
+              onclick="presetSelector('&Party >')"
+            >
+              Party Tag
+            </button>
+          </div>
+          <div>
+            <button
+              style="width: 100%; background-color: var(--color-e)"
+              onclick="presetSelector('&ehas invited you to join their party! &6Click here &eto join! You have 60 seconds to accept.')"
+            >
+              Invited to party
+            </button>
+          </div>
+        </div>
+      </nav>
     </nav>
 
     <!-- Navbar on small screens (Hidden on medium and large screens) -->

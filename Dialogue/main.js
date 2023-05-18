@@ -16,7 +16,7 @@ function AddStat() {
 function downloadPlayerCard() {
   domtoimage
     .toBlob(document.getElementById("Dialogue"))
-    .then((blob) => window.saveAs(blob, "test"));
+    .then((blob) => window.saveAs(blob, "dialoguePNG"));
 }
 
 function deleteStat() {
@@ -24,6 +24,18 @@ function deleteStat() {
   console.log(statName);
   delete addedStats[statName];
   updateStats();
+}
+function presetSelector(preset) {
+  currentString = document.getElementById("StatAmount").value;
+  document.getElementById("StatAmount").value = currentString + preset;
+}
+function background(input) {
+  var checkBox = document.getElementById("background");
+  if (checkBox.checked == true) {
+    document.getElementById("Dialogue").classList.add("blackBG");
+  } else {
+    document.getElementById("Dialogue").classList.remove("blackBG");
+  }
 }
 
 function updateStats() {
