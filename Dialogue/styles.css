@@ -626,7 +626,7 @@ li a {
 }
 
 #touch:checked + .slide {
-  height: 680px;
+  height: 720px;
 }
 @font-face {
   font-family: Minecraftia;
