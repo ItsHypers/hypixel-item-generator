@@ -39,7 +39,6 @@ function background(input) {
 }
 
 function updateStats() {
-  console.log("ran");
   const Dialogue = document.querySelector(".Dialogue");
   const statClass = document.querySelector(".addedStats");
   Dialogue.innerHTML = "";
@@ -65,6 +64,7 @@ function updateStats() {
         ` deleteStat reset-button" onclick="deleteStat()">✖</button>`
     );
     statClass.appendChild(addedStat);
+    obsfCheck();
   }
 }
 
@@ -174,6 +174,8 @@ function colour(text, x) {
   text = text.replace(/&m/gi, "<span style='text-decoration:line-through'>");
   //underlined
   text = text.replace(/&n/gi, "<span style='text-decoration:underline'>");
+  //obfuscated
+  text = text.replace(/&k/gi, "<span class='obfuscated'>");
   //reset
   text = text.replace(
     /&r/gi,
@@ -183,6 +185,38 @@ function colour(text, x) {
   x.innerHTML = text;
 }
 
+setInterval(function () {
+  $(".obfuscated").text(randomizer($(".obfuscated").text()));
+}, 100);
+
 function htmlEncode(value) {
   return $("<div/>").text(value).html();
+}
+obfuscated = false;
+function obsfCheck() {
+  obsElements = document.querySelectorAll(".obfuscated");
+  if (obsElements.length > 0) {
+    obfuscated = true;
+    updateRandomizer();
+  }
+}
+
+function updateRandomizer() {
+  console.log("ran");
+  for (let i = 0; i < obsElements.length; i++) {
+    console.log(obsElements[i].innerHTML);
+    obsElements[i].innerHTML = randomizer(obsElements[i].innerHTML.length);
+  }
+
+  setTimeout(updateRandomizer, 100);
+}
+function randomizer(length) {
+  var text = "";
+  var possible =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+  for (var i = 0; i < length; i++)
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+  return text;
 }
