@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hypixel Item Generator</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="reset.css" />
+  </head>
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-N1FHBNBDWN"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-N1FHBNBDWN");
+  </script>
+  <body class="grad">
+    <!-- Icon Bar (Sidebar - hidden on small screens) -->
+    <nav
+      class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center mediawiki"
+    >
+      <a
+        href="../index.html"
+        class="w3-bar-item w3-button w3-padding-large w3-hover-black"
+      >
+        <i class="fa fa-home w3-xxlarge"></i>
+        <p>Index</p>
+      </a>
+      <a
+        href="https://www.youtube.com/channel/UC5JCgs0ByHC2LU8qUOV0Tog"
+        class="w3-bar-item w3-button w3-padding-large w3-hover-black"
+      >
+        <i class="fa fa-youtube w3-xxlarge"></i>
+        <p>YouTube</p>
+      </a>
+      <a
+        href="https://hypixel.net/members/ohypers.2400374/"
+        class="w3-bar-item w3-button w3-padding-large w3-hover-black"
+      >
+        <i class="fa fa-user w3-xxlarge"></i>
+        <p>Hypixel Forums Profile</p>
+      </a>
+      <a
+        href="https://github.com/ItsHypers/hypixel-item-generator/issues/new"
+        class="w3-bar-item w3-button w3-padding-large w3-hover-black"
+      >
+        <i class="fa fa-github w3-xxlarge"></i>
+        <p>Post your suggestions here!</p>
+      </a>
+      <div class="tab">
+        <button class="tablinks" onclick="switchType(event, 'weapon')">
+          Weapons
+        </button>
+        <button class="tablinks" onclick="switchType(event, 'pets')">
+          Pets
+        </button>
+      </div>
+      <div class="currentInputs"></div>
+    </nav>
+
+    <!-- Navbar on small screens (Hidden on medium and large screens) -->
+    <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+      <div
+        class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small"
+      >
+        <a href="#" class="w3-bar-item w3-button" style="width: 25% !important"
+          >YouTube</a
+        >
+        <a
+          href="https://hypixel.net/members/ohypers.2400374/"
+          class="w3-bar-item w3-button"
+          style="width: 25% !important"
+          >Hypixel Forums Profile</a
+        >
+      </div>
+    </div>
+
+    <!-- Page Content -->
+    <div id="main">
+      <!-- Header/Home -->
+      <div class="w3-container w3-center" id="home">
+        <h1 class="w3-jumbo">Hypixel Item Generator</h1>
+        <div>
+          <button onclick="copyPaste()">Symbols (for copy and paste):</button>
+        </div>
+        <div id="symbols" style="display: none">
+          <p></p>
+          <li>❤ (Health)</li>
+          <li>❈ (Defence)</li>
+          <li>❁ (Strength)</li>
+          <li>❁ (Damage)</li>
+          <li>✦ (Speed)</li>
+          <li>☣ (Crit Chance)</li>
+          <li>☠ (Crit Damage)</li>
+          <li>✎ (Intelligence)</li>
+          <li>∞ ​(Sea Creature Chance)</li>
+          <li>✯ (Magic Find)</li>
+          <li>♣ (Pet Luck)</li>
+          <li>❂ (True Defence)</li>
+          <li>⚔ (Attack Speed)</li>
+          <li>​✹ (Ability Damage)</li>
+          <li>⫽ (Ferocity)</li>
+        </div>
+        <button onclick="colourCodes()">
+          Colour Codes (for description, lore and Ability
+        </button>
+        <div
+          class="coloroverlay"
+          id="colours"
+          style="display: none; text-shadow: 2px; -moz-text-decoration-style: b"
+        >
+          <!-- <p>&0 = Default</p>
+          <p>&1 = Green</p>
+          <p>&2 = Blue</p>
+          <p>&3 = Red</p>
+          <p>&4 = Purple</p>
+          <p>&5 = Yellow</p> -->
+          <div style="margin-top: 10px">
+            <p style="color: var(--color-f)">&0 - Black</p>
+            <p style="color: var(--color-1)">&1 - Dark Blue</p>
+            <p style="color: var(--color-2)">&2 - Dark Green</p>
+            <p style="color: var(--color-3)">&3 - Dark Aqua</p>
+            <p style="color: var(--color-4)">&4 - Dark Red</p>
+            <p style="color: var(--color-5)">&5 - Dark Purple</p>
+            <p style="color: var(--color-6)">&6 - Gold</p>
+            <p style="color: var(--color-7)">&7 - Gray</p>
+            <p style="color: var(--color-8)">&8 - Dark Gray</p>
+            <p style="color: var(--color-9)">&9 - Blue</p>
+          </div>
+
+          <div>
+            <p style="color: var(--color-a)">&a - Green</p>
+            <p style="color: var(--color-b)">&b - Aqua</p>
+            <p style="color: var(--color-c)">&c - Red</p>
+            <p style="color: var(--color-d)">&d - Pink</p>
+            <p style="color: var(--color-e)">&e - Yellow</p>
+            <p style="color: var(--color-f)">&f - White</p>
+          </div>
+
+          <div>
+            <p style="color: var(--color-a)">&a - Green</p>
+            <p style="color: var(--color-b)">&b - Aqua</p>
+            <p style="color: var(--color-c)">&c - Red</p>
+            <p style="color: var(--color-d)">&d - Pink</p>
+            <p style="color: var(--color-e)">&e - Yellow</p>
+            <p style="color: var(--color-f)">&f - White</p>
+            <p style="font-weight: 900">&l Bold</p>
+            <p style="font-style: italic">&o Italic</p>
+            <p>
+              &m <span style="text-decoration: line-through">Line Through</span>
+            </p>
+            <p style="text-decoration: underline">&n Underline</p>
+          </div>
+        </div>
+        <div style="margin-top: 10px"></div>
+      </div>
+      <div id="currentContent" class="currentContent"></div>
+    </div>
+  </body>
+  <script src="main.js"></script>
+  <script src="../jquery.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"
+    integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"
+    referrerpolicy="no-referrer"
+  ></script>
+</html>

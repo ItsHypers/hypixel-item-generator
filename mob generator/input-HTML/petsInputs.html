@@ -1,0 +1,528 @@
+<div id="pets">
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Pet</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="e.g. Ocelot"
+        onchange="itemName(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Pet</span>
+      </span>
+    </div>
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Skill</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="e.g SWORD"
+        onchange="skill(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Skill</span>
+      </span>
+    </div>
+  </row>
+  &nbsp;
+  <form id="statForm">
+    <div style="width: 100%" class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Stat Name</label>
+      <input id="StatName" class="field__input" placeholder="e.g. Strength" />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Stat Name</span>
+      </span>
+    </div>
+    <div style="width: 100%" class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Stat Amount</label>
+      <input id="StatAmount" class="field__input" placeholder="e.g. 20" />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Stat Amount</span>
+      </span>
+    </div>
+    <div style="width: 100%" class="field field_v1">
+      <label for="first-name" class="ha-screen-reader"
+        >Stat Type (Red or Green)</label
+      >
+      <input id="StatType" class="field__input" placeholder="e.g. Red" />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Stat Type (Red or Green)</span>
+      </span>
+    </div>
+  </form>
+  <button style="width: 100%" id="SubmitStat" onclick="AddStat()">
+    Add Stat
+  </button>
+  <div class="addedStats"></div>
+  &nbsp;
+  <form id="abilityForm">
+    <div style="width: 100%" class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Ability Name</label>
+      <input id="abilityName" class="field__input" placeholder="e.g. Throw" />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Ability Name</span>
+      </span>
+    </div>
+    <div style="width: 100%" class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Ability Keybind</label>
+      <input
+        id="abilityKeybind"
+        class="field__input"
+        placeholder="e.g. Right click"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Ability Keybind</span>
+      </span>
+    </div>
+    <div style="width: 100%" class="field field_v1">
+      <label for="first-name" class="ha-screen-reader"
+        >Ability Description</label
+      >
+      <input
+        id="abilityDescription"
+        class="field__input"
+        placeholder="Throw things"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Ability Description</span>
+      </span>
+    </div>
+    <div style="width: 100%" class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Ability Mana Cost</label>
+      <input id="abilityMana" class="field__input" placeholder="50" />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Ability Mana Cost</span>
+      </span>
+    </div>
+    <div style="width: 100%" class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Ability Cooldown</label>
+      <input id="abilityCooldown" class="field__input" placeholder="50" />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Ability Cooldownt</span>
+      </span>
+    </div>
+  </form>
+  <button style="width: 100%" id="SubmitStat" onclick="createAbility()">
+    Add Ability
+  </button>
+
+  <div class="addedAbilities"></div>
+  &nbsp;
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Pet Level</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="e.g. 25"
+        onchange="petlevel(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Pet Level</span>
+      </span>
+    </div>
+  </row>
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Description</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="e.g. 25%"
+        onchange="descriptionClass(this.value, `description`)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Description</span>
+      </span>
+    </div>
+  </row>
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Pet Lore</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="e.g. 25%"
+        onchange="descriptionClass(this.value, `lore`)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Pet Lore</span>
+      </span>
+    </div>
+    <input
+      type="checkbox"
+      id="maxLevel"
+      value="maxLevel"
+      onchange="maxLevel(this.value)"
+    /><label for="checkboxOne" style="width: 50%; padding-top: 12px">
+      Max Level?</label
+    >
+  </row>
+  <row
+    class="colorRow"
+    style="display: none; background-color: rgb(71, 71, 71)"
+  >
+    <label>Colours</label>
+    <div class="coloroverlay">
+      <!-- <p>&0 = Default</p>
+            <p>&1 = Green</p>
+            <p>&2 = Blue</p>
+            <p>&3 = Red</p>
+            <p>&4 = Purple</p>
+            <p>&5 = Yellow</p> -->
+      <div style="margin-right: 68px">
+        <p style="color: var(--color-0)">&0 - Black</p>
+        <p style="color: var(--color-1)">&1 - Dark Blue</p>
+        <p style="color: var(--color-2)">&2 - Dark Green</p>
+        <p style="color: var(--color-3)">&3 - Dark Aqua</p>
+        <p style="color: var(--color-4)">&4 - Dark Red</p>
+        <p style="color: var(--color-5)">&5 - Dark Purple</p>
+        <p style="color: var(--color-6)">&6 - Gold</p>
+        <p style="color: var(--color-7)">&7 - Gray</p>
+        <p style="color: var(--color-8)">&8 - Dark Gray</p>
+        <p style="color: var(--color-9)">&9 - Blue</p>
+      </div>
+
+      <div>
+        <p style="color: var(--color-a)">&a - Green</p>
+        <p style="color: var(--color-b)">&b - Aqua</p>
+        <p style="color: var(--color-c)">&c - Red</p>
+        <p style="color: var(--color-d)">&d - Pink</p>
+        <p style="color: var(--color-e)">&e - Yellow</p>
+        <p style="color: var(--color-f)">&f - White</p>
+      </div>
+    </div>
+  </row>
+  <div style="margin-top: 10px"></div>
+
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Image (use URL)</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="any URL .png"
+        onchange="image(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Image (use URL)</span>
+      </span>
+    </div>
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader"
+        >Image Size (default 50)</label
+      >
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="50"
+        onchange="imageSize(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Image Size (default 50)</span>
+      </span>
+    </div>
+  </row>
+</div>
+<button style="width: 100%" id="wisdomButton" onclick="wisdomButton()">
+  Wisdom
+</button>
+<div class="wisdom" id="wisdom" style="display: none">
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Combat</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="E.G 1"
+        onchange="wisdom(`combat`, this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Combat</span>
+      </span>
+    </div>
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Mining</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="E.G 1"
+        onchange="wisdom(`mining`, this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Mining</span>
+      </span>
+    </div>
+  </row>
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Farming</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="E.G 1"
+        onchange="wisdom(`farming`, this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Farming</span>
+      </span>
+    </div>
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Foraging</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="E.G 1"
+        onchange="wisdom(`foraging`, this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Foraging</span>
+      </span>
+    </div>
+  </row>
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Fishing</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="E.G 1"
+        onchange="wisdom(`fishing`, this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Fishing</span>
+      </span>
+    </div>
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Enchanting</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="E.G 1"
+        onchange="wisdom(`enchanting`, this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Enchanting</span>
+      </span>
+    </div>
+  </row>
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Alchemy</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="E.G 1"
+        onchange="wisdom(`alchemy`, this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Alchemy</span>
+      </span>
+    </div>
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Carpentry</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="E.G 1"
+        onchange="wisdom(`carpentry`, this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Carpentry</span>
+      </span>
+    </div>
+  </row>
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Runecrafting</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="E.G 1"
+        onchange="wisdom(`runecrafting`, this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Runecrafting</span>
+      </span>
+    </div>
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Social</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="E.G 1"
+        onchange="wisdom(`social`, this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Social</span>
+      </span>
+    </div>
+  </row>
+</div>
+<button style="width: 100%" id="heldItemButton" onclick="heldItem()">
+  Held Item
+</button>
+<div class="heldItem" id="heldItem" style="display: none">
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Held Item Name </label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="THROW"
+        onchange="heldItemName(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Held Item Name</span>
+      </span>
+    </div>
+  </row>
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Description</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="full ability description"
+        onchange="heldItemDescription(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Description</span>
+      </span>
+    </div>
+  </row>
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Rarity</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="full ability description"
+        onchange="heldItemRarity(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Rarity</span>
+      </span>
+    </div>
+  </row>
+  <p style="text-align: center">
+    For Rarity, use the name of the rarity, E.G "common"
+  </p>
+</div>
+<div class="ability" id="ability1" style="display: none">
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Ability Name</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="THROW"
+        onchange="petabilityName(this.value, 3)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Ability Name</span>
+      </span>
+    </div>
+  </row>
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Description</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="full ability description"
+        onchange="petabilityDescription(this.value, 3)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Description</span>
+      </span>
+    </div>
+  </row>
+</div>
+<nav class="dropdown">
+  <label for="touch"><span class="drop">Rarity</span></label>
+  <input type="checkbox" id="touch" />
+  <div class="slide">
+    <div>
+      <button
+        style="width: 100%; background-color: var(--common)"
+        id="common"
+        onclick="raritySelect('common')"
+      >
+        Common
+      </button>
+    </div>
+    <div>
+      <button
+        style="width: 100%; background-color: var(--uncommon)"
+        onclick="raritySelect('uncommon')"
+      >
+        Uncommon
+      </button>
+    </div>
+    <div>
+      <button
+        style="width: 100%; background-color: var(--rare)"
+        id="rare"
+        onclick="raritySelect('rare')"
+      >
+        Rare
+      </button>
+    </div>
+    <div>
+      <button
+        style="width: 100%; background-color: var(--epic)"
+        id="epic"
+        onclick="raritySelect('epic')"
+      >
+        Epic
+      </button>
+    </div>
+    <div>
+      <button
+        style="width: 100%; background-color: var(--legendary)"
+        id="legendary"
+        onclick="raritySelect('legendary')"
+      >
+        Legendary
+      </button>
+    </div>
+    <div>
+      <button
+        style="width: 100%; background-color: var(--mythic)"
+        id="mythic"
+        onclick="raritySelect('mythic')"
+      >
+        Mythic
+      </button>
+    </div>
+    <div>
+      <button
+        style="width: 100%; background-color: var(--divine)"
+        id="divine"
+        onclick="raritySelect('divine')"
+      >
+        Divine
+      </button>
+    </div>
+    <div>
+      <button
+        style="width: 100%; background-color: var(--special)"
+        id="special"
+        onclick="raritySelect('special')"
+      >
+        Special
+      </button>
+    </div>
+    <div>
+      <button
+        style="width: 100%; background-color: var(--veryspecial)"
+        id="veryspecial"
+        onclick="raritySelect('veryspecial')"
+      >
+        Very Special
+      </button>
+    </div>
+  </div>
+</nav>
