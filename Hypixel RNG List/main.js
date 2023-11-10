@@ -153,31 +153,10 @@ function percentage(partialValue, totalValue) {
 }
 
 function setCard() {
-  var request = new XMLHttpRequest();
-  request.onload = function () {
-    // Grab data and assing feilds
-    var response = JSON.parse(request.responseText);
-    var uuid = response.id;
-
-    if (typeof uuid == "undefined") {
-      uuid = "712d4221-a4eb-46de-b143-6b2bcb14da55";
-    }
-
-    document.getElementById("app_widget_profile_card_img").src =
-      "https://crafatar.com/avatars/" + uuid + "?overlay&size=512";
-    document.getElementById("username").textContent =
-      document.getElementById("nameinput").value;
-
-    updateMinecraft(uuid, document.getElementById("nameinput").value);
-  };
-
-  request.open(
-    "GET",
-    "https://api.year4000.net/minecraft/" +
-      document.querySelector("#nameinput").value,
-    true
-  );
-  request.send();
+  document.getElementById("app_widget_profile_card_img").src =
+    "https://mc-heads.net/avatar/" + document.getElementById("nameinput").value;
+  document.getElementById("username").textContent =
+    document.getElementById("nameinput").value;
 }
 
 function downloadPlayerCard() {
