@@ -73,18 +73,10 @@ function checkRarestDrop() {
   var tempRarity;
   var tempName;
   for (var i = 0; i < checkedItems.length; i++) {
-    if (
-      tempRarity > checkedItems[i].dataset.rarity ||
-      tempRarity == undefined
-    ) {
+    if (tempRarity > checkedItems[i].dataset.rarity || tempRarity == undefined)
       console.log(checkedItems[i].dataset.dye);
-      if (checkedItems[i].dataset.dye != "true") {
-        {
-          tempRarity = checkedItems[i].dataset.rarity;
-          tempName = checkedItems[i].nextElementSibling.textContent;
-        }
-      }
-    }
+    tempRarity = checkedItems[i].dataset.rarity;
+    tempName = checkedItems[i].nextElementSibling.textContent;
   }
   if (tempName != undefined) {
     tempName = tempName.split("(");
