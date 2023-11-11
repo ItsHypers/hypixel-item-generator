@@ -601,7 +601,7 @@ function colour(text, x) {
   right = htmlEncode(">");
   text = text.replace(/</gi, left);
   text = text.replace(/>/gi, right);
-  text = text.replace(/\n/gi, "&r<br />");
+  text = text.replace(/&z/gi, "&r<br />");
   //colours
   text = text.replace(/&0/gi, '</span>&r<span class="c-1">');
   text = text.replace(/&1/gi, '</span>&r<span class="c-2">');
@@ -811,20 +811,9 @@ function killCounter(input) {
 }
 
 function image(input) {
-  document.getElementById("png").src = input;
-  document.getElementById("png").style.display = "inline-block";
+  document.querySelector(".insertpng").src = input;
 }
 
-function imageSize(input) {
-  if (input > 100) {
-    input = 100;
-  }
-  if (input < 20) {
-    input = 20;
-  }
-  document.getElementById("png").style.maxHeight = input + "px";
-  document.getElementById("png").style.maxWidth = input + "px";
-}
 function hexToRgbA(hex) {
   var c;
   if (/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)) {

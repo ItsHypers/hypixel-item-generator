@@ -767,3 +767,83 @@ li a {
 .c-16 {
   color: #fff;
 }
+
+.mobItem {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 900px;
+}
+
+.mobpageContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: stretch;
+  align-content: stretch;
+  color: white;
+}
+
+.mobInformation {
+  display: block;
+  width: 100%;
+  flex-grow: 4;
+  flex-wrap: wrap;
+  overflow-wrap: normal;
+}
+
+.mobImage {
+  display: block;
+  width: 50%;
+  flex-grow: 1;
+  border: 15px solid #232445 !important;
+  border-image-source: url(square_border.png) !important;
+  border-image-outset: 2px !important;
+  border-image-width: 20px !important;
+  border-image-slice: 220 220 220 220 !important;
+  align-items: center;
+}
+.mobPhoto {
+  max-width: 70% !important;
+  max-height: 70% !important;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+.mobName {
+  text-align: start;
+  font-weight: bold;
+  font-size: x-large;
+  color: white;
+}
+
+hr {
+  margin: 5px 0;
+}
+
+.content > .mobImage > tbody > tr {
+  min-width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.mobImage tr {
+  color: #fff !important;
+}
+
+tr {
+  border-top: 1px solid #8a8a8abd;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+table {
+  border-collapse: collapse;
+}
+
+.categoryName {
+  vertical-align: top;
+  font-weight: bold;
+}
