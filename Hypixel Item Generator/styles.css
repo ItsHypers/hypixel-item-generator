@@ -795,18 +795,18 @@ li a {
 
 .mobImage {
   display: block;
-  width: 50%;
-  flex-grow: 1;
   border: 15px solid #232445 !important;
   border-image-source: url(square_border.png) !important;
   border-image-outset: 2px !important;
   border-image-width: 20px !important;
   border-image-slice: 220 220 220 220 !important;
   align-items: center;
+  max-width: 100% !important;
+  max-height: 100% !important;
 }
 .mobPhoto {
-  max-width: 70% !important;
-  max-height: 70% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -829,7 +829,10 @@ hr {
   display: flex;
   flex-flow: column nowrap;
 }
-
+tbody {
+  width: 100%;
+  display: table;
+}
 .mobImage tr {
   color: #fff !important;
 }
@@ -846,4 +849,27 @@ table {
 .categoryName {
   vertical-align: top;
   font-weight: bold;
+}
+
+.dropTable {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  background-color: rgba(43, 43, 43);
+  border: 1px solid rgb(44, 44, 44);
+  column-span: 4;
+}
+
+.dropTable tbody tr {
+  display: table-row;
+}
+.dropTable tbody tr td {
+  border: 3px solid rgba(0, 0, 0, 0.418);
+  width: 50%;
+}
+
+.secondary {
+  background-color: rgb(54, 54, 54);
 }
