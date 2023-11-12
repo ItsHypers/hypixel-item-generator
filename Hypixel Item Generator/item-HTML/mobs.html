@@ -2,13 +2,14 @@
   <p class="mobName">Scatha</p>
   <hr style="font-weight: lighter; margin-bottom: 10px" />
   <div class="mobpageContainer">
-    <div class="mobInformation">
+    <div class="mobInformationBlock">
+      <p class="mobInformation">
       The Scatha is a type of Mob that can be found in the Crystal Hollows while
-      mining
+      mining </p>
       <p>&nbsp;</p>
       <p class="categoryName">LOCATION</p>
       <hr style="font-weight: lighter; margin-bottom: 10px" />
-      <p style="width: 90%">
+      <p style="width: 90%" class="mobLocation">
         The [Lv10] Scatha can be found in the Crystal Hollows while mining.
         SkyBlock sprite entities worm.png Worms have a 1/600 chance to spawn
         when breaking Minecraft items Hard Stone in a tunnel, and a 20% chance
@@ -16,14 +17,10 @@
         countdown of 30 seconds starts until the player can spawn another
         Scatha.
       </p>
-      <p style="width: 90%">
-        Upon the [Lv10] Scatha spawning, a squelching sound plays, accompanied
-        by a message in chat: "You hear the sound of something approaching..."
-      </p>
       <p>&nbsp;</p>
       <p class="categoryName">BEHAVIOUR</p>
       <hr style="font-weight: lighter; margin-bottom: 10px" />
-      <p style="width: 90%">
+      <p style="width: 90%" class="mobBehaviour">
         The [Lv10] Scatha will slither away from the player upon spawning in.
         Each hit from the player removes 1 segment and 1 SkyBlock icons
         health.pngHealth from the [Lv10] Scatha, and the 10th hit destroys the
@@ -47,21 +44,21 @@
                 <img width="15" src="/hypixel-item-generator/Hypixel Item Generator/images/combat.png"> </img> 
               </span>
               <span style="color: #4482ff" >Combat XP</span></td>
-            <td colspan="2" class="c-11">50</td>
+            <td colspan="2" class="c-11 combatEXP">50</td>
           </tr>
           <tr>
             <td colspan="2"><span style="display:inline-block;">
               <img width="15" src="/hypixel-item-generator/Hypixel Item Generator/images/coins.png"> </img> 
             </span>
             <span class="c-7" >Coins</span></td></td>
-            <td colspan="2" class="c-7">10</td>
+            <td colspan="2" class="c-7 coins">10</td>
           </tr>
           <tr class="secondary">
             <td colspan="2"><span style="display:inline-block;">
               <img width="15" src="/hypixel-item-generator/Hypixel Item Generator/images/exp.png"> </img> 
             </span>
             <span style="color: #4482ff" >Experience Orbs</span></td>
-            <td colspan="2" class="c-11">2</td>
+            <td colspan="2" class="c-11 exporb">2</td>
           </tr>
           <tr style="text-align: center">
             <td style="width: 50%; text-align: center">Item</td>
@@ -102,25 +99,28 @@
           <tr>
             <th style="text-align: center" class="mobName" colspan="2">Scatha</th>
           </tr>
-          <tr class="mobImageHolder" style="display: none">
+          <tr style="width: 100%;height: 100%; display: inline_block;" class="mobImageHolder">
             <th colspan="2">
               <img
                 src="https://wiki.hypixel.net/images/7/79/SkyBlock_entities_scatha.png"
                 class="mobPhoto insertpng"
                 id="insertpng"
+                width="600px"
+                style="object-fit: contain; text-align: center; margin-left: auto; margin-right: auto; width: 50%;"
+
               />
             </th>
           </tr>
           <tr>
             <td class="categoryName" style="width: 50%">Stats</td>
             <td style="width: 50%; text-align: end">            
-              <span class="c-13">10</span>
+              <span class="c-13 mobHealth">10</span>
               <span style="display:inline-block;">
                 <img width="15" src="/hypixel-item-generator/Hypixel Item Generator/images/health.png"> </img> 
               </span>
               <span class="c-13">Health</span>
               <br />
-              <span class="c-13">2,500</span>
+              <span class="c-13 mobDamage">2,500</span>
               <span style="display:inline-block;">
                 <img width="15" src="/hypixel-item-generator/Hypixel Item Generator/images/damage.png"> </img> 
               </span>
@@ -134,7 +134,7 @@
           <tr>
             <td class="categoryName" style="width: 50%">Skill XP</td>
               <td  style="width: 50%; text-align: end">
-                <span class="c-11">50</span>
+                <span class="c-11 combatEXP">50</span>
                 <span style="display:inline-block;">
                   <img width="15" src="/hypixel-item-generator/Hypixel Item Generator/images/combat.png"> </img> 
                 </span>
@@ -143,25 +143,25 @@
           </tr>
           <tr>
             <td class="categoryName" style="width: 50%">Coins</td>
-            <td class="c-7" style="width: 50%; text-align: end">10 coins</td>
+            <td class="c-7 coins" style="width: 50%; text-align: end">10 coins</td>
           </tr>
           <tr>
             <td class="categoryName" style="width: 50%">EXP Orbs</td>
               <td  style="width: 50%; text-align: end">
-                <span class="c-11">2</span>
+                <span class="c-11 exporb">2</span>
                 <span style="display:inline-block;">
                   <img width="15" src="/hypixel-item-generator/Hypixel Item Generator/images/exp.png"> </img> 
                 </span>
                 <span style="color: #4482ff" >EXP Orbs</span>
             </td>
           </tr>
-          <tr>
+          <tr class="bestiaryBracket" style="display: none">
             <td class="categoryName" style="width: 50%">Bestiary Bracket</td>
-            <td style="width: 50%; text-align: end">5</td>
+            <td style="width: 50%; text-align: end" class="bracket">5</td>
           </tr>
-          <tr>
-            <td class="categoryName" style="width: 50%">Bestiary Tier</td>
-            <td style="width: 50%; text-align: end">15</td>
+          <tr class="bestiaryTier" style="display: none">
+            <td class="categoryName" style="width: 50%">Bestiary Tiers</td>
+            <td style="width: 50%; text-align: end" class="tier">15</td>
           </tr>
         </tbody>
       </table>
@@ -175,7 +175,7 @@
             <td style="text-align: center; border-right: 1px solid #8a8a8abd">
               <span style="color: #4482ff">Entity Type</span>
               <br />
-              <span>Armor Stand</span>
+              <span class="entitytype">Armor Stand</span>
             </td>
             <td style="text-align: center">
               <span style="display:inline-block;">
@@ -183,7 +183,7 @@
               </span>
               <span style="color: #4482ff">Spawn Location</span>
               <br />
-              <span style="color: #4482ff">Crystal Hollows</span>
+              <span style="color: #4482ff" class="spawnlocation">Crystal Hollows</span>
             </td>
           </tr>
           <tr>
@@ -191,17 +191,17 @@
               <span style="color: #4482ff">Necromancer</span>
               <br />
               <span style="display:inline-block;">
-                <img width="15" src="/hypixel-item-generator/Hypixel Item Generator/images/X.png"> </img> 
+                <img width="15" src="/hypixel-item-generator/Hypixel Item Generator/images/X.png" class="necroImg"> </img> 
               </span>
-              <span>No</span>
+              <span class="necrotick">No</span>
             </td>
             <td style="text-align: center">
               <span style="color: #4482ff">Corruptable</span>
               <br />
               <span style="display:inline-block;">
-                <img width="15" src="/hypixel-item-generator/Hypixel Item Generator/images/tick.png"> </img> 
+                <img width="15" src="/hypixel-item-generator/Hypixel Item Generator/images/tick.png" class="corruptImg"> </img> 
               </span>
-              <span class="color-red">Yes</span>
+              <span class="corrupttick">Yes</span>
             </td>
           </tr>
         </tbody>

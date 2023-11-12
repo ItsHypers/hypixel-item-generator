@@ -25,4 +25,215 @@
       </span>
     </div>
   </row>
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Mob Information</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="any URL .png"
+        onchange="mobInformation(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Mob Information</span>
+      </span>
+    </div>
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Mob Location</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="e.g. Scatha"
+        onchange="mobLocation(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Mob Location</span>
+      </span>
+    </div>
+  </row>
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Mob Behaviour</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="any URL .png"
+        onchange="mobBehaviour(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Mob Behaviour</span>
+      </span>
+    </div>
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Mob Damage</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="e.g. Scatha"
+        onchange="mobDamage(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Mob Damage</span>
+      </span>
+    </div>
+  </row>
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Mob Health</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="any URL .png"
+        onchange="mobHealth(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Mob Health</span>
+      </span>
+    </div>
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Combat EXP</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="e.g. Scatha"
+        onchange="combatEXP(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Combat EXP</span>
+      </span>
+    </div>
+  </row>
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Coins</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="any URL .png"
+        onchange="coins(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Coins</span>
+      </span>
+    </div>
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Experience Orbs</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="e.g. Scatha"
+        onchange="exporb(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Experience Orbs</span>
+      </span>
+    </div>
+  </row>
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Bestiary Bracket</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="any URL .png"
+        onchange="bracket(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Bestiary Bracket</span>
+      </span>
+    </div>
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Bestiary Tiers</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="e.g. Scatha"
+        onchange="tier(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Bestiary Tiers</span>
+      </span>
+    </div>
+  </row>
+  <row class="row1">
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Entity Type</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="any URL .png"
+        onchange="entitytype(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Entity Type</span>
+      </span>
+    </div>
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Spawn Location</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="e.g. Scatha"
+        onchange="spawnlocation(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Spawn Location</span>
+      </span>
+    </div>
+  </row>
+  <row class="row1">
+    <input
+      type="checkbox"
+      id="necro"
+      value="necro"
+      onchange="Necromancer(this.value)"
+    /><label for="checkboxOne" style="width: 50%; padding-top: 12px">
+      Necromancer</label
+    >
+    <input
+      type="checkbox"
+      id="corrupt"
+      value="corrupt"
+      onchange="corrupt(this.value)"
+    /><label for="checkboxOne" style="width: 50%; padding-top: 12px">
+      Corruptable</label
+    >
+  </row>
+  &nbsp;
+  <form id="lootdrops">
+    <div style="width: 100%" class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Drop Name</label>
+      <input id="dropName" class="field__input" placeholder="e.g. Diamonds" />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Drop Name</span>
+      </span>
+    </div>
+    <div style="width: 100%" class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Loot Rarity</label>
+      <input id="dropRarity" class="field__input" placeholder="e.g. Common" />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Loot Rarity</span>
+      </span>
+    </div>
+    <div style="width: 100%" class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Amount</label>
+      <input id="dropAmount" class="field__input" placeholder="e.g. 1" />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Amount</span>
+      </span>
+    </div>
+    <div style="width: 100%" class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Chance</label>
+      <input id="dropChance" class="field__input" placeholder="e.g. 10%" />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Chance</span>
+      </span>
+    </div>
+  </form>
+  <button style="width: 100%" id="SubmitStat" onclick="AddDrop()">
+    Add Drop
+  </button>
+
+  <div class="addedStats"></div>
+  &nbsp; &nbsp;
 </div>
