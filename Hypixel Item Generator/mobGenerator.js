@@ -4,7 +4,7 @@ function mobName(input) {
     mobNameList[i].textContent = input;
   }
 }
-function image(input) {
-  document.querySelector(".insertpng").style.display = "incline_block";
+function mobImage(input) {
+  document.querySelector(".mobImageHolder").style.display = "inline-block";
   document.querySelector(".insertpng").src = input;
 }
