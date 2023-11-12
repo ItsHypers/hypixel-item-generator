@@ -819,6 +819,12 @@ li a {
   font-size: x-large;
   color: white;
 }
+.categoryName {
+  text-align: start;
+  font-weight: bold;
+  font-size: x-large;
+  color: white;
+}
 
 hr {
   margin: 5px 0;
