@@ -223,7 +223,7 @@ h6 {
   font-family: Minecraftia;
   font-size: 18px;
 }
-.skill {
+.skill .petText {
   color: --common;
   font-family: Minecraftia;
   font-size: 14px;

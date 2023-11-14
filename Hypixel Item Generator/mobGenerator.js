@@ -59,6 +59,9 @@ function tier(input) {
 function entitytype(input) {
   document.querySelector(".entitytype").innerHTML = input;
 }
+function level(input) {
+  document.querySelector(".mobLevel").innerHTML = input;
+}
 function spawnlocation(input) {
   document.querySelector(".spawnlocation").innerHTML = input;
 }

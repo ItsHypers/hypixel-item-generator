@@ -270,6 +270,114 @@ function updateAbility() {
     abilityClass.appendChild(addedAbility);
   }
 }
+
+function createpetAbility() {
+  var abilityName = document
+    .getElementById("abilityName")
+    .value.replace(" ", "_");
+  var abilityDescription = document
+    .getElementById("abilityDescription")
+    .value.toLowerCase();
+  var abilityKeybind = document
+    .getElementById("abilityKeybind")
+    .value.toLowerCase();
+  var abilityCooldown = document
+    .getElementById("abilityCooldown")
+    .value.toLowerCase();
+  if (abilityName == "" || abilityDescription == "") {
+    alert("Please fill in atleast Name, Description and Keybind!");
+  } else {
+    addedAbilities[abilityName] = {
+      description: abilityDescription,
+      keybind: abilityKeybind,
+      cooldown: abilityCooldown,
+    };
+    numofAbilities += 1;
+    console.log(addedAbilities);
+    updatePetAbility();
+    document.getElementById("abilityForm").reset();
+  }
+}
+function deletePetAbility() {
+  var abilityName = event.target.className.split(" ")[0];
+  delete addedAbilities[abilityName];
+  updatePetAbility();
+}
+
+function updatePetAbility() {
+  console.log("ran ability");
+  const abilities = document.querySelector(".abilities");
+  const abilityClass = document.querySelector(".addedAbilities");
+  abilities.innerHTML = "";
+  abilityClass.innerHTML = "";
+  for (let [name, info] of Object.entries(addedAbilities)) {
+    const div = document.createElement("div");
+    const Namelabel = document.createElement("label");
+    const KeybindLabel = document.createElement("label");
+    const DescriptionDiv = document.createElement("div");
+    const DescriptionLabel = document.createElement("label");
+    const ManaDiv = document.createElement("div");
+    const CooldownDiv = document.createElement("div");
+    const CooldownLabel = document.createElement("label");
+    const pageBreak = document.createElement("div");
+    console.log(name + " " + info.mana + " " + info.description);
+    div.classList.add(name.replace(" ", ""));
+    div.style.display = "block";
+
+    Namelabel.textContent = name.replace("_", " ");
+    Namelabel.classList.add("abilityName");
+
+    KeybindLabel.textContent =
+      " " + info.keybind.replace("_", " ").toUpperCase();
+    KeybindLabel.classList.add("abilityKeybind");
+
+    DescriptionLabel.classList.add("item-text");
+    colour(info.description, DescriptionLabel);
+    DescriptionDiv.appendChild(DescriptionLabel);
+
+    if (info.cooldown != "") {
+      CooldownLabel.classList.add("item-text");
+      CooldownLabel.insertAdjacentHTML(
+        "beforeend",
+        "<label>Cooldown:</label> " +
+          "<label class=" +
+          "abilityCooldown" +
+          ">" +
+          info.cooldown +
+          "</label> "
+      );
+    }
+    pageBreak.style.margin = "10px";
+    CooldownDiv.appendChild(CooldownLabel);
+    div.appendChild(Namelabel);
+    div.appendChild(KeybindLabel);
+    div.appendChild(DescriptionDiv);
+    div.appendChild(ManaDiv);
+    div.appendChild(CooldownDiv);
+    div.appendChild(pageBreak);
+    abilities.appendChild(div);
+
+    var addedAbility = document.createElement("div");
+    addedAbility.classList.add(name.replace(" ", ""));
+    addedAbility.classList.add("stat");
+    addedAbility.insertAdjacentHTML(
+      "beforeend",
+      "<p>" +
+        name +
+        "</p> <p>" +
+        info.keybind +
+        "</p> <p>" +
+        info.description.substring(0, Math.min(50, 20)) +
+        "..." +
+        "</p> <p>" +
+        info.cooldown +
+        `</p> <button class="` +
+        name.replace(" ", "") +
+        ` deleteStat reset-button" onclick="deletePetAbility()">✖</button>`
+    );
+    abilityClass.appendChild(addedAbility);
+  }
+}
 function addGemstone(gemstone) {
   var gemstoneString = gemstoneStrings[gemstone];
   addedGemstones.push(gemstoneString);
@@ -437,6 +545,10 @@ function strength(input) {
   );
   currentStrength = input;
   itemsChanged["strength"] = true;
+}
+
+function skill(input) {
+  document.querySelector(".skill").textContent = input;
 }
 function Damage(input) {
   document.getElementById("#damage").textContent = "+" + input;
