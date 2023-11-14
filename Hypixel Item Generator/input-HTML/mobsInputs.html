@@ -202,6 +202,15 @@
   &nbsp;
   <form id="lootdrops">
     <div style="width: 100%" class="field field_v1">
+      <label for="first-name" class="ha-screen-reader"
+        >Image UR (Can leave blank)L</label
+      >
+      <input id="dropImage" class="field__input" placeholder="e.g. Diamonds" />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Image URL (Can leave blank)</span>
+      </span>
+    </div>
+    <div style="width: 100%" class="field field_v1">
       <label for="first-name" class="ha-screen-reader">Drop Name</label>
       <input id="dropName" class="field__input" placeholder="e.g. Diamonds" />
       <span class="field__label-wrap" aria-hidden="true">
@@ -213,6 +222,15 @@
       <input id="dropRarity" class="field__input" placeholder="e.g. Common" />
       <span class="field__label-wrap" aria-hidden="true">
         <span class="field__label">Loot Rarity</span>
+      </span>
+    </div>
+    <div style="width: 100%" class="field field_v1">
+      <label for="first-name" class="ha-screen-reader"
+        >Loot Rarity Colour</label
+      >
+      <input id="dropRarityColour" class="field__input" placeholder="e.g. &a" />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Loot Rarity Colour</span>
       </span>
     </div>
     <div style="width: 100%" class="field field_v1">
@@ -230,10 +248,11 @@
       </span>
     </div>
   </form>
-  <button style="width: 100%" id="SubmitStat" onclick="AddDrop()">
+  <button style="width: 100%" id="SubmitStat" onclick="addMobDrop()">
     Add Drop
   </button>
 
-  <div class="addedStats"></div>
-  &nbsp; &nbsp;
+  <div class="addedDrops"></div>
+  &nbsp; &nbsp; When filling out Drop Table, go from Most common to most Rare,
+  as it is NOT done automatically
 </div>
