@@ -227,6 +227,12 @@
         <span class="field__label">Kill Counter</span>
       </span>
     </div>
+  </row>
+  <p>
+    If you want it to be a player skull type "minecraft:player_head" into the
+    minecraft:id section and put the IGN into the IGN section
+  </p>
+  <row class="row1">
     <div class="field field_v1">
       <label for="first-name" class="ha-screen-reader">minecraft id</label>
       <input
@@ -237,6 +243,18 @@
       />
       <span class="field__label-wrap" aria-hidden="true">
         <span class="field__label">minecraft id</span>
+      </span>
+    </div>
+    <div class="field field_v1">
+      <label for="first-name" class="ha-screen-reader">Minecraft IGN</label>
+      <input
+        id="first-name"
+        class="field__input"
+        placeholder="E.G 500"
+        onchange="skullign(this.value)"
+      />
+      <span class="field__label-wrap" aria-hidden="true">
+        <span class="field__label">Minecraft IGN</span>
       </span>
     </div>
   </row>

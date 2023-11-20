@@ -1,19 +1,12 @@
-Minecraft Item command
+
+Give command todo
 
 
-Needed:
-Dungeon Stats
-Fumings
-Gemstones
-Adding colour to description/lore/abilities in the game (currently only works on website)
-
-Online Feature (and command)
-custom stats
-Add a change-log within the site somewhere
-
-
-User Bugs / Suggestions:
-
-Dinomar2358: After I deleted the ability it didn't delete the "ABILITY:" thing
-
-RocMineBuilder: it can't do negative numbers, and there is no way to choose the gemstone slot type
+Gear score fix (done)
+Red text on stats 
+green text on stats 
+fix ability description getting too long (done)
+add description text 
+add lore text 
+fix wisdom 
+fix gap between rarity and edge

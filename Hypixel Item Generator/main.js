@@ -1,7 +1,7 @@
 var numofAbilities = 0;
 var numofStats = 0;
 var killCount = 0;
-
+var currentGearScore = 0;
 var currentItem = "SWORD";
 var currentReforge = "";
 var currentitemName = "";
@@ -12,6 +12,7 @@ var currentHeldItemDescription = "";
 var currentHeldItemRarity = "";
 
 var currentminecraftID = "minecraft:diamond_sword";
+var currnetskullign = "oHypers";
 var abilities = {};
 var itemsChanged = {};
 var wisdomChanged = {};
@@ -199,7 +200,6 @@ function updateAbility() {
     const CooldownDiv = document.createElement("div");
     const CooldownLabel = document.createElement("label");
     const pageBreak = document.createElement("div");
-    console.log(name + " " + info.mana + " " + info.description);
     div.classList.add(name.replace(" ", ""));
     div.style.display = "block";
 
@@ -944,10 +944,19 @@ function hexToRgbA(hex) {
 function minecraftID(input) {
   currentminecraftID = input;
 }
+function skullign(input) {
+  currnetskullign = input;
+}
 function minecraftCommand() {
   currentCommand = `/give @p `;
-  currentCommand += currentminecraftID;
-  currentCommand += `{AttributeModifiers: [{}],`;
+  if (currentminecraftID == "minecraft:player_head") {
+    currentCommand +=
+      currentminecraftID + `{SkullOwner:"` + currnetskullign + `",`;
+    currentCommand += `AttributeModifiers: [{}],`;
+  } else {
+    currentCommand += currentminecraftID;
+    currentCommand += `{AttributeModifiers: [{}],`;
+  }
   currentCommand += `display:{Name:\'[{\"text\":\"`;
   if (currentReforge != "") {
     currentCommand += currentReforge + " ";
@@ -957,8 +966,13 @@ function minecraftCommand() {
     `\",\"color\":\"` +
     minecraftRaritys[currentRarity] +
     `\",\"italic\":false,\"bold\":false}]\',Lore:[\'`;
-  //addedStats[statName] = { amount: statAmount, type: statType };
-  //  console.log(addedStats[statName]["amount"]);
+  if (currentGearScore != 0) {
+    console.log(currentGearScore);
+    currentCommand +=
+      `[{\"text\":\"Gear score: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"` +
+      currentGearScore +
+      `\",\"color\":\"pink\",\"italic\":false}]\',\'`;
+  }
   if (addedStats) {
     for (i in addedStats) {
       console.log(i);
@@ -976,7 +990,7 @@ function minecraftCommand() {
     for (i in wisdomChanged) {
       currentCommand +=
         `[{\"text\":\"` +
-        i.capitalize() +
+        i +
         ` Wisdom: \",\"color\":\"gray\",\"italic\":false},{\"text\":\"` +
         wisdomChanged[i]["number"] +
         `\",\"color\":\"green\",\"italic\":false}]\',\'`;
@@ -990,88 +1004,114 @@ function minecraftCommand() {
       `\",\"color\":\"gray\",\"italic\":false}]`;
     currentCommand += `[{\"text\":\"\"}]\',\'`;
   }
-  if (descriptionArray.length != 0) {
+
+  if (descriptionAdded) {
     currentCommand += `[{\"text\":\"\"}]\',\'`;
-    currentCommand += `[{\"text\":\"\"}`;
-  }
-  descriptionArray.forEach((element) => {
-    console.log(element);
-    if (element[0] == "/" && element[1] == "n") {
-      var string = element.substring(2);
-      currentCommand += `]\',\'`;
-      currentCommand +=
-        `[{\"text\":\"` + string + ` \",\"color\":\"gray\",\"italic\":false}`;
-    } else {
-      currentCommand +=
-        `,{\"text\":\"` + element + ` \",\"color\":\"gray\",\"italic\":false}`;
-    }
-  });
-  if (descriptionArray.length != 0) {
-    currentCommand += `]\',\'`;
-    currentCommand += `[{\"text\":\"\"}]\',\'`;
+    descString = descriptionString.match(/.{1,25}(?:\s|$)/g);
+    descString.forEach((element) => {
+      if (element.includes("&z")) {
+        var splitstring = element.split("&z");
+        splitstring.forEach((text) => {
+          if (text[0] == " ") {
+            currentCommand +=
+              `[{\"text\":\"` +
+              text.substring(1) +
+              `\",\"color\":\"gray\",\"italic\":false}]\',\'`;
+          } else {
+            currentCommand +=
+              `[{\"text\":\"` +
+              text +
+              `\",\"color\":\"gray\",\"italic\":false}]\',\'`;
+          }
+        });
+      } else {
+        currentCommand +=
+          `[{\"text\":\"` +
+          element +
+          `\",\"color\":\"gray\",\"italic\":false}]\',\'`;
+      }
+    });
   }
 
-  if (numofAbilities >= 1) {
+  if (addedAbilities.length != 0) {
     console.log("Ran");
-    for (let i = 1; i <= numofAbilities; i++) {
-      descArray = abilities[i + "description"].split(" ");
+    for (let [name, info] of Object.entries(addedAbilities)) {
+      descArray = info.description.match(/.{1,25}(?:\s|$)/g);
+      console.log(descArray);
+      currentCommand += `[{\"text\":\"\"}]\',\'`;
       currentCommand +=
         `[{\"text\":\"Ability: \",\"color\":\"gold\",\"italic\":false},{\"text\":\"` +
-        abilities[i + "name"] +
+        name +
         `\",\"color\":\"gold\",\"italic\":false},{\"text\":\" ` +
-        abilities[i + "keybind"] +
+        info.keybind +
         `\",\"color\":\"yellow\",\"italic\":false,\"bold\":true}]\',\'`;
-      if (descArray) {
-        currentCommand += `[{\"text\":\"\"}`;
-      }
       descArray.forEach((element) => {
         console.log(element);
-        if (element[0] == "/" && element[1] == "n") {
-          var string = element.substring(2);
-          currentCommand += `]\',\'`;
-          currentCommand +=
-            `[{\"text\":\"` +
-            string +
-            ` \",\"color\":\"gray\",\"italic\":false}`;
+        if (element.includes("&z")) {
+          var splitstring = element.split("&z");
+          splitstring.forEach((text) => {
+            if (text[0] == " ") {
+              currentCommand +=
+                `[{\"text\":\"` +
+                text.substring(1) +
+                `\",\"color\":\"gray\",\"italic\":false}]\',\'`;
+            } else {
+              currentCommand +=
+                `[{\"text\":\"` +
+                text +
+                `\",\"color\":\"gray\",\"italic\":false}]\',\'`;
+            }
+          });
         } else {
           currentCommand +=
-            `,{\"text\":\"` +
+            `[{\"text\":\"` +
             element +
-            ` \",\"color\":\"gray\",\"italic\":false}`;
+            ` \",\"color\":\"gray\",\"italic\":false}]\',\'`;
         }
       });
-      if (descArray) {
-        currentCommand += `]\',\'`;
+      if (info.mana != "") {
+        currentCommand +=
+          `[{\"text\":\"Mana cost: \",\"color\":\"dark_gray\",\"italic\":false},{\"text\":\"` +
+          info.mana +
+          `\",\"color\":\"dark_aqua\",\"italic\":false}]\',\'`;
       }
-      currentCommand +=
-        `[{\"text\":\"Mana cost: \",\"color\":\"dark_gray\",\"italic\":false},{\"text\":\"` +
-        abilities[i + "mana"] +
-        `\",\"color\":\"dark_aqua\",\"italic\":false}]\',\'[{\"text\":\"Cooldown: \",\"color\":\"dark_gray\",\"italic\":false},{\"text\":\"` +
-        abilities[i + "cooldown"] +
-        `\",\"color\":\"green\",\"italic\":false}]\',\'`;
 
+      if (info.cooldown != "") {
+        currentCommand +=
+          `[{\"text\":\"Cooldown: \",\"color\":\"dark_gray\",\"italic\":false},{\"text\":\"` +
+          info.cooldown +
+          `\",\"color\":\"green\",\"italic\":false}]\',\'`;
+      }
       currentCommand += `[{\"text\":\"\"}]\',\'`;
     }
   }
 
-  if (loreArray.length != 0) {
-    currentCommand += `[{\"text\":\"\"}`;
-  }
-  loreArray.forEach((element) => {
-    console.log(element);
-    if (element[0] == "/" && element[1] == "n") {
-      var string = element.substring(2);
-      currentCommand += `]\',\'`;
-      currentCommand +=
-        `[{\"text\":\"` + string + ` \",\"color\":\"gray\",\"italic\":false}`;
-    } else {
-      currentCommand +=
-        `,{\"text\":\"` + element + ` \",\"color\":\"gray\",\"italic\":false}`;
-    }
-  });
-  if (loreArray.length != 0) {
-    currentCommand += `]\',\'`;
+  if (loreAdded) {
     currentCommand += `[{\"text\":\"\"}]\',\'`;
+    loreStr = loreString.match(/.{1,25}(?:\s|$)/g);
+    loreStr.forEach((element) => {
+      if (element.includes("&z")) {
+        var splitstring = element.split("&z");
+        splitstring.forEach((text) => {
+          if (text[0] == " ") {
+            currentCommand +=
+              `[{\"text\":\"` +
+              text.substring(1) +
+              `\",\"color\":\"gray\",\"italic\":false}]\',\'`;
+          } else {
+            currentCommand +=
+              `[{\"text\":\"` +
+              text +
+              `\",\"color\":\"gray\",\"italic\":false}]\',\'`;
+          }
+        });
+      } else {
+        currentCommand +=
+          `[{\"text\":\"` +
+          element +
+          `\",\"color\":\"gray\",\"italic\":false}]\',\'`;
+      }
+    });
   }
 
   if (itemsChanged["killcount"]) {
