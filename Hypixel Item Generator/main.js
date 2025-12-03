@@ -309,17 +309,19 @@ function updatePetAbility() {
   const abilityClass = document.querySelector(".addedAbilities");
   abilities.innerHTML = "";
   abilityClass.innerHTML = "";
+
   for (let [name, info] of Object.entries(addedAbilities)) {
     const div = document.createElement("div");
     const Namelabel = document.createElement("label");
     const KeybindLabel = document.createElement("label");
     const DescriptionDiv = document.createElement("div");
     const DescriptionLabel = document.createElement("label");
-    const ManaDiv = document.createElement("div");
     const CooldownDiv = document.createElement("div");
     const CooldownLabel = document.createElement("label");
     const pageBreak = document.createElement("div");
-    console.log(name + " " + info.mana + " " + info.description);
+
+    console.log(name + " " + info.cooldown + " " + info.description);
+
     div.classList.add(name.replace(" ", ""));
     div.style.display = "block";
 
@@ -334,49 +336,44 @@ function updatePetAbility() {
     colour(info.description, DescriptionLabel);
     DescriptionDiv.appendChild(DescriptionLabel);
 
-    if (info.cooldown != "") {
+    if (info.cooldown !== "") {
       CooldownLabel.classList.add("item-text");
       CooldownLabel.insertAdjacentHTML(
         "beforeend",
-        "<label>Cooldown:</label> " +
-          "<label class=" +
-          "abilityCooldown" +
-          ">" +
-          info.cooldown +
-          "</label> "
+        `<label>Cooldown:</label> 
+         <label class="abilityCooldown">${info.cooldown}</label>`
       );
     }
+
     pageBreak.style.margin = "10px";
+
     CooldownDiv.appendChild(CooldownLabel);
+
     div.appendChild(Namelabel);
     div.appendChild(KeybindLabel);
     div.appendChild(DescriptionDiv);
-    div.appendChild(ManaDiv);
-    div.appendChild(CooldownDiv);
+    div.appendChild(CooldownDiv); // ManaDiv removed here
     div.appendChild(pageBreak);
     abilities.appendChild(div);
 
-    var addedAbility = document.createElement("div");
+    // Added ability list
+    const addedAbility = document.createElement("div");
     addedAbility.classList.add(name.replace(" ", ""));
     addedAbility.classList.add("stat");
+
     addedAbility.insertAdjacentHTML(
       "beforeend",
-      "<p>" +
-        name +
-        "</p> <p>" +
-        info.keybind +
-        "</p> <p>" +
-        info.description.substring(0, Math.min(50, 20)) +
-        "..." +
-        "</p> <p>" +
-        info.cooldown +
-        `</p> <button class="` +
-        name.replace(" ", "") +
-        ` deleteStat reset-button" onclick="deletePetAbility()">✖</button>`
+      `<p>${name}</p>
+       <p>${info.keybind}</p>
+       <p>${info.description.substring(0, 20)}...</p>
+       <p>${info.cooldown}</p>
+       <button class="${name.replace(" ", "")} deleteStat reset-button" onclick="deletePetAbility()">✖</button>`
     );
+
     abilityClass.appendChild(addedAbility);
   }
 }
+
 function addGemstone(gemstone) {
   var gemstoneString = gemstoneStrings[gemstone];
   addedGemstones.push(gemstoneString);
