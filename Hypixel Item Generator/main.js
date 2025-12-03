@@ -153,7 +153,6 @@ function createAbility() {
     .value.replace(" ", "_");
   var abilityDescription = document
     .getElementById("abilityDescription")
-    .value.toLowerCase();
   var abilityKeybind = document
     .getElementById("abilityKeybind")
     .value.toLowerCase();
