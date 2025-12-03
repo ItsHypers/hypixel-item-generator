@@ -926,8 +926,8 @@ function image(input) {
 }
 
 function imageSize(input) {
-  document.getElementById("#png").style.maxWidth = input + "px";
-  document.getElementById("#png").style.maxHeight = input + "px";
+  document.getElementById("png").style.maxWidth = input + "px";
+  document.getElementById("png").style.maxHeight = input + "px";
 }
 
 function hexToRgbA(hex) {
