@@ -275,8 +275,7 @@ function createpetAbility() {
     .getElementById("abilityName")
     .value.replace(" ", "_");
   var abilityDescription = document
-    .getElementById("abilityDescription")
-    .value.toLowerCase();
+    .getElementById("abilityDescription");
   var abilityKeybind = document
     .getElementById("abilityKeybind")
     .value.toLowerCase();
@@ -1011,32 +1010,23 @@ function minecraftCommand() {
   }
 
   if (descriptionAdded) {
-    currentCommand += `[{\"text\":\"\"}]\',\'`;
-    descString = descriptionString.match(/.{1,25}(?:\s|$)/g);
-    descString.forEach((element) => {
-      if (element.includes("&z")) {
-        var splitstring = element.split("&z");
-        splitstring.forEach((text) => {
-          if (text[0] == " ") {
-            currentCommand +=
-              `[{\"text\":\"` +
-              text.substring(1) +
-              `\",\"color\":\"gray\",\"italic\":false}]\',\'`;
-          } else {
-            currentCommand +=
-              `[{\"text\":\"` +
-              text +
-              `\",\"color\":\"gray\",\"italic\":false}]\',\'`;
-          }
-        });
-      } else {
-        currentCommand +=
-          `[{\"text\":\"` +
-          element +
-          `\",\"color\":\"gray\",\"italic\":false}]\',\'`;
-      }
-    });
-  }
+  currentCommand += `[{"text":""}]\',\'`;
+
+  // Split into 25-char chunks, preserving original capitalization
+  let descChunks = descriptionString.match(/.{1,25}(?:\s|$)/g);
+
+  descChunks.forEach((element) => {
+    if (element.includes("&z")) {
+      let splitStrings = element.split("&z");
+      splitStrings.forEach((text) => {
+        text = text.trimStart(); // remove leading spaces
+        currentCommand += `[{"text":"${text}","color":"gray","italic":false}]\',\'`;
+      });
+    } else {
+      currentCommand += `[{"text":"${element.trimStart()}","color":"gray","italic":false}]\',\'`;
+    }
+  });
+}
 
   if (addedAbilities.length != 0) {
     console.log("Ran");
