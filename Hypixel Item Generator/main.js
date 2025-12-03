@@ -276,19 +276,11 @@ function createpetAbility() {
     .value.replace(" ", "_");
   var abilityDescription = document
     .getElementById("abilityDescription").value;
-  var abilityKeybind = document
-    .getElementById("abilityKeybind")
-    .value.toLowerCase();
-  var abilityCooldown = document
-    .getElementById("abilityCooldown")
-    .value.toLowerCase();
   if (abilityName == "" || abilityDescription == "") {
     alert("Please fill in atleast Name, Description and Keybind!");
   } else {
     addedAbilities[abilityName] = {
       description: abilityDescription,
-      keybind: abilityKeybind,
-      cooldown: abilityCooldown,
     };
     numofAbilities += 1;
     console.log(addedAbilities);
@@ -313,11 +305,8 @@ function updatePetAbility() {
   for (let [name, info] of Object.entries(addedAbilities)) {
     const div = document.createElement("div");
     const Namelabel = document.createElement("label");
-    const KeybindLabel = document.createElement("label");
     const DescriptionDiv = document.createElement("div");
     const DescriptionLabel = document.createElement("label");
-    const CooldownDiv = document.createElement("div");
-    const CooldownLabel = document.createElement("label");
     const pageBreak = document.createElement("div");
 
     console.log(name + " " + info.cooldown + " " + info.description);
@@ -328,31 +317,14 @@ function updatePetAbility() {
     Namelabel.textContent = name.replace("_", " ");
     Namelabel.classList.add("abilityName");
 
-    KeybindLabel.textContent =
-      " " + info.keybind.replace("_", " ").toUpperCase();
-    KeybindLabel.classList.add("abilityKeybind");
-
     DescriptionLabel.classList.add("item-text");
     colour(info.description, DescriptionLabel);
     DescriptionDiv.appendChild(DescriptionLabel);
 
-    if (info.cooldown !== "") {
-      CooldownLabel.classList.add("item-text");
-      CooldownLabel.insertAdjacentHTML(
-        "beforeend",
-        `<label>Cooldown:</label> 
-         <label class="abilityCooldown">${info.cooldown}</label>`
-      );
-    }
-
     pageBreak.style.margin = "10px";
 
-    CooldownDiv.appendChild(CooldownLabel);
-
     div.appendChild(Namelabel);
-    div.appendChild(KeybindLabel);
     div.appendChild(DescriptionDiv);
-    div.appendChild(CooldownDiv); // ManaDiv removed here
     div.appendChild(pageBreak);
     abilities.appendChild(div);
 
@@ -364,9 +336,7 @@ function updatePetAbility() {
     addedAbility.insertAdjacentHTML(
       "beforeend",
       `<p>${name}</p>
-       <p>${info.keybind}</p>
        <p>${info.description.substring(0, 20)}...</p>
-       <p>${info.cooldown}</p>
        <button class="${name.replace(" ", "")} deleteStat reset-button" onclick="deletePetAbility()">✖</button>`
     );
 
