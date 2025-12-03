@@ -284,7 +284,7 @@ function createpetAbility() {
     };
     numofAbilities += 1;
     console.log(addedAbilities);
-    updateAbility();
+    updatePetAbility();
     document.getElementById("abilityForm").reset();
   }
 }
