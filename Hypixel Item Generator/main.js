@@ -270,7 +270,7 @@ function updateAbility() {
   }
 }
 
-function createAbility() {
+function createpetAbility() {
   var abilityName = document
     .getElementById("abilityName")
     .value.replace(" ", "_");
