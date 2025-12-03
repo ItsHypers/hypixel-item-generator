@@ -270,7 +270,7 @@ function updateAbility() {
   }
 }
 
-function createpetAbility() {
+function createAbility() {
   var abilityName = document
     .getElementById("abilityName")
     .value.replace(" ", "_");
@@ -280,23 +280,26 @@ function createpetAbility() {
   var abilityKeybind = document
     .getElementById("abilityKeybind")
     .value.toLowerCase();
+  var abilityMana = document.getElementById("abilityMana").value.toLowerCase();
   var abilityCooldown = document
     .getElementById("abilityCooldown")
     .value.toLowerCase();
-  if (abilityName == "" || abilityDescription == "") {
+  if (abilityName == "" || abilityDescription == "" || abilityKeybind == "") {
     alert("Please fill in atleast Name, Description and Keybind!");
   } else {
     addedAbilities[abilityName] = {
       description: abilityDescription,
       keybind: abilityKeybind,
+      mana: abilityMana,
       cooldown: abilityCooldown,
     };
     numofAbilities += 1;
     console.log(addedAbilities);
-    updatePetAbility();
+    updateAbility();
     document.getElementById("abilityForm").reset();
   }
 }
+
 function deletePetAbility() {
   var abilityName = event.target.className.split(" ")[0];
   delete addedAbilities[abilityName];
