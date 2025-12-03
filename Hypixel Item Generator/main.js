@@ -152,7 +152,7 @@ function createAbility() {
     .getElementById("abilityName")
     .value.replace(" ", "_");
   var abilityDescription = document
-    .getElementById("abilityDescription")
+    .getElementById("abilityDescription").value;
   var abilityKeybind = document
     .getElementById("abilityKeybind")
     .value.toLowerCase();
@@ -275,7 +275,7 @@ function createpetAbility() {
     .getElementById("abilityName")
     .value.replace(" ", "_");
   var abilityDescription = document
-    .getElementById("abilityDescription");
+    .getElementById("abilityDescription").value;
   var abilityKeybind = document
     .getElementById("abilityKeybind")
     .value.toLowerCase();
