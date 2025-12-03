@@ -280,17 +280,15 @@ function createpetAbility() {
   var abilityKeybind = document
     .getElementById("abilityKeybind")
     .value.toLowerCase();
-  var abilityMana = document.getElementById("abilityMana").value.toLowerCase();
   var abilityCooldown = document
     .getElementById("abilityCooldown")
     .value.toLowerCase();
-  if (abilityName == "" || abilityDescription == "" || abilityKeybind == "") {
+  if (abilityName == "" || abilityDescription == "") {
     alert("Please fill in atleast Name, Description and Keybind!");
   } else {
     addedAbilities[abilityName] = {
       description: abilityDescription,
       keybind: abilityKeybind,
-      mana: abilityMana,
       cooldown: abilityCooldown,
     };
     numofAbilities += 1;
