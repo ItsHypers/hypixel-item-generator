@@ -925,9 +925,10 @@ function killCounter(input) {
 function image(input) {
   document.querySelector(".insertpng").src = input;
 }
+
 function imageSize(input) {
-  document.getElementById("png").style.maxWidth = input;
-  document.getElementById("png").style.maxHeight = input;
+  document.getElementById("#png").style.maxWidth = input + "px";
+  document.getElementById("#png").style.maxHeight = input + "px";
 }
 
 function hexToRgbA(hex) {
