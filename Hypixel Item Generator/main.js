@@ -708,12 +708,17 @@ $(".tools button").click(function (e) {
 });
 
 function colour(text, x) {
-  left = htmlEncode("<");
-  right = htmlEncode(">");
+  if (typeof text !== "string") {
+    text = String(text); // convert non-string input to string
+  }
+
+  const left = htmlEncode("<");
+  const right = htmlEncode(">");
   text = text.replace(/</gi, left);
   text = text.replace(/>/gi, right);
   text = text.replace(/&z/gi, "&r<br />");
-  //colours
+
+  // colours
   text = text.replace(/&0/gi, '</span>&r<span class="c-1">');
   text = text.replace(/&1/gi, '</span>&r<span class="c-2">');
   text = text.replace(/&2/gi, '</span>&r<span class="c-3">');
@@ -730,17 +735,13 @@ function colour(text, x) {
   text = text.replace(/&d/gi, '</span>&r<span class="c-14">');
   text = text.replace(/&e/gi, '</span>&r<span class="c-15">');
   text = text.replace(/&f/gi, '</span>&r<span class="c-16">');
-  //bold
+
+  // formatting
   text = text.replace(/&l/gi, "<span style='font-weight:900;'>");
-  //italic
   text = text.replace(/&o/gi, "<span style='font-style:italic;'>");
-  //strikethrough
   text = text.replace(/&m/gi, "<span style='text-decoration:line-through'>");
-  //underlined
   text = text.replace(/&n/gi, "<span style='text-decoration:underline'>");
-  //obfuscated
   text = text.replace(/&k/gi, "<span class='obfuscated'>");
-  //reset
   text = text.replace(
     /&r/gi,
     "</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>"
@@ -748,6 +749,7 @@ function colour(text, x) {
 
   x.innerHTML = text;
 }
+
 
 function htmlEncode(value) {
   return $("<div/>").text(value).html();
